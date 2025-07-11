@@ -60,7 +60,7 @@ chunk <- numPix%/%numChunks
 
 ########################################
 # Save
-pheDir <- paste0(params$setup$workDir,'Product_GeoTiff/',strSite)
+pheDir <- paste0(params$setup$ourDir,'Product_GeoTiff/',strSite)
 if (!dir.exists(pheDir)) {dir.create(pheDir)}
 
 

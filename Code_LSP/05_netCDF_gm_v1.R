@@ -45,8 +45,8 @@ print(strSite)
 
 
 ########################################
-inBase <- paste0(params$setup$workDir,'Product_GeoTiff/')
-outBase <- paste0(params$setup$workDir,'Product_netCDF/')
+inBase <- paste0(params$setup$outDir,'Product_GeoTiff/')
+outBase <- paste0(params$setup$outDir,'Product_netCDF/')
 
 sites <- list.dirs(inBase,recursive=F,full.names=F)
 site  <- sites[numSite]

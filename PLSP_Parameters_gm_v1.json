@@ -1,0 +1,76 @@
+{
+  "setup":{
+    
+    "phenStartYr":2017,
+    "phenEndYr":2025,
+    
+    "workDir":"~/Documents/Research/Work/Data Analysis/plsp-wetlands/PLSP/",
+    "logDir":"~/Documents/Research/Work/Data Analysis/plsp-wetlands/PLSP/runLogs/",
+    "geojsonDir":"/Users/gawainmacneacail/Documents/Research/Work/Data Analysis/plsp-wetlands/PLSP/geojson",
+    "dataDir":"/Users/gawainmacneacail/Documents/Research/Work/Data Analysis/plsp-wetlands/PLSP/rawImage",
+    "outDir":"~/Documents/Research/Work/Data Analysis/plsp-wetlands/PLSP/Img_cliped/",
+    "rScripts":"/projectnb/planet/PLSP/GitHub/PlanetLSP/data_paper/",
+    "rFunctions":"~/Documents/Research/Work/Data Analysis/plsp-wetlands/PLSP/PLSP_Functions_gm.R",
+    "productTable":"~/Documents/Research/Work/Data Analysis/plsp-wetlands/PLSP/PLSP_Layers.csv",
+    
+    "water":"~/Documents/Research/Work/Data Analysis/plsp-wetlands/PLSP/water/",
+    
+    "numChunks":200,
+    "numCores":8,
+    
+    "neon":"FALSE",
+    "amflx":"TRUE"
+  
+  },
+  
+  "phenology_parameters":{
+  
+    "vegetation_index":"evi2",
+    
+    "maskNegativeValues":true,
+    
+    "do3dayComposites":false,
+    
+    "min_seg_amplitude":0.1,  
+    "min_increase_length":30,   
+    "max_increase_length":185,   
+    "min_decrease_length":30,   
+    "max_decrease_length":185,  
+    "rel_amp_frac":0.35,
+    
+    "gup_threshes":[0.15, 0.5, 0.9],
+    "gdown_threshes":[0.9, 0.5, 0.15],
+    
+    "dormantQuantile":0.05,  
+    "dormStart":"2017-01-01",
+    "dormEnd":"2021-12-31",
+    
+    "spikeThresh":2,            
+    "minResid":0.1,              
+    "maxDistance":45,            
+    "maxDespikeIterations":50, 
+    "MADspikeThresh":2,            
+    
+    "splineBuffer":185,               
+    "splineSpar":0.55,   
+    
+    "gapLengthToFill":20,  
+    "maxWeight":0.5,                 
+    "minDaysForSplineComparison":90,  
+    
+    "sumNegVIthresh": 0.5,
+    "waterOccuThreshLow": 30,
+    "waterOccuThreshHigh": 80,
+    "VIdormThresh": 0.05,
+    "VIampThreshLow": 0.2,
+    "VIampThreshHigh": 0.3
+  
+  },
+   
+  "qa_parameters":{
+    "min_r2_high_quality":0.75,   
+    "maxGap_high_quality":20
+    
+  }
+  
+}

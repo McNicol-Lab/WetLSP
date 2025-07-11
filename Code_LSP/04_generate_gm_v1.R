@@ -31,7 +31,7 @@ print(paste("Running site", numSite))
 
 
 ########################################
-params <- fromJSON(file='PLSP_Parameters_gm.json')
+params <- fromJSON(file='PLSP_Parameters_gm_v1.json')
 source(params$setup$rFunctions)
 
 productTable <- read.csv(params$setup$productTable,header=T,stringsAsFactors = F)

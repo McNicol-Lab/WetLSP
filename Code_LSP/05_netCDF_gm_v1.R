@@ -35,7 +35,7 @@ print(paste("Running site", numSite))
 # numSite <- 5
 
 ########################################
-params <- fromJSON(file='PLSP_Parameters_gm.json')
+params <- fromJSON(file='PLSP_Parameters_gm_v1.json')
 source(params$setup$rFunctions)
 
 ########################################

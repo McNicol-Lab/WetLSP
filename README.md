@@ -9,6 +9,10 @@ To run updated code:
 - Use `00_img_download.py` to retrieve data via PlanetScope API into created `rawImage` dir
 - Run series of 5 processing scripts
 
+Quirks:
+* Note that original geojson files must be stored within `/AMFLX` subdirectory 
+* `_gm_v1` workflow skips water mask steps in `03_LSP_script`, should not break process, but use if available
+
 
 **Origin:** Algorithms to derive a land surface phenology product from PlanetScope imagery for AmeriFlux and NEON sites
 

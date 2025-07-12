@@ -10,7 +10,7 @@
     "dataDir":"/Volumes/Samsung_T5/PlanetScope SR/rawImage",
     "outDir":"/Volumes/Samsung_T5/PlanetScope SR/Img_cliped",
     "rScripts":"/projectnb/planet/PLSP/GitHub/PlanetLSP/data_paper/",
-    "rFunctions":"~/Documents/Research/Work/Data Analysis/wetlsp/PLSP_Functions_gm.R",
+    "rFunctions":"~/Documents/Research/Work/Data Analysis/wetlsp/PLSP_Functions_gm_v1.R",
     "productTable":"~/Documents/Research/Work/Data Analysis/wetlsp/PLSP_Layers.csv",
     
     "water":"~/Documents/Research/Work/Data Analysis/plsp-wetlands/PLSP/water/",

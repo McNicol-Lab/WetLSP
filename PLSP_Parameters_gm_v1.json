@@ -5,13 +5,13 @@
     "phenEndYr":2025,
     
     "workDir":"~/Documents/Research/Work/Data Analysis/wetlsp",
-    "logDir":"~/Documents/Research/Work/Data Analysis/wetlsp/runLogs",
-    "geojsonDir":"/Volumes/Samsung_T5/PlanetScope SR/geojson/",
-    "dataDir":"/Volumes/Samsung_T5/PlanetScope SR/rawImage",
-    "outDir":"/Volumes/Samsung_T5/PlanetScope SR/Img_cliped",
+    "logDir":"runLogs/",
+    "geojsonDir": "/mnt/pscope/geojson/",
+    "dataDir":"/mnt/pscope/rawImage",
+    "outDir":"/mnt/pscope/Img_cliped",
     "rScripts":"/projectnb/planet/PLSP/GitHub/PlanetLSP/data_paper/",
-    "rFunctions":"~/Documents/Research/Work/Data Analysis/wetlsp/PLSP_Functions_gm_v1.R",
-    "productTable":"~/Documents/Research/Work/Data Analysis/wetlsp/PLSP_Layers.csv",
+    "rFunctions":"PLSP_Functions_gm_v1.R",
+    "productTable":"PLSP_Layers.csv",
     
     "water":"~/Documents/Research/Work/Data Analysis/plsp-wetlands/PLSP/water/",
     

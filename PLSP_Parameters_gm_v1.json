@@ -4,19 +4,19 @@
     "phenStartYr":2017,
     "phenEndYr":2025,
     
-    "workDir":"~/Documents/Research/Work/Data Analysis/plsp-wetlands/PLSP/",
-    "logDir":"~/Documents/Research/Work/Data Analysis/plsp-wetlands/PLSP/runLogs/",
-    "geojsonDir":"/Users/gawainmacneacail/Documents/Research/Work/Data Analysis/plsp-wetlands/PLSP/geojson",
-    "dataDir":"/Users/gawainmacneacail/Documents/Research/Work/Data Analysis/plsp-wetlands/PLSP/rawImage",
-    "outDir":"~/Documents/Research/Work/Data Analysis/plsp-wetlands/PLSP/Img_cliped/",
+    "workDir":"~/Documents/Research/Work/Data Analysis/wetlsp",
+    "logDir":"~/Documents/Research/Work/Data Analysis/wetlsp/runLogs",
+    "geojsonDir":"/Volumes/Samsung_T5/PlanetScope SR/geojson/",
+    "dataDir":"/Volumes/Samsung_T5/PlanetScope SR/rawImage",
+    "outDir":"/Volumes/Samsung_T5/PlanetScope SR/Img_cliped",
     "rScripts":"/projectnb/planet/PLSP/GitHub/PlanetLSP/data_paper/",
-    "rFunctions":"~/Documents/Research/Work/Data Analysis/plsp-wetlands/PLSP/PLSP_Functions_gm.R",
-    "productTable":"~/Documents/Research/Work/Data Analysis/plsp-wetlands/PLSP/PLSP_Layers.csv",
+    "rFunctions":"~/Documents/Research/Work/Data Analysis/wetlsp/PLSP_Functions_gm.R",
+    "productTable":"~/Documents/Research/Work/Data Analysis/wetlsp/PLSP_Layers.csv",
     
     "water":"~/Documents/Research/Work/Data Analysis/plsp-wetlands/PLSP/water/",
     
     "numChunks":200,
-    "numCores":8,
+    "numCores":28,
     
     "neon":"FALSE",
     "amflx":"TRUE"

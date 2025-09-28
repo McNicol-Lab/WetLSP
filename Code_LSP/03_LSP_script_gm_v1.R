@@ -208,4 +208,9 @@ for(f in chunk_files) {
                        by = c("cell", "x", "y", "date")) %>%
     arrange(cell, date)
   
+  # --- save CSV ---
+  out_csv <- file.path(out_sf_dir, paste0("chunk_", ckNum, "_timeseries.csv"))
+  write.csv(ts_wide, out_csv, row.names = FALSE)
+  
+  cat("✅ Saved per-pixel time series CSV:", out_csv, "\n")
 }

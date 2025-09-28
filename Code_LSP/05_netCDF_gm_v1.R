@@ -48,15 +48,17 @@ print(strSite)
 inBase <- paste0(params$setup$outDir,'Product_GeoTiff/')
 outBase <- paste0(params$setup$outDir,'Product_netCDF/')
 
+dir.create(outBase, recursive = TRUE, showWarnings = FALSE)
+
 sites <- list.dirs(inBase,recursive=F,full.names=F)
 site  <- sites[numSite]
-print(site)
+cat("Selected site:", site, "\n")
 
 ########################################
 # Get product layers info
 productTable <- read.csv('PLSP_Layers.csv',header=T,stringsAsFactors = F)
-# Get a base image to pull raster info from     
-baseImage <- raster(paste0(params$setup$outDir,strSite,'/base_image.tif'))
+# Get a base image to pull raster info from     ##CHANGE
+baseImage <- raster(paste0(params$setup$outDir,site,'/base_image.tif'))
 
 ########################################
 # Get extent, and then define pixel centers in the x and y direction
@@ -76,7 +78,8 @@ for(yy in 1:8){
   files <- list.files(paste0(inBase,site,'/',(2016+yy)),pattern=glob2rx(paste('*.tif',sep='')),full.names=T)
   
   outFold <- paste0(outBase, site, '/')
-  if(!dir.exists(outFold)) {dir.create(outFold)}
+  dir.create(outFold, recursive = TRUE, showWarnings = FALSE)  # <-- create if missing
+  
   outFile <- paste0(outFold,'PLSP_',(2016+yy),'.nc')
         
   # Loop through all the layers, and create a variable for each 

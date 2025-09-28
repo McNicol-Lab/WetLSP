@@ -54,6 +54,8 @@ print(strSite)
 ckDir <- paste0(params$setup$outDir,strSite,'/chunk')
 print(ckDir)
 
+imgBase <- raster::raster(file.path(params$setup$outDir, strSite, "base_image.tif"))
+
 ## Load all chunks 
 chunk_files <- list.files(path=ckDir,pattern=glob2rx(paste0('*.rda')),full.names=T)
 

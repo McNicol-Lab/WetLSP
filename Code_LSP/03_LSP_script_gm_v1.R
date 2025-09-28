@@ -77,6 +77,24 @@ for(f in chunk_files) {
   load(f)
   
   ckNum <- gsub(".*chunk_|\\.rda", "", basename(f))  # extract '###'
+  # callback sink: DoPhenologyPlanet will call this
+  ts_sink <- function(pix_meta, dates_raw, evi_raw, pred_dates, evi_spline) {
+    idx <- pix_meta$chunk_row  # 1..n within this chunk
+    if (!is.null(dates_raw)) {
+      ts_acc$raw_dates[[idx]] <<- as.Date(dates_raw)
+      ts_acc$raw_evi[[idx]]   <<- as.numeric(evi_raw)
+    }
+    if (!is.null(pred_dates)) {
+      if (is.null(ts_acc$smooth_dates[[idx]])) {
+        ts_acc$smooth_dates[[idx]] <<- as.Date(pred_dates)
+        ts_acc$smooth_evi[[idx]]   <<- as.numeric(evi_spline)
+      } else {
+        ts_acc$smooth_dates[[idx]] <<- c(ts_acc$smooth_dates[[idx]], as.Date(pred_dates))
+        ts_acc$smooth_evi[[idx]]   <<- c(ts_acc$smooth_evi[[idx]],   as.numeric(evi_spline))
+      }
+    }
+  }
+
   numPix <- dim(band1)[1]
   phenYrs <- params$setup$phenStartYr:params$setup$phenEndYr
   pheno_mat <- matrix(NA, numPix, 24 * length(phenYrs))

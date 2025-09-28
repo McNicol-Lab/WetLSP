@@ -536,7 +536,11 @@ DoPhenologyPlanet <- function(blue, green, red, nir, dates, phenYrs, params, wat
     qa_pars    <- params$qa_parameters
     
     blue <- blue/10000; green <- green/10000; red <- red/10000; nir <- nir/10000
-    vi   <- 2.5*(nir - red) / (nir + 2.4*red + 1)
+    
+    #EVI 
+    vi <- (2.5 * (nir - red)) / (nir + 6*red - 7.5*blue + 1)
+    #EVI2: vi   <- 2.5*(nir - red) / (nir + 2.4*red + 1)
+    
     
     # plot.ts(vi, main = "VI Time Series Before Spline")
     

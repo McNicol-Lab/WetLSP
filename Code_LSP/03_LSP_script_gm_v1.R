@@ -133,8 +133,14 @@ for(f in chunk_files) {
     
       pix_meta <- list(chunk_row = i, cell = cells[i], xy = coords[i, ])
       pheno_mat[i,] <- DoPhenologyPlanet(band2[i,], band4[i,],
-                        band6[i,], band8[i,],
-                        dates, phenYrs, params, waterMask = 0)
+                                         band6[i,], band8[i,],
+                                         dates, phenYrs, params, waterMask = 0,
+                                         ts_sink = ts_sink, pix_meta = pix_meta)
+    
+  
+    #pheno_mat[i,] <- DoPhenologyPlanet(band2[i,], band4[i,],
+                        #band6[i,], band8[i,],
+                        #dates, phenYrs, params, waterMask = 0)
     
     # if (i) {
     #   if (all(res %in% c(NA, 4))) {

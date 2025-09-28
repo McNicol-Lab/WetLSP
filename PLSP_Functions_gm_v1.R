@@ -726,6 +726,16 @@ DoPhenologyPlanet <- function(blue, green, red, nir, dates, phenYrs, params, wat
         smoothed_vi <- smoothMat[,y]   #if no gaps to fill, just use existing spline
       }
       
+      # --- smoothed EVi series ---
+      if (!is.null(ts_sink) && !is.null(pix_meta)) {
+        ts_sink(
+          pix_meta    = pix_meta,
+          dates_raw   = NULL,                   # already sent earlier
+          evi_raw     = NULL,
+          pred_dates  = pred_dates[inYear],     # daily dates for the target year
+          evi_spline  = smoothed_vi[inYear]     # daily smoothed EVI for the target year
+        )
+      }
       
       # Number of clear observation
       filled_vi <- fillMat[,y]

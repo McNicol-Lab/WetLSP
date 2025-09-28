@@ -90,6 +90,14 @@ for(f in chunk_files) {
   }
   coords <- xyFromCell(imgBase, cells)
   
+  # per-chunk accumulators for list-columns
+  n <- nrow(coords)
+  ts_acc <- new.env(parent = emptyenv())
+  ts_acc$raw_dates    <- vector("list", n)
+  ts_acc$raw_evi      <- vector("list", n)
+  ts_acc$smooth_dates <- vector("list", n)
+  ts_acc$smooth_evi   <- vector("list", n)
+  
   # callback sink: DoPhenologyPlanet will call this
   ts_sink <- function(pix_meta, dates_raw, evi_raw, pred_dates, evi_spline) {
     idx <- pix_meta$chunk_row  # 1..n within this chunk

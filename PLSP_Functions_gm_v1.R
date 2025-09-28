@@ -589,6 +589,12 @@ DoPhenologyPlanet <- function(blue, green, red, nir, dates, phenYrs, params, wat
     }
     
     
+    # --- saving raw EVI series ---
+    if (!is.null(ts_sink) && !is.null(pix_meta)) {
+      ts_sink(pix_meta = pix_meta,
+              dates_raw = dates, evi_raw = vi,
+              pred_dates = NULL, evi_spline = NULL)
+    }
     
     ## Gap filling
     #Determine gaps that require filling

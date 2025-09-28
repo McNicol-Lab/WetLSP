@@ -525,7 +525,9 @@ calculateWeights <- function(smoothMat_Masked, numDaysFit, numYrs, pheno_pars) {
 # Calculate pheno metrics for each pixel
 # Written by Douglas Bolton, and updated by Minkyu Moon  
 #---------------------------------------------------------------------
-DoPhenologyPlanet <- function(blue, green, red, nir, dates, phenYrs, params, waterMask){
+#new optional parameters
+DoPhenologyPlanet <- function(blue, green, red, nir, dates, phenYrs, params, waterMask,
+                              ts_sink = NULL, pix_meta = NULL) {
   
   # Despike, calculate dormant value, fill negative VI values with dormant value
   log <- try({    

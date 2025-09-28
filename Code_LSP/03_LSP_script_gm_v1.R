@@ -174,6 +174,11 @@ for(f in chunk_files) {
       evi_spline   = ts_acc$smooth_evi
     )
   
+  out_sf_dir <- file.path(params$setup$outDir, strSite, "tables_sf")
+  dir.create(out_sf_dir, recursive = TRUE, showWarnings = FALSE)
+  saveRDS(sf_obj, file = file.path(out_sf_dir, paste0("chunk_", ckNum, "_evi_sf.rds")))
+  cat("✅ Saved sf:", file.path(out_sf_dir, paste0("chunk_", ckNum, "_evi_sf.rds")), "\n")
+  
   ckPheDir <- file.path(params$setup$outDir, strSite, 'chunk_phe')
   if (!dir.exists(ckPheDir)) dir.create(ckPheDir)
   save(pheno_mat, file = file.path(ckPheDir, paste0("chunk_phe_", ckNum, ".rda")))

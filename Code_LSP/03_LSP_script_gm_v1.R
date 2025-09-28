@@ -77,6 +77,19 @@ for(f in chunk_files) {
   load(f)
   
   ckNum <- gsub(".*chunk_|\\.rda", "", basename(f))  # extract '###'
+  
+  numChunks   <- params$setup$numChunks
+  numPixSite  <- length(imgBase)
+  chunkSize   <- numPixSite %/% numChunks
+  ckIdx       <- as.integer(ckNum)
+  
+  if (ckIdx == numChunks) {
+    cells <- (chunkSize * (ckIdx - 1) + 1):numPixSite
+  } else {
+    cells <- (chunkSize * (ckIdx - 1) + 1):(chunkSize * ckIdx)
+  }
+  coords <- xyFromCell(imgBase, cells)
+  
   # callback sink: DoPhenologyPlanet will call this
   ts_sink <- function(pix_meta, dates_raw, evi_raw, pred_dates, evi_spline) {
     idx <- pix_meta$chunk_row  # 1..n within this chunk

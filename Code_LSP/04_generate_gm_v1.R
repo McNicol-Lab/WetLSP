@@ -59,9 +59,9 @@ chunk <- numPix%/%numChunks
 
 
 ########################################
-# Save
-pheDir <- paste0(params$setup$ourDir,'Product_GeoTiff/',strSite)
-if (!dir.exists(pheDir)) {dir.create(pheDir)}
+# Save ###CHANGE
+pheDir <- file.path(params$setup$outDir, "Product_GeoTiff", strSite)
+dir.create(pheDir, recursive = TRUE, showWarnings = FALSE)
 
 
 for(yToDo in 1:length(phenYrs)){
@@ -103,9 +103,9 @@ for(yToDo in 1:length(phenYrs)){
   r21 <- setValues(imgBase,l21); r22 <- setValues(imgBase,l22); r23 <- setValues(imgBase,l23); r24 <- setValues(imgBase,l24)
   
   
-  # Save
-  pheDirYear <- paste0(pheDir,'/',phenYrs[yToDo])
-  if (!dir.exists(pheDirYear)) {dir.create(pheDirYear)}
+  # Save ###CHANGE
+  pheDirYear <- file.path(pheDir, as.character(phenYrs[yToDo]))
+  dir.create(pheDirYear, recursive = TRUE, showWarnings = FALSE)
   
   writeRaster(r01,filename=paste0(pheDirYear,'/01_',phenYrs[yToDo],'_',productTable$short_name[ 1],'.tif'), format="GTiff", overwrite=TRUE)
   writeRaster(r02,filename=paste0(pheDirYear,'/02_',phenYrs[yToDo],'_',productTable$short_name[ 2],'.tif'), format="GTiff", overwrite=TRUE)

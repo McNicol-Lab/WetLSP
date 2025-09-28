@@ -27,6 +27,10 @@ library(geojsonR)
 library(doMC)
 library(doParallel)
 
+library(sf)
+library(dplyr)
+library(tidyr)
+
 
 ########################################
 args <- commandArgs(trailingOnly = TRUE)

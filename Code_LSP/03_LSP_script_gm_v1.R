@@ -184,4 +184,28 @@ for(f in chunk_files) {
   save(pheno_mat, file = file.path(ckPheDir, paste0("chunk_phe_", ckNum, ".rda")))
   cat("✅ Saved:", paste0("chunk_phe_", ckNum, ".rda"), "\n")
   
+  #save to csv
+  # --- add coords back into the sf object ---
+  coords_df <- st_coordinates(sf_obj)
+  
+  sf_obj2 <- sf_obj %>%
+    st_drop_geometry() %>%
+    mutate(x = coords_df[,1], 
+           y = coords_df[,2])
+  
+  # --- unnest raw ---
+  ts_raw <- sf_obj2 %>%
+    select(cell, x, y, date = dates_raw, raw_value = evi_raw) %>%
+    tidyr::unnest(c(date, raw_value))
+  
+  # --- unnest smoothed ---
+  ts_smooth <- sf_obj2 %>%
+    select(cell, x, y, date = dates_spline, smooth_value = evi_spline) %>%
+    tidyr::unnest(c(date, smooth_value))
+  
+  # --- merge raw + smooth by cell,x,y,date ---
+  ts_wide <- full_join(ts_raw, ts_smooth,
+                       by = c("cell", "x", "y", "date")) %>%
+    arrange(cell, date)
+  
 }

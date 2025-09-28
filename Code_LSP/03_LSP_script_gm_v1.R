@@ -156,6 +156,24 @@ for(f in chunk_files) {
   
   cat("Raw time series stored:", sum(lengths(ts_acc$raw_evi) > 0), "\n")
   cat("Smoothed series stored:", sum(lengths(ts_acc$smooth_evi) > 0), "\n")
+    
+    sf_obj <- st_as_sf(
+      data.frame(
+        cell = cells,
+        x    = coords[,1],
+        y    = coords[,2]
+      ),
+      coords = c("x","y"),
+      crs    = raster::crs(imgBase)
+    ) %>%
+      
+    dplyr::mutate(
+      dates_raw    = ts_acc$raw_dates,
+      evi_raw      = ts_acc$raw_evi,
+      dates_spline = ts_acc$smooth_dates,
+      evi_spline   = ts_acc$smooth_evi
+    )
+  
   ckPheDir <- file.path(params$setup$outDir, strSite, 'chunk_phe')
   if (!dir.exists(ckPheDir)) dir.create(ckPheDir)
   save(pheno_mat, file = file.path(ckPheDir, paste0("chunk_phe_", ckNum, ".rda")))

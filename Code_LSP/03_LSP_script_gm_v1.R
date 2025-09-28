@@ -154,6 +154,8 @@ for(f in chunk_files) {
    # cat("   ...pixel", i, "of", numPix, "\n")
   }
   
+  cat("Raw time series stored:", sum(lengths(ts_acc$raw_evi) > 0), "\n")
+  cat("Smoothed series stored:", sum(lengths(ts_acc$smooth_evi) > 0), "\n")
   ckPheDir <- file.path(params$setup$outDir, strSite, 'chunk_phe')
   if (!dir.exists(ckPheDir)) dir.create(ckPheDir)
   save(pheno_mat, file = file.path(ckPheDir, paste0("chunk_phe_", ckNum, ".rda")))

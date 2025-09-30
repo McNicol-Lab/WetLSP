@@ -38,7 +38,7 @@ jobs:
         id: docker_build_demo-v1
         uses: docker/build-push-action@v6.16.0
         with:
-          context: demo-v1 
+          context: latest 
           file: Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true

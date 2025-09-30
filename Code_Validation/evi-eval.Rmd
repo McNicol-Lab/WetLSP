@@ -1,0 +1,95 @@
+---
+title: "wetlsp-validation"
+author: "Gavin McNicol"
+date: "2025-09-30"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+data <- read_csv("output/chunk_001_timeseries.csv")
+```
+
+```{r}
+data %>% 
+  count(cell)
+  
+```
+
+
+```{r}
+data %>% 
+  filter(!is.na(raw_value)) %>% 
+  ggplot(aes(x = smooth_value)) +
+  geom_histogram() 
+```
+
+```{r}
+data %>% 
+  filter(!is.na(raw_value)) %>% 
+  ggplot(aes(x = raw_value)) +
+  geom_histogram()  +
+  scale_x_continuous(limits = c(0, 1))
+```
+
+```{r}
+data %>% 
+    mutate(month = month(date),
+         year = year(date)) %>% 
+  filter(!is.na(smooth_value), 
+        smooth_value < 1,
+        smooth_value > 0,
+        year %in% c(2022, 2023, 2024)) %>% 
+  ggplot(aes(x = date, y = smooth_value, color = factor(cell))) +
+  geom_line(alpha = 0.3)  +
+  geom_point(aes(x = date, y = raw_value),
+             size = 0.3,
+             color = "black") +
+  labs(y = "EVI Smooth-Fill",
+       x = "Year-Month") +
+  theme_minimal() +
+    theme(legend.position = "none") 
+```
+
+```{r}
+data %>% 
+  mutate(year = year)
+  filter(year)
+  group_by(date) %>% 
+  summarize(mean_evi = mean(smooth_value, na.rm = T),
+            sd_evi = sd(smooth_value, na.rm = T)) %>% 
+```
+
+
+
+```{r}
+data %>% 
+  filter(!is.na(smooth_value), 
+        smooth_value < 1,
+        smooth_value > 0) %>% 
+  ggplot(aes(x = date, y = smooth_value)) +
+  geom_hex() 
+```
+
+```{r warning = F}
+data %>% 
+  mutate(month = month(date),
+         year = year(date)) %>% 
+  filter(!is.na(raw_value), 
+        raw_value < 1,
+        raw_value > 0,
+        year == 2024) %>% 
+  ggplot(aes(x = raw_value, fill = factor(cell))) +
+  geom_density(position = "fill") +
+  facet_wrap(~month) +
+  theme(legend.position = "none")
+```
+
+

@@ -525,7 +525,9 @@ calculateWeights <- function(smoothMat_Masked, numDaysFit, numYrs, pheno_pars) {
 # Calculate pheno metrics for each pixel
 # Written by Douglas Bolton, and updated by Minkyu Moon  
 #---------------------------------------------------------------------
-DoPhenologyPlanet <- function(blue, green, red, nir, dates, phenYrs, params, waterMask){
+#new optional parameters
+DoPhenologyPlanet <- function(blue, green, red, nir, dates, phenYrs, params, waterMask,
+                              ts_sink = NULL, pix_meta = NULL) {
   
   # Despike, calculate dormant value, fill negative VI values with dormant value
   log <- try({    
@@ -534,7 +536,11 @@ DoPhenologyPlanet <- function(blue, green, red, nir, dates, phenYrs, params, wat
     qa_pars    <- params$qa_parameters
     
     blue <- blue/10000; green <- green/10000; red <- red/10000; nir <- nir/10000
-    vi   <- 2.5*(nir - red) / (nir + 2.4*red + 1)
+    
+    #EVI 
+    vi <- (2.5 * (nir - red)) / (nir + 6*red - 7.5*blue + 1)
+    #EVI2: vi   <- 2.5*(nir - red) / (nir + 2.4*red + 1)
+    
     
     # plot.ts(vi, main = "VI Time Series Before Spline")
     
@@ -583,6 +589,12 @@ DoPhenologyPlanet <- function(blue, green, red, nir, dates, phenYrs, params, wat
     }
     
     
+    # --- saving raw EVI series ---
+    if (!is.null(ts_sink) && !is.null(pix_meta)) {
+      ts_sink(pix_meta = pix_meta,
+              dates_raw = dates, evi_raw = vi,
+              pred_dates = NULL, evi_spline = NULL)
+    }
     
     ## Gap filling
     #Determine gaps that require filling
@@ -714,6 +726,16 @@ DoPhenologyPlanet <- function(blue, green, red, nir, dates, phenYrs, params, wat
         smoothed_vi <- smoothMat[,y]   #if no gaps to fill, just use existing spline
       }
       
+      # --- smoothed EVi series ---
+      if (!is.null(ts_sink) && !is.null(pix_meta)) {
+        ts_sink(
+          pix_meta    = pix_meta,
+          dates_raw   = NULL,                   # already sent earlier
+          evi_raw     = NULL,
+          pred_dates  = pred_dates[inYear],     # daily dates for the target year
+          evi_spline  = smoothed_vi[inYear]     # daily smoothed EVI for the target year
+        )
+      }
       
       # Number of clear observation
       filled_vi <- fillMat[,y]

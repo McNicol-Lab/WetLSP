@@ -1,4 +1,4 @@
-# WetLSP
+# WetLSP v2
 
 **Fork:** Updated algorithms (July 2025) to derived a land surface phenology product from PlanetScope imagery for FLUXNET-CH4 v2 sites. Data developed and initially shared for wetland methane research applications in the McNicol ecophilab, the ESIIL AI for Natural Methane Working Group, and the USGS Powell Synthesis for Wetlands.
 

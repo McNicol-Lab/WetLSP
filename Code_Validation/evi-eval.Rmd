@@ -60,11 +60,35 @@ data %>%
 
 ```{r}
 data %>% 
-  mutate(year = year)
-  filter(year)
+  mutate(year = year(date),
+         month = month(date),
+         smooth_value = case_when(
+           smooth_value < 0 ~ NA,
+           smooth_value > 1 ~ NA,
+           T ~ smooth_value),
+         raw_value = case_when(
+           raw_value < 0 ~ NA,
+           raw_value > 1 ~ NA,
+           T ~ raw_value),
+         ) %>% 
+  filter(year %in% c(2022, 2023, 2024),
+         month %in% c(6,7,8,9)) %>% 
   group_by(date) %>% 
-  summarize(mean_evi = mean(smooth_value, na.rm = T),
-            sd_evi = sd(smooth_value, na.rm = T)) %>% 
+  summarize(year = year[1],
+            month = month[1],
+            mean_evi = mean(smooth_value, na.rm = T),
+            sd_evi = sd(smooth_value, na.rm = T),
+            mean_raw_evi = mean(raw_value, na.rm = T)) %>% 
+  ggplot(aes(x = date, y = mean_evi)) +
+  geom_point(color = "green") +
+  geom_point(aes(x = date, y = mean_raw_evi), color = "black") +
+  labs(y = "EVI", x = "Year", title = "Smoothed Gap-filled Wetland Phenology", subtitle = "Chunk Mean Mean +/- SD ") +
+    geom_ribbon(aes(ymin = mean_evi - sd_evi, ymax = mean_evi + sd_evi), fill = "green", alpha = 0.2) +
+  # scale_x_continuous(limits = c(6,7,8,9,10)) +
+  # scale_y_continuous(limits = c(0, 1)) +
+  facet_wrap(~year, scales = "free_x", ncol = 1) +
+  theme_classic()
+ggsave("../output/us-yk2.png", height = 7, width = 3)
 ```
 
 
@@ -91,5 +115,30 @@ data %>%
   facet_wrap(~month) +
   theme(legend.position = "none")
 ```
+```{r}
+sites <- read_csv("../sites.csv")
+```
 
+
+```{r}
+library(rnaturalearth)
+library(rnaturalearthdata)
+library(readr)
+# Download world basemap
+world <- ne_countries(scale = "medium", returnclass = "sf")
+
+# Create the plot
+ggplot() +
+  geom_sf(data = world, fill = "gray95", color = "gray70", size = 0.2) +
+  geom_point(data = sites, aes(x = Longitude, y = Latitude), 
+             color = "red", size = 2, alpha = 0.7) +
+  coord_sf(xlim = c(-180, 180), ylim = c(-60, 85), expand = FALSE) +
+  labs(title = "12 Global Wetland Locations", x = "Longitude", y = "Latitude") +
+  theme_minimal() +
+  theme(
+    panel.grid.major = element_line(color = "gray90"),
+    plot.title = element_text(size = 16, face = "bold")
+  )
+ggsave("../output/sites.png")
+```
 

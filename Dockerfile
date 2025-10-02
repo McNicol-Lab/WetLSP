@@ -14,7 +14,7 @@ RUN Rscript -e "install.packages(c('raster', 'terra', 'ncdf4', 'foreach', 'doPar
 
 # Create and set a working directory
 # WORKDIR /app
-RUN cd /app
+#RUN cd /app
 
 # Copy all local files to the container
 COPY . .

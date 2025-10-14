@@ -60,7 +60,7 @@ print(args)
 
 ########################################
 ## Load parameters
-params <- fromJSON(file='PLSP_Parameters_gm_v1.json')
+params <- fromJSON(file='pipeline/wetlsp-parameters.json')
 source(params$setup$rFunctions)
 
 ########################################

@@ -17,6 +17,31 @@
 # qsub -V -pe omp 28 -l h_rt=12:00:00 run_01.sh numSite
 #=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
+required_packages <- c(
+  "raster",
+  # "rgdal",            # Deprecated; included with raster or sf now
+  "gdalUtilities",
+  # "rgeos",            # Deprecated; merged into sf/terra
+  "terra",
+  "rjson",
+  "geojsonR",
+  "dplyr",
+  "foreach",
+  "doParallel"
+)
+
+# Install any packages that are not already installed
+install_if_missing <- function(pkg) {
+  if (!require(pkg, character.only = TRUE)) {
+    install.packages(pkg, repos = "https://cran.rstudio.com/")
+    library(pkg, character.only = TRUE)
+  } else {
+    library(pkg, character.only = TRUE)
+  }
+}
+
+invisible(lapply(required_packages, install_if_missing))
+
 library(raster)
 # library(rgdal)
 library(gdalUtilities)

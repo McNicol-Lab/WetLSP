@@ -113,16 +113,16 @@ if (!dir.exists(outDir)) dir.create(outDir, recursive = TRUE)
 siteWin <- GetSiteShp(fileSR, cLong, cLat)
 imgBase <- GetBaseImg(fileSR, siteWin, outDir, save=TRUE)
 
-# num_cores <- min(params$setup$numCores, parallel::detectCores())
-# cl <- makeCluster(num_cores)
-# registerDoParallel(cl)
-# cat("🔁 Parallel backend registered with", num_cores, "workers\n")
+num_cores <- min(params$setup$numCores, parallel::detectCores())
+cl <- makeCluster(num_cores)
+registerDoParallel(cl)
+cat("🔁 Parallel backend registered with", num_cores, "workers\n")
 
 outDir <- file.path(params$setup$outDir, strSite, "mosaic")
 if (!dir.exists(outDir)) dir.create(outDir, recursive = TRUE)
 
-for(dd in 1:length(dates)){
-  # foreach(dd=1:length(dates)) %dopar% {
+# for(dd in 1:length(dates)){
+  foreach(dd=1:length(dates)) %dopar% {
   cat(paste0("🔥 Started dd = ", dd, ", PID = ", Sys.getpid(), "\n"))
   
   files_today <- file_table[file_table$date == dates[dd], ]

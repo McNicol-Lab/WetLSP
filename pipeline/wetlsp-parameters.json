@@ -8,7 +8,7 @@
     "logDir":"runLogs/",
     "geojsonDir": "/home/jovyan/data-store/data/iplant/home/shared/esiil/ai_for_natural_methane_working_group/planetscope_data/geojson",
     "dataDir":"/home/jovyan/data-store/data/iplant/home/shared/esiil/ai_for_natural_methane_working_group/planetscope_data/rawImage",
-    "outDir":"/home/jovyan/data-store/data/iplant/home/shared/esiil/ai_for_natural_methane_working_group/planetscope_data/output",
+    "outDir":"/home/jovyan/data-store/data/iplant/home/shared/esiil/ai_for_natural_methane_working_group/planetscope_data/rawImage",
     "rScripts":"pipeline/code/",
     "rFunctions":"pipeline/wetlsp-functions.R",
     "productTable":"metadata/wetlsp-layers.csv",

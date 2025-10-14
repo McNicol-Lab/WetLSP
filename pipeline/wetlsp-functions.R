@@ -958,71 +958,73 @@ GetSiteShp <- function(fileSR, cLong, cLat){
 # GM fixed:
 # 1. issue with missing CRS (manually assigned)
 #---------------------------------------------------------------------
-GetBaseImg <- function(fileSR, siteWin, outDir, save=TRUE){
+GetBaseImg <- function(fileSR, siteWin, outDir, save = TRUE) {
+  library(terra)
   
   cat("🔍 Searching for a valid base raster...\n")
   
-  # Base Image
-  for(i in 1:1000){
-    log <- try({img1 <- raster(fileSR[i])}, silent=TRUE)
-    if(inherits(log, 'try-error')) next
-    
+  for (i in 1:1000) {
+    img1 <- try(terra::rast(fileSR[i]), silent = TRUE)
+    if (inherits(img1, "try-error")) next
+
     if (is.na(crs(img1))) {
-      crs(img1) <- CRS("+init=EPSG:32633")  ### FIX 1 for CRS
+      crs(img1) <- "EPSG:32633"
     }
-    
-    try(temp <- intersect(img1, siteWin), silent=TRUE)
-    if (exists("temp") && temp@extent[1] > 0) 
+
+    temp <- try(terra::intersect(img1, siteWin), silent = TRUE)
+    if (!inherits(temp, "try-error") && terra::xmin(temp) > 0) {
       cat(paste0("✅ Found valid base raster at index ", i, "\n"))
-    break
+      break
+    }
   }
-  
+
+  if (!exists("img1")) stop("❌ No valid base raster found.")
+
   cat("📐 Cropping base raster...\n")
-  img1 <- crop(img1, siteWin)
-  
+  img1 <- terra::crop(img1, siteWin)
+
   numImg <- min(20, length(fileSR))
   cat(paste0("🎲 Sampling ", numImg, " rasters for mosaic...\n"))
-  imgBase <- vector('list', numImg)
+  imgBase <- vector("list", numImg)
   set.seed(456123)
-  sam <- sample(1:length(fileSR), numImg)
-  
-  for (i in 1:numImg) {
-    temp <- try(raster(fileSR[sam[i]]), silent = TRUE)
-    
-    if (inherits(temp, 'try-error')) {
+  sam <- sample(seq_along(fileSR), numImg)
+
+  for (i in seq_len(numImg)) {
+    temp <- try(terra::rast(fileSR[sam[i]]), silent = TRUE)
+
+    if (inherits(temp, "try-error")) {
       imgBase[[i]] <- img1
       cat(paste0("⚠️  Raster ", sam[i], " failed, using fallback.\n"))
     } else {
       if (is.na(crs(temp))) {
-        crs(temp) <- CRS("+init=EPSG:32633")
+        crs(temp) <- "EPSG:32633"
       }
       imgBase[[i]] <- temp
       cat(paste0("✅ Loaded raster ", sam[i], "\n"))
     }
   }
-  
+
   cat("🔄 Aligning and cropping sample rasters...\n")
-  for(i in 1:numImg){
-    log <- try(compareRaster(imgBase[[i]], img1, extent=F, rowcol=F), silent=TRUE)
-    if(inherits(log, 'try-error')){
-      imgBase[[i]] <- projectRaster(imgBase[[i]], img1)
+  for (i in seq_len(numImg)) {
+    log <- try(terra::compareGeom(imgBase[[i]], img1, stopOnError = FALSE), silent = TRUE)
+    if (!isTRUE(log)) {
+      imgBase[[i]] <- try(terra::project(imgBase[[i]], img1), silent = TRUE)
     }
-    
-    log <- try(imgBase[[i]] <- crop(imgBase[[i]], siteWin), silent=TRUE)
-    if(inherits(log, 'try-error')){
+
+    imgBase[[i]] <- try(terra::crop(imgBase[[i]], siteWin), silent = TRUE)
+    if (inherits(imgBase[[i]], "try-error")) {
       imgBase[[i]] <- img1
     }
   }
-  
+
   cat("🧮 Creating mosaic base image...\n")
-  
-  imgBase <- do.call(merge, imgBase)
-  values(imgBase) <- NA
-  
-  if(save == TRUE){
-    writeRaster(imgBase, filename=paste0(outDir, '/base_image.tif'), format="GTiff", overwrite=TRUE)
+  imgBase <- terra::mosaic(imgBase[[1]], imgBase[-1])
+  terra::values(imgBase) <- NA
+
+  if (save) {
+    terra::writeRaster(imgBase, file.path(outDir, "base_image.tif"), overwrite = TRUE, filetype = "GTiff")
   }
-  
+
   cat("✅ Done with base image.\n")
   return(imgBase)
 }

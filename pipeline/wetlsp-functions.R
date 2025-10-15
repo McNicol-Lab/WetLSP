@@ -958,74 +958,56 @@ GetSiteShp <- function(fileSR, cLong, cLat){
 # GM fixed:
 # 1. issue with missing CRS (manually assigned)
 #---------------------------------------------------------------------
-GetBaseImg <- function(fileSR, siteWin, outDir, save = TRUE) {
+GetBaseImg <- function(fileSR, siteWin, outDir, save = FALSE) {
   library(terra)
-  
-  cat("🔍 Searching for a valid base raster...\n")
-  
-  for (i in 1:1000) {
-    img1 <- try(terra::rast(fileSR[i]), silent = TRUE)
-    if (inherits(img1, "try-error")) next
 
-    if (is.na(crs(img1))) {
-      crs(img1) <- "EPSG:32633"
-    }
+  # Keep only files that actually exist
+  fileSR <- fileSR[file.exists(fileSR)]
+  if (!length(fileSR)) stop("❌ No input rasters found in fileSR.")
 
-    temp <- try(terra::intersect(img1, siteWin), silent = TRUE)
-    if (!inherits(temp, "try-error") && terra::xmin(temp) > 0) {
-      cat(paste0("✅ Found valid base raster at index ", i, "\n"))
+  message("🔍 Searching for a valid base raster...")
+
+  # --- Find the first raster that overlaps the window and use it as base/template
+  base <- NULL
+  for (f in fileSR) {
+    r <- try(terra::rast(f), silent = TRUE)
+    if (inherits(r, "try-error")) next
+    if (is.na(crs(r))) crs(r) <- "EPSG:32633"
+
+    if (terra::relate(terra::ext(r), terra::ext(siteWin), "intersects")) {
+      base <- r
+      message("✅ Found base raster: ", f)
       break
     }
   }
+  if (is.null(base)) stop("❌ No valid base raster found that intersects siteWin.")
 
-  if (!exists("img1")) stop("❌ No valid base raster found.")
+  # Crop once and return (this is the only “base” we need now)
+  base <- terra::crop(base, siteWin)
 
-  cat("📐 Cropping base raster...\n")
-  img1 <- terra::crop(img1, siteWin)
+  out_path <- NULL
+  if (isTRUE(save)) {
+    # Prefer a writable path; fall back if outDir isn't writable
+    ok <- try({
+      if (!dir.exists(outDir)) dir.create(outDir, recursive = TRUE, showWarnings = FALSE)
+      tf <- file.path(outDir, "._testwrite.txt")
+      writeLines("test", tf); file.remove(tf); TRUE
+    }, silent = TRUE)
 
-  numImg <- min(20, length(fileSR))
-  cat(paste0("🎲 Sampling ", numImg, " rasters for mosaic...\n"))
-  imgBase <- vector("list", numImg)
-  set.seed(456123)
-  sam <- sample(seq_along(fileSR), numImg)
-
-  for (i in seq_len(numImg)) {
-    temp <- try(terra::rast(fileSR[sam[i]]), silent = TRUE)
-
-    if (inherits(temp, "try-error")) {
-      imgBase[[i]] <- img1
-      cat(paste0("⚠️  Raster ", sam[i], " failed, using fallback.\n"))
+    if (inherits(ok, "try-error") || isFALSE(ok)) {
+      # Fast local scratch in CyVerse VICE
+      local_dir <- if (dir.exists("/home/jovyan/work")) "/home/jovyan/work" else tempdir()
+      message("⚠️ Output dir not writable; saving base image to local path: ", local_dir)
+      out_path <- file.path(local_dir, paste0(basename(outDir), "_base_image.tif"))
     } else {
-      if (is.na(crs(temp))) {
-        crs(temp) <- "EPSG:32633"
-      }
-      imgBase[[i]] <- temp
-      cat(paste0("✅ Loaded raster ", sam[i], "\n"))
-    }
-  }
-
-  cat("🔄 Aligning and cropping sample rasters...\n")
-  for (i in seq_len(numImg)) {
-    log <- try(terra::compareGeom(imgBase[[i]], img1, stopOnError = FALSE), silent = TRUE)
-    if (!isTRUE(log)) {
-      imgBase[[i]] <- try(terra::project(imgBase[[i]], img1), silent = TRUE)
+      out_path <- file.path(outDir, "base_image.tif")
     }
 
-    imgBase[[i]] <- try(terra::crop(imgBase[[i]], siteWin), silent = TRUE)
-    if (inherits(imgBase[[i]], "try-error")) {
-      imgBase[[i]] <- img1
-    }
+    terra::writeRaster(base, out_path, overwrite = TRUE, filetype = "GTiff")
+    message("✅ Base image written to: ", out_path)
   }
 
-  cat("🧮 Creating mosaic base image...\n")
-  imgBase <- terra::mosaic(imgBase[[1]], imgBase[-1])
-  terra::values(imgBase) <- NA
-
-  if (save) {
-    terra::writeRaster(imgBase, file.path(outDir, "base_image.tif"), overwrite = TRUE, filetype = "GTiff")
-  }
-
-  cat("✅ Done with base image.\n")
-  return(imgBase)
+  message("✅ Done with base image (in-memory).")
+  # Return the SpatRaster; path is NULL unless you asked to save
+  list(rast = base, path = out_path)
 }
-

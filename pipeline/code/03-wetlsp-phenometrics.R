@@ -1,11 +1,14 @@
 #=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-# A High Spatial Resolution Land Surface Phenology Dataset for AmeriFlux and NEON Sites
-# 03: Estimate phenometrics from chunked mosaics
-# Author: Minkyu Moon; Revised: Gavin McNicol (modernized)
+# A High Spatial Resolution Land Surface Phenology Dataset for AmeriFlux & NEON
+# 03: Estimate phenometrics from chunked mosaics (fast, base-aligned)
+# Author: Minkyu Moon; Revised: Gavin McNicol; Speed-up & fixes by ChatGPT
 #=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 # ----------------------------- Dependencies -----------------------------------
-required_packages <- c("terra","rjson","geojsonR","foreach","doParallel","sf","dplyr","tidyr")
+required_packages <- c(
+  "terra","rjson","geojsonR","foreach","doParallel",
+  "sf","dplyr","tidyr"
+)
 install_if_missing <- function(pkg){
   if (!require(pkg, character.only = TRUE)) {
     install.packages(pkg, repos = "https://cran.rstudio.com/")
@@ -42,115 +45,122 @@ cLat    <- siteInfo[[4]]
 message("🗺️  Site: ", strSite)
 message("📂 Image dir: ", imgDir)
 
-# ------------------------------ Paths & Inputs ---------------------------------
+# ---------------------------------------------
+# Base & I/O paths
 base_path <- file.path(params$setup$outDir, strSite, "base_image.tif")
 if (!file.exists(base_path)) stop("❌ Base image missing: ", base_path)
 baseR <- terra::rast(base_path)
 
-ckDir     <- file.path(params$setup$outDir, strSite, "chunk")
-tablesDir <- file.path(params$setup$outDir, strSite, "tables_sf")
-pheDir    <- file.path(params$setup$outDir, strSite, "chunk_phe")
+ckDir      <- file.path(params$setup$outDir, strSite, "chunk")
+tablesDir  <- file.path(params$setup$outDir, strSite, "tables_sf")
+pheDir     <- file.path(params$setup$outDir, strSite, "chunk_phe")
+siteTblDir <- file.path(params$setup$outDir, strSite, "tables_site")
 
-dir.create(tablesDir, recursive = TRUE, showWarnings = FALSE)
-dir.create(pheDir,    recursive = TRUE, showWarnings = FALSE)
+dir.create(tablesDir,  recursive = TRUE, showWarnings = FALSE)
+dir.create(pheDir,     recursive = TRUE, showWarnings = FALSE)
+dir.create(siteTblDir, recursive = TRUE, showWarnings = FALSE)
 
+# Aggregated site-level CSV
+aggFile <- file.path(siteTblDir, paste0(strSite, "_timeseries_all.csv"))
+if (file.exists(aggFile)) file.remove(aggFile)
+
+# Chunks from Step-02
 chunk_files <- list.files(ckDir, pattern = "^chunk_\\d{3}\\.rda$", full.names = TRUE)
 if (!length(chunk_files)) stop("❌ No chunk files found in: ", ckDir)
+chunk_files <- sort(chunk_files)
 message("🧭 Found ", length(chunk_files), " chunk files")
 
 # ---------------------------- Execution Options --------------------------------
-# Toggle per-pixel parallelism inside a chunk (OFF by default—CPU heavy, high overhead)
-use_inner_parallel <- FALSE
-num_cores <- min(params$setup$numCores, parallel::detectCores() - 1)
+use_inner_parallel <- TRUE
+n_cores_inner <- min(6, max(1, parallel::detectCores() - 1))  # tune as needed
+
 if (use_inner_parallel) {
-  cl <- parallel::makeCluster(num_cores)
-  doParallel::registerDoParallel(cl)
-  on.exit(parallel::stopCluster(cl), add = TRUE)
-  message("🔁 Inner parallelism enabled with ", num_cores, " workers")
+  if (.Platform$OS.type == "unix") {
+    if (!requireNamespace("doMC", quietly = TRUE)) {
+      install.packages("doMC", repos = "https://cran.rstudio.com/")
+    }
+    library(doMC)
+    registerDoMC(cores = n_cores_inner)
+    message("🔁 Using inner parallelism (", n_cores_inner, " cores per chunk)")
+  } else {
+    cl_inner <- parallel::makeCluster(n_cores_inner, type = "PSOCK")
+    doParallel::registerDoParallel(cl_inner)
+    on.exit(parallel::stopCluster(cl_inner), add = TRUE)
+    message("🔁 Using inner parallelism via PSOCK (", n_cores_inner, " cores)")
+  }
 } else {
   message("🔁 Inner parallelism disabled (sequential within each chunk)")
 }
 
-# --------------------------- Helper: coords by chunk ---------------------------
-# Compute base-raster cell indices for a given chunk number (1..numChunks)
+terra::terraOptions(threads = 1, memfrac = 0.75)
+
+# --------------------------- Helper: cells for chunk ---------------------------
 chunk_cells_from_base <- function(base_rast, ckNum, numChunks){
-  total_cells <- ncell(base_rast)
+  total_cells <- terra::ncell(base_rast)
   chunk_size  <- ceiling(total_cells / numChunks)
-  start_idx   <- (ckNum - 1) * chunk_size + 1
-  end_idx     <- min(ckNum * chunk_size, total_cells)
-  if (start_idx > end_idx) return(integer(0))
-  seq(start_idx, end_idx)
+  s <- (ckNum - 1) * chunk_size + 1
+  e <- min(ckNum * chunk_size, total_cells)
+  if (s > e) integer(0) else seq.int(s, e)
 }
 
 # ------------------------------ Process Chunks ---------------------------------
-phenYrs <- params$setup$phenStartYr:params$setup$phenEndYr
-phen_vec_len <- 24 * length(phenYrs)  # expected length returned by DoPhenologyPlanet
+phenYrs      <- params$setup$phenStartYr:params$setup$phenEndYr
+phen_vec_len <- 24 * length(phenYrs)  # DoPhenologyPlanet length
 
 for (f in chunk_files) {
   ckNum_str <- sub("^chunk_(\\d{3})\\.rda$", "\\1", basename(f))
   ckNum     <- as.integer(ckNum_str)
-  if (is.na(ckNum)) {
-    message("⚠️  Skipping malformed chunk filename: ", f)
-    next
-  }
+  if (is.na(ckNum)) { message("⚠️  Bad chunk name: ", f); next }
 
-  # Skip if outputs exist (resume-safe)
-  phe_out_rda  <- file.path(pheDir,    paste0("chunk_phe_", ckNum_str, ".rda"))
-  timeseries_csv <- file.path(tablesDir, paste0("chunk_", ckNum_str, "_timeseries.csv"))
-  if (file.exists(phe_out_rda) && file.exists(timeseries_csv)) {
+  phe_out_rda   <- file.path(pheDir,    paste0("chunk_phe_", ckNum_str, ".rda"))
+  out_csv_chunk <- file.path(tablesDir, paste0("chunk_", ckNum_str, "_timeseries.csv"))
+
+  if (file.exists(phe_out_rda) && file.exists(out_csv_chunk)) {
     message("⏭️  Skipping chunk ", ckNum_str, " (outputs already exist)")
     next
   }
 
   message("📦 Processing chunk ", ckNum_str, "  (", basename(f), ")")
+
   e <- new.env()
   load(f, envir = e)
-
-  # Expect these objects from Step 2: band1..band8, dates
   needed <- c(paste0("band", 1:8), "dates")
   if (!all(needed %in% ls(e))) {
-    message("⚠️  Chunk ", ckNum_str, " missing expected objects; found: ", paste(ls(e), collapse = ", "))
+    message("⚠️  Missing objects in chunk ", ckNum_str, ": ", paste(ls(e), collapse=", "))
     next
   }
 
-  # Matrices [rows = pixels (n_common), cols = dates]
-  B <- lapply(1:8, function(b) get(paste0("band", b), envir = e))
+  # Matrices [n_pix × n_time]
+  B     <- lapply(1:8, function(b) get(paste0("band", b), envir = e))
   dates <- get("dates", envir = e)
 
-  # Make sure dims line up
   n_pix  <- nrow(B[[1]])
   n_time <- ncol(B[[1]])
   if (!all(vapply(B, function(m) nrow(m) == n_pix && ncol(m) == n_time, logical(1)))) {
-    message("⚠️  Band dimensions differ in chunk ", ckNum_str, " — skipping")
+    message("⚠️  Band dims differ in chunk ", ckNum_str, " — skipping")
     next
   }
 
-  # Get base cell ids and coordinates for this chunk, then align to n_pix (truncate if needed)
+  # Base-aligned pixel indices & coords for this chunk
   cells_chunk <- chunk_cells_from_base(baseR, ckNum, params$setup$numChunks)
-  if (!length(cells_chunk)) {
-    message("⚠️  Empty cell range for chunk ", ckNum_str, " — skipping")
-    next
-  }
-  # If merged chunk (Step 2) is shorter than base chunk, truncate cells/coords to n_pix
+  if (!length(cells_chunk)) { message("⚠️  Empty cell range for ", ckNum_str); next }
   if (length(cells_chunk) > n_pix) cells_chunk <- cells_chunk[seq_len(n_pix)]
   xy <- terra::xyFromCell(baseR, cells_chunk)
 
-  # Accumulators for saving time series per pixel
+  # ---------------- Time-series capture via callback ----------------
   ts_acc <- new.env(parent = emptyenv())
   ts_acc$raw_dates    <- vector("list", n_pix)
   ts_acc$raw_evi      <- vector("list", n_pix)
   ts_acc$smooth_dates <- vector("list", n_pix)
   ts_acc$smooth_evi   <- vector("list", n_pix)
 
-  # Callback sink for DoPhenologyPlanet
   ts_sink <- function(pix_meta, dates_raw, evi_raw, pred_dates, evi_spline) {
-    idx <- pix_meta$chunk_row  # 1..n_pix
+    idx <- pix_meta$chunk_row
     if (!is.null(dates_raw)) {
       ts_acc$raw_dates[[idx]] <<- as.Date(dates_raw)
       ts_acc$raw_evi[[idx]]   <<- as.numeric(evi_raw)
     }
     if (!is.null(pred_dates)) {
-      # Store or append smoothed series
       if (is.null(ts_acc$smooth_dates[[idx]])) {
         ts_acc$smooth_dates[[idx]] <<- as.Date(pred_dates)
         ts_acc$smooth_evi[[idx]]   <<- as.numeric(evi_spline)
@@ -161,12 +171,17 @@ for (f in chunk_files) {
     }
   }
 
-  # Pre-allocate phenology output
+  # ---------------- Compute phenometrics (fast) --------------------
   pheno_mat <- matrix(NA_real_, nrow = n_pix, ncol = phen_vec_len)
 
-  # Choose sequential or inner-parallel per-pixel
   if (use_inner_parallel) {
-    pheno_mat <- foreach(i = seq_len(n_pix), .combine = rbind, .packages = character()) %dopar% {
+    pheno_mat <- foreach(
+      i = seq_len(n_pix),
+      .combine  = rbind,
+      .packages = character(),
+      .export   = c("DoPhenologyPlanet","dates","phenYrs","params",
+                    "ts_sink","cells_chunk","xy","phen_vec_len")
+    ) %dopar% {
       pix_meta <- list(chunk_row = i, cell = cells_chunk[i], xy = xy[i, ])
       res <- DoPhenologyPlanet(
         B[[2]][i,], B[[4]][i,], B[[6]][i,], B[[8]][i,],
@@ -174,14 +189,13 @@ for (f in chunk_files) {
         ts_sink = ts_sink, pix_meta = pix_meta
       )
       if (length(res) != phen_vec_len) {
-        # pad or truncate safely
-        len <- min(length(res), phen_vec_len)
         out <- rep(NA_real_, phen_vec_len)
-        out[seq_len(len)] <- res[seq_len(len)]
+        out[seq_len(min(length(res), phen_vec_len))] <- res[seq_len(min(length(res), phen_vec_len))]
         out
       } else res
     }
   } else {
+    message("   (sequential per-pixel; enable use_inner_parallel for speed)")
     for (i in seq_len(n_pix)) {
       if (i %% 2000 == 0 || i == 1) message("   … pixel ", i, "/", n_pix)
       pix_meta <- list(chunk_row = i, cell = cells_chunk[i], xy = xy[i, ])
@@ -191,18 +205,20 @@ for (f in chunk_files) {
         ts_sink = ts_sink, pix_meta = pix_meta
       )
       if (length(res) != phen_vec_len) {
-        len <- min(length(res), phen_vec_len)
-        pheno_mat[i,] <- c(res[seq_len(len)], rep(NA_real_, phen_vec_len - len))
+        pheno_mat[i, ] <- c(res[seq_len(min(length(res), phen_vec_len))],
+                            rep(NA_real_, phen_vec_len - min(length(res), phen_vec_len)))
       } else {
-        pheno_mat[i,] <- res
+        pheno_mat[i, ] <- res
       }
     }
   }
 
-  message("🧾 Time series captured: raw=", sum(lengths(ts_acc$raw_evi) > 0),
-          ", smooth=", sum(lengths(ts_acc$smooth_evi) > 0))
+  # Did the callback capture anything?
+  n_raw    <- sum(lengths(ts_acc$raw_evi)    > 0)
+  n_smooth <- sum(lengths(ts_acc$smooth_evi) > 0)
+  message("🧾 Time series captured: raw=", n_raw, ", smooth=", n_smooth)
 
-  # ----------------------------- Save SF --------------------------------------
+  # ----------------------------- Build SF + CSV data ---------------------------
   sf_obj <- st_as_sf(
     data.frame(cell = cells_chunk, x = xy[,1], y = xy[,2]),
     coords = c("x","y"),
@@ -215,6 +231,33 @@ for (f in chunk_files) {
       evi_spline   = ts_acc$smooth_evi
     )
 
+  # Fallback: if callback didn’t fill any raw series, compute raw EVI from bands
+    if (n_raw == 0) {
+  message("⚠️  No raw time-series from callback — computing raw EVI from bands (2,6,8)")
+  
+  # --- auto rescale if needed ---
+  if (median(B[[6]], na.rm = TRUE) > 2) {
+    for (b in 1:8) B[[b]] <- B[[b]] / 10000
+  }
+
+  # --- compute EVI properly ---
+  evi_mat <- 2.5 * (B[[8]] - B[[6]]) / (B[[8]] + 6*B[[6]] - 7.5*B[[2]] + 1)
+  evi_mat[!is.finite(evi_mat)] <- NA_real_
+  evi_mat[evi_mat < -1] <- -1
+  evi_mat[evi_mat > 1]  <- 1
+
+  for (i in seq_len(n_pix)) {
+    ts_acc$raw_dates[[i]] <- dates
+    ts_acc$raw_evi[[i]]   <- as.numeric(evi_mat[i, ])
+  }
+
+  # update sf columns
+  sf_obj$dates_raw <- ts_acc$raw_dates
+  sf_obj$evi_raw   <- ts_acc$raw_evi
+  n_raw <- n_pix
+}
+
+  # ----------------------------- Save SF --------------------------------------
   saveRDS(sf_obj, file = file.path(tablesDir, paste0("chunk_", ckNum_str, "_evi_sf.rds")))
   message("💾 Saved sf: ", file.path(tablesDir, paste0("chunk_", ckNum_str, "_evi_sf.rds")))
 
@@ -222,7 +265,7 @@ for (f in chunk_files) {
   save(pheno_mat, file = phe_out_rda)
   message("💾 Saved phenology matrix: ", phe_out_rda)
 
-  # ----------------------------- Save CSV (wide) ------------------------------
+  # ----------------------------- Save CSVs ------------------------------------
   coords_df <- sf::st_coordinates(sf_obj)
   sf_obj2 <- sf_obj |>
     st_drop_geometry() |>
@@ -239,9 +282,33 @@ for (f in chunk_files) {
   ts_wide <- dplyr::full_join(ts_raw, ts_smooth, by = c("cell","x","y","date")) |>
     arrange(cell, date)
 
-  out_csv <- file.path(tablesDir, paste0("chunk_", ckNum_str, "_timeseries.csv"))
-  write.csv(ts_wide, out_csv, row.names = FALSE)
-  message("💾 Saved per-pixel time series CSV: ", out_csv)
+                  # --- filter only valid EVI rows ---
+        ts_wide <- ts_wide %>% filter(!is.na(raw_value) | !is.na(smooth_value))
+        
+        if (nrow(ts_wide) == 0) {
+          message("⚠️  No valid EVI rows to append for chunk ", ckNum_str)
+          next
+        }
+
+  # Per-chunk CSV
+  write.csv(ts_wide, out_csv_chunk, row.names = FALSE)
+  message("💾 Saved per-chunk CSV: ", out_csv_chunk, " (", nrow(ts_wide), " rows)")
+
+  # Append to aggregated site CSV
+  if (file.exists(aggFile)) {
+    utils::write.table(ts_wide, aggFile, sep = ",", row.names = FALSE,
+                       col.names = FALSE, append = TRUE)
+  } else {
+    utils::write.table(ts_wide, aggFile, sep = ",", row.names = FALSE,
+                       col.names = TRUE,  append = FALSE)
+  }
+  message("📈 Appended ", nrow(ts_wide), " rows → ", basename(aggFile))
 }
 
 message("✅ Step 3 complete for site ", strSite)
+
+if (file.exists(aggFile)) {
+  n_lines <- length(readLines(aggFile))
+  message("🧮 Site-wide CSV: ", aggFile,
+          " (", format(n_lines, big.mark=","), " lines)")
+}

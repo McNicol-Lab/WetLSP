@@ -1,7 +1,7 @@
 #=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 # A High Spatial Resolution Land Surface Phenology Dataset for AmeriFlux & NEON
 # 03: Estimate phenometrics from chunked mosaics (fast, base-aligned)
-# Author: Minkyu Moon; Revised: Gavin McNicol; Speed-up & fixes by ChatGPT
+# Author: Minkyu Moon; Revised: Gavin McNicol; Parallel + smooth fix by ChatGPT
 #=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 # ----------------------------- Dependencies -----------------------------------
@@ -147,75 +147,89 @@ for (f in chunk_files) {
   if (length(cells_chunk) > n_pix) cells_chunk <- cells_chunk[seq_len(n_pix)]
   xy <- terra::xyFromCell(baseR, cells_chunk)
 
-  # ---------------- Time-series capture via callback ----------------
-  ts_acc <- new.env(parent = emptyenv())
-  ts_acc$raw_dates    <- vector("list", n_pix)
-  ts_acc$raw_evi      <- vector("list", n_pix)
-  ts_acc$smooth_dates <- vector("list", n_pix)
-  ts_acc$smooth_evi   <- vector("list", n_pix)
+  # ---------------- Parallel pixel processing with local sink ----------------
+  message("🧮 Processing ", n_pix, " pixels (", n_cores_inner, " cores)...")
 
-  ts_sink <- function(pix_meta, dates_raw, evi_raw, pred_dates, evi_spline) {
-    idx <- pix_meta$chunk_row
-    if (!is.null(dates_raw)) {
-      ts_acc$raw_dates[[idx]] <<- as.Date(dates_raw)
-      ts_acc$raw_evi[[idx]]   <<- as.numeric(evi_raw)
-    }
-    if (!is.null(pred_dates)) {
-      if (is.null(ts_acc$smooth_dates[[idx]])) {
-        ts_acc$smooth_dates[[idx]] <<- as.Date(pred_dates)
-        ts_acc$smooth_evi[[idx]]   <<- as.numeric(evi_spline)
-      } else {
-        ts_acc$smooth_dates[[idx]] <<- c(ts_acc$smooth_dates[[idx]], as.Date(pred_dates))
-        ts_acc$smooth_evi[[idx]]   <<- c(ts_acc$smooth_evi[[idx]],   as.numeric(evi_spline))
-      }
-    }
-  }
-
-  # ---------------- Compute phenometrics (fast) --------------------
-  pheno_mat <- matrix(NA_real_, nrow = n_pix, ncol = phen_vec_len)
-
-  if (use_inner_parallel) {
-    pheno_mat <- foreach(
+  pheno_list <- if (use_inner_parallel) {
+    foreach(
       i = seq_len(n_pix),
-      .combine  = rbind,
       .packages = character(),
       .export   = c("DoPhenologyPlanet","dates","phenYrs","params",
-                    "ts_sink","cells_chunk","xy","phen_vec_len")
+                    "cells_chunk","xy","phen_vec_len")
     ) %dopar% {
       pix_meta <- list(chunk_row = i, cell = cells_chunk[i], xy = xy[i, ])
+      local_acc <- new.env(parent = emptyenv())
+      local_acc$raw_dates <- NULL
+      local_acc$raw_evi <- NULL
+      local_acc$smooth_dates <- NULL
+      local_acc$smooth_evi <- NULL
+
+      local_sink <- function(pix_meta, dates_raw, evi_raw, pred_dates, evi_spline) {
+        if (!is.null(dates_raw)) {
+          local_acc$raw_dates <- as.Date(dates_raw)
+          local_acc$raw_evi   <- as.numeric(evi_raw)
+        }
+        if (!is.null(pred_dates)) {
+          local_acc$smooth_dates <- as.Date(pred_dates)
+          local_acc$smooth_evi   <- as.numeric(evi_spline)
+        }
+      }
+
       res <- DoPhenologyPlanet(
         B[[2]][i,], B[[4]][i,], B[[6]][i,], B[[8]][i,],
         dates, phenYrs, params, waterMask = 0,
-        ts_sink = ts_sink, pix_meta = pix_meta
+        ts_sink = local_sink, pix_meta = pix_meta
       )
-      if (length(res) != phen_vec_len) {
-        out <- rep(NA_real_, phen_vec_len)
-        out[seq_len(min(length(res), phen_vec_len))] <- res[seq_len(min(length(res), phen_vec_len))]
-        out
-      } else res
+
+      list(
+        pheno = if (length(res) == phen_vec_len) res else rep(NA_real_, phen_vec_len),
+        raw_dates = local_acc$raw_dates,
+        raw_evi = local_acc$raw_evi,
+        smooth_dates = local_acc$smooth_dates,
+        smooth_evi = local_acc$smooth_evi
+      )
     }
   } else {
-    message("   (sequential per-pixel; enable use_inner_parallel for speed)")
-    for (i in seq_len(n_pix)) {
-      if (i %% 2000 == 0 || i == 1) message("   … pixel ", i, "/", n_pix)
+    # Sequential fallback
+    lapply(seq_len(n_pix), function(i) {
       pix_meta <- list(chunk_row = i, cell = cells_chunk[i], xy = xy[i, ])
+      local_acc <- new.env(parent = emptyenv())
+      local_sink <- function(pix_meta, dates_raw, evi_raw, pred_dates, evi_spline) {
+        if (!is.null(dates_raw)) {
+          local_acc$raw_dates <- as.Date(dates_raw)
+          local_acc$raw_evi   <- as.numeric(evi_raw)
+        }
+        if (!is.null(pred_dates)) {
+          local_acc$smooth_dates <- as.Date(pred_dates)
+          local_acc$smooth_evi   <- as.numeric(evi_spline)
+        }
+      }
+
       res <- DoPhenologyPlanet(
         B[[2]][i,], B[[4]][i,], B[[6]][i,], B[[8]][i,],
         dates, phenYrs, params, waterMask = 0,
-        ts_sink = ts_sink, pix_meta = pix_meta
+        ts_sink = local_sink, pix_meta = pix_meta
       )
-      if (length(res) != phen_vec_len) {
-        pheno_mat[i, ] <- c(res[seq_len(min(length(res), phen_vec_len))],
-                            rep(NA_real_, phen_vec_len - min(length(res), phen_vec_len)))
-      } else {
-        pheno_mat[i, ] <- res
-      }
-    }
+
+      list(
+        pheno = if (length(res) == phen_vec_len) res else rep(NA_real_, phen_vec_len),
+        raw_dates = local_acc$raw_dates,
+        raw_evi = local_acc$raw_evi,
+        smooth_dates = local_acc$smooth_dates,
+        smooth_evi = local_acc$smooth_evi
+      )
+    })
   }
 
-  # Did the callback capture anything?
-  n_raw    <- sum(lengths(ts_acc$raw_evi)    > 0)
-  n_smooth <- sum(lengths(ts_acc$smooth_evi) > 0)
+  # Collect results back
+  pheno_mat <- do.call(rbind, lapply(pheno_list, `[[`, "pheno"))
+  ts_raw_dates    <- lapply(pheno_list, `[[`, "raw_dates")
+  ts_raw_evi      <- lapply(pheno_list, `[[`, "raw_evi")
+  ts_smooth_dates <- lapply(pheno_list, `[[`, "smooth_dates")
+  ts_smooth_evi   <- lapply(pheno_list, `[[`, "smooth_evi")
+
+  n_raw    <- sum(lengths(ts_raw_evi) > 0)
+  n_smooth <- sum(lengths(ts_smooth_evi) > 0)
   message("🧾 Time series captured: raw=", n_raw, ", smooth=", n_smooth)
 
   # ----------------------------- Build SF + CSV data ---------------------------
@@ -225,37 +239,25 @@ for (f in chunk_files) {
     crs    = terra::crs(baseR)
   ) |>
     dplyr::mutate(
-      dates_raw    = ts_acc$raw_dates,
-      evi_raw      = ts_acc$raw_evi,
-      dates_spline = ts_acc$smooth_dates,
-      evi_spline   = ts_acc$smooth_evi
+      dates_raw    = ts_raw_dates,
+      evi_raw      = ts_raw_evi,
+      dates_spline = ts_smooth_dates,
+      evi_spline   = ts_smooth_evi
     )
 
-  # Fallback: if callback didn’t fill any raw series, compute raw EVI from bands
-    if (n_raw == 0) {
-  message("⚠️  No raw time-series from callback — computing raw EVI from bands (2,6,8)")
-  
-  # --- auto rescale if needed ---
-  if (median(B[[6]], na.rm = TRUE) > 2) {
-    for (b in 1:8) B[[b]] <- B[[b]] / 10000
+  # Fallback for raw EVI if all missing
+  if (n_raw == 0) {
+    message("⚠️  No raw series from callback — computing directly from bands (2,6,8)")
+    if (median(B[[6]], na.rm = TRUE) > 2) for (b in 1:8) B[[b]] <- B[[b]] / 10000
+    evi_mat <- 2.5 * (B[[8]] - B[[6]]) / (B[[8]] + 6*B[[6]] - 7.5*B[[2]] + 1)
+    evi_mat[!is.finite(evi_mat)] <- NA_real_
+    evi_mat[evi_mat < -1] <- -1; evi_mat[evi_mat > 1] <- 1
+    ts_raw_dates <- replicate(n_pix, dates, simplify = FALSE)
+    ts_raw_evi   <- split(evi_mat, row(evi_mat))
+    sf_obj$dates_raw <- ts_raw_dates
+    sf_obj$evi_raw   <- ts_raw_evi
+    n_raw <- n_pix
   }
-
-  # --- compute EVI properly ---
-  evi_mat <- 2.5 * (B[[8]] - B[[6]]) / (B[[8]] + 6*B[[6]] - 7.5*B[[2]] + 1)
-  evi_mat[!is.finite(evi_mat)] <- NA_real_
-  evi_mat[evi_mat < -1] <- -1
-  evi_mat[evi_mat > 1]  <- 1
-
-  for (i in seq_len(n_pix)) {
-    ts_acc$raw_dates[[i]] <- dates
-    ts_acc$raw_evi[[i]]   <- as.numeric(evi_mat[i, ])
-  }
-
-  # update sf columns
-  sf_obj$dates_raw <- ts_acc$raw_dates
-  sf_obj$evi_raw   <- ts_acc$raw_evi
-  n_raw <- n_pix
-}
 
   # ----------------------------- Save SF --------------------------------------
   saveRDS(sf_obj, file = file.path(tablesDir, paste0("chunk_", ckNum_str, "_evi_sf.rds")))
@@ -265,44 +267,54 @@ for (f in chunk_files) {
   save(pheno_mat, file = phe_out_rda)
   message("💾 Saved phenology matrix: ", phe_out_rda)
 
-  # ----------------------------- Save CSVs ------------------------------------
-  coords_df <- sf::st_coordinates(sf_obj)
-  sf_obj2 <- sf_obj |>
-    st_drop_geometry() |>
-    mutate(x = coords_df[,1], y = coords_df[,2])
-
-  ts_raw <- sf_obj2 |>
-    select(cell, x, y, date = dates_raw, raw_value = evi_raw) |>
-    tidyr::unnest(c(date, raw_value))
-
-  ts_smooth <- sf_obj2 |>
-    select(cell, x, y, date = dates_spline, smooth_value = evi_spline) |>
-    tidyr::unnest(c(date, smooth_value))
-
-  ts_wide <- dplyr::full_join(ts_raw, ts_smooth, by = c("cell","x","y","date")) |>
-    arrange(cell, date)
-
-                  # --- filter only valid EVI rows ---
-        ts_wide <- ts_wide %>% filter(!is.na(raw_value) | !is.na(smooth_value))
-        
-        if (nrow(ts_wide) == 0) {
-          message("⚠️  No valid EVI rows to append for chunk ", ckNum_str)
-          next
-        }
-
-  # Per-chunk CSV
-  write.csv(ts_wide, out_csv_chunk, row.names = FALSE)
-  message("💾 Saved per-chunk CSV: ", out_csv_chunk, " (", nrow(ts_wide), " rows)")
-
-  # Append to aggregated site CSV
-  if (file.exists(aggFile)) {
-    utils::write.table(ts_wide, aggFile, sep = ",", row.names = FALSE,
-                       col.names = FALSE, append = TRUE)
-  } else {
-    utils::write.table(ts_wide, aggFile, sep = ",", row.names = FALSE,
-                       col.names = TRUE,  append = FALSE)
-  }
-  message("📈 Appended ", nrow(ts_wide), " rows → ", basename(aggFile))
+ # ----------------------------- Save CSVs ------------------------------------
+    coords_df <- sf::st_coordinates(sf_obj)
+    sf_obj2 <- sf_obj |>
+      st_drop_geometry() |>
+      mutate(x = coords_df[,1], y = coords_df[,2])
+    
+    ts_raw <- sf_obj2 |>
+      select(cell, x, y, date = dates_raw, raw_value = evi_raw) |>
+      tidyr::unnest(c(date, raw_value))
+    
+    ts_smooth <- sf_obj2 |>
+      select(cell, x, y, date = dates_spline, smooth_value = evi_spline) |>
+      tidyr::unnest(c(date, smooth_value))
+    
+    # join and keep all available values
+    ts_wide <- full_join(ts_raw, ts_smooth, by = c("cell","x","y","date")) |>
+      arrange(cell, date)
+    
+    # --- FILTER LOGIC FIX ---
+    # Keep all smooth dates within the configured phenology period,
+    # and any raw values at their native dates
+    if ("phenStartYr" %in% names(params$setup) && "phenEndYr" %in% names(params$setup)) {
+      ts_wide <- ts_wide |>
+        filter(lubridate::year(date) >= params$setup$phenStartYr &
+               lubridate::year(date) <= params$setup$phenEndYr)
+    }
+    
+    # drop empty rows
+    ts_wide <- ts_wide %>%
+      filter(!is.na(raw_value) | !is.na(smooth_value))
+    
+    if (nrow(ts_wide) == 0) {
+      message("⚠️  No valid EVI rows to append for chunk ", ckNum_str)
+      next
+    }
+    
+    write.csv(ts_wide, out_csv_chunk, row.names = FALSE)
+    message("💾 Saved per-chunk CSV: ", out_csv_chunk, " (", nrow(ts_wide), " rows)")
+    
+    # Append to aggregated site CSV
+    if (file.exists(aggFile)) {
+      write.table(ts_wide, aggFile, sep = ",", row.names = FALSE,
+                  col.names = FALSE, append = TRUE)
+    } else {
+      write.table(ts_wide, aggFile, sep = ",", row.names = FALSE,
+                  col.names = TRUE,  append = FALSE)
+    }
+    message("📈 Appended ", nrow(ts_wide), " rows → ", basename(aggFile))
 }
 
 message("✅ Step 3 complete for site ", strSite)

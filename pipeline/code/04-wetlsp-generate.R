@@ -2,6 +2,7 @@
 # A High Spatial Resolution Land Surface Phenology Dataset for AmeriFlux and NEON Sites
 # 04: Save phenology layers to GeoTIFF (per year, per product)
 # Author: Minkyu Moon; Modernized: Gavin McNicol
+# Updated: Always overwrite existing GeoTIFFs (no skipping)
 #=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 # ----------------------------- Dependencies -----------------------------------
@@ -64,7 +65,6 @@ pheDirRoot <- file.path(params$setup$outDir, "Product_GeoTiff", strSite)
 dir.create(pheDirRoot, recursive = TRUE, showWarnings = FALSE)
 
 # ----------------------------- terra options -----------------------------------
-# Pick a fast, writable tempdir
 local_tmp_candidates <- c("/home/jovyan/work", "/home/jovyan", "/tmp")
 local_tmp <- NULL
 for (p in local_tmp_candidates) {
@@ -76,7 +76,6 @@ for (p in local_tmp_candidates) {
 }
 if (is.null(local_tmp)) stop("❌ No writable temp directory found!")
 
-# clear stale temps (portable: manual delete)
 if (dir.exists(local_tmp)) {
   old_tmp <- list.files(local_tmp, full.names = TRUE)
   if (length(old_tmp) > 0) unlink(old_tmp, recursive = TRUE, force = TRUE)
@@ -93,9 +92,8 @@ message("🌐 terra threads: ", terraOptions()$threads)
 # --------------------------- Helpers & indexing --------------------------------
 numPix     <- ncell(baseR)
 numChunks  <- params$setup$numChunks
-chunk_size <- ceiling(numPix / numChunks)  # used only for index ranges
+chunk_size <- ceiling(numPix / numChunks)
 
-# map chunk number (###) -> base cell indices
 chunk_cells_from_base <- function(base_rast, ckNum, numChunks){
   total_cells <- ncell(base_rast)
   ch_size     <- ceiling(total_cells / numChunks)
@@ -109,24 +107,14 @@ for (y in phenYrs) {
   ylab <- as.character(y)
   message("📅 Year ", ylab, " — assembling 24 products")
 
-  # Resume-safe: if all 24 files exist already, skip this year
   pheDirYear <- file.path(pheDirRoot, ylab)
   dir.create(pheDirYear, recursive = TRUE, showWarnings = FALSE)
-  out_exist <- vapply(1:24, function(k){
-    file.exists(file.path(pheDirYear,
-                          sprintf("%02d_%s_%s.tif", k, ylab, productTable$short_name[k])))
-  }, logical(1))
-  if (all(out_exist)) {
-    message("⏭️  All 24 products for ", ylab, " already exist — skipping.")
-    next
-  }
 
-  # One big values matrix for this year: rows = pixels, cols = 24 products
+  # Always rebuild — overwrite existing GeoTIFFs
   vals_year <- matrix(NA_real_, nrow = numPix, ncol = 24)
 
   # Fill from each chunk file
   for (cf in phe_files) {
-    # Extract ### chunk index
     ckNum_str <- sub("^chunk_phe_(\\d{3})\\.rda$", "\\1", basename(cf))
     if (is.na(suppressWarnings(as.integer(ckNum_str)))) {
       message("⚠️  Skipping malformed chunk file: ", cf)
@@ -142,7 +130,6 @@ for (y in phenYrs) {
     }
     pm <- get("pheno_mat", envir = e)
 
-    # pm has rows = pixels within this chunk, cols = 24 * nYears
     if (!is.matrix(pm) || ncol(pm) %% 24 != 0) {
       message("⚠️  pheno_mat shape unexpected in ", cf, " — skipping")
       next
@@ -151,11 +138,9 @@ for (y in phenYrs) {
     nYears_pm <- ncol(pm) / 24
     years_seq <- params$setup$phenStartYr:params$setup$phenEndYr
     if (length(years_seq) != nYears_pm) {
-      # Be forgiving: slice by position
       years_seq <- seq_len(nYears_pm) + params$setup$phenStartYr - 1L
     }
 
-    # Which 24-column block corresponds to current year?
     y_idx <- which(years_seq == y)
     if (length(y_idx) != 1) {
       message("⚠️  Year ", ylab, " not present in chunk ", ckNum_str, " — skipping file")
@@ -163,39 +148,31 @@ for (y in phenYrs) {
     }
     col_start <- (y_idx - 1L) * 24L + 1L
     col_end   <- y_idx * 24L
-    pm_year   <- pm[, col_start:col_end, drop = FALSE]  # dims: [chunk_rows, 24]
+    pm_year   <- pm[, col_start:col_end, drop = FALSE]
 
-    # Target base indices for this chunk
     cells_chunk <- chunk_cells_from_base(baseR, ckNum, numChunks)
     if (!length(cells_chunk)) {
       message("⚠️  Empty cell range for chunk ", ckNum_str)
       next
     }
 
-    # Align lengths: chunk may be shorter than base chunk (due to Step 2 truncation)
     n_target <- length(cells_chunk)
     n_src    <- nrow(pm_year)
     n_copy   <- min(n_target, n_src)
     if (n_copy <= 0) next
 
-    # Insert into vals_year
     vals_year[cells_chunk[seq_len(n_copy)], ] <- pm_year[seq_len(n_copy), ]
   }
 
   # --------------------- Write 24 GeoTIFFs for this year -----------------------
-  message("💾 Writing 24 GeoTIFFs for ", ylab)
+  message("💾 Writing (overwriting) 24 GeoTIFFs for ", ylab)
   for (k in 1:24) {
     out_name <- file.path(pheDirYear,
                           sprintf("%02d_%s_%s.tif", k, ylab, productTable$short_name[k]))
 
-    # If resuming and file exists, skip
-    if (file.exists(out_name)) next
-
-    # Create a single-layer SpatRaster with base geometry + values
+    # Always overwrite
     r_k <- baseR
     values(r_k) <- vals_year[, k]
-
-    # Stream to disk (fast path). If /data-store is slow, this uses terra tempdir.
     terra::writeRaster(
       r_k, out_name, overwrite = TRUE, filetype = "GTiff"
     )

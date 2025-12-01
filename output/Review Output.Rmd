@@ -1,0 +1,254 @@
+---
+title: "Review WetLSP Outputs"
+author: "Gavin McNicol"
+date: "2025-11-19"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Purpose: To review by checking format, content, and visualization the output of the WetLSP processing pipeline.
+
+```{r libraries, messsage = F}
+required_packages <- c(
+  "raster", "gdalUtilities", "terra", "rjson", "geojsonR",  "tidyverse"
+)
+
+install_if_missing <- function(pkg) {
+  if (!require(pkg, character.only = TRUE)) {
+    install.packages(pkg, repos = "https://cran.rstudio.com/")
+  }
+  library(pkg, character.only = TRUE)
+}
+invisible(lapply(required_packages, install_if_missing))
+
+library(terra)
+library(raster)
+library(tidyverse)
+library(geojsonR)
+library(sf)
+```
+
+## 01-wetlsp-process.R
+
+### Inputs
+
+Inputs a .geojson for a given site to identify the site location and cutout dimensions, and to create a baseimage for mosaicing of other images. 
+
+Let's look at the .geojson.
+
+```{r}
+# your EVI raster
+r <- rast("Product_GeoTiff/BR-Npw/2022/10_2022_EVIamp.tif")
+
+# read the GeoJSON as a vector layer
+poly_ll  <- vect("../geojson/AMFLX/BR-Npw.geojson")   # CRS should be EPSG:4326
+crs(poly_ll)
+ext(poly_ll)
+
+# reproject AOI to raster CRS
+poly_utm <- project(poly_ll, crs(r))
+
+# compare extents
+ext(poly_utm)
+ext(r)
+
+# and visualize
+plot(r, main = "BR-Npw – EVI product + AOI")
+lines(poly_utm, lwd = 2, col = "red")
+```
+
+```{r geojson-dim}
+read_json("geojson/AMFLX/AT-Nsd.geojson")
+lons <- c(16.74349, 16.77349, 16.77349, 16.74349, 16.74349)
+lats <- c(47.75414, 47.75414, 47.78414, 47.78414, 47.75414)
+```
+
+```{r check-dim}
+max(lats) - min(lats)
+max(lons) - min(lons)
+```
+
+OK, so the decimal-degree based lat/lon is a 0.03 by 0.03 degree cut-out. However, this corresponds to a smaller and smaller latitudinal range as you move northward. 
+
+```{r plot-dim}
+plot(lons, lats, asp = 1)
+```
+
+### Outputs
+
+The first output is a base_image.tif which is mosaiced from a random set of 20 data files, and creates a template for narrower-footprint retrevials to be added to later.
+
+```{r check-base}
+terra::rast("BR-Npw/base_image.tif") %>% plot()
+```
+
+Then, outputs into `output/AT-Nsd/mosaic` a set of .tif files mosaiced into distinct dates between ~2020-01 to 2024-12 from the original data, which is disorganized. 
+
+```{r view-data-01}
+file_path <- ("BR-Npw/mosaic")
+file_names <- list.files(file_path)
+terra::rast(paste(file_path, file_names[80], sep = "/")) %>% 
+  plot()
+```
+
+The file is a 363 x 1282 pixel raster, with 8 layers (one for each surface reflectance wavelength band).
+The resolution of each pixel is 3 x 3 m.
+The date of observation is 2020-03-19
+The narrower vertical range reflects the narrower width of the actual retreival window versus the target baseimage template (3x3 km).
+
+If you want to check all of the properties, adapt this function below for something other than `dim()`.
+
+```{r check-size, message = F}
+check_size <- function(full_paths) {
+  terra::rast(paste(file_path, file_names[1], sep = "/")) %>% dim()
+}
+
+full_paths <- paste(file_path, file_names, sep = "/") %>% as.list()
+map(full_paths, check_size)
+```
+
+
+## 02-wetlsp-process.R
+
+Outputs are 200 chunks stored in `output/AT-Nsd/chunk/chunk_xxx.rda`.
+
+Each chunk is matrix. 
+The rows reflect pixel indices for a contiguous set of pixels within the full base image (about 4,000 pixels).
+The columns are dates corresponding to dates of retreivals (For AT-Nsd below, 600).
+
+```{r view-chunks}
+e <- new.env()
+load("BR-Npw/chunk/chunk_001.rda", envir = e)
+str(e$band2)
+length(e$dates)
+```
+
+## 03-wetlsp-phenometrics.R
+
+First output is the chunk EVI timeseries saved as an spatial feature (sf)
+
+```{r chunk-sf}
+readRDS("AT-Nsd/tables_sf/chunk_001_evi_sf.rds")[1:3,]
+```
+
+Let's also look at the .csv version
+
+```{r chunk-csv}
+read_csv("AT-Nsd/tables_sf/chunk_001_timeseries.csv")
+```
+
+.csv is huge, so made it optional within parameters: writeCSV : true/false
+
+Third output is `AT-NSd/chunk_phe/chunk_phe_xxx.rda`
+
+```{r}
+load("AT-NSd/chunk_phe/chunk_phe_001.rda")
+view(pheno_mat)
+rm(pheno_mat)
+```
+
+Each row is a pixel. Each column is one of 24 pheno-metrics, replicated by number of years (5) = (120).
+
+The phenometrics are as follows - and see Table 2 in Moon et al. 2022 *Scientific Data* for details.
+
+```{r names, include = F}
+wetlsp_names <- c(
+  "NumCycles", 
+  
+  "OGI", 
+  "PCGI50",
+  "OGMx", 
+  "Peak", 
+  "OGD", 
+  "PCGD50", 
+  "OGMn",
+  "EVImax",
+  "EVIamp", 
+  "EVIarea",
+  "QA",
+  
+  "OGI_2", 
+  "PCGI50_2", 
+  "OGMx_2", 
+  "Peak_2",
+  "OGD_2", 
+  "PCGD50_2", 
+  "OGMn_2",
+  "EVImax_2", 
+  "EVIamp_2", 
+  "EVIarea_2",
+  "QA_2",
+  
+  "numObs"
+)
+```
+
+## 04-wetlsp-generate.R
+
+This first version of the pheno-metric output is in individual .tif format
+
+```{r view-individual-tifs}
+list.files("Product_GeoTiff/AT-Nsd/2022", "\\.tif$", full.names = TRUE)[10] %>%
+  rast() %>%
+  (\(x) plot(x/10000,
+             main = "AT-Nsd – EVI Max - 2022",
+             axes = TRUE,
+             mar = c(4,4,2,1)))()
+```
+
+```{r}
+r <- rast("Product_GeoTiff/BR-Npw/2022/10_2022_EVIamp.tif")
+
+# Check the actual dimensions in metres
+c(ncol = ncol(r), nrow = nrow(r))
+c(xres = xres(r), yres = yres(r))
+c(width_m  = ncol(r) * xres(r),
+  height_m = nrow(r) * yres(r))
+
+# Trim off NA margins so you just see the data footprint
+r_trim <- trim(r)
+plot(r_trim, main = "BR-Npw – trimmed EVI", axes = TRUE)
+```
+
+## Helper Functions Exploring
+
+```{r load-helpers}
+source("../pipeline/validation/wetlsp-helpers.R")
+``` 
+
+Use simple pixel-wise time-series viewer
+
+```{r use-helper}
+sf_all <- readRDS("AT-Nsd/tables_site/AT-Nsd_evi_timeseries_sf.rds")
+PickPixelInteractive(sf_all, frac_area = 0.1)
+```
+
+```{r}
+SummarizeEVI_sf <- function(sf_obj) {
+  tibble::tibble(
+    n_pixels = nrow(sf_obj),
+    crs      = sf::st_crs(sf_obj)$input,
+    n_raw_ts = sum(lengths(sf_obj$evi_raw) > 0),
+    n_smooth_ts = sum(lengths(sf_obj$evi_spline) > 0),
+    avg_raw_length = mean(lengths(sf_obj$evi_raw)),
+    avg_smooth_length = mean(lengths(sf_obj$evi_spline))
+  )
+}
+
+dim(sf_all)
+
+SummarizeEVI_sf(sf_all)
+```
+
+
+Interactive map click-to-select
+
+```{r use-mapper}
+sf_chunk <- readRDS("AT-Nsd/tables_sf/chunk_100_evi_sf.rds")
+PickPixelInteractive(sf_chunk)
+ViewPixelTimeseries(sf_chunk, cell_vec = c(seq(395809, 396800, by = 200)))
+```
+

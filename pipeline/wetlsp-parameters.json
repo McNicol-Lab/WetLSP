@@ -1,31 +1,36 @@
 {
   "setup":{
     
-    "phenStartYr":2017,
+    "phenStartYr":2021,
     "phenEndYr":2025,
     
-    "workDir":"/home/jovyan/data-store/WetLSP/",
-    "logDir":"runLogs/",
-    "geojsonDir": "/home/jovyan/data-store/data/iplant/home/shared/esiil/ai_for_natural_methane_working_group/planetscope_data/geojson",
-    "dataDir":"/home/jovyan/data-store/data/iplant/home/shared/esiil/ai_for_natural_methane_working_group/planetscope_data/rawImage",
-    "outDir":"/home/jovyan/data-store/WetLSP/output",
-    "rScripts":"pipeline/code/",
+    "workDir":"/Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP",
+    "logDir":"runLogs",
+    "geojsonDir": "/Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/geojson",
+    "dataDir":"/Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage",
+    "outDir":"output",
+    "rScripts":"pipeline/code",
     "rFunctions":"pipeline/wetlsp-functions.R",
     "productTable":"metadata/wetlsp-layers.csv",
     
     "water":"water/",
     
     "numChunks":200,
-    "numCores":28,
+    "numCores":6,
     
     "neon":"FALSE",
-    "amflx":"TRUE"
+    "amflx":"TRUE",
+    
+    "writeCSV": true,
+    "cleanupIntermediates": false,
+    
+    "siteWin_half_km": 2
   
   },
   
   "phenology_parameters":{
   
-    "vegetation_index":"evi2",
+    "vegetation_index":"evi",
     
     "maskNegativeValues":true,
     
@@ -42,8 +47,8 @@
     "gdown_threshes":[0.9, 0.5, 0.15],
     
     "dormantQuantile":0.05,  
-    "dormStart":"2017-01-01",
-    "dormEnd":"2021-12-31",
+    "dormStart":"2021-01-01",
+    "dormEnd":"2024-12-31",
     
     "spikeThresh":2,            
     "minResid":0.1,              

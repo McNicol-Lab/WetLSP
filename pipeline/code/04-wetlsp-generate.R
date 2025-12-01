@@ -3,6 +3,7 @@
 # 04: Save phenology layers to GeoTIFF (per year, per product)
 # Author: Minkyu Moon; Modernized: Gavin McNicol
 # Updated: Always overwrite existing GeoTIFFs (no skipping)
+#          FIX: Each output GeoTIFF is a single-layer phenology product
 #=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 # ----------------------------- Dependencies -----------------------------------
@@ -51,6 +52,9 @@ message("📂 Image dir: ", imgDir)
 base_path <- file.path(params$setup$outDir, strSite, "base_image.tif")
 if (!file.exists(base_path)) stop("❌ Base image missing: ", base_path)
 baseR <- terra::rast(base_path)
+
+# ✅ Use a single-layer template (one band) for all phenology outputs
+template_r <- baseR[[1]]
 
 ckPheDir <- file.path(params$setup$outDir, strSite, "chunk_phe")
 if (!dir.exists(ckPheDir)) stop("❌ chunk_phe directory not found: ", ckPheDir)
@@ -106,13 +110,13 @@ chunk_cells_from_base <- function(base_rast, ckNum, numChunks){
 for (y in phenYrs) {
   ylab <- as.character(y)
   message("📅 Year ", ylab, " — assembling 24 products")
-
+  
   pheDirYear <- file.path(pheDirRoot, ylab)
   dir.create(pheDirYear, recursive = TRUE, showWarnings = FALSE)
-
+  
   # Always rebuild — overwrite existing GeoTIFFs
   vals_year <- matrix(NA_real_, nrow = numPix, ncol = 24)
-
+  
   # Fill from each chunk file
   for (cf in phe_files) {
     ckNum_str <- sub("^chunk_phe_(\\d{3})\\.rda$", "\\1", basename(cf))
@@ -121,7 +125,7 @@ for (y in phenYrs) {
       next
     }
     ckNum <- as.integer(ckNum_str)
-
+    
     e <- new.env()
     log <- try(load(cf, envir = e), silent = TRUE)
     if (inherits(log, "try-error") || !"pheno_mat" %in% ls(e)) {
@@ -129,18 +133,18 @@ for (y in phenYrs) {
       next
     }
     pm <- get("pheno_mat", envir = e)
-
+    
     if (!is.matrix(pm) || ncol(pm) %% 24 != 0) {
       message("⚠️  pheno_mat shape unexpected in ", cf, " — skipping")
       next
     }
-
+    
     nYears_pm <- ncol(pm) / 24
     years_seq <- params$setup$phenStartYr:params$setup$phenEndYr
     if (length(years_seq) != nYears_pm) {
       years_seq <- seq_len(nYears_pm) + params$setup$phenStartYr - 1L
     }
-
+    
     y_idx <- which(years_seq == y)
     if (length(y_idx) != 1) {
       message("⚠️  Year ", ylab, " not present in chunk ", ckNum_str, " — skipping file")
@@ -149,36 +153,53 @@ for (y in phenYrs) {
     col_start <- (y_idx - 1L) * 24L + 1L
     col_end   <- y_idx * 24L
     pm_year   <- pm[, col_start:col_end, drop = FALSE]
-
+    
     cells_chunk <- chunk_cells_from_base(baseR, ckNum, numChunks)
     if (!length(cells_chunk)) {
       message("⚠️  Empty cell range for chunk ", ckNum_str)
       next
     }
-
+    
     n_target <- length(cells_chunk)
     n_src    <- nrow(pm_year)
     n_copy   <- min(n_target, n_src)
     if (n_copy <= 0) next
-
+    
     vals_year[cells_chunk[seq_len(n_copy)], ] <- pm_year[seq_len(n_copy), ]
   }
-
+  
   # --------------------- Write 24 GeoTIFFs for this year -----------------------
-  message("💾 Writing (overwriting) 24 GeoTIFFs for ", ylab)
+  message("💾 Writing (overwriting) 24 single-layer GeoTIFFs for ", ylab)
   for (k in 1:24) {
-    out_name <- file.path(pheDirYear,
-                          sprintf("%02d_%s_%s.tif", k, ylab, productTable$short_name[k]))
-
-    # Always overwrite
-    r_k <- baseR
+    out_name <- file.path(
+      pheDirYear,
+      sprintf("%02d_%s_%s.tif", k, ylab, productTable$short_name[k])
+    )
+    
+    # Single-layer raster with correct geometry
+    r_k <- template_r
     values(r_k) <- vals_year[, k]
+    
     terra::writeRaster(
       r_k, out_name, overwrite = TRUE, filetype = "GTiff"
     )
   }
-
+  
   message("✅ Finished year ", ylab)
+}
+
+# Optional cleanup of intermediates
+if (isTRUE(params$setup$cleanupIntermediates)) {
+  site_root <- file.path(params$setup$outDir, strSite)
+  dirs_to_remove <- c("mosaic", "chunk", "chunk_phe", "tables_sf")
+  for (d in dirs_to_remove) {
+    p <- file.path(site_root, d)
+    if (dir.exists(p)) {
+      message("🧹 Removing intermediate directory: ", p)
+      unlink(p, recursive = TRUE, force = TRUE)
+    }
+  }
+  message("🧼 Intermediate cleanup complete for site ", strSite)
 }
 
 message("🎉 Step 4 complete for site ", strSite)

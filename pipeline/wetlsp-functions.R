@@ -810,7 +810,12 @@ DoPhenologyPlanet <- function(blue, green, red, nir, dates, phenYrs, params, wat
       
       
       ################################################
-      if(numCyc == 0){outAll <- c(outAll,annualMetrics(viSub,dateSu,smoothed_vi,pred_dates,phenYrs[y],pheno_pars,vi_dorm,waterMask));next}
+      if(numCyc == 0){
+        outAll <- c(outAll,
+                    annualMetrics(viSub, dateSub, smoothed_vi, pred_dates, phenYrs[y],
+                                  pheno_pars, vi_dorm, waterMask))
+        next
+      }
       
       if(numRecords == 1) {
         out <- c(1,phen,seg_max,seg_amp,seg_int,qual_1,c(rep(NA,10),4),numObs)
@@ -917,97 +922,175 @@ GetSiteInfo <- function(numSite, geojsonDir, params){
 
 
 #---------------------------------------------------------------------
-# Create site shape file
-# Minkyu Moon 
+# Create site shape file (square AOI in UTM)
+# Minkyu Moon (original) / Updated: GM + ChatGPT
 #---------------------------------------------------------------------
-GetSiteShp <- function(fileSR, cLong, cLat){
+GetSiteShp <- function(fileSR, cLong, cLat) {
+  # Geodetic CRS
+  geog_crs <- sp::CRS("+proj=longlat +datum=WGS84 +no_defs")
   
-  # Shape file for 10 by 10 km window
-  geog_crs <- CRS("+proj=longlat +datum=WGS84")
+  # --- Derive UTM zone from longitude / latitude ---
+  zone <- floor((cLong + 180) / 6) + 1
+  hemi_north <- cLat >= 0
   
-  # Load the first raster to determine projection
-  r <- raster(fileSR[1])
-  if (is.na(crs(r))) {
-    message("CRS missing — assigning EPSG:32633 as default.")
-    crs(r) <- CRS("+init=EPSG:32633")
+  utm_string <- if (hemi_north) {
+    sprintf("+proj=utm +zone=%d +datum=WGS84 +units=m +no_defs", zone)
+  } else {
+    sprintf("+proj=utm +zone=%d +south +datum=WGS84 +units=m +no_defs", zone)
   }
-  utm_crs <- crs(r)
+  utm_crs <- sp::CRS(utm_string)
   
-  site <- data.frame(1, cLong, cLat)
-  colnames(site) <- c('id', 'lon', 'lat')
-  xy <- site[, c(2, 3)]
-  bb <- SpatialPointsDataFrame(coords = xy, data = site, proj4string = geog_crs)
-  bb <- spTransform(bb, utm_crs)
+  # --- AOI half-size in km (default 5 km → 10x10 km window) ---
+  half_km_default <- 5
+  half_km <- half_km_default
+  if (exists("params", inherits = TRUE)) {
+    # optional knob in JSON: "siteWin_half_km": 3
+    maybe_half <- try(params$setup$siteWin_half_km, silent = TRUE)
+    if (!inherits(maybe_half, "try-error") && !is.null(maybe_half) && is.finite(maybe_half)) {
+      half_km <- as.numeric(maybe_half)
+    }
+  }
+  half_size_m <- half_km * 1000
   
-  x1 <- bb@coords[1] - 5000; x2 <- bb@coords[1] + 5000
-  y1 <- bb@coords[2] - 5000; y2 <- bb@coords[2] + 5000
-  xCoor <- c(x1, x2, x2, x1); yCoor <- c(y1, y1, y2, y2); xym <- cbind(xCoor, yCoor)
-  p <- Polygon(xym); ps <- Polygons(list(p), 1); sps <- SpatialPolygons(list(ps))
-  proj4string(sps) <- utm_crs
-  data <- data.frame(f = 99.9)
+  # --- Center point in lon/lat → UTM ---
+  site <- data.frame(id = 1, lon = cLong, lat = cLat)
+  coordinates(site) <- ~ lon + lat
+  sp::proj4string(site) <- geog_crs
   
-  siteWin <- SpatialPolygonsDataFrame(sps, data)
+  site_utm <- sp::spTransform(site, utm_crs)
+  xy <- sp::coordinates(site_utm)[1, ]
+  x0 <- xy[1]; y0 <- xy[2]
   
+  # --- Build square polygon around center ---
+  x1 <- x0 - half_size_m; x2 <- x0 + half_size_m
+  y1 <- y0 - half_size_m; y2 <- y0 + half_size_m
+  
+  xCoor <- c(x1, x2, x2, x1)
+  yCoor <- c(y1, y1, y2, y2)
+  xym   <- cbind(xCoor, yCoor)
+  
+  p   <- sp::Polygon(xym)
+  ps  <- sp::Polygons(list(p), ID = "1")
+  sps <- sp::SpatialPolygons(list(ps), proj4string = utm_crs)
+  dat <- data.frame(f = 99.9, row.names = "1")
+  
+  siteWin <- sp::SpatialPolygonsDataFrame(sps, dat)
   return(siteWin)
 }
 
-
 #---------------------------------------------------------------------
-# Create base image
-# Minkyu Moon 
-# GM fixed:
-# 1. issue with missing CRS (manually assigned)
+# Create base image aligned to AOI (siteWin) in Planet CRS,
+# clipped to the union of available imagery
+# Minkyu Moon (original) / Updated by GM + ChatGPT
 #---------------------------------------------------------------------
 GetBaseImg <- function(fileSR, siteWin, outDir, save = FALSE) {
   library(terra)
-
-  # Keep only files that actually exist
+  
+  # Keep only files that exist
   fileSR <- fileSR[file.exists(fileSR)]
   if (!length(fileSR)) stop("❌ No input rasters found in fileSR.")
-
-  message("🔍 Searching for a valid base raster...")
-
-  # --- Find the first raster that overlaps the window and use it as base/template
-  base <- NULL
+  
+  message("🔍 Searching for a valid template raster (for CRS + resolution)...")
+  
+  tmpl <- NULL
   for (f in fileSR) {
     r <- try(terra::rast(f), silent = TRUE)
     if (inherits(r, "try-error")) next
-    if (is.na(crs(r))) crs(r) <- "EPSG:32633"
-
-    if (terra::relate(terra::ext(r), terra::ext(siteWin), "intersects")) {
-      base <- r
-      message("✅ Found base raster: ", f)
-      break
+    
+    if (is.na(terra::crs(r))) {
+      message("⚠️  Missing CRS in ", f, " — skipping as template candidate")
+      next
+    }
+    
+    tmpl <- r
+    message("✅ Found template raster: ", f)
+    break
+  }
+  
+  if (is.null(tmpl)) stop("❌ No valid template raster found (all missing CRS or unreadable).")
+  
+  # AOI as SpatVector in template CRS
+  sv <- terra::vect(siteWin)
+  if (terra::crs(sv) != terra::crs(tmpl)) {
+    message("🧭 Reprojecting AOI (siteWin) to template CRS: ",
+            terra::crs(tmpl, proj = TRUE))
+    sv <- terra::project(sv, tmpl)
+  }
+  
+  # ----------------- Union of raster extents -----------------
+  message("📦 Computing union of raster extents for this site...")
+  e_union <- NULL
+  for (f in fileSR) {
+    r <- try(terra::rast(f), silent = TRUE)
+    if (inherits(r, "try-error")) next
+    
+    # Only combine extents if CRS matches template
+    if (terra::crs(r) != terra::crs(tmpl)) {
+      message("⚠️  Skipping ", f, " — CRS differs from template")
+      next
+    }
+    
+    e_r <- terra::ext(r)
+    if (is.null(e_union)) {
+      e_union <- e_r
+    } else {
+      e_union <- terra::union(e_union, e_r)
     }
   }
-  if (is.null(base)) stop("❌ No valid base raster found that intersects siteWin.")
-
-  # Crop once and return (this is the only “base” we need now)
-  base <- terra::crop(base, siteWin)
-
+  
+  if (is.null(e_union)) {
+    stop("❌ Could not build union extent from rasters (CRS mismatch or read errors).")
+  }
+  
+  # ----------------- Final base extent: AOI ∩ imagery -----------------
+  e_aoi   <- terra::ext(sv)
+  e_base  <- terra::intersect(e_aoi, e_union)
+  
+  if (is.null(e_base)) {
+    stop("❌ AOI does not intersect with any imagery extent — check cLong/cLat and geojson.")
+  }
+  
+  res_tmpl <- terra::res(tmpl)
+  message("📐 Building base raster from AOI ∩ imagery extent...")
+  message("    AOI extent (template CRS): ",
+          paste(round(c(e_aoi$xmin, e_aoi$xmax, e_aoi$ymin, e_aoi$ymax), 1), collapse = ", "))
+  message("    Imagery union extent: ",
+          paste(round(c(e_union$xmin, e_union$xmax, e_union$ymin, e_union$ymax), 1), collapse = ", "))
+  message("    Base (intersection) extent: ",
+          paste(round(c(e_base$xmin, e_base$xmax, e_base$ymin, e_base$ymax), 1), collapse = ", "))
+  message("    Template resolution: ", paste(res_tmpl, collapse = " × "))
+  
+  base <- terra::rast(
+    extent     = e_base,
+    resolution = res_tmpl,
+    crs        = terra::crs(tmpl)
+  )
+  
+  terra::values(base) <- NA_real_
+  
+  # ----------------- Optional write to disk -----------------
   out_path <- NULL
   if (isTRUE(save)) {
-    # Prefer a writable path; fall back if outDir isn't writable
     ok <- try({
       if (!dir.exists(outDir)) dir.create(outDir, recursive = TRUE, showWarnings = FALSE)
       tf <- file.path(outDir, "._testwrite.txt")
-      writeLines("test", tf); file.remove(tf); TRUE
+      writeLines("test", tf)
+      file.remove(tf)
+      TRUE
     }, silent = TRUE)
-
+    
     if (inherits(ok, "try-error") || isFALSE(ok)) {
-      # Fast local scratch in CyVerse VICE
       local_dir <- if (dir.exists("/home/jovyan/work")) "/home/jovyan/work" else tempdir()
       message("⚠️ Output dir not writable; saving base image to local path: ", local_dir)
       out_path <- file.path(local_dir, paste0(basename(outDir), "_base_image.tif"))
     } else {
       out_path <- file.path(outDir, "base_image.tif")
     }
-
+    
     terra::writeRaster(base, out_path, overwrite = TRUE, filetype = "GTiff")
     message("✅ Base image written to: ", out_path)
   }
-
-  message("✅ Done with base image (in-memory).")
-  # Return the SpatRaster; path is NULL unless you asked to save
+  
+  message("✅ Done with base image (AOI ∩ imagery, in-memory).")
   list(rast = base, path = out_path)
 }

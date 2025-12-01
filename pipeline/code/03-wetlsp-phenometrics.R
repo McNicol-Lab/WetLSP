@@ -7,8 +7,9 @@
 # ----------------------------- Dependencies -----------------------------------
 required_packages <- c(
   "terra","rjson","geojsonR","foreach","doParallel",
-  "sf","dplyr","tidyr"
+  "sf","dplyr","tidyr", "mapview", "mapedit"
 )
+
 install_if_missing <- function(pkg){
   if (!require(pkg, character.only = TRUE)) {
     install.packages(pkg, repos = "https://cran.rstudio.com/")
@@ -60,7 +61,7 @@ dir.create(tablesDir,  recursive = TRUE, showWarnings = FALSE)
 dir.create(pheDir,     recursive = TRUE, showWarnings = FALSE)
 dir.create(siteTblDir, recursive = TRUE, showWarnings = FALSE)
 
-# Aggregated site-level CSV
+# Aggregated site-level CSV (only used if writeCSV = TRUE)
 aggFile <- file.path(siteTblDir, paste0(strSite, "_timeseries_all.csv"))
 if (file.exists(aggFile)) file.remove(aggFile)
 
@@ -111,17 +112,19 @@ for (f in chunk_files) {
   ckNum_str <- sub("^chunk_(\\d{3})\\.rda$", "\\1", basename(f))
   ckNum     <- as.integer(ckNum_str)
   if (is.na(ckNum)) { message("⚠️  Bad chunk name: ", f); next }
-
-  phe_out_rda   <- file.path(pheDir,    paste0("chunk_phe_", ckNum_str, ".rda"))
-  out_csv_chunk <- file.path(tablesDir, paste0("chunk_", ckNum_str, "_timeseries.csv"))
-
-  if (file.exists(phe_out_rda) && file.exists(out_csv_chunk)) {
-    message("⏭️  Skipping chunk ", ckNum_str, " (outputs already exist)")
+  
+  phe_out_rda    <- file.path(pheDir,    paste0("chunk_phe_", ckNum_str, ".rda"))
+  sf_chunk_path  <- file.path(tablesDir, paste0("chunk_", ckNum_str, "_evi_sf.rds"))
+  out_csv_chunk  <- file.path(tablesDir, paste0("chunk_", ckNum_str, "_timeseries.csv"))
+  
+  # 🔁 Skip only if BOTH phenology AND per-chunk sf already exist
+  if (file.exists(phe_out_rda) && file.exists(sf_chunk_path)) {
+    message("⏭️  Skipping chunk ", ckNum_str, " (phenology + sf already exist)")
     next
   }
-
+  
   message("📦 Processing chunk ", ckNum_str, "  (", basename(f), ")")
-
+  
   e <- new.env()
   load(f, envir = e)
   needed <- c(paste0("band", 1:8), "dates")
@@ -129,27 +132,27 @@ for (f in chunk_files) {
     message("⚠️  Missing objects in chunk ", ckNum_str, ": ", paste(ls(e), collapse=", "))
     next
   }
-
+  
   # Matrices [n_pix × n_time]
   B     <- lapply(1:8, function(b) get(paste0("band", b), envir = e))
   dates <- get("dates", envir = e)
-
+  
   n_pix  <- nrow(B[[1]])
   n_time <- ncol(B[[1]])
   if (!all(vapply(B, function(m) nrow(m) == n_pix && ncol(m) == n_time, logical(1)))) {
     message("⚠️  Band dims differ in chunk ", ckNum_str, " — skipping")
     next
   }
-
+  
   # Base-aligned pixel indices & coords for this chunk
   cells_chunk <- chunk_cells_from_base(baseR, ckNum, params$setup$numChunks)
   if (!length(cells_chunk)) { message("⚠️  Empty cell range for ", ckNum_str); next }
   if (length(cells_chunk) > n_pix) cells_chunk <- cells_chunk[seq_len(n_pix)]
   xy <- terra::xyFromCell(baseR, cells_chunk)
-
+  
   # ---------------- Parallel pixel processing with local sink ----------------
   message("🧮 Processing ", n_pix, " pixels (", n_cores_inner, " cores)...")
-
+  
   pheno_list <- if (use_inner_parallel) {
     foreach(
       i = seq_len(n_pix),
@@ -159,28 +162,28 @@ for (f in chunk_files) {
     ) %dopar% {
       pix_meta <- list(chunk_row = i, cell = cells_chunk[i], xy = xy[i, ])
       local_acc <- new.env(parent = emptyenv())
-      local_acc$raw_dates <- NULL
-      local_acc$raw_evi <- NULL
+      local_acc$raw_dates    <- NULL
+      local_acc$raw_evi      <- NULL
       local_acc$smooth_dates <- NULL
-      local_acc$smooth_evi <- NULL
-
+      local_acc$smooth_evi   <- NULL
+      
       local_sink <- function(pix_meta, dates_raw, evi_raw, pred_dates, evi_spline) {
         if (!is.null(dates_raw)) {
-          local_acc$raw_dates <- as.Date(dates_raw)
-          local_acc$raw_evi   <- as.numeric(evi_raw)
+          local_acc$raw_dates <- c(local_acc$raw_dates, as.Date(dates_raw))
+          local_acc$raw_evi   <- c(local_acc$raw_evi,   as.numeric(evi_raw))
         }
         if (!is.null(pred_dates)) {
-          local_acc$smooth_dates <- as.Date(pred_dates)
-          local_acc$smooth_evi   <- as.numeric(evi_spline)
+          local_acc$smooth_dates <- c(local_acc$smooth_dates, as.Date(pred_dates))
+          local_acc$smooth_evi   <- c(local_acc$smooth_evi,   as.numeric(evi_spline))
         }
       }
-
+      
       res <- DoPhenologyPlanet(
         B[[2]][i,], B[[4]][i,], B[[6]][i,], B[[8]][i,],
         dates, phenYrs, params, waterMask = 0,
         ts_sink = local_sink, pix_meta = pix_meta
       )
-
+      
       list(
         pheno = if (length(res) == phen_vec_len) res else rep(NA_real_, phen_vec_len),
         raw_dates = local_acc$raw_dates,
@@ -194,23 +197,28 @@ for (f in chunk_files) {
     lapply(seq_len(n_pix), function(i) {
       pix_meta <- list(chunk_row = i, cell = cells_chunk[i], xy = xy[i, ])
       local_acc <- new.env(parent = emptyenv())
+      local_acc$raw_dates    <- NULL
+      local_acc$raw_evi      <- NULL
+      local_acc$smooth_dates <- NULL
+      local_acc$smooth_evi   <- NULL
+      
       local_sink <- function(pix_meta, dates_raw, evi_raw, pred_dates, evi_spline) {
         if (!is.null(dates_raw)) {
-          local_acc$raw_dates <- as.Date(dates_raw)
-          local_acc$raw_evi   <- as.numeric(evi_raw)
+          local_acc$raw_dates <- c(local_acc$raw_dates, as.Date(dates_raw))
+          local_acc$raw_evi   <- c(local_acc$raw_evi,   as.numeric(evi_raw))
         }
         if (!is.null(pred_dates)) {
-          local_acc$smooth_dates <- as.Date(pred_dates)
-          local_acc$smooth_evi   <- as.numeric(evi_spline)
+          local_acc$smooth_dates <- c(local_acc$smooth_dates, as.Date(pred_dates))
+          local_acc$smooth_evi   <- c(local_acc$smooth_evi,   as.numeric(evi_spline))
         }
       }
-
+      
       res <- DoPhenologyPlanet(
         B[[2]][i,], B[[4]][i,], B[[6]][i,], B[[8]][i,],
         dates, phenYrs, params, waterMask = 0,
         ts_sink = local_sink, pix_meta = pix_meta
       )
-
+      
       list(
         pheno = if (length(res) == phen_vec_len) res else rep(NA_real_, phen_vec_len),
         raw_dates = local_acc$raw_dates,
@@ -220,18 +228,18 @@ for (f in chunk_files) {
       )
     })
   }
-
+  
   # Collect results back
   pheno_mat <- do.call(rbind, lapply(pheno_list, `[[`, "pheno"))
   ts_raw_dates    <- lapply(pheno_list, `[[`, "raw_dates")
   ts_raw_evi      <- lapply(pheno_list, `[[`, "raw_evi")
   ts_smooth_dates <- lapply(pheno_list, `[[`, "smooth_dates")
   ts_smooth_evi   <- lapply(pheno_list, `[[`, "smooth_evi")
-
+  
   n_raw    <- sum(lengths(ts_raw_evi) > 0)
   n_smooth <- sum(lengths(ts_smooth_evi) > 0)
   message("🧾 Time series captured: raw=", n_raw, ", smooth=", n_smooth)
-
+  
   # ----------------------------- Build SF + CSV data ---------------------------
   sf_obj <- st_as_sf(
     data.frame(cell = cells_chunk, x = xy[,1], y = xy[,2]),
@@ -244,7 +252,7 @@ for (f in chunk_files) {
       dates_spline = ts_smooth_dates,
       evi_spline   = ts_smooth_evi
     )
-
+  
   # Fallback for raw EVI if all missing
   if (n_raw == 0) {
     message("⚠️  No raw series from callback — computing directly from bands (2,6,8)")
@@ -258,16 +266,17 @@ for (f in chunk_files) {
     sf_obj$evi_raw   <- ts_raw_evi
     n_raw <- n_pix
   }
-
+  
   # ----------------------------- Save SF --------------------------------------
-  saveRDS(sf_obj, file = file.path(tablesDir, paste0("chunk_", ckNum_str, "_evi_sf.rds")))
-  message("💾 Saved sf: ", file.path(tablesDir, paste0("chunk_", ckNum_str, "_evi_sf.rds")))
-
+  saveRDS(sf_obj, file = sf_chunk_path)
+  message("💾 Saved sf: ", sf_chunk_path)
+  
   # ----------------------------- Save Phenology -------------------------------
   save(pheno_mat, file = phe_out_rda)
   message("💾 Saved phenology matrix: ", phe_out_rda)
-
- # ----------------------------- Save CSVs ------------------------------------
+  
+  # ----------------------------- Save CSVs ------------------------------------
+  if (isTRUE(params$setup$writeCSV)) {
     coords_df <- sf::st_coordinates(sf_obj)
     sf_obj2 <- sf_obj |>
       st_drop_geometry() |>
@@ -285,13 +294,11 @@ for (f in chunk_files) {
     ts_wide <- full_join(ts_raw, ts_smooth, by = c("cell","x","y","date")) |>
       arrange(cell, date)
     
-    # --- FILTER LOGIC FIX ---
-    # Keep all smooth dates within the configured phenology period,
-    # and any raw values at their native dates
+    # Keep all dates within configured phenology years (if set)
     if ("phenStartYr" %in% names(params$setup) && "phenEndYr" %in% names(params$setup)) {
       ts_wide <- ts_wide |>
         filter(lubridate::year(date) >= params$setup$phenStartYr &
-               lubridate::year(date) <= params$setup$phenEndYr)
+                 lubridate::year(date) <= params$setup$phenEndYr)
     }
     
     # drop empty rows
@@ -315,6 +322,7 @@ for (f in chunk_files) {
                   col.names = TRUE,  append = FALSE)
     }
     message("📈 Appended ", nrow(ts_wide), " rows → ", basename(aggFile))
+  }
 }
 
 message("✅ Step 3 complete for site ", strSite)
@@ -324,3 +332,26 @@ if (file.exists(aggFile)) {
   message("🧮 Site-wide CSV: ", aggFile,
           " (", format(n_lines, big.mark=","), " lines)")
 }
+
+# # ---------------------- NEW: Aggregate chunk sf → site-level ------------------- ## generally way too big
+# message("🔗 Aggregating per-chunk sf files into a single site-level sf")
+# 
+# sf_files <- list.files(
+#   tablesDir,
+#   pattern = "^chunk_\\d{3}_evi_sf\\.rds$",
+#   full.names = TRUE
+# )
+# 
+# if (length(sf_files) == 0) {
+#   message("⚠️ No chunk sf files found in ", tablesDir, " — skipping site-level sf aggregation.")
+# } else {
+#   sf_list <- lapply(sf_files, readRDS)
+#   # rbind all sf objects; st_crs should be identical
+#   sf_all  <- do.call(rbind, sf_list)
+#   
+#   site_sf_path <- file.path(siteTblDir, paste0(strSite, "_evi_timeseries_sf.rds"))
+#   saveRDS(sf_all, site_sf_path)
+#   
+#   message("💾 Saved site-level sf: ", site_sf_path,
+#           " (", nrow(sf_all), " features)")
+# }

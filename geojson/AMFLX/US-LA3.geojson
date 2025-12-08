@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -89.9303,
+              29.4786
+            ],
+            [
+              -89.9003,
+              29.4786
+            ],
+            [
+              -89.9003,
+              29.5086
+            ],
+            [
+              -89.9303,
+              29.5086
+            ],
+            [
+              -89.9303,
+              29.4786
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Barataria Bay Saline Marsh",
+        "f": "US-LA3"
+      }
+    }
+  ]
+}

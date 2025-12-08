@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -75.9188,
+              35.7729
+            ],
+            [
+              -75.8888,
+              35.7729
+            ],
+            [
+              -75.8888,
+              35.8029
+            ],
+            [
+              -75.9188,
+              35.8029
+            ],
+            [
+              -75.9188,
+              35.7729
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at NC_AlligatorRiver",
+        "f": "US-NC4"
+      }
+    }
+  ]
+}

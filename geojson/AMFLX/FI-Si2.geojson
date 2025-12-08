@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              24.1817,
+              61.8222
+            ],
+            [
+              24.2117,
+              61.8222
+            ],
+            [
+              24.2117,
+              61.8522
+            ],
+            [
+              24.1817,
+              61.8522
+            ],
+            [
+              24.1817,
+              61.8222
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Siikaneva-2 Bog",
+        "f": "FI-Si2"
+      }
+    }
+  ]
+}

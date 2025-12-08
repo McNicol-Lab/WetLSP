@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -148.32833,
+              64.688733
+            ],
+            [
+              -148.29833000000002,
+              64.688733
+            ],
+            [
+              -148.29833000000002,
+              64.718733
+            ],
+            [
+              -148.32833,
+              64.718733
+            ],
+            [
+              -148.32833,
+              64.688733
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Bonanza Creek Rich Fen",
+        "f": "US-BZF"
+      }
+    }
+  ]
+}

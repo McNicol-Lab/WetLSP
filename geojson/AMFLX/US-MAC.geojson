@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -81.202302,
+              27.1482
+            ],
+            [
+              -81.172302,
+              27.1482
+            ],
+            [
+              -81.172302,
+              27.1782
+            ],
+            [
+              -81.202302,
+              27.1782
+            ],
+            [
+              -81.202302,
+              27.1482
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at MacArthur Agro-Ecology",
+        "f": "US-MAC"
+      }
+    }
+  ]
+}

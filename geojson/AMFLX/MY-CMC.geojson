@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              111.386883,
+              1.3848330000000002
+            ],
+            [
+              111.416883,
+              1.3848330000000002
+            ],
+            [
+              111.416883,
+              1.414833
+            ],
+            [
+              111.386883,
+              1.414833
+            ],
+            [
+              111.386883,
+              1.3848330000000002
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Cermat Ceria",
+        "f": "MY-CMC"
+      }
+    }
+  ]
+}

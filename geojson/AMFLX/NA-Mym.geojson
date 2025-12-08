@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              90.411292,
+              24.724348
+            ],
+            [
+              90.441292,
+              24.724348
+            ],
+            [
+              90.441292,
+              24.754348
+            ],
+            [
+              90.411292,
+              24.754348
+            ],
+            [
+              90.411292,
+              24.724348
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Mymensingh Flux Study Site",
+        "f": "NA-Mym"
+      }
+    }
+  ]
+}

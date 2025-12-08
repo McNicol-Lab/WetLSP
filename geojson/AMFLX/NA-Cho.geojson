@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              24.6220333,
+              -18.122567
+            ],
+            [
+              24.6520333,
+              -18.122567
+            ],
+            [
+              24.6520333,
+              -18.092567
+            ],
+            [
+              24.6220333,
+              -18.092567
+            ],
+            [
+              24.6220333,
+              -18.122567
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Chobe Forest Reserve",
+        "f": "NA-Cho"
+      }
+    }
+  ]
+}

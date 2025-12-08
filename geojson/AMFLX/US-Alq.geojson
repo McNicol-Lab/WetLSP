@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -89.6217,
+              46.0158
+            ],
+            [
+              -89.5917,
+              46.0158
+            ],
+            [
+              -89.5917,
+              46.0458
+            ],
+            [
+              -89.6217,
+              46.0458
+            ],
+            [
+              -89.6217,
+              46.0158
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Allequash Creek Site",
+        "f": "US-Alq"
+      }
+    }
+  ]
+}

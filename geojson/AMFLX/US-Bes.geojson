@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -156.61149999999998,
+              71.2659
+            ],
+            [
+              -156.5815,
+              71.2659
+            ],
+            [
+              -156.5815,
+              71.2959
+            ],
+            [
+              -156.61149999999998,
+              71.2959
+            ],
+            [
+              -156.61149999999998,
+              71.2659
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Barrow-Bes (Biocomplexity Experiment South tower)",
+        "f": "US-Bes"
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -52.9272,
+              5.2667
+            ],
+            [
+              -52.8972,
+              5.2667
+            ],
+            [
+              -52.8972,
+              5.2966999999999995
+            ],
+            [
+              -52.9272,
+              5.2966999999999995
+            ],
+            [
+              -52.9272,
+              5.2667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Paracou/GuyaFlux",
+        "f": "NA-Par"
+      }
+    }
+  ]
+}

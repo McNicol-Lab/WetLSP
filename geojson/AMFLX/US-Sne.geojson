@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -121.7697,
+              38.0219
+            ],
+            [
+              -121.7397,
+              38.0219
+            ],
+            [
+              -121.7397,
+              38.0519
+            ],
+            [
+              -121.7697,
+              38.0519
+            ],
+            [
+              -121.7697,
+              38.0219
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Sherman Island Restored Wetland",
+        "f": "US-Sne"
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              161.33589,
+              68.60189
+            ],
+            [
+              161.36588999999998,
+              68.60189
+            ],
+            [
+              161.36588999999998,
+              68.63189
+            ],
+            [
+              161.33589,
+              68.63189
+            ],
+            [
+              161.33589,
+              68.60189
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Chersky reference",
+        "f": "RU-Ch2"
+      }
+    }
+  ]
+}

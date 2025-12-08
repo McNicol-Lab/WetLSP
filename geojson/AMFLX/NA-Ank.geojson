@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -2.7092059,
+              5.25354275
+            ],
+            [
+              -2.6792059,
+              5.25354275
+            ],
+            [
+              -2.6792059,
+              5.28354275
+            ],
+            [
+              -2.7092059,
+              5.28354275
+            ],
+            [
+              -2.7092059,
+              5.25354275
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Ankasa Conservation Area",
+        "f": "NA-Ank"
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -75.452225,
+              39.0732111
+            ],
+            [
+              -75.422225,
+              39.0732111
+            ],
+            [
+              -75.422225,
+              39.1032111
+            ],
+            [
+              -75.452225,
+              39.1032111
+            ],
+            [
+              -75.452225,
+              39.0732111
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at St Jones Reserve",
+        "f": "US-StJ"
+      }
+    }
+  ]
+}

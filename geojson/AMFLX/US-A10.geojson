@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -156.6299,
+              71.3092
+            ],
+            [
+              -156.59990000000002,
+              71.3092
+            ],
+            [
+              -156.59990000000002,
+              71.3392
+            ],
+            [
+              -156.6299,
+              71.3392
+            ],
+            [
+              -156.6299,
+              71.3092
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at ARM-NSA-Barrow",
+        "f": "US-A10"
+      }
+    }
+  ]
+}

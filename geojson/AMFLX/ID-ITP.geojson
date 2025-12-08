@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              102.749551,
+              0.380204
+            ],
+            [
+              102.779551,
+              0.380204
+            ],
+            [
+              102.779551,
+              0.410204
+            ],
+            [
+              102.749551,
+              0.410204
+            ],
+            [
+              102.749551,
+              0.380204
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Intact Tropical Peatland",
+        "f": "ID-ITP"
+      }
+    }
+  ]
+}

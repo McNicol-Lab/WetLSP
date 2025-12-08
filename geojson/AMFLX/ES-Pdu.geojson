@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -3.624228,
+              37.001975
+            ],
+            [
+              -3.5942279999999998,
+              37.001975
+            ],
+            [
+              -3.5942279999999998,
+              37.031975
+            ],
+            [
+              -3.624228,
+              37.031975
+            ],
+            [
+              -3.624228,
+              37.001975
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Padul",
+        "f": "ES-Pdu"
+      }
+    }
+  ]
+}

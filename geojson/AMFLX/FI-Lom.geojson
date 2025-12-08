@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              24.19418,
+              67.98224
+            ],
+            [
+              24.22418,
+              67.98224
+            ],
+            [
+              24.22418,
+              68.01224
+            ],
+            [
+              24.19418,
+              68.01224
+            ],
+            [
+              24.19418,
+              67.98224
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Lompolojankka",
+        "f": "FI-Lom"
+      }
+    }
+  ]
+}

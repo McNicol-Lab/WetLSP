@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -149.3191,
+              68.5913
+            ],
+            [
+              -149.28910000000002,
+              68.5913
+            ],
+            [
+              -149.28910000000002,
+              68.6213
+            ],
+            [
+              -149.3191,
+              68.6213
+            ],
+            [
+              -149.3191,
+              68.5913
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Imnavait Creek Watershed Tussock Tundra",
+        "f": "US-ICt"
+      }
+    }
+  ]
+}

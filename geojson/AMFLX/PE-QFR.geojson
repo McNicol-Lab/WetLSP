@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -73.334,
+              -3.8494
+            ],
+            [
+              -73.304,
+              -3.8494
+            ],
+            [
+              -73.304,
+              -3.8194
+            ],
+            [
+              -73.334,
+              -3.8194
+            ],
+            [
+              -73.334,
+              -3.8494
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Quistococha Forest Reserve",
+        "f": "PE-QFR"
+      }
+    }
+  ]
+}

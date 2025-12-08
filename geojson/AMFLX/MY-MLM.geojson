@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              111.134492,
+              1.4385750000000002
+            ],
+            [
+              111.164492,
+              1.4385750000000002
+            ],
+            [
+              111.164492,
+              1.468575
+            ],
+            [
+              111.134492,
+              1.468575
+            ],
+            [
+              111.134492,
+              1.4385750000000002
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Maludam National Park",
+        "f": "MY-MLM"
+      }
+    }
+  ]
+}

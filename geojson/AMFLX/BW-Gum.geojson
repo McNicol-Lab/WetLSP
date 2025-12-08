@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              22.356099999999998,
+              -18.9797
+            ],
+            [
+              22.3861,
+              -18.9797
+            ],
+            [
+              22.3861,
+              -18.9497
+            ],
+            [
+              22.356099999999998,
+              -18.9497
+            ],
+            [
+              22.356099999999998,
+              -18.9797
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Guma",
+        "f": "BW-Gum"
+      }
+    }
+  ]
+}

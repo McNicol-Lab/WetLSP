@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -72.6136,
+              -3.0371
+            ],
+            [
+              -72.5836,
+              -3.0371
+            ],
+            [
+              -72.5836,
+              -3.0071
+            ],
+            [
+              -72.6136,
+              -3.0071
+            ],
+            [
+              -72.6136,
+              -3.0371
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Ampiyacu",
+        "f": "NA-Amp"
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              12.161111,
+              54.195278
+            ],
+            [
+              12.191111000000001,
+              54.195278
+            ],
+            [
+              12.191111000000001,
+              54.225278
+            ],
+            [
+              12.161111,
+              54.225278
+            ],
+            [
+              12.161111,
+              54.195278
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Huetelmoor",
+        "f": "DE-Hte"
+      }
+    }
+  ]
+}

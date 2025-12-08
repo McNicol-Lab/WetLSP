@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -157.42389999999997,
+              70.4546
+            ],
+            [
+              -157.3939,
+              70.4546
+            ],
+            [
+              -157.3939,
+              70.4846
+            ],
+            [
+              -157.42389999999997,
+              70.4846
+            ],
+            [
+              -157.42389999999997,
+              70.4546
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Atqasuk",
+        "f": "US-Atq"
+      }
+    }
+  ]
+}

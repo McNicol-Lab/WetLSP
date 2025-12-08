@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -148.33849999999998,
+              64.6813
+            ],
+            [
+              -148.3085,
+              64.6813
+            ],
+            [
+              -148.3085,
+              64.7113
+            ],
+            [
+              -148.33849999999998,
+              64.7113
+            ],
+            [
+              -148.33849999999998,
+              64.6813
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Bonanza Creek Black Spruce",
+        "f": "US-BZS"
+      }
+    }
+  ]
+}

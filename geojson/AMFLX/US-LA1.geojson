@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -90.4599,
+              29.4863
+            ],
+            [
+              -90.4299,
+              29.4863
+            ],
+            [
+              -90.4299,
+              29.5163
+            ],
+            [
+              -90.4599,
+              29.5163
+            ],
+            [
+              -90.4599,
+              29.4863
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Pointe-aux-Chenes Brackish Marsh",
+        "f": "US-LA1"
+      }
+    }
+  ]
+}

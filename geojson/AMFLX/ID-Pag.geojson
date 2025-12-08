@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              113.885,
+              -2.335
+            ],
+            [
+              113.915,
+              -2.335
+            ],
+            [
+              113.915,
+              -2.3049999999999997
+            ],
+            [
+              113.885,
+              -2.3049999999999997
+            ],
+            [
+              113.885,
+              -2.335
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Palangkaraya Undrained Forest",
+        "f": "ID-Pag"
+      }
+    }
+  ]
+}

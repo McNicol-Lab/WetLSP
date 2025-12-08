@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              8.810832999999999,
+              52.4933
+            ],
+            [
+              8.840833,
+              52.4933
+            ],
+            [
+              8.840833,
+              52.5233
+            ],
+            [
+              8.810832999999999,
+              52.5233
+            ],
+            [
+              8.810832999999999,
+              52.4933
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Uchter Moor",
+        "f": "DE-UtM"
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -93.5043,
+              47.4901
+            ],
+            [
+              -93.4743,
+              47.4901
+            ],
+            [
+              -93.4743,
+              47.5201
+            ],
+            [
+              -93.5043,
+              47.5201
+            ],
+            [
+              -93.5043,
+              47.4901
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Marcell Bog Lake Peatland",
+        "f": "US-MBP"
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.129,
+              37.60062
+            ],
+            [
+              -122.099,
+              37.60062
+            ],
+            [
+              -122.099,
+              37.63062
+            ],
+            [
+              -122.129,
+              37.63062
+            ],
+            [
+              -122.129,
+              37.60062
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Eden Landing Ecological Reserve",
+        "f": "US-EDN"
+      }
+    }
+  ]
+}

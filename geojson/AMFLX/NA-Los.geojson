@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -70.1082,
+              -12.5821
+            ],
+            [
+              -70.0782,
+              -12.5821
+            ],
+            [
+              -70.0782,
+              -12.5521
+            ],
+            [
+              -70.1082,
+              -12.5521
+            ],
+            [
+              -70.1082,
+              -12.5821
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Los Amigos ",
+        "f": "NA-Los"
+      }
+    }
+  ]
+}

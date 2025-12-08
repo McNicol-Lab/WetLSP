@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -53.162922,
+              -30.292108
+            ],
+            [
+              -53.132922,
+              -30.292108
+            ],
+            [
+              -53.132922,
+              -30.262107999999998
+            ],
+            [
+              -53.162922,
+              -30.262107999999998
+            ],
+            [
+              -53.162922,
+              -30.292108
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Cachoeira do Sul",
+        "f": "NA-Cac"
+      }
+    }
+  ]
+}

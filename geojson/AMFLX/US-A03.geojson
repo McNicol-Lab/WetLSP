@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -149.89729999999997,
+              70.480328
+            ],
+            [
+              -149.8673,
+              70.480328
+            ],
+            [
+              -149.8673,
+              70.510328
+            ],
+            [
+              -149.89729999999997,
+              70.510328
+            ],
+            [
+              -149.89729999999997,
+              70.480328
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at ARM-AMF3-Oliktok",
+        "f": "US-A03"
+      }
+    }
+  ]
+}

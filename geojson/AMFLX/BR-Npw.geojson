@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -56.42694,
+              -16.51306
+            ],
+            [
+              -56.39694,
+              -16.51306
+            ],
+            [
+              -56.39694,
+              -16.48306
+            ],
+            [
+              -56.42694,
+              -16.48306
+            ],
+            [
+              -56.42694,
+              -16.51306
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Pantanal of Mato Gross",
+        "f": "BR-Npw"
+      }
+    }
+  ]
+}

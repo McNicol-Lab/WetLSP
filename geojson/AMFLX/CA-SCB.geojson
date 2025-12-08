@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -121.3134,
+              61.2939
+            ],
+            [
+              -121.2834,
+              61.2939
+            ],
+            [
+              -121.2834,
+              61.3239
+            ],
+            [
+              -121.3134,
+              61.3239
+            ],
+            [
+              -121.3134,
+              61.2939
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Scotty Creek Bog",
+        "f": "CA-SCB"
+      }
+    }
+  ]
+}

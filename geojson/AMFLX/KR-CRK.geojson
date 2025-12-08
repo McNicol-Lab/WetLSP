@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              127.2356,
+              38.1863
+            ],
+            [
+              127.2656,
+              38.1863
+            ],
+            [
+              127.2656,
+              38.216300000000004
+            ],
+            [
+              127.2356,
+              38.216300000000004
+            ],
+            [
+              127.2356,
+              38.1863
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Cheorwon Rice paddy",
+        "f": "KR-CRK"
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              79.77888899999999,
+              11.407599999999999
+            ],
+            [
+              79.808889,
+              11.407599999999999
+            ],
+            [
+              79.808889,
+              11.4376
+            ],
+            [
+              79.77888899999999,
+              11.4376
+            ],
+            [
+              79.77888899999999,
+              11.407599999999999
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Pichavaram Mangrove forest",
+        "f": "NA-Pic"
+      }
+    }
+  ]
+}

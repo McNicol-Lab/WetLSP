@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -147.87052999999997,
+              64.85127
+            ],
+            [
+              -147.84053,
+              64.85127
+            ],
+            [
+              -147.84053,
+              64.88127
+            ],
+            [
+              -147.87052999999997,
+              64.88127
+            ],
+            [
+              -147.87052999999997,
+              64.85127
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at University of Alaska, Fairbanks",
+        "f": "US-Uaf"
+      }
+    }
+  ]
+}

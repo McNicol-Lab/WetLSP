@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -76.7904,
+              -7.1964
+            ],
+            [
+              -76.7604,
+              -7.1964
+            ],
+            [
+              -76.7604,
+              -7.1664
+            ],
+            [
+              -76.7904,
+              -7.1664
+            ],
+            [
+              -76.7904,
+              -7.1964
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Juanjui",
+        "f": "NA-Jua"
+      }
+    }
+  ]
+}

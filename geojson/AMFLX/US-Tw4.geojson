@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -121.65633,
+              38.087743599999996
+            ],
+            [
+              -121.62633,
+              38.087743599999996
+            ],
+            [
+              -121.62633,
+              38.1177436
+            ],
+            [
+              -121.65633,
+              38.1177436
+            ],
+            [
+              -121.65633,
+              38.087743599999996
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Twitchell East End Wetland",
+        "f": "US-Tw4"
+      }
+    }
+  ]
+}

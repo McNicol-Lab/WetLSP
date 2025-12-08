@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -121.77998,
+              38.034861
+            ],
+            [
+              -121.74998,
+              38.034861
+            ],
+            [
+              -121.74998,
+              38.064861
+            ],
+            [
+              -121.77998,
+              38.064861
+            ],
+            [
+              -121.77998,
+              38.034861
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Mayberry Wetland",
+        "f": "US-Myb"
+      }
+    }
+  ]
+}

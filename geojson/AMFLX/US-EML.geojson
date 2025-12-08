@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -149.2686,
+              63.8634
+            ],
+            [
+              -149.23860000000002,
+              63.8634
+            ],
+            [
+              -149.23860000000002,
+              63.8934
+            ],
+            [
+              -149.2686,
+              63.8934
+            ],
+            [
+              -149.2686,
+              63.8634
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Eight Mile Lake Permafrost thaw gradient Healy Alaska.",
+        "f": "US-EML"
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -89.9942,
+              46.0677
+            ],
+            [
+              -89.9642,
+              46.0677
+            ],
+            [
+              -89.9642,
+              46.0977
+            ],
+            [
+              -89.9942,
+              46.0977
+            ],
+            [
+              -89.9942,
+              46.0677
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Lost Creek",
+        "f": "US-Los"
+      }
+    }
+  ]
+}

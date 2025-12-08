@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -149.3108,
+              68.5918
+            ],
+            [
+              -149.28080000000003,
+              68.5918
+            ],
+            [
+              -149.28080000000003,
+              68.62180000000001
+            ],
+            [
+              -149.3108,
+              68.62180000000001
+            ],
+            [
+              -149.3108,
+              68.5918
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Imnavait Creek Watershed Heath Tundra",
+        "f": "US-ICh"
+      }
+    }
+  ]
+}

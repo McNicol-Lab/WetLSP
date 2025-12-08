@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -63.2214,
+              50.5094
+            ],
+            [
+              -63.1914,
+              50.5094
+            ],
+            [
+              -63.1914,
+              50.5394
+            ],
+            [
+              -63.2214,
+              50.5394
+            ],
+            [
+              -63.2214,
+              50.5094
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Bouleau Peatland",
+        "f": "CA-BOU"
+      }
+    }
+  ]
+}

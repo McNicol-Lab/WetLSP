@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              16.743492,
+              47.75414
+            ],
+            [
+              16.773492,
+              47.75414
+            ],
+            [
+              16.773492,
+              47.78414
+            ],
+            [
+              16.743492,
+              47.78414
+            ],
+            [
+              16.743492,
+              47.75414
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Neusiedl",
+        "f": "AT-Nsd"
+      }
+    }
+  ]
+}

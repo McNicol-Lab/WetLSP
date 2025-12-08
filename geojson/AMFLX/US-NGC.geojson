@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -163.71579999999997,
+              64.8464
+            ],
+            [
+              -163.6858,
+              64.8464
+            ],
+            [
+              -163.6858,
+              64.8764
+            ],
+            [
+              -163.71579999999997,
+              64.8764
+            ],
+            [
+              -163.71579999999997,
+              64.8464
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at NGEE Arctic Council",
+        "f": "US-NGC"
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              114.021,
+              -2.3600000000000003
+            ],
+            [
+              114.051,
+              -2.3600000000000003
+            ],
+            [
+              114.051,
+              -2.33
+            ],
+            [
+              114.021,
+              -2.33
+            ],
+            [
+              114.021,
+              -2.3600000000000003
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Palangkaraya Drained Forest",
+        "f": "NA-Pal"
+      }
+    }
+  ]
+}

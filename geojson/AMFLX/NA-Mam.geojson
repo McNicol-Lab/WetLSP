@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -64.8642,
+              -3.079
+            ],
+            [
+              -64.8342,
+              -3.079
+            ],
+            [
+              -64.8342,
+              -3.049
+            ],
+            [
+              -64.8642,
+              -3.049
+            ],
+            [
+              -64.8642,
+              -3.079
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Mamiraua",
+        "f": "NA-Mam"
+      }
+    }
+  ]
+}

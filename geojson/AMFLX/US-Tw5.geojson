@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -121.65757,
+              38.092155
+            ],
+            [
+              -121.62757,
+              38.092155
+            ],
+            [
+              -121.62757,
+              38.122155
+            ],
+            [
+              -121.65757,
+              38.122155
+            ],
+            [
+              -121.65757,
+              38.092155
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at East Pond Wetland",
+        "f": "US-Tw5"
+      }
+    }
+  ]
+}

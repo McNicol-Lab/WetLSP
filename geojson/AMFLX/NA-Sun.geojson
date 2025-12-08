@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              88.61535,
+              21.791967
+            ],
+            [
+              88.64535000000001,
+              21.791967
+            ],
+            [
+              88.64535000000001,
+              21.821967
+            ],
+            [
+              88.61535,
+              21.821967
+            ],
+            [
+              88.61535,
+              21.791967
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Sundarbans biosphere reserve",
+        "f": "NA-Sun"
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              111.830636,
+              2.171122
+            ],
+            [
+              111.860636,
+              2.171122
+            ],
+            [
+              111.860636,
+              2.2011220000000002
+            ],
+            [
+              111.830636,
+              2.2011220000000002
+            ],
+            [
+              111.830636,
+              2.171122
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Sibu station",
+        "f": "MY-SBW"
+      }
+    }
+  ]
+}

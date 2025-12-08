@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -83.0333,
+              40.0051
+            ],
+            [
+              -83.0033,
+              40.0051
+            ],
+            [
+              -83.0033,
+              40.0351
+            ],
+            [
+              -83.0333,
+              40.0351
+            ],
+            [
+              -83.0333,
+              40.0051
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Olentangy River Wetland Research Park",
+        "f": "US-ORv"
+      }
+    }
+  ]
+}

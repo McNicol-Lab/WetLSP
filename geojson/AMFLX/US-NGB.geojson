@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -156.62418,
+              71.265044
+            ],
+            [
+              -156.59418000000002,
+              71.265044
+            ],
+            [
+              -156.59418000000002,
+              71.295044
+            ],
+            [
+              -156.62418,
+              71.295044
+            ],
+            [
+              -156.62418,
+              71.265044
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at NGEE Arctic Barrow",
+        "f": "US-NGB"
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -83.011157,
+              41.449639
+            ],
+            [
+              -82.981157,
+              41.449639
+            ],
+            [
+              -82.981157,
+              41.479639
+            ],
+            [
+              -83.011157,
+              41.479639
+            ],
+            [
+              -83.011157,
+              41.449639
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Winous Point North Marsh",
+        "f": "US-WPT"
+      }
+    }
+  ]
+}

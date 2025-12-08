@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -123.0101,
+              49.104
+            ],
+            [
+              -122.9801,
+              49.104
+            ],
+            [
+              -122.9801,
+              49.134
+            ],
+            [
+              -123.0101,
+              49.134
+            ],
+            [
+              -123.0101,
+              49.104
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Delta Burns Bog 2",
+        "f": "CA-DB2"
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.3125,
+              47.79139
+            ],
+            [
+              11.342500000000001,
+              47.79139
+            ],
+            [
+              11.342500000000001,
+              47.82139
+            ],
+            [
+              11.3125,
+              47.82139
+            ],
+            [
+              11.3125,
+              47.79139
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Schechenfilz Nord",
+        "f": "DE-SfN"
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -121.3142,
+              61.292899999999996
+            ],
+            [
+              -121.2842,
+              61.292899999999996
+            ],
+            [
+              -121.2842,
+              61.3229
+            ],
+            [
+              -121.3142,
+              61.3229
+            ],
+            [
+              -121.3142,
+              61.292899999999996
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Scotty Creek Landscape",
+        "f": "CA-SCC"
+      }
+    }
+  ]
+}

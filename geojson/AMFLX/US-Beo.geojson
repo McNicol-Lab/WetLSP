@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -156.6273,
+              71.266
+            ],
+            [
+              -156.59730000000002,
+              71.266
+            ],
+            [
+              -156.59730000000002,
+              71.296
+            ],
+            [
+              -156.6273,
+              71.296
+            ],
+            [
+              -156.6273,
+              71.266
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Barrow Environmental Observatory (BEO) tower",
+        "f": "US-Beo"
+      }
+    }
+  ]
+}

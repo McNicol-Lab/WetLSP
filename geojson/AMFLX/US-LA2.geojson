@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -90.3019,
+              29.8437
+            ],
+            [
+              -90.2719,
+              29.8437
+            ],
+            [
+              -90.2719,
+              29.8737
+            ],
+            [
+              -90.3019,
+              29.8737
+            ],
+            [
+              -90.3019,
+              29.8437
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Salvador WMA Freshwater Marsh",
+        "f": "US-LA2"
+      }
+    }
+  ]
+}

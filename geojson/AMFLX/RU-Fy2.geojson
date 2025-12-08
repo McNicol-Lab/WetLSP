@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              32.8869,
+              56.4326
+            ],
+            [
+              32.9169,
+              56.4326
+            ],
+            [
+              32.9169,
+              56.4626
+            ],
+            [
+              32.8869,
+              56.4626
+            ],
+            [
+              32.8869,
+              56.4326
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Fyodorovskoye dry spruce",
+        "f": "RU-Fy2"
+      }
+    }
+  ]
+}

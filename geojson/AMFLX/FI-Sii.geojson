@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              24.17785,
+              61.81765
+            ],
+            [
+              24.20785,
+              61.81765
+            ],
+            [
+              24.20785,
+              61.84765
+            ],
+            [
+              24.17785,
+              61.84765
+            ],
+            [
+              24.17785,
+              61.81765
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Siikaneva",
+        "f": "FI-Sii"
+      }
+    }
+  ]
+}

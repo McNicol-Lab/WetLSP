@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              121.25026,
+              14.12619
+            ],
+            [
+              121.28026,
+              14.12619
+            ],
+            [
+              121.28026,
+              14.15619
+            ],
+            [
+              121.25026,
+              14.15619
+            ],
+            [
+              121.25026,
+              14.12619
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Philippines Rice Institute flooded",
+        "f": "PH-RiF"
+      }
+    }
+  ]
+}

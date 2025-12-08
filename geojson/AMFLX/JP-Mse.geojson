@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              140.01193,
+              36.03893
+            ],
+            [
+              140.04192999999998,
+              36.03893
+            ],
+            [
+              140.04192999999998,
+              36.06893
+            ],
+            [
+              140.01193,
+              36.06893
+            ],
+            [
+              140.01193,
+              36.03893
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Mase rice paddy field",
+        "f": "JP-Mse"
+      }
+    }
+  ]
+}

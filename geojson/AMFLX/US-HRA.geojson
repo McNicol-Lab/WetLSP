@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -91.766735,
+              34.570208
+            ],
+            [
+              -91.736735,
+              34.570208
+            ],
+            [
+              -91.736735,
+              34.600208
+            ],
+            [
+              -91.766735,
+              34.600208
+            ],
+            [
+              -91.766735,
+              34.570208
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Humnoke Farm Rice Field \u2013 Field A",
+        "f": "US-HRA"
+      }
+    }
+  ]
+}

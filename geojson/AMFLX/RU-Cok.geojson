@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              147.47928000000002,
+              70.81414
+            ],
+            [
+              147.50928,
+              70.81414
+            ],
+            [
+              147.50928,
+              70.84414
+            ],
+            [
+              147.47928000000002,
+              70.84414
+            ],
+            [
+              147.47928000000002,
+              70.81414
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Chokurdakh",
+        "f": "RU-Cok"
+      }
+    }
+  ]
+}

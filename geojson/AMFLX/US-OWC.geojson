@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -82.527467,
+              41.3645167
+            ],
+            [
+              -82.497467,
+              41.3645167
+            ],
+            [
+              -82.497467,
+              41.394516700000004
+            ],
+            [
+              -82.527467,
+              41.394516700000004
+            ],
+            [
+              -82.527467,
+              41.3645167
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Old Woman Creek",
+        "f": "US-OWC"
+      }
+    }
+  ]
+}

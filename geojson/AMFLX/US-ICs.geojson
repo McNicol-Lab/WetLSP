@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -149.326,
+              68.5908
+            ],
+            [
+              -149.29600000000002,
+              68.5908
+            ],
+            [
+              -149.29600000000002,
+              68.6208
+            ],
+            [
+              -149.326,
+              68.6208
+            ],
+            [
+              -149.326,
+              68.5908
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Imnavait Creek Watershed Wet Sedge Tundra",
+        "f": "US-ICs"
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              12.87401,
+              53.86094
+            ],
+            [
+              12.904010000000001,
+              53.86094
+            ],
+            [
+              12.904010000000001,
+              53.89094
+            ],
+            [
+              12.87401,
+              53.89094
+            ],
+            [
+              12.87401,
+              53.86094
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Zarnekow",
+        "f": "DE-Zrk"
+      }
+    }
+  ]
+}

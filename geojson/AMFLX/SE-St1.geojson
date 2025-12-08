@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              19.035332999999998,
+              68.3391488
+            ],
+            [
+              19.065333,
+              68.3391488
+            ],
+            [
+              19.065333,
+              68.3691488
+            ],
+            [
+              19.035332999999998,
+              68.3691488
+            ],
+            [
+              19.035332999999998,
+              68.3391488
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Stordalen grassland",
+        "f": "SE-St1"
+      }
+    }
+  ]
+}

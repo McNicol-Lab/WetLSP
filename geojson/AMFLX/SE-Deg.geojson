@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              19.541539,
+              64.167029
+            ],
+            [
+              19.571539,
+              64.167029
+            ],
+            [
+              19.571539,
+              64.197029
+            ],
+            [
+              19.541539,
+              64.197029
+            ],
+            [
+              19.541539,
+              64.167029
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Degero",
+        "f": "SE-Deg"
+      }
+    }
+  ]
+}

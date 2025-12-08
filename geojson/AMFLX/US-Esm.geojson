@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -80.6096,
+              25.4229
+            ],
+            [
+              -80.5796,
+              25.4229
+            ],
+            [
+              -80.5796,
+              25.4529
+            ],
+            [
+              -80.6096,
+              25.4529
+            ],
+            [
+              -80.6096,
+              25.4229
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Everglades (short hydroperiod marsh)",
+        "f": "US-Esm"
+      }
+    }
+  ]
+}

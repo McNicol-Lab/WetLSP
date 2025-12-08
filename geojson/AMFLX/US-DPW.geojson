@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -81.45111,
+              28.03706
+            ],
+            [
+              -81.42111,
+              28.03706
+            ],
+            [
+              -81.42111,
+              28.06706
+            ],
+            [
+              -81.45111,
+              28.06706
+            ],
+            [
+              -81.45111,
+              28.03706
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Disney Wilderness Preserve Wetland",
+        "f": "US-DPW"
+      }
+    }
+  ]
+}

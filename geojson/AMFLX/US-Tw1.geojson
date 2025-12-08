@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -121.6619,
+              38.0924
+            ],
+            [
+              -121.6319,
+              38.0924
+            ],
+            [
+              -121.6319,
+              38.1224
+            ],
+            [
+              -121.6619,
+              38.1224
+            ],
+            [
+              -121.6619,
+              38.0924
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Twitchell Wetland West Pond",
+        "f": "US-Tw1"
+      }
+    }
+  ]
+}

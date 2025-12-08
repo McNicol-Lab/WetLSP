@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              102.778305,
+              0.684491
+            ],
+            [
+              102.808305,
+              0.684491
+            ],
+            [
+              102.808305,
+              0.714491
+            ],
+            [
+              102.778305,
+              0.714491
+            ],
+            [
+              102.778305,
+              0.684491
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Degraded Tropical Peatland",
+        "f": "ID-DTP"
+      }
+    }
+  ]
+}

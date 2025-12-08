@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              62.9254678,
+              67.0396799
+            ],
+            [
+              62.9554678,
+              67.0396799
+            ],
+            [
+              62.9554678,
+              67.0696799
+            ],
+            [
+              62.9254678,
+              67.0696799
+            ],
+            [
+              62.9254678,
+              67.0396799
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Seida/Vorkuta",
+        "f": "RU-Vrk"
+      }
+    }
+  ]
+}

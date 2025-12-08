@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              175.5389,
+              -37.4029
+            ],
+            [
+              175.56889999999999,
+              -37.4029
+            ],
+            [
+              175.56889999999999,
+              -37.3729
+            ],
+            [
+              175.5389,
+              -37.3729
+            ],
+            [
+              175.5389,
+              -37.4029
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Kopuatai",
+        "f": "NZ-Kop"
+      }
+    }
+  ]
+}

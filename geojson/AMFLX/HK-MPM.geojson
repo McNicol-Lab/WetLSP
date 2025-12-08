@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              114.014236,
+              22.483166999999998
+            ],
+            [
+              114.044236,
+              22.483166999999998
+            ],
+            [
+              114.044236,
+              22.513167
+            ],
+            [
+              114.014236,
+              22.513167
+            ],
+            [
+              114.014236,
+              22.483166999999998
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Mai Po Mangrove",
+        "f": "HK-MPM"
+      }
+    }
+  ]
+}

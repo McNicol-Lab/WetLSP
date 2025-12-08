@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -163.27399999999997,
+              61.2398
+            ],
+            [
+              -163.244,
+              61.2398
+            ],
+            [
+              -163.244,
+              61.269800000000004
+            ],
+            [
+              -163.27399999999997,
+              61.269800000000004
+            ],
+            [
+              -163.27399999999997,
+              61.2398
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Yukon-Kuskokwim Delta, Izaviknek-Kingaglia uplands, Unburned",
+        "f": "US-YK2"
+      }
+    }
+  ]
+}

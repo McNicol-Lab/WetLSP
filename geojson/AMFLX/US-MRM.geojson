@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -74.0585,
+              40.8014
+            ],
+            [
+              -74.0285,
+              40.8014
+            ],
+            [
+              -74.0285,
+              40.8314
+            ],
+            [
+              -74.0585,
+              40.8314
+            ],
+            [
+              -74.0585,
+              40.8014
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Marsh Resource Meadowlands Mitigation Bank",
+        "f": "US-MRM"
+      }
+    }
+  ]
+}

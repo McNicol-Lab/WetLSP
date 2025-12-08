@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -148.33584,
+              64.680547
+            ],
+            [
+              -148.30584000000002,
+              64.680547
+            ],
+            [
+              -148.30584000000002,
+              64.710547
+            ],
+            [
+              -148.33584,
+              64.710547
+            ],
+            [
+              -148.33584,
+              64.680547
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Bonanza Creek Thermokarst Bog",
+        "f": "US-BZB"
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              8.702522219999999,
+              45.0550472
+            ],
+            [
+              8.73252222,
+              45.0550472
+            ],
+            [
+              8.73252222,
+              45.0850472
+            ],
+            [
+              8.702522219999999,
+              45.0850472
+            ],
+            [
+              8.702522219999999,
+              45.0550472
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Castellaro",
+        "f": "IT-Cas"
+      }
+    }
+  ]
+}

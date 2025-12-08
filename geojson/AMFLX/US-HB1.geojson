@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -79.2107,
+              33.3305
+            ],
+            [
+              -79.1807,
+              33.3305
+            ],
+            [
+              -79.1807,
+              33.3605
+            ],
+            [
+              -79.2107,
+              33.3605
+            ],
+            [
+              -79.2107,
+              33.3305
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at North Inlet Crab Haul Creek",
+        "f": "US-HB1"
+      }
+    }
+  ]
+}

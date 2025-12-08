@@ -16,7 +16,7 @@ ViewPixelTimeseries <- function(site_sf, cell_vec) {
       date  = c(pix$dates_raw[[i]],    pix$dates_spline[[i]]),
       evi   = c(pix$evi_raw[[i]],       pix$evi_spline[[i]]),
       type  = c(rep("raw",    length(pix$dates_raw[[i]])),
-                rep("smooth", length(pix$dates_spline[[i]])))
+                rep("gap-filled", length(pix$dates_spline[[i]])))
     )
   })
   
@@ -28,19 +28,24 @@ ViewPixelTimeseries <- function(site_sf, cell_vec) {
   
   ggplot2::ggplot(df, ggplot2::aes(x = as.Date(date), y = evi,
                                    color = as.factor(cell),
-                                   shape = type,
-                                   linetype = type)) +
-    ggplot2::geom_point(alpha = 0.6, size = 1.5) +
+                                   # shape = as.factor(cell),
+                                   linetype = type,
+                                   alpha = type)) +
+    ggplot2::geom_point() +
     # ggplot2::geom_line(data = df[df$type == "smooth", ],
                        # size = 0.8, alpha = 0.9) +
-    ggplot2::scale_color_manual(values = cell_colors) +
-    ggplot2::scale_shape_manual(values = c(raw = 16, smooth = 1)) +
+    ggplot2::scale_x_date(limits = c(ymd("2021-01-01"), ("2024-12-31"))) +
+    ggplot2::scale_y_continuous(limits = c(0, 1)) +
+    ggplot2::scale_color_manual(values = c(cell_colors)) +
+    ggplot2::scale_alpha_manual(values = c(0.1, 1)) +
+    # ggplot2::scale_shape_manual(values = c(raw = 16, smooth = 1)) +
     # ggplot2::scale_linetype_manual(values = c(raw = "blank", smooth = "solid")) +
     ggplot2::theme_minimal(base_size = 14) +
     ggplot2::labs(
       title = "EVI Time Series for Cells: ",
-      color = "Cell #",
+      color = "Type",
       shape = "Type",
+      alpha = "Type",
       linetype = "Type",
       x = "Date",
       y = "EVI"

@@ -82,9 +82,35 @@ base_chunks <- lapply(seq_len(numCk), function(cc){
 })
 
 #---------------------------------------------
-# Prepare output directories
+# Prepare output directories (skip if chunks already exist)
 ckDir     <- file.path(params$setup$outDir, strSite, "chunk")
 ckDirTemp <- file.path(ckDir, "temp")
+
+numCk <- params$setup$numChunks
+
+# Optional flag in JSON: "overwriteChunks": true/false
+overwrite_chunks <- isTRUE(params$setup$overwriteChunks)
+
+# If chunk dir exists and all expected chunk_XXX.rda files are present, skip work
+if (dir.exists(ckDir) && !overwrite_chunks) {
+  existing_chunks <- list.files(
+    ckDir,
+    pattern = "^chunk_\\d{3}\\.rda$",
+    full.names = TRUE
+  )
+  
+  if (length(existing_chunks) >= numCk) {
+    message("✅ All ", numCk, " chunk files already exist in: ", ckDir)
+    message("   Skipping chunk creation for site ", strSite,
+            " (set 'overwriteChunks': true in wetlsp-parameters.json to force rebuild).")
+    quit(save = "no", status = 0)
+  } else {
+    message("ℹ️  Chunk dir exists but only ", length(existing_chunks),
+            " / ", numCk, " chunks found → will (re)build.")
+  }
+}
+
+# Only get here if we need to (re)build chunks
 dir.create(ckDir, recursive = TRUE, showWarnings = FALSE)
 dir.create(ckDirTemp, recursive = TRUE, showWarnings = FALSE)
 

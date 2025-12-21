@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -121.7478,
+              36.8207
+            ],
+            [
+              -121.7178,
+              36.8207
+            ],
+            [
+              -121.7178,
+              36.8507
+            ],
+            [
+              -121.7478,
+              36.8507
+            ],
+            [
+              -121.7478,
+              36.8207
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Elkhorn Slough North Marsh",
+        "f": "US-EKN"
+      }
+    }
+  ]
+}

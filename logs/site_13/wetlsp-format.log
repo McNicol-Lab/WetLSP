@@ -1,0 +1,18 @@
+Loading required package: terra
+terra 1.8.54
+Loading required package: rjson
+Loading required package: geojsonR
+Loading required package: ncdf4
+📍 Running site index: 13
+🗺️  Site: DE-Zrk
+💾 Creating NetCDF for DE-Zrk — 2021
+✅ Saved NetCDF: output/Product_netCDF/DE-Zrk/WetLSP_2021.nc
+💾 Creating NetCDF for DE-Zrk — 2022
+✅ Saved NetCDF: output/Product_netCDF/DE-Zrk/WetLSP_2022.nc
+💾 Creating NetCDF for DE-Zrk — 2023
+✅ Saved NetCDF: output/Product_netCDF/DE-Zrk/WetLSP_2023.nc
+💾 Creating NetCDF for DE-Zrk — 2024
+✅ Saved NetCDF: output/Product_netCDF/DE-Zrk/WetLSP_2024.nc
+💾 Creating NetCDF for DE-Zrk — 2025
+✅ Saved NetCDF: output/Product_netCDF/DE-Zrk/WetLSP_2025.nc
+🎉 Step 5 complete for site DE-Zrk

@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -121.7638,
+              36.8408
+            ],
+            [
+              -121.7338,
+              36.8408
+            ],
+            [
+              -121.7338,
+              36.8708
+            ],
+            [
+              -121.7638,
+              36.8708
+            ],
+            [
+              -121.7638,
+              36.8408
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Elkhorn Slough Porter Marsh",
+        "f": "US-EKP"
+      }
+    }
+  ]
+}

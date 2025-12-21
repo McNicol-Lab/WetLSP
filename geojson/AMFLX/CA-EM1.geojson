@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -100.2174,
+              50.3473
+            ],
+            [
+              -100.1874,
+              50.3473
+            ],
+            [
+              -100.1874,
+              50.3773
+            ],
+            [
+              -100.2174,
+              50.3773
+            ],
+            [
+              -100.2174,
+              50.3473
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Newdale Manitoba",
+        "f": "CA-EM1"
+      }
+    }
+  ]
+}

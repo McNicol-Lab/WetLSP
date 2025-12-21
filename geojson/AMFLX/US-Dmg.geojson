@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -121.6841,
+              37.9865
+            ],
+            [
+              -121.6541,
+              37.9865
+            ],
+            [
+              -121.6541,
+              38.0165
+            ],
+            [
+              -121.6841,
+              38.0165
+            ],
+            [
+              -121.6841,
+              37.9865
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Dutch Slough Marsh Gilbert Tract",
+        "f": "US-Dmg"
+      }
+    }
+  ]
+}

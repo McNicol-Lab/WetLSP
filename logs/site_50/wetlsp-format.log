@@ -1,0 +1,18 @@
+Loading required package: terra
+terra 1.8.54
+Loading required package: rjson
+Loading required package: geojsonR
+Loading required package: ncdf4
+📍 Running site index: 50
+🗺️  Site: RU-Fy2
+💾 Creating NetCDF for RU-Fy2 — 2021
+✅ Saved NetCDF: output/Product_netCDF/RU-Fy2/WetLSP_2021.nc
+💾 Creating NetCDF for RU-Fy2 — 2022
+✅ Saved NetCDF: output/Product_netCDF/RU-Fy2/WetLSP_2022.nc
+💾 Creating NetCDF for RU-Fy2 — 2023
+✅ Saved NetCDF: output/Product_netCDF/RU-Fy2/WetLSP_2023.nc
+💾 Creating NetCDF for RU-Fy2 — 2024
+✅ Saved NetCDF: output/Product_netCDF/RU-Fy2/WetLSP_2024.nc
+💾 Creating NetCDF for RU-Fy2 — 2025
+✅ Saved NetCDF: output/Product_netCDF/RU-Fy2/WetLSP_2025.nc
+🎉 Step 5 complete for site RU-Fy2

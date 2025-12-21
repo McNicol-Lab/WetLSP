@@ -1,0 +1,1424 @@
+Loading required package: raster
+Loading required package: sp
+Loading required package: gdalUtilities
+Loading required package: terra
+terra 1.8.54
+Loading required package: rjson
+Loading required package: geojsonR
+Loading required package: dplyr
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:terra’:
+
+    intersect, union
+
+The following objects are masked from ‘package:raster’:
+
+    intersect, select, union
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Loading required package: foreach
+Loading required package: doParallel
+Loading required package: iterators
+Loading required package: parallel
+📍 Running site index: 19
+🔍 Searching for a valid template raster (for CRS + resolution)...
+✅ Found template raster: /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20201001_030646_90_2254_3B_AnalyticMS_SR_8b_clip.tif
+🧭 Reprojecting AOI (siteWin) to template CRS: +proj=utm +zone=49 +datum=WGS84 +units=m +no_defs
+📦 Computing union of raster extents for this site...
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20201010_030549_01_2274_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20201010_030551_36_2274_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20201103_021918_95_2262_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20201108_030530_20_2426_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20210312_021319_57_2423_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20210312_021321_93_2423_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20210320_030504_92_2426_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20210320_030507_18_2426_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20210328_030302_44_2412_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20210402_022114_57_2441_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20210412_021154_71_2431_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20210412_021843_93_2280_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20210413_021334_54_2421_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20210418_021324_64_2429_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20210421_022117_14_2441_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20210505_030317_83_2407_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20210505_030320_13_2407_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20210709_021146_89_2206_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20210709_030019_54_2414_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20210713_020815_75_2442_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20210713_020818_23_2442_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20210724_021202_46_2434_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20210724_025654_85_240a_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20210725_021102_86_2451_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20210726_020941_94_2450_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20210812_021051_83_2453_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20210820_021146_98_241f_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20210821_020922_75_2435_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20210909_020809_21_241e_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20210912_020734_57_245f_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20210917_025922_58_2426_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20210925_021037_61_2464_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20210930_025911_73_2414_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20211005_021039_36_2448_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20211006_020800_80_2428_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20211011_021023_41_2453_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20211011_022522_45_222f_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20211020_020917_25_245c_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20211025_025546_31_2406_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20211106_020746_21_2439_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20211106_020748_69_2439_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20211106_021624_41_225a_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20211106_021626_70_225a_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20211110_025654_85_241c_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/5d4e565d-29d2-4068-b41b-54c7b4e40b88/PSScene/20211110_025657_15_241c_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/a42de6c0-6e61-4477-88c7-dd3fa18f4b73/PSScene/20200623_021146_28_2304_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/a42de6c0-6e61-4477-88c7-dd3fa18f4b73/PSScene/20200623_021148_68_2304_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/a42de6c0-6e61-4477-88c7-dd3fa18f4b73/PSScene/20200730_021513_36_2277_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/a42de6c0-6e61-4477-88c7-dd3fa18f4b73/PSScene/20200730_021515_59_2277_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/a42de6c0-6e61-4477-88c7-dd3fa18f4b73/PSScene/20200823_021607_83_2257_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/a42de6c0-6e61-4477-88c7-dd3fa18f4b73/PSScene/20200823_021610_11_2257_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/a42de6c0-6e61-4477-88c7-dd3fa18f4b73/PSScene/20200825_021339_11_2212_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/a42de6c0-6e61-4477-88c7-dd3fa18f4b73/PSScene/20200825_021341_46_2212_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/a42de6c0-6e61-4477-88c7-dd3fa18f4b73/PSScene/20200829_021640_78_222f_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/a42de6c0-6e61-4477-88c7-dd3fa18f4b73/PSScene/20200829_021643_13_222f_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/a42de6c0-6e61-4477-88c7-dd3fa18f4b73/PSScene/20200901_021420_70_2235_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/a42de6c0-6e61-4477-88c7-dd3fa18f4b73/PSScene/20200901_021422_91_2235_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/a42de6c0-6e61-4477-88c7-dd3fa18f4b73/PSScene/20201012_021409_90_222b_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/a42de6c0-6e61-4477-88c7-dd3fa18f4b73/PSScene/20201012_021412_11_222b_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/a42de6c0-6e61-4477-88c7-dd3fa18f4b73/PSScene/20201015_021157_35_220b_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/a42de6c0-6e61-4477-88c7-dd3fa18f4b73/PSScene/20201023_021658_34_2271_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/a42de6c0-6e61-4477-88c7-dd3fa18f4b73/PSScene/20201026_021459_22_2304_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/a42de6c0-6e61-4477-88c7-dd3fa18f4b73/PSScene/20201026_021501_43_2304_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/a42de6c0-6e61-4477-88c7-dd3fa18f4b73/PSScene/20201105_021313_77_2212_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20210824_022223_58_2233_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20211111_025512_15_227c_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20211112_020459_14_2463_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20211112_020501_62_2463_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20211112_020521_85_2455_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20211113_021022_19_241e_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20211113_021024_67_241e_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20211121_020656_64_2451_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20211125_025742_81_2426_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20211125_025745_11_2426_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20211127_020654_34_2460_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20211128_025842_84_2402_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20211129_025820_59_2405_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20211130_021056_05_2439_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20211130_021058_35_2439_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20211201_021655_30_2262_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20211201_021657_59_2262_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20211202_020627_37_2440_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20211202_020629_85_2440_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20211204_020716_47_2465_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20211204_020718_77_2465_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20211206_020606_85_2434_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20211206_020609_15_2434_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20211209_021853_93_2251_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20211209_021856_22_2251_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20211210_020723_38_2440_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20211213_025543_49_2424_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20211225_020617_40_242a_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220104_025226_75_227b_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220105_025529_85_2405_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220130_020414_38_2423_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220214_020637_21_242b_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220214_025353_69_227a_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220227_020743_10_2440_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220227_020745_39_2440_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220227_023822_89_247d_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220227_023824_24_2499_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220304_020551_67_245c_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220305_023641_32_249d_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220308_025513_75_2414_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220308_025516_04_2414_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220309_020300_68_242b_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220312_023741_74_2475_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220312_023744_06_2475_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220315_020449_11_2465_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220315_020451_59_2465_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220405_024924_86_2254_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220405_024927_16_2254_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220407_023434_47_24a4_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220408_020501_72_2458_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220409_020450_02_2434_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220409_020452_32_2434_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220409_023427_05_2478_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220409_023429_36_2478_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220414_023828_08_2481_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220414_023830_38_2481_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220414_025004_96_2274_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220503_023444_11_249b_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220624_023411_40_2475_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220624_023413_69_2475_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220722_020205_57_2435_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220725_021937_59_2251_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220725_021939_87_2251_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220728_020046_96_241b_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220728_020049_26_241b_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220801_022806_40_2233_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220801_022808_47_2233_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220814_020317_75_2434_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220823_024849_35_2403_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220824_023338_17_247a_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220827_020231_39_2429_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220827_020233_68_2429_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220902_023813_01_2482_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220904_023646_91_2489_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220909_020250_29_245c_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220909_024720_59_227b_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220912_023702_93_249b_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220916_022015_97_2262_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220916_022018_08_2262_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20220922_020202_64_2435_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20221008_023354_59_2475_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20221008_023356_95_2475_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20221009_015652_70_2451_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20221009_015655_06_2451_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20221010_024343_29_2416_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20221013_015842_66_2423_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20221014_020020_69_2455_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20221021_024436_47_2254_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20221025_015859_59_2463_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20221025_015901_90_2463_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20221026_023258_33_2499_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20221026_023300_69_2499_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20221028_024809_07_2274_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20221028_024811_43_2274_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20221031_020135_08_245d_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20221031_020137_23_245d_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20221109_023726_11_2492_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20221110_015750_77_242b_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20221113_015946_46_2453_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20221116_022221_62_2276_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20221118_015947_91_241d_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20221120_023527_56_249e_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20221207_023838_32_249e_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20221207_023840_47_249e_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20221221_020135_76_2464_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20221222_021929_85_225a_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20221223_015958_05_242b_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20221225_020023_02_245c_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20221225_020025_35_245c_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20221226_015853_16_2436_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20221226_015855_48_2436_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20221228_023432_32_247d_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20221228_023434_59_247d_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20221230_023819_92_2492_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20221230_023822_19_2492_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230102_024545_10_241c_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230119_020048_36_241e_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230119_020050_66_241e_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230124_024150_38_227b_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230124_024152_64_227b_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230128_020741_87_24ba_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230128_020744_21_24ba_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230129_015946_38_245c_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230129_015948_63_245c_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230130_015925_25_2448_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230203_023719_28_247a_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230213_020532_75_24a8_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230216_020748_15_24b9_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230216_023757_48_2483_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230222_025245_17_2402_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230222_025247_27_2402_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230223_020802_46_24bb_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230223_020804_87_24bb_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230223_023608_49_2486_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230224_020414_38_2458_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230224_020723_26_24b6_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230225_023735_71_2495_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230226_023738_95_2478_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230226_023741_18_2478_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230227_023428_87_249b_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230227_023431_10_249b_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230302_020016_65_245c_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230302_020018_88_245c_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230305_024234_61_2424_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230306_023850_78_2479_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230308_023647_91_2470_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230308_023650_11_2470_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230309_023914_36_248f_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230310_020221_07_2429_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230310_023544_78_247f_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230310_023547_00_247f_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230311_023849_35_2477_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230316_020620_60_2415_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230316_020622_98_2415_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230318_024104_18_2416_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230411_020814_02_24b0_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230411_020816_35_24b0_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230426_023918_81_249a_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230522_020526_60_24c4_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e0518ba7-9102-49e5-b290-2e4015de0956/PSScene/20230530_020109_66_2442_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20221220_020034_86_241d_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230531_024143_93_247d_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230531_024146_13_247d_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230603_020904_55_24ca_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230612_024110_42_249e_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230613_024032_69_247c_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230613_024034_81_247c_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230621_020629_75_24c5_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230621_020632_11_24c5_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230629_024158_78_2461_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230705_020506_16_24b6_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230707_020123_11_242b_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230707_020900_79_24a8_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230708_020630_97_24c5_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230709_024501_69_241c_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230709_024503_82_241c_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230710_020305_42_2442_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230710_020307_54_2442_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230713_024330_09_2489_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230720_020814_18_24b4_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230722_020053_39_2448_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230724_024208_48_2478_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230725_024416_11_249c_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230725_024418_22_249c_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230728_020715_61_24bc_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230731_020057_33_2460_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230802_024435_00_2479_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230816_024518_53_2498_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230817_024704_93_2477_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230822_024725_01_2424_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230823_024456_69_241c_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230823_024458_81_241c_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230830_020258_51_2448_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230903_014131_12_2445_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230918_020725_23_241d_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230921_024438_13_248b_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230921_024440_23_248b_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230921_024543_69_241c_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20230921_024545_80_241c_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231005_030859_56_2402_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231005_030901_39_2402_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231013_031108_58_2405_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231013_031110_40_2405_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231014_021139_07_24c0_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231027_021122_24_24a8_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231027_021124_53_24a8_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231031_021208_95_2440_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231101_020735_21_2455_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231103_021032_19_2440_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231103_025116_23_2483_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231103_025118_31_2483_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231104_020501_55_2455_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231106_020910_45_24af_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231106_020912_70_24af_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231113_021011_08_2442_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231113_021013_12_2442_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231118_025122_50_2488_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231118_030826_11_24f1_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231118_030828_42_24f1_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231119_020638_94_242b_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231121_021349_79_242d_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231122_021134_18_24bb_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231122_021136_37_24bb_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231124_020855_58_24b9_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231125_020911_84_24ba_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231125_020914_02_24ba_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231126_020854_97_24ca_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231126_020857_14_24ca_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231127_021153_94_24c0_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231127_021156_13_24c0_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231205_020935_24_24c7_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231208_021248_91_242d_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231210_021035_83_24cf_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231211_030722_52_24c6_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231215_025147_50_249c_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231225_025445_87_2498_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231226_025412_07_2486_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231226_025525_23_247f_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20231231_030914_32_24e1_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240101_021018_16_24af_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240102_021322_47_24cf_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240102_030627_70_24f5_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240103_021224_30_24c0_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240103_021226_53_24c0_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240105_021012_92_24b0_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240106_021136_50_242e_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240106_030805_23_24d5_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240107_021049_05_2431_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240108_021344_69_24d0_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240109_020756_15_2460_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240109_021541_58_2465_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240109_021543_58_2465_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240110_025836_03_247b_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240113_030920_98_24eb_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240113_030923_32_24eb_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240116_021244_32_24ca_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240116_021246_57_24ca_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240119_020934_31_2447_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240120_021028_60_2455_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240202_025802_96_2479_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240212_020949_04_24b6_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240212_020951_23_24b6_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240213_021727_38_2439_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240214_021230_56_24b3_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240215_025857_22_2473_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240216_021336_40_24d0_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240308_021122_96_24b4_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240308_021125_10_24b4_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240312_022019_37_2421_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240312_022021_28_2421_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240320_021456_84_2460_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240320_021610_11_24cf_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240324_021439_24_24d0_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240410_030547_31_24e8_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240410_030549_56_24e8_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240411_021326_57_24cc_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240411_030847_53_24df_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240413_030711_15_24f4_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240413_030713_40_24f4_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240414_030545_77_2490_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240416_021355_66_24ba_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240417_030448_58_248b_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240514_022121_75_2460_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240515_021425_45_24b0_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240528_030649_50_24b7_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240602_031016_21_2461_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240612_030636_37_24f2_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240612_030638_61_24f2_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240617_030650_44_24f8_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240619_030526_69_24fd_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240619_030528_87_24fd_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240619_030756_09_24fc_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240621_030322_46_2424_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240621_030324_31_2424_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240622_030732_86_24d3_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240627_023334_88_242d_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240703_030807_84_24cb_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240704_030927_74_24cd_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240705_021817_33_24a8_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240708_030636_25_24f5_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240709_030657_77_24d5_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240709_030659_98_24d5_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240710_023343_30_2465_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240713_030619_37_24d2_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240713_030621_57_24d2_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240714_030822_96_24d5_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240725_021739_20_24b0_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240802_030724_53_24d3_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240802_030805_91_24df_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240802_030808_02_24df_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240805_032052_87_2475_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240806_030821_29_24aa_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240806_030823_40_24aa_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240808_032225_61_2483_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240809_022051_28_24c2_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240810_022014_01_24c0_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240811_030915_41_24dd_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240827_022125_31_24c7_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240828_032451_17_2498_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240828_032452_81_2498_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240901_030830_15_24fc_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240901_030832_50_24fc_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240902_031648_18_2507_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240903_031117_52_2416_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240903_031119_39_2416_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240910_023256_62_2415_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240913_022358_38_24c5_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240913_022400_51_24c5_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240914_031318_35_2521_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240917_021939_99_24b3_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240917_021942_10_24b3_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240926_022129_82_24b3_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240926_022131_92_24b3_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240927_022557_29_24cf_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240929_031623_04_2518_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240930_022545_14_24d0_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20240930_022547_23_24d0_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241002_030804_91_24cd_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241006_031458_05_2521_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241008_030717_06_24f1_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241012_031545_63_250d_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241015_031342_29_2508_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241018_031526_13_251c_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241019_031144_32_24d3_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241021_031332_69_2514_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241022_031434_14_24da_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241022_031436_48_24da_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241023_031558_16_24f7_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241023_031600_52_24f7_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241030_031209_77_24f5_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241030_031211_80_24f5_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241031_030852_19_24ed_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241031_030854_44_24ed_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241101_031117_68_24fc_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241105_031254_60_24fc_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241105_031256_63_24fc_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241106_031314_89_24f9_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241107_031555_40_250d_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241108_031539_71_24db_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241108_031542_02_24db_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241111_031538_73_2523_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241112_031051_86_24cd_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241126_031629_51_2521_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241126_031631_83_2521_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241127_031122_61_24bd_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241127_031124_69_24bd_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241128_031457_90_2507_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241129_022728_67_24c4_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241129_022730_73_24c4_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241201_031146_95_24bd_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241202_031143_05_24fd_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241203_030921_04_24e5_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241203_030923_35_24e5_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241206_031059_45_24d5_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241207_030906_17_24e5_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241207_030908_48_24e5_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241210_031533_06_2511_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241212_031452_95_251f_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241213_031345_36_2506_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241215_023550_44_24c8_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241217_031251_43_24fa_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241219_031513_46_2523_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241219_031515_56_2523_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241220_031340_19_2508_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241220_031342_48_2508_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241222_031615_03_2514_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241228_031340_42_24fd_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241228_031342_64_24fd_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241230_031354_99_24f7_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241230_031357_32_24f7_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241231_031250_39_24f0_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241231_031252_74_24f0_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241231_031601_17_2514_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/e545f2d1-7b30-4361-a71b-4c89212b42dd/PSScene/20241231_031603_49_2514_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/f57ec1d5-aa91-42c0-b631-e9f05ec411c9/PSScene/20201111_030311_60_2406_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/f57ec1d5-aa91-42c0-b631-e9f05ec411c9/PSScene/20201112_030642_47_2254_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/f57ec1d5-aa91-42c0-b631-e9f05ec411c9/PSScene/20201112_030644_83_2254_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/f57ec1d5-aa91-42c0-b631-e9f05ec411c9/PSScene/20201113_021200_65_2223_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/f57ec1d5-aa91-42c0-b631-e9f05ec411c9/PSScene/20201122_030542_67_2414_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/f57ec1d5-aa91-42c0-b631-e9f05ec411c9/PSScene/20201122_030544_94_2414_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/f57ec1d5-aa91-42c0-b631-e9f05ec411c9/PSScene/20201124_021631_27_2259_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/f57ec1d5-aa91-42c0-b631-e9f05ec411c9/PSScene/20201125_030553_61_2413_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/f57ec1d5-aa91-42c0-b631-e9f05ec411c9/PSScene/20201125_030555_89_2413_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/f57ec1d5-aa91-42c0-b631-e9f05ec411c9/PSScene/20201127_030630_38_2402_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/f57ec1d5-aa91-42c0-b631-e9f05ec411c9/PSScene/20201203_030551_35_2254_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/f57ec1d5-aa91-42c0-b631-e9f05ec411c9/PSScene/20201205_021914_21_2257_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/f57ec1d5-aa91-42c0-b631-e9f05ec411c9/PSScene/20201205_021916_41_2257_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/f57ec1d5-aa91-42c0-b631-e9f05ec411c9/PSScene/20201228_021645_27_225a_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/f57ec1d5-aa91-42c0-b631-e9f05ec411c9/PSScene/20201229_021321_52_2206_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/f57ec1d5-aa91-42c0-b631-e9f05ec411c9/PSScene/20201229_030637_70_2412_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/f57ec1d5-aa91-42c0-b631-e9f05ec411c9/PSScene/20201231_030133_93_2307_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/f57ec1d5-aa91-42c0-b631-e9f05ec411c9/PSScene/20201231_030136_29_2307_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/f57ec1d5-aa91-42c0-b631-e9f05ec411c9/PSScene/20210113_021515_31_222b_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/f57ec1d5-aa91-42c0-b631-e9f05ec411c9/PSScene/20210114_030157_25_2405_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/f57ec1d5-aa91-42c0-b631-e9f05ec411c9/PSScene/20210114_030159_54_2405_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/f57ec1d5-aa91-42c0-b631-e9f05ec411c9/PSScene/20210122_030441_87_2419_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/f57ec1d5-aa91-42c0-b631-e9f05ec411c9/PSScene/20210122_030444_23_2419_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/f57ec1d5-aa91-42c0-b631-e9f05ec411c9/PSScene/20210128_030253_06_2407_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/f57ec1d5-aa91-42c0-b631-e9f05ec411c9/PSScene/20210128_030255_36_2407_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/f57ec1d5-aa91-42c0-b631-e9f05ec411c9/PSScene/20210129_021716_68_2280_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/f57ec1d5-aa91-42c0-b631-e9f05ec411c9/PSScene/20210203_030455_31_241c_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/f57ec1d5-aa91-42c0-b631-e9f05ec411c9/PSScene/20210207_030508_52_227c_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/f57ec1d5-aa91-42c0-b631-e9f05ec411c9/PSScene/20210207_030510_88_227c_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/f57ec1d5-aa91-42c0-b631-e9f05ec411c9/PSScene/20210212_030107_48_227a_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/f57ec1d5-aa91-42c0-b631-e9f05ec411c9/PSScene/20210212_030109_85_227a_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/f57ec1d5-aa91-42c0-b631-e9f05ec411c9/PSScene/20210213_030151_40_2419_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/fe5fe552-3646-4ecb-9b06-33340a7bd268/PSScene/20210217_030329_75_227c_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+⚠️  Skipping /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/HK-MPM/data/fe5fe552-3646-4ecb-9b06-33340a7bd268/PSScene/20210222_030257_77_2426_3B_AnalyticMS_SR_8b_clip.tif — CRS differs from template
+📐 Building base raster from AOI ∩ imagery extent...
+    AOI extent (template CRS): 809601.2, 813758.5, 2489044.9, 2493202.3
+    Imagery union extent: 809193, 814167, 2489592, 2492655
+    Base (intersection) extent: 809601.2, 813758.5, 2489592, 2492655
+    Template resolution: 3 × 3
+✅ Base image written to: output/HK-MPM/base_image.tif
+✅ Done with base image (AOI ∩ imagery, in-memory).
+📄 Base image path for workers: output/HK-MPM/base_image.tif
+memfrac   : 0.8
+tolerance : 0.1
+verbose   : FALSE
+todisk    : FALSE
+tempdir   : /tmp/terra_tmp
+datatype  : FLT4S
+memmin    : 1
+progress  : 3
+🌐 terra tempdir: /tmp/terra_tmp
+memfrac   : 0.8
+tolerance : 0.1
+verbose   : FALSE
+todisk    : FALSE
+tempdir   : /tmp/terra_tmp
+datatype  : FLT4S
+memmin    : 1
+progress  : 3
+🌐 terra threads: 
+🔁 Setting up parallel backend with 7 workers
+✅ Using doMC (shared-memory) backend
+🧭 Found 329 existing mosaics. Processing remaining 173 dates.
+🔥 [PID 91869] Processing date 2020-04-10
+🔥 [PID 91870] Processing date 2020-06-10
+🔥 [PID 91871] Processing date 2020-09-04
+🔥 [PID 91872] Processing date 2020-09-12
+🔥 [PID 91873] Processing date 2020-09-13
+🔥 [PID 91874] Processing date 2020-10-01
+🔥 [PID 91875] Processing date 2020-10-20
+⛔ No valid images for 2020-04-10
+🔥 [PID 91869] Processing date 2020-11-01
+⛔ No valid images for 2020-06-10
+🔥 [PID 91870] Processing date 2020-11-16
+⛔ No valid images for 2020-09-04
+🔥 [PID 91871] Processing date 2020-11-28
+⛔ No valid images for 2020-11-16
+🔥 [PID 91870] Processing date 2021-02-05
+⛔ No valid images for 2020-09-12
+🔥 [PID 91872] Processing date 2020-12-18
+⛔ No valid images for 2020-11-01
+🔥 [PID 91869] Processing date 2021-02-04
+⛔ No valid images for 2020-11-28
+🔥 [PID 91871] Processing date 2021-02-18
+⛔ No valid images for 2020-10-20
+🔥 [PID 91875] Processing date 2021-02-02
+⛔ No valid images for 2020-09-13
+🔥 [PID 91873] Processing date 2020-12-24
+⛔ No valid images for 2020-12-18
+🔥 [PID 91872] Processing date 2021-02-24
+⛔ No valid images for 2021-02-18
+🔥 [PID 91871] Processing date 2021-03-17
+⛔ No valid images for 2020-12-24
+🔥 [PID 91873] Processing date 2021-03-02
+⛔ No valid images for 2021-02-24
+🔥 [PID 91872] Processing date 2021-04-11
+⛔ No valid images for 2021-02-05
+🔥 [PID 91870] Processing date 2021-03-16
+⛔ No valid images for 2021-02-04
+🔥 [PID 91869] Processing date 2021-03-15
+⛔ No valid images for 2021-03-02
+🔥 [PID 91873] Processing date 2021-04-30
+⛔ No valid images for 2021-03-16
+🔥 [PID 91870] Processing date 2021-05-17
+⛔ No valid images for 2021-03-15
+🔥 [PID 91869] Processing date 2021-05-11
+⛔ No valid images for 2021-02-02
+🔥 [PID 91875] Processing date 2021-03-14
+⛔ No valid images for 2021-04-11
+🔥 [PID 91872] Processing date 2021-06-11
+⛔ No valid images for 2020-10-01
+🔥 [PID 91874] Processing date 2020-12-26
+⛔ No valid images for 2021-03-17
+⛔ No valid images for 2021-04-30
+🔥 [PID 91871] Processing date 2021-05-23
+🔥 [PID 91873] Processing date 2021-06-18
+⛔ No valid images for 2021-05-11
+🔥 [PID 91869] Processing date 2021-07-23
+⛔ No valid images for 2021-06-11
+🔥 [PID 91872] Processing date 2021-08-18
+⛔ No valid images for 2021-05-23
+🔥 [PID 91871] Processing date 2021-07-31
+⛔ No valid images for 2021-05-17
+🔥 [PID 91870] Processing date 2021-07-27
+⛔ No valid images for 2020-12-26
+🔥 [PID 91874] Processing date 2021-03-11
+⛔ No valid images for 2021-08-18
+🔥 [PID 91872] Processing date 2021-11-08
+⛔ No valid images for 2021-06-18
+🔥 [PID 91873] Processing date 2021-08-22
+⛔ No valid images for 2021-07-31
+🔥 [PID 91871] Processing date 2021-11-05
+⛔ No valid images for 2021-03-11
+🔥 [PID 91874] Processing date 2021-05-06
+⛔ No valid images for 2021-07-23
+🔥 [PID 91869] Processing date 2021-10-16
+⛔ No valid images for 2021-07-27
+🔥 [PID 91870] Processing date 2021-10-19
+⛔ No valid images for 2021-11-08
+🔥 [PID 91872] Processing date 2021-12-08
+⛔ No valid images for 2021-03-14
+🔥 [PID 91875] Processing date 2021-05-07
+⛔ No valid images for 2021-05-06
+🔥 [PID 91874] Processing date 2021-07-14
+⛔ No valid images for 2021-11-05
+🔥 [PID 91871] Processing date 2021-12-07
+⛔ No valid images for 2021-10-16
+🔥 [PID 91869] Processing date 2021-11-20
+⛔ No valid images for 2021-07-14
+🔥 [PID 91874] Processing date 2021-08-28
+⛔ No valid images for 2021-12-08
+🔥 [PID 91872] Processing date 2022-02-11
+⛔ No valid images for 2021-08-22
+🔥 [PID 91873] Processing date 2021-11-09
+⛔ No valid images for 2021-08-28
+🔥 [PID 91874] Processing date 2021-11-16
+⛔ No valid images for 2021-12-07
+🔥 [PID 91871] Processing date 2022-01-21
+⛔ No valid images for 2021-05-07
+🔥 [PID 91875] Processing date 2021-07-22
+⛔ No valid images for 2021-11-20
+🔥 [PID 91869] Processing date 2022-01-06
+⛔ No valid images for 2022-02-11
+🔥 [PID 91872] Processing date 2022-04-10
+⛔ No valid images for 2022-01-06
+🔥 [PID 91869] Processing date 2022-03-11
+⛔ No valid images for 2021-11-09
+🔥 [PID 91873] Processing date 2021-12-11
+⛔ No valid images for 2022-04-10
+🔥 [PID 91872] Processing date 2022-06-26
+⛔ No valid images for 2021-12-11
+🔥 [PID 91873] Processing date 2022-02-26
+⛔ No valid images for 2021-07-22
+🔥 [PID 91875] Processing date 2021-09-06
+⛔ No valid images for 2022-03-11
+🔥 [PID 91869] Processing date 2022-05-05
+⛔ No valid images for 2021-10-19
+🔥 [PID 91870] Processing date 2021-12-05
+⛔ No valid images for 2022-02-26
+🔥 [PID 91873] Processing date 2022-04-21
+⛔ No valid images for 2021-09-06
+⛔ No valid images for 2022-01-21
+🔥 [PID 91875] Processing date 2021-11-19
+🔥 [PID 91871] Processing date 2022-04-04
+⛔ No valid images for 2022-06-26
+🔥 [PID 91872] Processing date 2022-09-03
+⛔ No valid images for 2022-04-21
+🔥 [PID 91873] Processing date 2022-06-28
+⛔ No valid images for 2022-05-05
+🔥 [PID 91869] Processing date 2022-07-24
+⛔ No valid images for 2022-04-04
+🔥 [PID 91871] Processing date 2022-05-20
+⛔ No valid images for 2021-11-16
+🔥 [PID 91874] Processing date 2021-12-16
+⛔ No valid images for 2022-06-28
+🔥 [PID 91873] Processing date 2022-09-05
+⛔ No valid images for 2021-11-19
+🔥 [PID 91875] Processing date 2021-12-30
+⛔ No valid images for 2022-07-24
+🔥 [PID 91869] Processing date 2022-09-14
+⛔ No valid images for 2021-12-16
+🔥 [PID 91874] Processing date 2022-03-01
+⛔ No valid images for 2021-12-05
+🔥 [PID 91870] Processing date 2022-01-08
+⛔ No valid images for 2022-05-20
+🔥 [PID 91871] Processing date 2022-08-28
+⛔ No valid images for 2022-01-08
+🔥 [PID 91870] Processing date 2022-03-13
+⛔ No valid images for 2021-12-30
+🔥 [PID 91875] Processing date 2022-03-02
+⛔ No valid images for 2022-08-28
+🔥 [PID 91871] Processing date 2022-09-21
+⛔ No valid images for 2022-03-01
+🔥 [PID 91874] Processing date 2022-04-29
+⛔ No valid images for 2022-03-13
+🔥 [PID 91870] Processing date 2022-05-18
+⛔ No valid images for 2022-09-21
+🔥 [PID 91871] Processing date 2022-11-19
+⛔ No valid images for 2022-09-05
+🔥 [PID 91873] Processing date 2022-09-26
+⛔ No valid images for 2022-04-29
+🔥 [PID 91874] Processing date 2022-07-19
+⛔ No valid images for 2022-09-26
+🔥 [PID 91873] Processing date 2022-12-09
+⛔ No valid images for 2022-09-14
+🔥 [PID 91869] Processing date 2022-10-20
+⛔ No valid images for 2022-07-19
+🔥 [PID 91874] Processing date 2022-09-06
+⛔ No valid images for 2022-03-02
+🔥 [PID 91875] Processing date 2022-05-04
+⛔ No valid images for 2022-05-18
+🔥 [PID 91870] Processing date 2022-07-31
+⛔ No valid images for 2022-10-20
+🔥 [PID 91869] Processing date 2022-12-24
+⛔ No valid images for 2022-09-03
+🔥 [PID 91872] Processing date 2022-09-25
+⛔ No valid images for 2022-12-24
+🔥 [PID 91869] Processing date 2023-02-20
+⛔ No valid images for 2023-02-20
+🔥 [PID 91869] Processing date 2023-04-15
+⛔ No valid images for 2022-09-25
+🔥 [PID 91872] Processing date 2022-11-29
+⛔ No valid images for 2023-04-15
+🔥 [PID 91869] Processing date 2023-07-03
+⛔ No valid images for 2022-11-19
+🔥 [PID 91871] Processing date 2023-01-18
+⛔ No valid images for 2022-05-04
+🔥 [PID 91875] Processing date 2022-07-23
+⛔ No valid images for 2022-07-31
+🔥 [PID 91870] Processing date 2022-09-15
+⛔ No valid images for 2023-07-03
+🔥 [PID 91869] Processing date 2023-08-03
+⛔ No valid images for 2022-09-06
+🔥 [PID 91874] Processing date 2022-10-11
+⛔ No valid images for 2022-11-29
+🔥 [PID 91872] Processing date 2023-01-31
+⛔ No valid images for 2022-12-09
+🔥 [PID 91873] Processing date 2023-02-01
+⛔ No valid images for 2023-01-31
+🔥 [PID 91872] Processing date 2023-03-03
+⛔ No valid images for 2023-08-03
+🔥 [PID 91869] Processing date 2023-10-12
+⛔ No valid images for 2022-07-23
+🔥 [PID 91875] Processing date 2022-09-10
+⛔ No valid images for 2022-10-11
+🔥 [PID 91874] Processing date 2022-12-11
+⛔ No valid images for 2022-09-10
+🔥 [PID 91875] Processing date 2022-10-15
+⛔ No valid images for 2023-01-18
+🔥 [PID 91871] Processing date 2023-03-01
+⛔ No valid images for 2023-02-01
+🔥 [PID 91873] Processing date 2023-03-07
+⛔ No valid images for 2022-12-11
+🔥 [PID 91874] Processing date 2023-02-15
+⛔ No valid images for 2022-09-15
+🔥 [PID 91870] Processing date 2022-10-29
+⛔ No valid images for 2023-10-12
+🔥 [PID 91869] Processing date 2024-01-12
+⛔ No valid images for 2023-03-01
+🔥 [PID 91871] Processing date 2023-04-22
+⛔ No valid images for 2022-10-15
+🔥 [PID 91875] Processing date 2022-12-18
+⛔ No valid images for 2023-02-15
+🔥 [PID 91874] Processing date 2023-04-02
+⛔ No valid images for 2023-03-07
+🔥 [PID 91873] Processing date 2023-05-20
+⛔ No valid images for 2023-03-03
+⛔ No valid images for 2023-04-22
+🔥 [PID 91872] Processing date 2023-04-28
+🔥 [PID 91871] Processing date 2023-07-14
+⛔ No valid images for 2022-10-29
+🔥 [PID 91870] Processing date 2022-12-27
+⛔ No valid images for 2024-01-12
+🔥 [PID 91869] Processing date 2024-03-29
+⛔ No valid images for 2022-12-18
+🔥 [PID 91875] Processing date 2023-02-17
+⛔ No valid images for 2023-04-02
+🔥 [PID 91874] Processing date 2023-06-04
+⛔ No valid images for 2024-03-29
+🔥 [PID 91869] Processing date 2024-07-01
+⛔ No valid images for 2023-05-20
+🔥 [PID 91873] Processing date 2023-07-23
+⛔ No valid images for 2022-12-27
+🔥 [PID 91870] Processing date 2023-02-28
+⛔ No valid images for 2023-04-28
+🔥 [PID 91872] Processing date 2023-07-21
+⛔ No valid images for 2023-02-17
+🔥 [PID 91875] Processing date 2023-04-12
+⛔ No valid images for 2023-07-14
+🔥 [PID 91871] Processing date 2023-08-25
+⛔ No valid images for 2023-02-28
+🔥 [PID 91870] Processing date 2023-04-18
+⛔ No valid images for 2023-07-23
+⛔ No valid images for 2023-06-04
+🔥 [PID 91873] Processing date 2023-09-04
+🔥 [PID 91874] Processing date 2023-07-26
+⛔ No valid images for 2023-08-25
+🔥 [PID 91871] Processing date 2023-11-28
+⛔ No valid images for 2024-07-01
+🔥 [PID 91869] Processing date 2024-08-03
+⛔ No valid images for 2023-04-18
+🔥 [PID 91870] Processing date 2023-07-11
+⛔ No valid images for 2023-09-04
+🔥 [PID 91873] Processing date 2023-12-07
+⛔ No valid images for 2023-07-21
+🔥 [PID 91872] Processing date 2023-08-28
+⛔ No valid images for 2023-07-11
+🔥 [PID 91870] Processing date 2023-08-21
+⛔ No valid images for 2023-04-12
+🔥 [PID 91875] Processing date 2023-06-22
+⛔ No valid images for 2024-08-03
+🔥 [PID 91869] Processing date 2024-12-04
+⛔ No valid images for 2023-11-28
+🔥 [PID 91871] Processing date 2024-01-18
+⛔ No valid images for 2023-08-21
+🔥 [PID 91870] Processing date 2023-11-15
+⛔ No valid images for 2023-12-07
+🔥 [PID 91873] Processing date 2024-02-11
+⛔ No valid images for 2023-08-28
+🔥 [PID 91872] Processing date 2023-12-04
+⛔ No valid images for 2023-06-22
+🔥 [PID 91875] Processing date 2023-07-27
+⛔ No valid images for 2023-07-27
+🔥 [PID 91875] Processing date 2023-09-25
+⛔ No valid images for 2024-01-18
+🔥 [PID 91871] Processing date 2024-04-12
+⛔ No valid images for 2023-11-15
+🔥 [PID 91870] Processing date 2024-01-15
+⛔ No valid images for 2023-07-26
+🔥 [PID 91874] Processing date 2023-09-23
+⛔ No valid images for 2024-12-04
+⛔ No valid images for 2024-02-11
+🔥 [PID 91873] Processing date 2024-06-10
+⛔ No valid images for 2023-09-25
+🔥 [PID 91875] Processing date 2023-12-24
+⛔ No valid images for 2023-12-04
+🔥 [PID 91872] Processing date 2024-02-03
+⛔ No valid images for 2024-04-12
+🔥 [PID 91871] Processing date 2024-07-11
+⛔ No valid images for 2024-02-03
+🔥 [PID 91872] Processing date 2024-05-16
+⛔ No valid images for 2023-09-23
+🔥 [PID 91874] Processing date 2023-12-09
+⛔ No valid images for 2023-12-24
+🔥 [PID 91875] Processing date 2024-03-05
+⛔ No valid images for 2024-01-15
+🔥 [PID 91870] Processing date 2024-03-30
+⛔ No valid images for 2024-06-10
+🔥 [PID 91873] Processing date 2024-07-16
+⛔ No valid images for 2024-05-16
+🔥 [PID 91872] Processing date 2024-07-12
+⛔ No valid images for 2024-07-11
+🔥 [PID 91871] Processing date 2024-09-15
+⛔ No valid images for 2024-03-05
+🔥 [PID 91875] Processing date 2024-06-26
+⛔ No valid images for 2023-12-09
+🔥 [PID 91874] Processing date 2024-02-20
+⛔ No valid images for 2024-07-16
+🔥 [PID 91873] Processing date 2024-10-20
+⛔ No valid images for 2024-07-12
+🔥 [PID 91872] Processing date 2024-09-19
+⛔ No valid images for 2024-03-30
+🔥 [PID 91870] Processing date 2024-07-07
+⛔ No valid images for 2024-06-26
+🔥 [PID 91875] Processing date 2024-08-01
+⛔ No valid images for 2024-09-15
+🔥 [PID 91871] Processing date 2024-12-16
+⛔ No valid images for 2024-08-01
+🔥 [PID 91875] Processing date 2024-11-30
+⛔ No valid images for 2024-02-20
+⛔ No valid images for 2024-07-07
+🔥 [PID 91874] Processing date 2024-06-23
+🔥 [PID 91870] Processing date 2024-09-11
+⛔ No valid images for 2024-10-20
+🔥 [PID 91873] Processing date 2024-12-26
+⛔ No valid images for 2024-09-19
+🔥 [PID 91872] Processing date 2024-12-21
+⛔ No valid images for 2024-12-16
+⛔ No valid images for 2024-06-23
+🔥 [PID 91874] Processing date 2024-07-23
+⛔ No valid images for 2024-11-30
+⛔ No valid images for 2024-12-21
+⛔ No valid images for 2024-12-26
+⛔ No valid images for 2024-09-11
+🔥 [PID 91870] Processing date 2024-12-08
+⛔ No valid images for 2024-07-23
+🔥 [PID 91874] Processing date 2024-10-24
+⛔ No valid images for 2024-12-08
+⛔ No valid images for 2024-10-24
+[[1]]
+NULL
+
+[[2]]
+NULL
+
+[[3]]
+NULL
+
+[[4]]
+NULL
+
+[[5]]
+NULL
+
+[[6]]
+NULL
+
+[[7]]
+NULL
+
+[[8]]
+NULL
+
+[[9]]
+NULL
+
+[[10]]
+NULL
+
+[[11]]
+NULL
+
+[[12]]
+NULL
+
+[[13]]
+NULL
+
+[[14]]
+NULL
+
+[[15]]
+NULL
+
+[[16]]
+NULL
+
+[[17]]
+NULL
+
+[[18]]
+NULL
+
+[[19]]
+NULL
+
+[[20]]
+NULL
+
+[[21]]
+NULL
+
+[[22]]
+NULL
+
+[[23]]
+NULL
+
+[[24]]
+NULL
+
+[[25]]
+NULL
+
+[[26]]
+NULL
+
+[[27]]
+NULL
+
+[[28]]
+NULL
+
+[[29]]
+NULL
+
+[[30]]
+NULL
+
+[[31]]
+NULL
+
+[[32]]
+NULL
+
+[[33]]
+NULL
+
+[[34]]
+NULL
+
+[[35]]
+NULL
+
+[[36]]
+NULL
+
+[[37]]
+NULL
+
+[[38]]
+NULL
+
+[[39]]
+NULL
+
+[[40]]
+NULL
+
+[[41]]
+NULL
+
+[[42]]
+NULL
+
+[[43]]
+NULL
+
+[[44]]
+NULL
+
+[[45]]
+NULL
+
+[[46]]
+NULL
+
+[[47]]
+NULL
+
+[[48]]
+NULL
+
+[[49]]
+NULL
+
+[[50]]
+NULL
+
+[[51]]
+NULL
+
+[[52]]
+NULL
+
+[[53]]
+NULL
+
+[[54]]
+NULL
+
+[[55]]
+NULL
+
+[[56]]
+NULL
+
+[[57]]
+NULL
+
+[[58]]
+NULL
+
+[[59]]
+NULL
+
+[[60]]
+NULL
+
+[[61]]
+NULL
+
+[[62]]
+NULL
+
+[[63]]
+NULL
+
+[[64]]
+NULL
+
+[[65]]
+NULL
+
+[[66]]
+NULL
+
+[[67]]
+NULL
+
+[[68]]
+NULL
+
+[[69]]
+NULL
+
+[[70]]
+NULL
+
+[[71]]
+NULL
+
+[[72]]
+NULL
+
+[[73]]
+NULL
+
+[[74]]
+NULL
+
+[[75]]
+NULL
+
+[[76]]
+NULL
+
+[[77]]
+NULL
+
+[[78]]
+NULL
+
+[[79]]
+NULL
+
+[[80]]
+NULL
+
+[[81]]
+NULL
+
+[[82]]
+NULL
+
+[[83]]
+NULL
+
+[[84]]
+NULL
+
+[[85]]
+NULL
+
+[[86]]
+NULL
+
+[[87]]
+NULL
+
+[[88]]
+NULL
+
+[[89]]
+NULL
+
+[[90]]
+NULL
+
+[[91]]
+NULL
+
+[[92]]
+NULL
+
+[[93]]
+NULL
+
+[[94]]
+NULL
+
+[[95]]
+NULL
+
+[[96]]
+NULL
+
+[[97]]
+NULL
+
+[[98]]
+NULL
+
+[[99]]
+NULL
+
+[[100]]
+NULL
+
+[[101]]
+NULL
+
+[[102]]
+NULL
+
+[[103]]
+NULL
+
+[[104]]
+NULL
+
+[[105]]
+NULL
+
+[[106]]
+NULL
+
+[[107]]
+NULL
+
+[[108]]
+NULL
+
+[[109]]
+NULL
+
+[[110]]
+NULL
+
+[[111]]
+NULL
+
+[[112]]
+NULL
+
+[[113]]
+NULL
+
+[[114]]
+NULL
+
+[[115]]
+NULL
+
+[[116]]
+NULL
+
+[[117]]
+NULL
+
+[[118]]
+NULL
+
+[[119]]
+NULL
+
+[[120]]
+NULL
+
+[[121]]
+NULL
+
+[[122]]
+NULL
+
+[[123]]
+NULL
+
+[[124]]
+NULL
+
+[[125]]
+NULL
+
+[[126]]
+NULL
+
+[[127]]
+NULL
+
+[[128]]
+NULL
+
+[[129]]
+NULL
+
+[[130]]
+NULL
+
+[[131]]
+NULL
+
+[[132]]
+NULL
+
+[[133]]
+NULL
+
+[[134]]
+NULL
+
+[[135]]
+NULL
+
+[[136]]
+NULL
+
+[[137]]
+NULL
+
+[[138]]
+NULL
+
+[[139]]
+NULL
+
+[[140]]
+NULL
+
+[[141]]
+NULL
+
+[[142]]
+NULL
+
+[[143]]
+NULL
+
+[[144]]
+NULL
+
+[[145]]
+NULL
+
+[[146]]
+NULL
+
+[[147]]
+NULL
+
+[[148]]
+NULL
+
+[[149]]
+NULL
+
+[[150]]
+NULL
+
+[[151]]
+NULL
+
+[[152]]
+NULL
+
+[[153]]
+NULL
+
+[[154]]
+NULL
+
+[[155]]
+NULL
+
+[[156]]
+NULL
+
+[[157]]
+NULL
+
+[[158]]
+NULL
+
+[[159]]
+NULL
+
+[[160]]
+NULL
+
+[[161]]
+NULL
+
+[[162]]
+NULL
+
+[[163]]
+NULL
+
+[[164]]
+NULL
+
+[[165]]
+NULL
+
+[[166]]
+NULL
+
+[[167]]
+NULL
+
+[[168]]
+NULL
+
+[[169]]
+NULL
+
+[[170]]
+NULL
+
+[[171]]
+NULL
+
+[[172]]
+NULL
+
+[[173]]
+NULL
+
+✅ Mosaic process complete.
+2025-12-12 16:26:50 - Total mosaics written: 329

@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -150.5211,
+              60.5232
+            ],
+            [
+              -150.49110000000002,
+              60.5232
+            ],
+            [
+              -150.49110000000002,
+              60.553200000000004
+            ],
+            [
+              -150.5211,
+              60.553200000000004
+            ],
+            [
+              -150.5211,
+              60.5232
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Lily Lake Fen",
+        "f": "US-KPL"
+      }
+    }
+  ]
+}

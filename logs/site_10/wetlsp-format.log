@@ -1,0 +1,18 @@
+Loading required package: terra
+terra 1.8.54
+Loading required package: rjson
+Loading required package: geojsonR
+Loading required package: ncdf4
+📍 Running site index: 10
+🗺️  Site: CA-EM1.zip
+💾 Creating NetCDF for CA-EM1.zip — 2021
+✅ Saved NetCDF: output/Product_netCDF/CA-EM1.zip/WetLSP_2021.nc
+💾 Creating NetCDF for CA-EM1.zip — 2022
+✅ Saved NetCDF: output/Product_netCDF/CA-EM1.zip/WetLSP_2022.nc
+💾 Creating NetCDF for CA-EM1.zip — 2023
+✅ Saved NetCDF: output/Product_netCDF/CA-EM1.zip/WetLSP_2023.nc
+💾 Creating NetCDF for CA-EM1.zip — 2024
+✅ Saved NetCDF: output/Product_netCDF/CA-EM1.zip/WetLSP_2024.nc
+💾 Creating NetCDF for CA-EM1.zip — 2025
+✅ Saved NetCDF: output/Product_netCDF/CA-EM1.zip/WetLSP_2025.nc
+🎉 Step 5 complete for site CA-EM1.zip

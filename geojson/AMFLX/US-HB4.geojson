@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -79.3125,
+              33.1865
+            ],
+            [
+              -79.2825,
+              33.1865
+            ],
+            [
+              -79.2825,
+              33.2165
+            ],
+            [
+              -79.3125,
+              33.2165
+            ],
+            [
+              -79.3125,
+              33.1865
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Minim Creek Brackish Impoundment",
+        "f": "US-HB4"
+      }
+    }
+  ]
+}

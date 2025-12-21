@@ -1,0 +1,15 @@
+Loading required package: terra
+terra 1.8.54
+Loading required package: rjson
+Loading required package: geojsonR
+Loading required package: foreach
+Loading required package: doParallel
+Loading required package: iterators
+Loading required package: parallel
+📍 Running site index: 5
+🗺️  Site: CA-BOU
+📂 Mosaic dir (input): output/CA-BOU/mosaic
+🧭 Found 495 mosaics spanning 2020-03-21 → 2024-12-28
+📦 Base grid: 1136×1004 (1140544 cells) → 200 chunks (~5703 cells/chunk)
+✅ All 200 chunk files already exist in: output/CA-BOU/chunk
+   Skipping chunk creation for site CA-BOU (set 'overwriteChunks': true in wetlsp-parameters.json to force rebuild).

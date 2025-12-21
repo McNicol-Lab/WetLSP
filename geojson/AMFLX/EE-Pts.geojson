@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              24.354933,
+              58.547299
+            ],
+            [
+              24.384933,
+              58.547299
+            ],
+            [
+              24.384933,
+              58.577299000000004
+            ],
+            [
+              24.354933,
+              58.577299000000004
+            ],
+            [
+              24.354933,
+              58.547299
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Pitsalu",
+        "f": "EE-Pts"
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+Loading required package: terra
+terra 1.8.54
+Loading required package: rjson
+Loading required package: geojsonR
+Loading required package: ncdf4
+📍 Running site index: 5
+🗺️  Site: CA-BOU
+💾 Creating NetCDF for CA-BOU — 2021
+✅ Saved NetCDF: output/Product_netCDF/CA-BOU/WetLSP_2021.nc
+💾 Creating NetCDF for CA-BOU — 2022
+✅ Saved NetCDF: output/Product_netCDF/CA-BOU/WetLSP_2022.nc
+💾 Creating NetCDF for CA-BOU — 2023
+✅ Saved NetCDF: output/Product_netCDF/CA-BOU/WetLSP_2023.nc
+💾 Creating NetCDF for CA-BOU — 2024
+✅ Saved NetCDF: output/Product_netCDF/CA-BOU/WetLSP_2024.nc
+💾 Creating NetCDF for CA-BOU — 2025
+✅ Saved NetCDF: output/Product_netCDF/CA-BOU/WetLSP_2025.nc
+🎉 Step 5 complete for site CA-BOU

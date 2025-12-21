@@ -1,0 +1,67 @@
+Loading required package: raster
+Loading required package: sp
+Loading required package: gdalUtilities
+Loading required package: terra
+terra 1.8.54
+Loading required package: rjson
+Loading required package: geojsonR
+Loading required package: dplyr
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:terra’:
+
+    intersect, union
+
+The following objects are masked from ‘package:raster’:
+
+    intersect, select, union
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Loading required package: foreach
+Loading required package: doParallel
+Loading required package: iterators
+Loading required package: parallel
+📍 Running site index: 5
+🗺️  Site: CA-BOU
+📂 Image dir: /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/CA-BOU
+🔍 Searching for a valid template raster (for CRS + resolution)...
+✅ Found template raster: /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/CA-BOU/data/19b75dba-daf3-40ed-9f0b-b2d81e847685/PSScene/20201021_151535_95_2414_3B_AnalyticMS_SR_8b_clip.tif
+🧭 Reprojecting AOI (siteWin) to template CRS: +proj=utm +zone=20 +datum=WGS84 +units=m +no_defs
+📦 Computing union of raster extents for this site...
+📐 Building base raster from AOI ∩ imagery extent...
+    AOI extent (template CRS): 483369.4, 487369.4, 5594958.9, 5598958.9
+    Imagery union extent: 483666, 487074, 5595453, 5598465
+    Base (intersection) extent: 483666, 487074, 5595453, 5598465
+    Template resolution: 3 × 3
+✅ Base image written to: output/CA-BOU/base_image.tif
+✅ Done with base image (AOI ∩ imagery, in-memory).
+📄 Base image path for workers: output/CA-BOU/base_image.tif
+memfrac   : 0.8
+tolerance : 0.1
+verbose   : FALSE
+todisk    : FALSE
+tempdir   : /tmp/terra_tmp
+datatype  : FLT4S
+memmin    : 1
+progress  : 3
+🌐 terra tempdir: /tmp/terra_tmp
+memfrac   : 0.8
+tolerance : 0.1
+verbose   : FALSE
+todisk    : FALSE
+tempdir   : /tmp/terra_tmp
+datatype  : FLT4S
+memmin    : 1
+progress  : 3
+🌐 terra threads: 
+🔁 Setting up parallel backend with 7 workers
+✅ Using doMC (shared-memory) backend
+✅ All mosaics already processed — nothing to do.

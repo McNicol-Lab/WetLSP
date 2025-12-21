@@ -1,0 +1,3154 @@
+Loading required package: terra
+terra 1.8.54
+Loading required package: rjson
+Loading required package: geojsonR
+Loading required package: foreach
+Loading required package: doParallel
+Loading required package: iterators
+Loading required package: parallel
+📍 Running site index: 6
+🗺️  Site: CA-CF3
+📂 Mosaic dir (input): output/CA-CF3/mosaic
+🧭 Found 467 mosaics spanning 2020-03-29 → 2024-11-13
+📦 Base grid: 765×1011 (773415 cells) → 200 chunks (~3868 cells/chunk)
+🔁 Using 6 parallel workers
+✅ Using doMC shared-memory backend (no socket transfer)
+✂️  Step 1: Dividing mosaics into chunks and saving temporary .rda files
+🔥 [PID 81598] 20200329 → 20200329_clipped_mosaic.tif
+🔥 [PID 81599] 20200407 → 20200407_clipped_mosaic.tif
+🔥 [PID 81600] 20200414 → 20200414_clipped_mosaic.tif
+🔥 [PID 81601] 20200704 → 20200704_clipped_mosaic.tif
+🔥 [PID 81602] 20200803 → 20200803_clipped_mosaic.tif
+🔥 [PID 81603] 20200813 → 20200813_clipped_mosaic.tif
+✅ 20200414 → 200 chunks written
+🔥 [PID 81600] 20200919 → 20200919_clipped_mosaic.tif
+✅ 20200407 → 200 chunks written
+🔥 [PID 81599] 20200825 → 20200825_clipped_mosaic.tif
+✅ 20200704 → 200 chunks written
+🔥 [PID 81601] 20201017 → 20201017_clipped_mosaic.tif
+✅ 20200813 → 200 chunks written
+🔥 [PID 81603] 20201104 → 20201104_clipped_mosaic.tif
+✅ 20200803 → 200 chunks written
+🔥 [PID 81602] 20201025 → 20201025_clipped_mosaic.tif
+✅ 20201017 → 200 chunks written
+🔥 [PID 81601] 20210119 → 20210119_clipped_mosaic.tif
+✅ 20200329 → 200 chunks written
+🔥 [PID 81598] 20200819 → 20200819_clipped_mosaic.tif
+✅ 20200919 → 200 chunks written
+🔥 [PID 81600] 20201120 → 20201120_clipped_mosaic.tif
+✅ 20201025 → 200 chunks written
+🔥 [PID 81602] 20210126 → 20210126_clipped_mosaic.tif
+✅ 20210126 → 200 chunks written
+🔥 [PID 81602] 20210310 → 20210310_clipped_mosaic.tif
+✅ 20201120 → 200 chunks written
+🔥 [PID 81600] 20210214 → 20210214_clipped_mosaic.tif
+✅ 20210310 → 200 chunks written
+🔥 [PID 81602] 20210612 → 20210612_clipped_mosaic.tif
+✅ 20200825 → 200 chunks written
+🔥 [PID 81599] 20201110 → 20201110_clipped_mosaic.tif
+✅ 20200819 → 200 chunks written
+🔥 [PID 81598] 20201108 → 20201108_clipped_mosaic.tif
+✅ 20210214 → 200 chunks written
+🔥 [PID 81600] 20210608 → 20210608_clipped_mosaic.tif
+✅ 20210612 → 200 chunks written
+🔥 [PID 81602] 20210714 → 20210714_clipped_mosaic.tif
+✅ 20201104 → 200 chunks written
+🔥 [PID 81603] 20210127 → 20210127_clipped_mosaic.tif
+✅ 20201110 → 200 chunks written
+🔥 [PID 81599] 20210205 → 20210205_clipped_mosaic.tif
+✅ 20210119 → 200 chunks written
+🔥 [PID 81601] 20210303 → 20210303_clipped_mosaic.tif
+✅ 20210205 → 200 chunks written
+🔥 [PID 81599] 20210604 → 20210604_clipped_mosaic.tif
+✅ 20210127 → 200 chunks written
+🔥 [PID 81603] 20210320 → 20210320_clipped_mosaic.tif
+✅ 20210714 → 200 chunks written
+🔥 [PID 81602] 20210803 → 20210803_clipped_mosaic.tif
+✅ 20210608 → 200 chunks written
+🔥 [PID 81600] 20210703 → 20210703_clipped_mosaic.tif
+✅ 20210303 → 200 chunks written
+🔥 [PID 81601] 20210610 → 20210610_clipped_mosaic.tif
+✅ 20210320 → 200 chunks written
+🔥 [PID 81603] 20210626 → 20210626_clipped_mosaic.tif
+✅ 20210626 → 200 chunks written
+🔥 [PID 81603] 20210715 → 20210715_clipped_mosaic.tif
+✅ 20210715 → 200 chunks written
+🔥 [PID 81603] 20210807 → 20210807_clipped_mosaic.tif
+✅ 20201108 → 200 chunks written
+🔥 [PID 81598] 20210130 → 20210130_clipped_mosaic.tif
+✅ 20210604 → 200 chunks written
+🔥 [PID 81599] 20210701 → 20210701_clipped_mosaic.tif
+✅ 20210130 → 200 chunks written
+🔥 [PID 81598] 20210325 → 20210325_clipped_mosaic.tif
+✅ 20210803 → 200 chunks written
+🔥 [PID 81602] 20210827 → 20210827_clipped_mosaic.tif
+✅ 20210325 → 200 chunks written
+🔥 [PID 81598] 20210629 → 20210629_clipped_mosaic.tif
+✅ 20210703 → 200 chunks written
+🔥 [PID 81600] 20210723 → 20210723_clipped_mosaic.tif
+✅ 20210610 → 200 chunks written
+🔥 [PID 81601] 20210711 → 20210711_clipped_mosaic.tif
+✅ 20210807 → 200 chunks written
+🔥 [PID 81603] 20210829 → 20210829_clipped_mosaic.tif
+✅ 20210711 → 200 chunks written
+🔥 [PID 81601] 20210729 → 20210729_clipped_mosaic.tif
+✅ 20210723 → 200 chunks written
+🔥 [PID 81600] 20210823 → 20210823_clipped_mosaic.tif
+✅ 20210701 → 200 chunks written
+🔥 [PID 81599] 20210721 → 20210721_clipped_mosaic.tif
+✅ 20210827 → 200 chunks written
+🔥 [PID 81602] 20211001 → 20211001_clipped_mosaic.tif
+✅ 20210629 → 200 chunks written
+🔥 [PID 81598] 20210720 → 20210720_clipped_mosaic.tif
+✅ 20210729 → 200 chunks written
+🔥 [PID 81601] 20210826 → 20210826_clipped_mosaic.tif
+✅ 20210829 → 200 chunks written
+🔥 [PID 81603] 20211009 → 20211009_clipped_mosaic.tif
+✅ 20210823 → 200 chunks written
+🔥 [PID 81600] 20210926 → 20210926_clipped_mosaic.tif
+✅ 20210721 → 200 chunks written
+🔥 [PID 81599] 20210810 → 20210810_clipped_mosaic.tif
+✅ 20211001 → 200 chunks written
+🔥 [PID 81602] 20211118 → 20211118_clipped_mosaic.tif
+✅ 20210810 → 200 chunks written
+🔥 [PID 81599] 20210921 → 20210921_clipped_mosaic.tif
+✅ 20210720 → 200 chunks written
+🔥 [PID 81598] 20210809 → 20210809_clipped_mosaic.tif
+✅ 20210826 → 200 chunks written
+🔥 [PID 81601] 20210929 → 20210929_clipped_mosaic.tif
+✅ 20210809 → 200 chunks written
+🔥 [PID 81598] 20210912 → 20210912_clipped_mosaic.tif
+✅ 20210926 → 200 chunks written
+🔥 [PID 81600] 20211102 → 20211102_clipped_mosaic.tif
+✅ 20211009 → 200 chunks written
+🔥 [PID 81603] 20220128 → 20220128_clipped_mosaic.tif
+✅ 20210912 → 200 chunks written
+🔥 [PID 81598] 20211010 → 20211010_clipped_mosaic.tif
+✅ 20211102 → 200 chunks written
+🔥 [PID 81600] 20220201 → 20220201_clipped_mosaic.tif
+✅ 20211118 → 200 chunks written
+🔥 [PID 81602] 20220204 → 20220204_clipped_mosaic.tif
+✅ 20220128 → 200 chunks written
+🔥 [PID 81603] 20220206 → 20220206_clipped_mosaic.tif
+✅ 20220201 → 200 chunks written
+🔥 [PID 81600] 20220211 → 20220211_clipped_mosaic.tif
+✅ 20210921 → 200 chunks written
+🔥 [PID 81599] 20211013 → 20211013_clipped_mosaic.tif
+✅ 20220211 → 200 chunks written
+🔥 [PID 81600] 20220218 → 20220218_clipped_mosaic.tif
+✅ 20220204 → 200 chunks written
+🔥 [PID 81602] 20220214 → 20220214_clipped_mosaic.tif
+✅ 20210929 → 200 chunks written
+🔥 [PID 81601] 20211103 → 20211103_clipped_mosaic.tif
+✅ 20220206 → 200 chunks written
+🔥 [PID 81603] 20220215 → 20220215_clipped_mosaic.tif
+✅ 20220218 → 200 chunks written
+🔥 [PID 81600] 20220225 → 20220225_clipped_mosaic.tif
+✅ 20211103 → 200 chunks written
+🔥 [PID 81601] 20220203 → 20220203_clipped_mosaic.tif
+✅ 20220214 → 200 chunks written
+🔥 [PID 81602] 20220220 → 20220220_clipped_mosaic.tif
+✅ 20211010 → 200 chunks written
+🔥 [PID 81598] 20220129 → 20220129_clipped_mosaic.tif
+✅ 20220203 → 200 chunks written
+🔥 [PID 81601] 20220212 → 20220212_clipped_mosaic.tif
+✅ 20220220 → 200 chunks written
+🔥 [PID 81602] 20220227 → 20220227_clipped_mosaic.tif
+✅ 20211013 → 200 chunks written
+🔥 [PID 81599] 20220130 → 20220130_clipped_mosaic.tif
+✅ 20220129 → 200 chunks written
+🔥 [PID 81598] 20220209 → 20220209_clipped_mosaic.tif
+✅ 20220212 → 200 chunks written
+🔥 [PID 81601] 20220219 → 20220219_clipped_mosaic.tif
+✅ 20220227 → 200 chunks written
+🔥 [PID 81602] 20220308 → 20220308_clipped_mosaic.tif
+✅ 20220130 → 200 chunks written
+🔥 [PID 81599] 20220210 → 20220210_clipped_mosaic.tif
+✅ 20220209 → 200 chunks written
+🔥 [PID 81598] 20220216 → 20220216_clipped_mosaic.tif
+✅ 20220219 → 200 chunks written
+🔥 [PID 81601] 20220226 → 20220226_clipped_mosaic.tif
+✅ 20220308 → 200 chunks written
+🔥 [PID 81602] 20220424 → 20220424_clipped_mosaic.tif
+✅ 20220215 → 200 chunks written
+🔥 [PID 81603] 20220222 → 20220222_clipped_mosaic.tif
+✅ 20220226 → 200 chunks written
+🔥 [PID 81601] 20220306 → 20220306_clipped_mosaic.tif
+✅ 20220424 → 200 chunks written
+🔥 [PID 81602] 20220609 → 20220609_clipped_mosaic.tif
+✅ 20220222 → 200 chunks written
+🔥 [PID 81603] 20220301 → 20220301_clipped_mosaic.tif
+✅ 20220306 → 200 chunks written
+🔥 [PID 81601] 20220423 → 20220423_clipped_mosaic.tif
+✅ 20220225 → 200 chunks written
+🔥 [PID 81600] 20220305 → 20220305_clipped_mosaic.tif
+✅ 20220301 → 200 chunks written
+🔥 [PID 81603] 20220309 → 20220309_clipped_mosaic.tif
+✅ 20220423 → 200 chunks written
+🔥 [PID 81601] 20220606 → 20220606_clipped_mosaic.tif
+✅ 20220309 → 200 chunks written
+🔥 [PID 81603] 20220509 → 20220509_clipped_mosaic.tif
+✅ 20220210 → 200 chunks written
+🔥 [PID 81599] 20220217 → 20220217_clipped_mosaic.tif
+✅ 20220509 → 200 chunks written
+🔥 [PID 81603] 20220614 → 20220614_clipped_mosaic.tif
+✅ 20220216 → 200 chunks written
+🔥 [PID 81598] 20220223 → 20220223_clipped_mosaic.tif
+✅ 20220609 → 200 chunks written
+🔥 [PID 81602] 20220626 → 20220626_clipped_mosaic.tif
+✅ 20220223 → 200 chunks written
+🔥 [PID 81598] 20220302 → 20220302_clipped_mosaic.tif
+✅ 20220614 → 200 chunks written
+🔥 [PID 81603] 20220702 → 20220702_clipped_mosaic.tif
+✅ 20220305 → 200 chunks written
+🔥 [PID 81600] 20220421 → 20220421_clipped_mosaic.tif
+✅ 20220606 → 200 chunks written
+🔥 [PID 81601] 20220625 → 20220625_clipped_mosaic.tif
+✅ 20220421 → 200 chunks written
+🔥 [PID 81600] 20220529 → 20220529_clipped_mosaic.tif
+✅ 20220529 → 200 chunks written
+🔥 [PID 81600] 20220624 → 20220624_clipped_mosaic.tif
+✅ 20220624 → 200 chunks written
+🔥 [PID 81600] 20220707 → 20220707_clipped_mosaic.tif
+✅ 20220626 → 200 chunks written
+🔥 [PID 81602] 20220709 → 20220709_clipped_mosaic.tif
+✅ 20220217 → 200 chunks written
+🔥 [PID 81599] 20220224 → 20220224_clipped_mosaic.tif
+✅ 20220302 → 200 chunks written
+🔥 [PID 81598] 20220312 → 20220312_clipped_mosaic.tif
+✅ 20220224 → 200 chunks written
+🔥 [PID 81599] 20220303 → 20220303_clipped_mosaic.tif
+✅ 20220312 → 200 chunks written
+🔥 [PID 81598] 20220523 → 20220523_clipped_mosaic.tif
+✅ 20220702 → 200 chunks written
+🔥 [PID 81603] 20220711 → 20220711_clipped_mosaic.tif
+✅ 20220625 → 200 chunks written
+🔥 [PID 81601] 20220708 → 20220708_clipped_mosaic.tif
+✅ 20220523 → 200 chunks written
+🔥 [PID 81598] 20220617 → 20220617_clipped_mosaic.tif
+✅ 20220709 → 200 chunks written
+🔥 [PID 81602] 20220719 → 20220719_clipped_mosaic.tif
+✅ 20220707 → 200 chunks written
+🔥 [PID 81600] 20220715 → 20220715_clipped_mosaic.tif
+✅ 20220708 → 200 chunks written
+🔥 [PID 81601] 20220716 → 20220716_clipped_mosaic.tif
+✅ 20220719 → 200 chunks written
+🔥 [PID 81602] 20220811 → 20220811_clipped_mosaic.tif
+✅ 20220711 → 200 chunks written
+🔥 [PID 81603] 20220724 → 20220724_clipped_mosaic.tif
+✅ 20220303 → 200 chunks written
+🔥 [PID 81599] 20220416 → 20220416_clipped_mosaic.tif
+✅ 20220617 → 200 chunks written
+🔥 [PID 81598] 20220703 → 20220703_clipped_mosaic.tif
+✅ 20220724 → 200 chunks written
+🔥 [PID 81603] 20220812 → 20220812_clipped_mosaic.tif
+✅ 20220416 → 200 chunks written
+🔥 [PID 81599] 20220525 → 20220525_clipped_mosaic.tif
+✅ 20220715 → 200 chunks written
+🔥 [PID 81600] 20220808 → 20220808_clipped_mosaic.tif
+✅ 20220525 → 200 chunks written
+🔥 [PID 81599] 20220621 → 20220621_clipped_mosaic.tif
+✅ 20220716 → 200 chunks written
+🔥 [PID 81601] 20220810 → 20220810_clipped_mosaic.tif
+✅ 20220811 → 200 chunks written
+🔥 [PID 81602] 20220820 → 20220820_clipped_mosaic.tif
+✅ 20220703 → 200 chunks written
+🔥 [PID 81598] 20220712 → 20220712_clipped_mosaic.tif
+✅ 20220621 → 200 chunks written
+🔥 [PID 81599] 20220704 → 20220704_clipped_mosaic.tif
+✅ 20220812 → 200 chunks written
+🔥 [PID 81603] 20220825 → 20220825_clipped_mosaic.tif
+✅ 20220704 → 200 chunks written
+🔥 [PID 81599] 20220713 → 20220713_clipped_mosaic.tif
+✅ 20220808 → 200 chunks written
+🔥 [PID 81600] 20220817 → 20220817_clipped_mosaic.tif
+✅ 20220820 → 200 chunks written
+🔥 [PID 81602] 20220911 → 20220911_clipped_mosaic.tif
+✅ 20220825 → 200 chunks written
+🔥 [PID 81603] 20220917 → 20220917_clipped_mosaic.tif
+✅ 20220810 → 200 chunks written
+🔥 [PID 81601] 20220819 → 20220819_clipped_mosaic.tif
+✅ 20220817 → 200 chunks written
+🔥 [PID 81600] 20220904 → 20220904_clipped_mosaic.tif
+✅ 20220712 → 200 chunks written
+🔥 [PID 81598] 20220725 → 20220725_clipped_mosaic.tif
+✅ 20220713 → 200 chunks written
+🔥 [PID 81599] 20220804 → 20220804_clipped_mosaic.tif
+✅ 20220725 → 200 chunks written
+🔥 [PID 81598] 20220815 → 20220815_clipped_mosaic.tif
+✅ 20220911 → 200 chunks written
+🔥 [PID 81602] 20221026 → 20221026_clipped_mosaic.tif
+✅ 20220917 → 200 chunks written
+🔥 [PID 81603] 20221027 → 20221027_clipped_mosaic.tif
+✅ 20220819 → 200 chunks written
+🔥 [PID 81601] 20220905 → 20220905_clipped_mosaic.tif
+✅ 20221026 → 200 chunks written
+🔥 [PID 81602] 20221107 → 20221107_clipped_mosaic.tif
+✅ 20220904 → 200 chunks written
+🔥 [PID 81600] 20221001 → 20221001_clipped_mosaic.tif
+✅ 20220804 → 200 chunks written
+🔥 [PID 81599] 20220816 → 20220816_clipped_mosaic.tif
+✅ 20221027 → 200 chunks written
+🔥 [PID 81603] 20221110 → 20221110_clipped_mosaic.tif
+✅ 20221110 → 200 chunks written
+🔥 [PID 81603] 20230127 → 20230127_clipped_mosaic.tif
+✅ 20221107 → 200 chunks written
+🔥 [PID 81602] 20230123 → 20230123_clipped_mosaic.tif
+✅ 20220815 → 200 chunks written
+🔥 [PID 81598] 20220826 → 20220826_clipped_mosaic.tif
+✅ 20230127 → 200 chunks written
+🔥 [PID 81603] 20230205 → 20230205_clipped_mosaic.tif
+✅ 20230123 → 200 chunks written
+🔥 [PID 81602] 20230204 → 20230204_clipped_mosaic.tif
+✅ 20230205 → 200 chunks written
+🔥 [PID 81603] 20230217 → 20230217_clipped_mosaic.tif
+✅ 20221001 → 200 chunks written
+🔥 [PID 81600] 20221102 → 20221102_clipped_mosaic.tif
+✅ 20230204 → 200 chunks written
+🔥 [PID 81602] 20230216 → 20230216_clipped_mosaic.tif
+✅ 20220905 → 200 chunks written
+🔥 [PID 81601] 20221002 → 20221002_clipped_mosaic.tif
+✅ 20230217 → 200 chunks written
+🔥 [PID 81603] 20230223 → 20230223_clipped_mosaic.tif
+✅ 20230216 → 200 chunks written
+🔥 [PID 81602] 20230222 → 20230222_clipped_mosaic.tif
+✅ 20220816 → 200 chunks written
+🔥 [PID 81599] 20220827 → 20220827_clipped_mosaic.tif
+✅ 20230223 → 200 chunks written
+🔥 [PID 81603] 20230302 → 20230302_clipped_mosaic.tif
+✅ 20230222 → 200 chunks written
+🔥 [PID 81602] 20230301 → 20230301_clipped_mosaic.tif
+✅ 20230302 → 200 chunks written
+🔥 [PID 81603] 20230310 → 20230310_clipped_mosaic.tif
+✅ 20230301 → 200 chunks written
+🔥 [PID 81602] 20230309 → 20230309_clipped_mosaic.tif
+✅ 20221102 → 200 chunks written
+🔥 [PID 81600] 20221113 → 20221113_clipped_mosaic.tif
+✅ 20220826 → 200 chunks written
+🔥 [PID 81598] 20220923 → 20220923_clipped_mosaic.tif
+✅ 20230310 → 200 chunks written
+🔥 [PID 81603] 20230317 → 20230317_clipped_mosaic.tif
+✅ 20230309 → 200 chunks written
+🔥 [PID 81602] 20230316 → 20230316_clipped_mosaic.tif
+✅ 20221113 → 200 chunks written
+🔥 [PID 81600] 20230202 → 20230202_clipped_mosaic.tif
+✅ 20230317 → 200 chunks written
+🔥 [PID 81603] 20230323 → 20230323_clipped_mosaic.tif
+✅ 20230316 → 200 chunks written
+🔥 [PID 81602] 20230322 → 20230322_clipped_mosaic.tif
+✅ 20221002 → 200 chunks written
+🔥 [PID 81601] 20221104 → 20221104_clipped_mosaic.tif
+✅ 20230323 → 200 chunks written
+🔥 [PID 81603] 20230331 → 20230331_clipped_mosaic.tif
+✅ 20230322 → 200 chunks written
+🔥 [PID 81602] 20230330 → 20230330_clipped_mosaic.tif
+✅ 20220827 → 200 chunks written
+🔥 [PID 81599] 20220928 → 20220928_clipped_mosaic.tif
+✅ 20230202 → 200 chunks written
+🔥 [PID 81600] 20230214 → 20230214_clipped_mosaic.tif
+✅ 20230331 → 200 chunks written
+🔥 [PID 81603] 20230406 → 20230406_clipped_mosaic.tif
+✅ 20230330 → 200 chunks written
+🔥 [PID 81602] 20230405 → 20230405_clipped_mosaic.tif
+✅ 20230214 → 200 chunks written
+🔥 [PID 81600] 20230220 → 20230220_clipped_mosaic.tif
+✅ 20230406 → 200 chunks written
+🔥 [PID 81603] 20230416 → 20230416_clipped_mosaic.tif
+✅ 20230405 → 200 chunks written
+🔥 [PID 81602] 20230415 → 20230415_clipped_mosaic.tif
+✅ 20220923 → 200 chunks written
+🔥 [PID 81598] 20221028 → 20221028_clipped_mosaic.tif
+✅ 20230220 → 200 chunks written
+🔥 [PID 81600] 20230227 → 20230227_clipped_mosaic.tif
+✅ 20230416 → 200 chunks written
+🔥 [PID 81603] 20230427 → 20230427_clipped_mosaic.tif
+✅ 20230415 → 200 chunks written
+🔥 [PID 81602] 20230425 → 20230425_clipped_mosaic.tif
+✅ 20221028 → 200 chunks written
+🔥 [PID 81598] 20221111 → 20221111_clipped_mosaic.tif
+✅ 20230227 → 200 chunks written
+🔥 [PID 81600] 20230307 → 20230307_clipped_mosaic.tif
+✅ 20230427 → 200 chunks written
+🔥 [PID 81603] 20230505 → 20230505_clipped_mosaic.tif
+✅ 20221104 → 200 chunks written
+🔥 [PID 81601] 20221121 → 20221121_clipped_mosaic.tif
+✅ 20230425 → 200 chunks written
+🔥 [PID 81602] 20230504 → 20230504_clipped_mosaic.tif
+✅ 20230307 → 200 chunks written
+🔥 [PID 81600] 20230313 → 20230313_clipped_mosaic.tif
+✅ 20230505 → 200 chunks written
+🔥 [PID 81603] 20230514 → 20230514_clipped_mosaic.tif
+✅ 20230504 → 200 chunks written
+🔥 [PID 81602] 20230513 → 20230513_clipped_mosaic.tif
+✅ 20221121 → 200 chunks written
+🔥 [PID 81601] 20230203 → 20230203_clipped_mosaic.tif
+✅ 20220928 → 200 chunks written
+🔥 [PID 81599] 20221031 → 20221031_clipped_mosaic.tif
+✅ 20230313 → 200 chunks written
+🔥 [PID 81600] 20230320 → 20230320_clipped_mosaic.tif
+✅ 20221111 → 200 chunks written
+🔥 [PID 81598] 20230130 → 20230130_clipped_mosaic.tif
+✅ 20230203 → 200 chunks written
+🔥 [PID 81601] 20230215 → 20230215_clipped_mosaic.tif
+✅ 20230514 → 200 chunks written
+🔥 [PID 81603] 20230608 → 20230608_clipped_mosaic.tif
+✅ 20230320 → 200 chunks written
+🔥 [PID 81600] 20230328 → 20230328_clipped_mosaic.tif
+✅ 20230215 → 200 chunks written
+🔥 [PID 81601] 20230221 → 20230221_clipped_mosaic.tif
+✅ 20230328 → 200 chunks written
+🔥 [PID 81600] 20230403 → 20230403_clipped_mosaic.tif
+✅ 20230221 → 200 chunks written
+🔥 [PID 81601] 20230228 → 20230228_clipped_mosaic.tif
+✅ 20221031 → 200 chunks written
+🔥 [PID 81599] 20221112 → 20221112_clipped_mosaic.tif
+✅ 20230403 → 200 chunks written
+🔥 [PID 81600] 20230412 → 20230412_clipped_mosaic.tif
+✅ 20230228 → 200 chunks written
+🔥 [PID 81601] 20230308 → 20230308_clipped_mosaic.tif
+✅ 20221112 → 200 chunks written
+🔥 [PID 81599] 20230201 → 20230201_clipped_mosaic.tif
+✅ 20230412 → 200 chunks written
+🔥 [PID 81600] 20230422 → 20230422_clipped_mosaic.tif
+✅ 20230308 → 200 chunks written
+🔥 [PID 81601] 20230314 → 20230314_clipped_mosaic.tif
+✅ 20230422 → 200 chunks written
+🔥 [PID 81600] 20230430 → 20230430_clipped_mosaic.tif
+✅ 20230608 → 200 chunks written
+🔥 [PID 81603] 20230615 → 20230615_clipped_mosaic.tif
+✅ 20230201 → 200 chunks written
+🔥 [PID 81599] 20230213 → 20230213_clipped_mosaic.tif
+✅ 20230513 → 200 chunks written
+🔥 [PID 81602] 20230601 → 20230601_clipped_mosaic.tif
+✅ 20230130 → 200 chunks written
+🔥 [PID 81598] 20230211 → 20230211_clipped_mosaic.tif
+✅ 20230314 → 200 chunks written
+🔥 [PID 81601] 20230321 → 20230321_clipped_mosaic.tif
+✅ 20230430 → 200 chunks written
+🔥 [PID 81600] 20230508 → 20230508_clipped_mosaic.tif
+✅ 20230213 → 200 chunks written
+🔥 [PID 81599] 20230219 → 20230219_clipped_mosaic.tif
+✅ 20230211 → 200 chunks written
+🔥 [PID 81598] 20230218 → 20230218_clipped_mosaic.tif
+✅ 20230321 → 200 chunks written
+🔥 [PID 81601] 20230329 → 20230329_clipped_mosaic.tif
+✅ 20230508 → 200 chunks written
+🔥 [PID 81600] 20230521 → 20230521_clipped_mosaic.tif
+✅ 20230218 → 200 chunks written
+🔥 [PID 81598] 20230224 → 20230224_clipped_mosaic.tif
+✅ 20230615 → 200 chunks written
+🔥 [PID 81603] 20230630 → 20230630_clipped_mosaic.tif
+✅ 20230329 → 200 chunks written
+🔥 [PID 81601] 20230404 → 20230404_clipped_mosaic.tif
+✅ 20230224 → 200 chunks written
+🔥 [PID 81598] 20230303 → 20230303_clipped_mosaic.tif
+✅ 20230404 → 200 chunks written
+🔥 [PID 81601] 20230413 → 20230413_clipped_mosaic.tif
+✅ 20230303 → 200 chunks written
+🔥 [PID 81598] 20230311 → 20230311_clipped_mosaic.tif
+✅ 20230413 → 200 chunks written
+🔥 [PID 81601] 20230424 → 20230424_clipped_mosaic.tif
+✅ 20230601 → 200 chunks written
+🔥 [PID 81602] 20230614 → 20230614_clipped_mosaic.tif
+✅ 20230311 → 200 chunks written
+🔥 [PID 81598] 20230318 → 20230318_clipped_mosaic.tif
+✅ 20230424 → 200 chunks written
+🔥 [PID 81601] 20230501 → 20230501_clipped_mosaic.tif
+✅ 20230614 → 200 chunks written
+🔥 [PID 81602] 20230629 → 20230629_clipped_mosaic.tif
+✅ 20230318 → 200 chunks written
+🔥 [PID 81598] 20230324 → 20230324_clipped_mosaic.tif
+✅ 20230630 → 200 chunks written
+🔥 [PID 81603] 20230727 → 20230727_clipped_mosaic.tif
+✅ 20230501 → 200 chunks written
+🔥 [PID 81601] 20230511 → 20230511_clipped_mosaic.tif
+✅ 20230521 → 200 chunks written
+🔥 [PID 81600] 20230611 → 20230611_clipped_mosaic.tif
+✅ 20230324 → 200 chunks written
+🔥 [PID 81598] 20230401 → 20230401_clipped_mosaic.tif
+✅ 20230219 → 200 chunks written
+🔥 [PID 81599] 20230226 → 20230226_clipped_mosaic.tif
+✅ 20230511 → 200 chunks written
+🔥 [PID 81601] 20230527 → 20230527_clipped_mosaic.tif
+✅ 20230611 → 200 chunks written
+🔥 [PID 81600] 20230623 → 20230623_clipped_mosaic.tif
+✅ 20230401 → 200 chunks written
+🔥 [PID 81598] 20230407 → 20230407_clipped_mosaic.tif
+✅ 20230226 → 200 chunks written
+🔥 [PID 81599] 20230306 → 20230306_clipped_mosaic.tif
+✅ 20230407 → 200 chunks written
+🔥 [PID 81598] 20230417 → 20230417_clipped_mosaic.tif
+✅ 20230417 → 200 chunks written
+🔥 [PID 81598] 20230428 → 20230428_clipped_mosaic.tif
+✅ 20230629 → 200 chunks written
+🔥 [PID 81602] 20230724 → 20230724_clipped_mosaic.tif
+✅ 20230428 → 200 chunks written
+🔥 [PID 81598] 20230506 → 20230506_clipped_mosaic.tif
+✅ 20230727 → 200 chunks written
+🔥 [PID 81603] 20230810 → 20230810_clipped_mosaic.tif
+✅ 20230623 → 200 chunks written
+🔥 [PID 81600] 20230720 → 20230720_clipped_mosaic.tif
+✅ 20230506 → 200 chunks written
+🔥 [PID 81598] 20230516 → 20230516_clipped_mosaic.tif
+✅ 20230527 → 200 chunks written
+🔥 [PID 81601] 20230613 → 20230613_clipped_mosaic.tif
+✅ 20230306 → 200 chunks written
+🔥 [PID 81599] 20230312 → 20230312_clipped_mosaic.tif
+✅ 20230312 → 200 chunks written
+🔥 [PID 81599] 20230319 → 20230319_clipped_mosaic.tif
+✅ 20230724 → 200 chunks written
+🔥 [PID 81602] 20230809 → 20230809_clipped_mosaic.tif
+✅ 20230319 → 200 chunks written
+🔥 [PID 81599] 20230327 → 20230327_clipped_mosaic.tif
+✅ 20230810 → 200 chunks written
+🔥 [PID 81603] 20230821 → 20230821_clipped_mosaic.tif
+✅ 20230809 → 200 chunks written
+🔥 [PID 81602] 20230817 → 20230817_clipped_mosaic.tif
+✅ 20230327 → 200 chunks written
+🔥 [PID 81599] 20230402 → 20230402_clipped_mosaic.tif
+✅ 20230821 → 200 chunks written
+🔥 [PID 81603] 20230831 → 20230831_clipped_mosaic.tif
+✅ 20230720 → 200 chunks written
+🔥 [PID 81600] 20230803 → 20230803_clipped_mosaic.tif
+✅ 20230516 → 200 chunks written
+🔥 [PID 81598] 20230609 → 20230609_clipped_mosaic.tif
+✅ 20230613 → 200 chunks written
+🔥 [PID 81601] 20230625 → 20230625_clipped_mosaic.tif
+✅ 20230831 → 200 chunks written
+🔥 [PID 81603] 20230918 → 20230918_clipped_mosaic.tif
+✅ 20230402 → 200 chunks written
+🔥 [PID 81599] 20230408 → 20230408_clipped_mosaic.tif
+✅ 20230408 → 200 chunks written
+🔥 [PID 81599] 20230419 → 20230419_clipped_mosaic.tif
+✅ 20230419 → 200 chunks written
+🔥 [PID 81599] 20230429 → 20230429_clipped_mosaic.tif
+✅ 20230429 → 200 chunks written
+🔥 [PID 81599] 20230507 → 20230507_clipped_mosaic.tif
+✅ 20230817 → 200 chunks written
+🔥 [PID 81602] 20230828 → 20230828_clipped_mosaic.tif
+✅ 20230803 → 200 chunks written
+🔥 [PID 81600] 20230815 → 20230815_clipped_mosaic.tif
+✅ 20230609 → 200 chunks written
+🔥 [PID 81598] 20230616 → 20230616_clipped_mosaic.tif
+✅ 20230625 → 200 chunks written
+🔥 [PID 81601] 20230723 → 20230723_clipped_mosaic.tif
+✅ 20230918 → 200 chunks written
+🔥 [PID 81603] 20230928 → 20230928_clipped_mosaic.tif
+✅ 20230828 → 200 chunks written
+🔥 [PID 81602] 20230912 → 20230912_clipped_mosaic.tif
+✅ 20230616 → 200 chunks written
+🔥 [PID 81598] 20230710 → 20230710_clipped_mosaic.tif
+✅ 20230507 → 200 chunks written
+🔥 [PID 81599] 20230518 → 20230518_clipped_mosaic.tif
+✅ 20230928 → 200 chunks written
+🔥 [PID 81603] 20231013 → 20231013_clipped_mosaic.tif
+✅ 20230815 → 200 chunks written
+🔥 [PID 81600] 20230824 → 20230824_clipped_mosaic.tif
+✅ 20230723 → 200 chunks written
+🔥 [PID 81601] 20230804 → 20230804_clipped_mosaic.tif
+✅ 20230824 → 200 chunks written
+🔥 [PID 81600] 20230910 → 20230910_clipped_mosaic.tif
+✅ 20230912 → 200 chunks written
+🔥 [PID 81602] 20230927 → 20230927_clipped_mosaic.tif
+✅ 20230804 → 200 chunks written
+🔥 [PID 81601] 20230816 → 20230816_clipped_mosaic.tif
+✅ 20230910 → 200 chunks written
+🔥 [PID 81600] 20230923 → 20230923_clipped_mosaic.tif
+✅ 20230816 → 200 chunks written
+🔥 [PID 81601] 20230826 → 20230826_clipped_mosaic.tif
+✅ 20230710 → 200 chunks written
+🔥 [PID 81598] 20230730 → 20230730_clipped_mosaic.tif
+✅ 20230518 → 200 chunks written
+🔥 [PID 81599] 20230610 → 20230610_clipped_mosaic.tif
+✅ 20231013 → 200 chunks written
+🔥 [PID 81603] 20231030 → 20231030_clipped_mosaic.tif
+✅ 20230826 → 200 chunks written
+🔥 [PID 81601] 20230911 → 20230911_clipped_mosaic.tif
+✅ 20230610 → 200 chunks written
+🔥 [PID 81599] 20230619 → 20230619_clipped_mosaic.tif
+✅ 20230927 → 200 chunks written
+🔥 [PID 81602] 20231012 → 20231012_clipped_mosaic.tif
+✅ 20231030 → 200 chunks written
+🔥 [PID 81603] 20231111 → 20231111_clipped_mosaic.tif
+✅ 20230923 → 200 chunks written
+🔥 [PID 81600] 20231008 → 20231008_clipped_mosaic.tif
+✅ 20231111 → 200 chunks written
+🔥 [PID 81603] 20240121 → 20240121_clipped_mosaic.tif
+✅ 20230730 → 200 chunks written
+🔥 [PID 81598] 20230811 → 20230811_clipped_mosaic.tif
+✅ 20230911 → 200 chunks written
+🔥 [PID 81601] 20230926 → 20230926_clipped_mosaic.tif
+✅ 20230811 → 200 chunks written
+🔥 [PID 81598] 20230822 → 20230822_clipped_mosaic.tif
+✅ 20230619 → 200 chunks written
+🔥 [PID 81599] 20230717 → 20230717_clipped_mosaic.tif
+✅ 20231012 → 200 chunks written
+🔥 [PID 81602] 20231025 → 20231025_clipped_mosaic.tif
+✅ 20231025 → 200 chunks written
+🔥 [PID 81602] 20231110 → 20231110_clipped_mosaic.tif
+✅ 20231008 → 200 chunks written
+🔥 [PID 81600] 20231023 → 20231023_clipped_mosaic.tif
+✅ 20240121 → 200 chunks written
+🔥 [PID 81603] 20240210 → 20240210_clipped_mosaic.tif
+✅ 20230926 → 200 chunks written
+🔥 [PID 81601] 20231009 → 20231009_clipped_mosaic.tif
+✅ 20231110 → 200 chunks written
+🔥 [PID 81602] 20240120 → 20240120_clipped_mosaic.tif
+✅ 20240210 → 200 chunks written
+🔥 [PID 81603] 20240218 → 20240218_clipped_mosaic.tif
+✅ 20240120 → 200 chunks written
+🔥 [PID 81602] 20240209 → 20240209_clipped_mosaic.tif
+✅ 20240218 → 200 chunks written
+🔥 [PID 81603] 20240225 → 20240225_clipped_mosaic.tif
+✅ 20230822 → 200 chunks written
+🔥 [PID 81598] 20230901 → 20230901_clipped_mosaic.tif
+✅ 20230717 → 200 chunks written
+🔥 [PID 81599] 20230802 → 20230802_clipped_mosaic.tif
+✅ 20231009 → 200 chunks written
+🔥 [PID 81601] 20231024 → 20231024_clipped_mosaic.tif
+✅ 20240225 → 200 chunks written
+🔥 [PID 81603] 20240303 → 20240303_clipped_mosaic.tif
+✅ 20230802 → 200 chunks written
+🔥 [PID 81599] 20230813 → 20230813_clipped_mosaic.tif
+✅ 20240303 → 200 chunks written
+🔥 [PID 81603] 20240309 → 20240309_clipped_mosaic.tif
+✅ 20231023 → 200 chunks written
+🔥 [PID 81600] 20231106 → 20231106_clipped_mosaic.tif
+✅ 20240309 → 200 chunks written
+🔥 [PID 81603] 20240320 → 20240320_clipped_mosaic.tif
+✅ 20240209 → 200 chunks written
+🔥 [PID 81602] 20240216 → 20240216_clipped_mosaic.tif
+✅ 20240320 → 200 chunks written
+🔥 [PID 81603] 20240326 → 20240326_clipped_mosaic.tif
+✅ 20240216 → 200 chunks written
+🔥 [PID 81602] 20240223 → 20240223_clipped_mosaic.tif
+✅ 20240326 → 200 chunks written
+🔥 [PID 81603] 20240402 → 20240402_clipped_mosaic.tif
+✅ 20240223 → 200 chunks written
+🔥 [PID 81602] 20240302 → 20240302_clipped_mosaic.tif
+✅ 20230901 → 200 chunks written
+🔥 [PID 81598] 20230921 → 20230921_clipped_mosaic.tif
+✅ 20231024 → 200 chunks written
+🔥 [PID 81601] 20231107 → 20231107_clipped_mosaic.tif
+✅ 20240402 → 200 chunks written
+🔥 [PID 81603] 20240416 → 20240416_clipped_mosaic.tif
+✅ 20230921 → 200 chunks written
+🔥 [PID 81598] 20230930 → 20230930_clipped_mosaic.tif
+✅ 20231106 → 200 chunks written
+🔥 [PID 81600] 20231121 → 20231121_clipped_mosaic.tif
+✅ 20240302 → 200 chunks written
+🔥 [PID 81602] 20240308 → 20240308_clipped_mosaic.tif
+✅ 20230813 → 200 chunks written
+🔥 [PID 81599] 20230823 → 20230823_clipped_mosaic.tif
+✅ 20231121 → 200 chunks written
+🔥 [PID 81600] 20240206 → 20240206_clipped_mosaic.tif
+✅ 20240416 → 200 chunks written
+🔥 [PID 81603] 20240425 → 20240425_clipped_mosaic.tif
+✅ 20240308 → 200 chunks written
+🔥 [PID 81602] 20240319 → 20240319_clipped_mosaic.tif
+✅ 20240206 → 200 chunks written
+🔥 [PID 81600] 20240214 → 20240214_clipped_mosaic.tif
+✅ 20240425 → 200 chunks written
+🔥 [PID 81603] 20240514 → 20240514_clipped_mosaic.tif
+✅ 20231107 → 200 chunks written
+🔥 [PID 81601] 20240119 → 20240119_clipped_mosaic.tif
+✅ 20240214 → 200 chunks written
+🔥 [PID 81600] 20240221 → 20240221_clipped_mosaic.tif
+✅ 20240119 → 200 chunks written
+🔥 [PID 81601] 20240208 → 20240208_clipped_mosaic.tif
+✅ 20240221 → 200 chunks written
+🔥 [PID 81600] 20240228 → 20240228_clipped_mosaic.tif
+✅ 20240208 → 200 chunks written
+🔥 [PID 81601] 20240215 → 20240215_clipped_mosaic.tif
+✅ 20230823 → 200 chunks written
+🔥 [PID 81599] 20230904 → 20230904_clipped_mosaic.tif
+✅ 20240319 → 200 chunks written
+🔥 [PID 81602] 20240325 → 20240325_clipped_mosaic.tif
+✅ 20240514 → 200 chunks written
+🔥 [PID 81603] 20240526 → 20240526_clipped_mosaic.tif
+✅ 20230930 → 200 chunks written
+🔥 [PID 81598] 20231015 → 20231015_clipped_mosaic.tif
+✅ 20240228 → 200 chunks written
+🔥 [PID 81600] 20240306 → 20240306_clipped_mosaic.tif
+✅ 20240215 → 200 chunks written
+🔥 [PID 81601] 20240222 → 20240222_clipped_mosaic.tif
+✅ 20230904 → 200 chunks written
+🔥 [PID 81599] 20230922 → 20230922_clipped_mosaic.tif
+✅ 20240325 → 200 chunks written
+🔥 [PID 81602] 20240401 → 20240401_clipped_mosaic.tif
+✅ 20240306 → 200 chunks written
+🔥 [PID 81600] 20240316 → 20240316_clipped_mosaic.tif
+✅ 20240222 → 200 chunks written
+🔥 [PID 81601] 20240229 → 20240229_clipped_mosaic.tif
+✅ 20240401 → 200 chunks written
+🔥 [PID 81602] 20240414 → 20240414_clipped_mosaic.tif
+✅ 20240229 → 200 chunks written
+🔥 [PID 81601] 20240307 → 20240307_clipped_mosaic.tif
+✅ 20240414 → 200 chunks written
+🔥 [PID 81602] 20240424 → 20240424_clipped_mosaic.tif
+✅ 20231015 → 200 chunks written
+🔥 [PID 81598] 20231101 → 20231101_clipped_mosaic.tif
+✅ 20240307 → 200 chunks written
+🔥 [PID 81601] 20240317 → 20240317_clipped_mosaic.tif
+✅ 20240424 → 200 chunks written
+🔥 [PID 81602] 20240513 → 20240513_clipped_mosaic.tif
+✅ 20240317 → 200 chunks written
+🔥 [PID 81601] 20240324 → 20240324_clipped_mosaic.tif
+✅ 20240526 → 200 chunks written
+🔥 [PID 81603] 20240615 → 20240615_clipped_mosaic.tif
+✅ 20231101 → 200 chunks written
+🔥 [PID 81598] 20231115 → 20231115_clipped_mosaic.tif
+✅ 20240513 → 200 chunks written
+🔥 [PID 81602] 20240525 → 20240525_clipped_mosaic.tif
+✅ 20240324 → 200 chunks written
+🔥 [PID 81601] 20240331 → 20240331_clipped_mosaic.tif
+✅ 20230922 → 200 chunks written
+🔥 [PID 81599] 20231001 → 20231001_clipped_mosaic.tif
+✅ 20231115 → 200 chunks written
+🔥 [PID 81598] 20240124 → 20240124_clipped_mosaic.tif
+✅ 20240331 → 200 chunks written
+🔥 [PID 81601] 20240413 → 20240413_clipped_mosaic.tif
+✅ 20240615 → 200 chunks written
+🔥 [PID 81603] 20240629 → 20240629_clipped_mosaic.tif
+✅ 20240124 → 200 chunks written
+🔥 [PID 81598] 20240211 → 20240211_clipped_mosaic.tif
+✅ 20240316 → 200 chunks written
+🔥 [PID 81600] 20240323 → 20240323_clipped_mosaic.tif
+✅ 20240413 → 200 chunks written
+🔥 [PID 81601] 20240422 → 20240422_clipped_mosaic.tif
+✅ 20231001 → 200 chunks written
+🔥 [PID 81599] 20231016 → 20231016_clipped_mosaic.tif
+✅ 20240211 → 200 chunks written
+🔥 [PID 81598] 20240219 → 20240219_clipped_mosaic.tif
+✅ 20240323 → 200 chunks written
+🔥 [PID 81600] 20240330 → 20240330_clipped_mosaic.tif
+✅ 20240525 → 200 chunks written
+🔥 [PID 81602] 20240614 → 20240614_clipped_mosaic.tif
+✅ 20240219 → 200 chunks written
+🔥 [PID 81598] 20240226 → 20240226_clipped_mosaic.tif
+✅ 20240422 → 200 chunks written
+🔥 [PID 81601] 20240507 → 20240507_clipped_mosaic.tif
+✅ 20240330 → 200 chunks written
+🔥 [PID 81600] 20240408 → 20240408_clipped_mosaic.tif
+✅ 20240226 → 200 chunks written
+🔥 [PID 81598] 20240304 → 20240304_clipped_mosaic.tif
+✅ 20240408 → 200 chunks written
+🔥 [PID 81600] 20240421 → 20240421_clipped_mosaic.tif
+✅ 20240507 → 200 chunks written
+🔥 [PID 81601] 20240524 → 20240524_clipped_mosaic.tif
+✅ 20240304 → 200 chunks written
+🔥 [PID 81598] 20240310 → 20240310_clipped_mosaic.tif
+✅ 20231016 → 200 chunks written
+🔥 [PID 81599] 20231104 → 20231104_clipped_mosaic.tif
+✅ 20240524 → 200 chunks written
+🔥 [PID 81601] 20240610 → 20240610_clipped_mosaic.tif
+✅ 20240629 → 200 chunks written
+🔥 [PID 81603] 20240706 → 20240706_clipped_mosaic.tif
+✅ 20240310 → 200 chunks written
+🔥 [PID 81598] 20240321 → 20240321_clipped_mosaic.tif
+✅ 20240421 → 200 chunks written
+🔥 [PID 81600] 20240430 → 20240430_clipped_mosaic.tif
+✅ 20240321 → 200 chunks written
+🔥 [PID 81598] 20240327 → 20240327_clipped_mosaic.tif
+✅ 20231104 → 200 chunks written
+🔥 [PID 81599] 20231119 → 20231119_clipped_mosaic.tif
+✅ 20240430 → 200 chunks written
+🔥 [PID 81600] 20240521 → 20240521_clipped_mosaic.tif
+✅ 20240614 → 200 chunks written
+🔥 [PID 81602] 20240628 → 20240628_clipped_mosaic.tif
+✅ 20240327 → 200 chunks written
+🔥 [PID 81598] 20240403 → 20240403_clipped_mosaic.tif
+✅ 20231119 → 200 chunks written
+🔥 [PID 81599] 20240204 → 20240204_clipped_mosaic.tif
+✅ 20240403 → 200 chunks written
+🔥 [PID 81598] 20240419 → 20240419_clipped_mosaic.tif
+✅ 20240204 → 200 chunks written
+🔥 [PID 81599] 20240212 → 20240212_clipped_mosaic.tif
+✅ 20240419 → 200 chunks written
+🔥 [PID 81598] 20240427 → 20240427_clipped_mosaic.tif
+✅ 20240610 → 200 chunks written
+🔥 [PID 81601] 20240625 → 20240625_clipped_mosaic.tif
+✅ 20240212 → 200 chunks written
+🔥 [PID 81599] 20240220 → 20240220_clipped_mosaic.tif
+✅ 20240706 → 200 chunks written
+🔥 [PID 81603] 20240713 → 20240713_clipped_mosaic.tif
+✅ 20240427 → 200 chunks written
+🔥 [PID 81598] 20240516 → 20240516_clipped_mosaic.tif
+✅ 20240220 → 200 chunks written
+🔥 [PID 81599] 20240227 → 20240227_clipped_mosaic.tif
+✅ 20240521 → 200 chunks written
+🔥 [PID 81600] 20240609 → 20240609_clipped_mosaic.tif
+✅ 20240628 → 200 chunks written
+🔥 [PID 81602] 20240705 → 20240705_clipped_mosaic.tif
+✅ 20240516 → 200 chunks written
+🔥 [PID 81598] 20240528 → 20240528_clipped_mosaic.tif
+✅ 20240227 → 200 chunks written
+🔥 [PID 81599] 20240305 → 20240305_clipped_mosaic.tif
+✅ 20240305 → 200 chunks written
+🔥 [PID 81599] 20240314 → 20240314_clipped_mosaic.tif
+✅ 20240713 → 200 chunks written
+🔥 [PID 81603] 20240725 → 20240725_clipped_mosaic.tif
+✅ 20240314 → 200 chunks written
+🔥 [PID 81599] 20240322 → 20240322_clipped_mosaic.tif
+✅ 20240625 → 200 chunks written
+🔥 [PID 81601] 20240704 → 20240704_clipped_mosaic.tif
+✅ 20240725 → 200 chunks written
+🔥 [PID 81603] 20240807 → 20240807_clipped_mosaic.tif
+✅ 20240322 → 200 chunks written
+🔥 [PID 81599] 20240329 → 20240329_clipped_mosaic.tif
+✅ 20240329 → 200 chunks written
+🔥 [PID 81599] 20240406 → 20240406_clipped_mosaic.tif
+✅ 20240609 → 200 chunks written
+🔥 [PID 81600] 20240623 → 20240623_clipped_mosaic.tif
+✅ 20240705 → 200 chunks written
+🔥 [PID 81602] 20240712 → 20240712_clipped_mosaic.tif
+✅ 20240528 → 200 chunks written
+🔥 [PID 81598] 20240618 → 20240618_clipped_mosaic.tif
+✅ 20240406 → 200 chunks written
+🔥 [PID 81599] 20240420 → 20240420_clipped_mosaic.tif
+✅ 20240704 → 200 chunks written
+🔥 [PID 81601] 20240711 → 20240711_clipped_mosaic.tif
+✅ 20240623 → 200 chunks written
+🔥 [PID 81600] 20240702 → 20240702_clipped_mosaic.tif
+✅ 20240420 → 200 chunks written
+🔥 [PID 81599] 20240428 → 20240428_clipped_mosaic.tif
+✅ 20240711 → 200 chunks written
+🔥 [PID 81601] 20240722 → 20240722_clipped_mosaic.tif
+✅ 20240712 → 200 chunks written
+🔥 [PID 81602] 20240723 → 20240723_clipped_mosaic.tif
+✅ 20240702 → 200 chunks written
+🔥 [PID 81600] 20240710 → 20240710_clipped_mosaic.tif
+✅ 20240807 → 200 chunks written
+🔥 [PID 81603] 20240819 → 20240819_clipped_mosaic.tif
+✅ 20240618 → 200 chunks written
+🔥 [PID 81598] 20240630 → 20240630_clipped_mosaic.tif
+✅ 20240710 → 200 chunks written
+🔥 [PID 81600] 20240720 → 20240720_clipped_mosaic.tif
+✅ 20240428 → 200 chunks written
+🔥 [PID 81599] 20240518 → 20240518_clipped_mosaic.tif
+✅ 20240722 → 200 chunks written
+🔥 [PID 81601] 20240803 → 20240803_clipped_mosaic.tif
+✅ 20240720 → 200 chunks written
+🔥 [PID 81600] 20240731 → 20240731_clipped_mosaic.tif
+✅ 20240819 → 200 chunks written
+🔥 [PID 81603] 20240827 → 20240827_clipped_mosaic.tif
+✅ 20240518 → 200 chunks written
+🔥 [PID 81599] 20240601 → 20240601_clipped_mosaic.tif
+✅ 20240731 → 200 chunks written
+🔥 [PID 81600] 20240811 → 20240811_clipped_mosaic.tif
+✅ 20240827 → 200 chunks written
+🔥 [PID 81603] 20240906 → 20240906_clipped_mosaic.tif
+✅ 20240723 → 200 chunks written
+🔥 [PID 81602] 20240805 → 20240805_clipped_mosaic.tif
+✅ 20240630 → 200 chunks written
+🔥 [PID 81598] 20240707 → 20240707_clipped_mosaic.tif
+✅ 20240803 → 200 chunks written
+🔥 [PID 81601] 20240812 → 20240812_clipped_mosaic.tif
+✅ 20240601 → 200 chunks written
+🔥 [PID 81599] 20240621 → 20240621_clipped_mosaic.tif
+✅ 20240811 → 200 chunks written
+🔥 [PID 81600] 20240823 → 20240823_clipped_mosaic.tif
+✅ 20240906 → 200 chunks written
+🔥 [PID 81603] 20240912 → 20240912_clipped_mosaic.tif
+✅ 20240621 → 200 chunks written
+🔥 [PID 81599] 20240701 → 20240701_clipped_mosaic.tif
+✅ 20240805 → 200 chunks written
+🔥 [PID 81602] 20240818 → 20240818_clipped_mosaic.tif
+✅ 20240707 → 200 chunks written
+🔥 [PID 81598] 20240717 → 20240717_clipped_mosaic.tif
+✅ 20240912 → 200 chunks written
+🔥 [PID 81603] 20240925 → 20240925_clipped_mosaic.tif
+✅ 20240818 → 200 chunks written
+🔥 [PID 81602] 20240825 → 20240825_clipped_mosaic.tif
+✅ 20240812 → 200 chunks written
+🔥 [PID 81601] 20240824 → 20240824_clipped_mosaic.tif
+✅ 20240701 → 200 chunks written
+🔥 [PID 81599] 20240709 → 20240709_clipped_mosaic.tif
+✅ 20240823 → 200 chunks written
+🔥 [PID 81600] 20240903 → 20240903_clipped_mosaic.tif
+✅ 20240903 → 200 chunks written
+🔥 [PID 81600] 20240909 → 20240909_clipped_mosaic.tif
+✅ 20240824 → 200 chunks written
+🔥 [PID 81601] 20240904 → 20240904_clipped_mosaic.tif
+✅ 20240909 → 200 chunks written
+🔥 [PID 81600] 20240917 → 20240917_clipped_mosaic.tif
+✅ 20240717 → 200 chunks written
+🔥 [PID 81598] 20240727 → 20240727_clipped_mosaic.tif
+✅ 20240925 → 200 chunks written
+🔥 [PID 81603] 20241008 → 20241008_clipped_mosaic.tif
+✅ 20240904 → 200 chunks written
+🔥 [PID 81601] 20240910 → 20240910_clipped_mosaic.tif
+✅ 20240917 → 200 chunks written
+🔥 [PID 81600] 20241005 → 20241005_clipped_mosaic.tif
+✅ 20240825 → 200 chunks written
+🔥 [PID 81602] 20240905 → 20240905_clipped_mosaic.tif
+✅ 20241008 → 200 chunks written
+🔥 [PID 81603] 20241030 → 20241030_clipped_mosaic.tif
+✅ 20240709 → 200 chunks written
+🔥 [PID 81599] 20240719 → 20240719_clipped_mosaic.tif
+✅ 20241030 → 200 chunks written
+✅ 20240905 → 200 chunks written
+🔥 [PID 81602] 20240911 → 20240911_clipped_mosaic.tif
+✅ 20240910 → 200 chunks written
+🔥 [PID 81601] 20240918 → 20240918_clipped_mosaic.tif
+✅ 20240727 → 200 chunks written
+🔥 [PID 81598] 20240809 → 20240809_clipped_mosaic.tif
+✅ 20240911 → 200 chunks written
+🔥 [PID 81602] 20240919 → 20240919_clipped_mosaic.tif
+✅ 20241005 → 200 chunks written
+🔥 [PID 81600] 20241018 → 20241018_clipped_mosaic.tif
+✅ 20240719 → 200 chunks written
+🔥 [PID 81599] 20240730 → 20240730_clipped_mosaic.tif
+✅ 20240919 → 200 chunks written
+🔥 [PID 81602] 20241007 → 20241007_clipped_mosaic.tif
+✅ 20240918 → 200 chunks written
+🔥 [PID 81601] 20241006 → 20241006_clipped_mosaic.tif
+✅ 20240809 → 200 chunks written
+🔥 [PID 81598] 20240820 → 20240820_clipped_mosaic.tif
+✅ 20241018 → 200 chunks written
+🔥 [PID 81600] 20241108 → 20241108_clipped_mosaic.tif
+✅ 20241007 → 200 chunks written
+🔥 [PID 81602] 20241020 → 20241020_clipped_mosaic.tif
+✅ 20240820 → 200 chunks written
+🔥 [PID 81598] 20240829 → 20240829_clipped_mosaic.tif
+✅ 20241108 → 200 chunks written
+✅ 20240829 → 200 chunks written
+🔥 [PID 81598] 20240907 → 20240907_clipped_mosaic.tif
+✅ 20240730 → 200 chunks written
+🔥 [PID 81599] 20240810 → 20240810_clipped_mosaic.tif
+✅ 20241006 → 200 chunks written
+🔥 [PID 81601] 20241019 → 20241019_clipped_mosaic.tif
+✅ 20241020 → 200 chunks written
+🔥 [PID 81602] 20241113 → 20241113_clipped_mosaic.tif
+✅ 20241019 → 200 chunks written
+🔥 [PID 81601] 20241110 → 20241110_clipped_mosaic.tif
+✅ 20241113 → 200 chunks written
+✅ 20241110 → 200 chunks written
+✅ 20240907 → 200 chunks written
+🔥 [PID 81598] 20240914 → 20240914_clipped_mosaic.tif
+✅ 20240810 → 200 chunks written
+🔥 [PID 81599] 20240821 → 20240821_clipped_mosaic.tif
+✅ 20240914 → 200 chunks written
+🔥 [PID 81598] 20240926 → 20240926_clipped_mosaic.tif
+✅ 20240821 → 200 chunks written
+🔥 [PID 81599] 20240901 → 20240901_clipped_mosaic.tif
+✅ 20240926 → 200 chunks written
+🔥 [PID 81598] 20241014 → 20241014_clipped_mosaic.tif
+✅ 20240901 → 200 chunks written
+🔥 [PID 81599] 20240908 → 20240908_clipped_mosaic.tif
+✅ 20240908 → 200 chunks written
+🔥 [PID 81599] 20240916 → 20240916_clipped_mosaic.tif
+✅ 20241014 → 200 chunks written
+🔥 [PID 81598] 20241031 → 20241031_clipped_mosaic.tif
+✅ 20240916 → 200 chunks written
+🔥 [PID 81599] 20240929 → 20240929_clipped_mosaic.tif
+✅ 20241031 → 200 chunks written
+✅ 20240929 → 200 chunks written
+🔥 [PID 81599] 20241015 → 20241015_clipped_mosaic.tif
+✅ 20241015 → 200 chunks written
+🔥 [PID 81599] 20241103 → 20241103_clipped_mosaic.tif
+✅ 20241103 → 200 chunks written
+[[1]]
+NULL
+
+[[2]]
+NULL
+
+[[3]]
+NULL
+
+[[4]]
+NULL
+
+[[5]]
+NULL
+
+[[6]]
+NULL
+
+[[7]]
+NULL
+
+[[8]]
+NULL
+
+[[9]]
+NULL
+
+[[10]]
+NULL
+
+[[11]]
+NULL
+
+[[12]]
+NULL
+
+[[13]]
+NULL
+
+[[14]]
+NULL
+
+[[15]]
+NULL
+
+[[16]]
+NULL
+
+[[17]]
+NULL
+
+[[18]]
+NULL
+
+[[19]]
+NULL
+
+[[20]]
+NULL
+
+[[21]]
+NULL
+
+[[22]]
+NULL
+
+[[23]]
+NULL
+
+[[24]]
+NULL
+
+[[25]]
+NULL
+
+[[26]]
+NULL
+
+[[27]]
+NULL
+
+[[28]]
+NULL
+
+[[29]]
+NULL
+
+[[30]]
+NULL
+
+[[31]]
+NULL
+
+[[32]]
+NULL
+
+[[33]]
+NULL
+
+[[34]]
+NULL
+
+[[35]]
+NULL
+
+[[36]]
+NULL
+
+[[37]]
+NULL
+
+[[38]]
+NULL
+
+[[39]]
+NULL
+
+[[40]]
+NULL
+
+[[41]]
+NULL
+
+[[42]]
+NULL
+
+[[43]]
+NULL
+
+[[44]]
+NULL
+
+[[45]]
+NULL
+
+[[46]]
+NULL
+
+[[47]]
+NULL
+
+[[48]]
+NULL
+
+[[49]]
+NULL
+
+[[50]]
+NULL
+
+[[51]]
+NULL
+
+[[52]]
+NULL
+
+[[53]]
+NULL
+
+[[54]]
+NULL
+
+[[55]]
+NULL
+
+[[56]]
+NULL
+
+[[57]]
+NULL
+
+[[58]]
+NULL
+
+[[59]]
+NULL
+
+[[60]]
+NULL
+
+[[61]]
+NULL
+
+[[62]]
+NULL
+
+[[63]]
+NULL
+
+[[64]]
+NULL
+
+[[65]]
+NULL
+
+[[66]]
+NULL
+
+[[67]]
+NULL
+
+[[68]]
+NULL
+
+[[69]]
+NULL
+
+[[70]]
+NULL
+
+[[71]]
+NULL
+
+[[72]]
+NULL
+
+[[73]]
+NULL
+
+[[74]]
+NULL
+
+[[75]]
+NULL
+
+[[76]]
+NULL
+
+[[77]]
+NULL
+
+[[78]]
+NULL
+
+[[79]]
+NULL
+
+[[80]]
+NULL
+
+[[81]]
+NULL
+
+[[82]]
+NULL
+
+[[83]]
+NULL
+
+[[84]]
+NULL
+
+[[85]]
+NULL
+
+[[86]]
+NULL
+
+[[87]]
+NULL
+
+[[88]]
+NULL
+
+[[89]]
+NULL
+
+[[90]]
+NULL
+
+[[91]]
+NULL
+
+[[92]]
+NULL
+
+[[93]]
+NULL
+
+[[94]]
+NULL
+
+[[95]]
+NULL
+
+[[96]]
+NULL
+
+[[97]]
+NULL
+
+[[98]]
+NULL
+
+[[99]]
+NULL
+
+[[100]]
+NULL
+
+[[101]]
+NULL
+
+[[102]]
+NULL
+
+[[103]]
+NULL
+
+[[104]]
+NULL
+
+[[105]]
+NULL
+
+[[106]]
+NULL
+
+[[107]]
+NULL
+
+[[108]]
+NULL
+
+[[109]]
+NULL
+
+[[110]]
+NULL
+
+[[111]]
+NULL
+
+[[112]]
+NULL
+
+[[113]]
+NULL
+
+[[114]]
+NULL
+
+[[115]]
+NULL
+
+[[116]]
+NULL
+
+[[117]]
+NULL
+
+[[118]]
+NULL
+
+[[119]]
+NULL
+
+[[120]]
+NULL
+
+[[121]]
+NULL
+
+[[122]]
+NULL
+
+[[123]]
+NULL
+
+[[124]]
+NULL
+
+[[125]]
+NULL
+
+[[126]]
+NULL
+
+[[127]]
+NULL
+
+[[128]]
+NULL
+
+[[129]]
+NULL
+
+[[130]]
+NULL
+
+[[131]]
+NULL
+
+[[132]]
+NULL
+
+[[133]]
+NULL
+
+[[134]]
+NULL
+
+[[135]]
+NULL
+
+[[136]]
+NULL
+
+[[137]]
+NULL
+
+[[138]]
+NULL
+
+[[139]]
+NULL
+
+[[140]]
+NULL
+
+[[141]]
+NULL
+
+[[142]]
+NULL
+
+[[143]]
+NULL
+
+[[144]]
+NULL
+
+[[145]]
+NULL
+
+[[146]]
+NULL
+
+[[147]]
+NULL
+
+[[148]]
+NULL
+
+[[149]]
+NULL
+
+[[150]]
+NULL
+
+[[151]]
+NULL
+
+[[152]]
+NULL
+
+[[153]]
+NULL
+
+[[154]]
+NULL
+
+[[155]]
+NULL
+
+[[156]]
+NULL
+
+[[157]]
+NULL
+
+[[158]]
+NULL
+
+[[159]]
+NULL
+
+[[160]]
+NULL
+
+[[161]]
+NULL
+
+[[162]]
+NULL
+
+[[163]]
+NULL
+
+[[164]]
+NULL
+
+[[165]]
+NULL
+
+[[166]]
+NULL
+
+[[167]]
+NULL
+
+[[168]]
+NULL
+
+[[169]]
+NULL
+
+[[170]]
+NULL
+
+[[171]]
+NULL
+
+[[172]]
+NULL
+
+[[173]]
+NULL
+
+[[174]]
+NULL
+
+[[175]]
+NULL
+
+[[176]]
+NULL
+
+[[177]]
+NULL
+
+[[178]]
+NULL
+
+[[179]]
+NULL
+
+[[180]]
+NULL
+
+[[181]]
+NULL
+
+[[182]]
+NULL
+
+[[183]]
+NULL
+
+[[184]]
+NULL
+
+[[185]]
+NULL
+
+[[186]]
+NULL
+
+[[187]]
+NULL
+
+[[188]]
+NULL
+
+[[189]]
+NULL
+
+[[190]]
+NULL
+
+[[191]]
+NULL
+
+[[192]]
+NULL
+
+[[193]]
+NULL
+
+[[194]]
+NULL
+
+[[195]]
+NULL
+
+[[196]]
+NULL
+
+[[197]]
+NULL
+
+[[198]]
+NULL
+
+[[199]]
+NULL
+
+[[200]]
+NULL
+
+[[201]]
+NULL
+
+[[202]]
+NULL
+
+[[203]]
+NULL
+
+[[204]]
+NULL
+
+[[205]]
+NULL
+
+[[206]]
+NULL
+
+[[207]]
+NULL
+
+[[208]]
+NULL
+
+[[209]]
+NULL
+
+[[210]]
+NULL
+
+[[211]]
+NULL
+
+[[212]]
+NULL
+
+[[213]]
+NULL
+
+[[214]]
+NULL
+
+[[215]]
+NULL
+
+[[216]]
+NULL
+
+[[217]]
+NULL
+
+[[218]]
+NULL
+
+[[219]]
+NULL
+
+[[220]]
+NULL
+
+[[221]]
+NULL
+
+[[222]]
+NULL
+
+[[223]]
+NULL
+
+[[224]]
+NULL
+
+[[225]]
+NULL
+
+[[226]]
+NULL
+
+[[227]]
+NULL
+
+[[228]]
+NULL
+
+[[229]]
+NULL
+
+[[230]]
+NULL
+
+[[231]]
+NULL
+
+[[232]]
+NULL
+
+[[233]]
+NULL
+
+[[234]]
+NULL
+
+[[235]]
+NULL
+
+[[236]]
+NULL
+
+[[237]]
+NULL
+
+[[238]]
+NULL
+
+[[239]]
+NULL
+
+[[240]]
+NULL
+
+[[241]]
+NULL
+
+[[242]]
+NULL
+
+[[243]]
+NULL
+
+[[244]]
+NULL
+
+[[245]]
+NULL
+
+[[246]]
+NULL
+
+[[247]]
+NULL
+
+[[248]]
+NULL
+
+[[249]]
+NULL
+
+[[250]]
+NULL
+
+[[251]]
+NULL
+
+[[252]]
+NULL
+
+[[253]]
+NULL
+
+[[254]]
+NULL
+
+[[255]]
+NULL
+
+[[256]]
+NULL
+
+[[257]]
+NULL
+
+[[258]]
+NULL
+
+[[259]]
+NULL
+
+[[260]]
+NULL
+
+[[261]]
+NULL
+
+[[262]]
+NULL
+
+[[263]]
+NULL
+
+[[264]]
+NULL
+
+[[265]]
+NULL
+
+[[266]]
+NULL
+
+[[267]]
+NULL
+
+[[268]]
+NULL
+
+[[269]]
+NULL
+
+[[270]]
+NULL
+
+[[271]]
+NULL
+
+[[272]]
+NULL
+
+[[273]]
+NULL
+
+[[274]]
+NULL
+
+[[275]]
+NULL
+
+[[276]]
+NULL
+
+[[277]]
+NULL
+
+[[278]]
+NULL
+
+[[279]]
+NULL
+
+[[280]]
+NULL
+
+[[281]]
+NULL
+
+[[282]]
+NULL
+
+[[283]]
+NULL
+
+[[284]]
+NULL
+
+[[285]]
+NULL
+
+[[286]]
+NULL
+
+[[287]]
+NULL
+
+[[288]]
+NULL
+
+[[289]]
+NULL
+
+[[290]]
+NULL
+
+[[291]]
+NULL
+
+[[292]]
+NULL
+
+[[293]]
+NULL
+
+[[294]]
+NULL
+
+[[295]]
+NULL
+
+[[296]]
+NULL
+
+[[297]]
+NULL
+
+[[298]]
+NULL
+
+[[299]]
+NULL
+
+[[300]]
+NULL
+
+[[301]]
+NULL
+
+[[302]]
+NULL
+
+[[303]]
+NULL
+
+[[304]]
+NULL
+
+[[305]]
+NULL
+
+[[306]]
+NULL
+
+[[307]]
+NULL
+
+[[308]]
+NULL
+
+[[309]]
+NULL
+
+[[310]]
+NULL
+
+[[311]]
+NULL
+
+[[312]]
+NULL
+
+[[313]]
+NULL
+
+[[314]]
+NULL
+
+[[315]]
+NULL
+
+[[316]]
+NULL
+
+[[317]]
+NULL
+
+[[318]]
+NULL
+
+[[319]]
+NULL
+
+[[320]]
+NULL
+
+[[321]]
+NULL
+
+[[322]]
+NULL
+
+[[323]]
+NULL
+
+[[324]]
+NULL
+
+[[325]]
+NULL
+
+[[326]]
+NULL
+
+[[327]]
+NULL
+
+[[328]]
+NULL
+
+[[329]]
+NULL
+
+[[330]]
+NULL
+
+[[331]]
+NULL
+
+[[332]]
+NULL
+
+[[333]]
+NULL
+
+[[334]]
+NULL
+
+[[335]]
+NULL
+
+[[336]]
+NULL
+
+[[337]]
+NULL
+
+[[338]]
+NULL
+
+[[339]]
+NULL
+
+[[340]]
+NULL
+
+[[341]]
+NULL
+
+[[342]]
+NULL
+
+[[343]]
+NULL
+
+[[344]]
+NULL
+
+[[345]]
+NULL
+
+[[346]]
+NULL
+
+[[347]]
+NULL
+
+[[348]]
+NULL
+
+[[349]]
+NULL
+
+[[350]]
+NULL
+
+[[351]]
+NULL
+
+[[352]]
+NULL
+
+[[353]]
+NULL
+
+[[354]]
+NULL
+
+[[355]]
+NULL
+
+[[356]]
+NULL
+
+[[357]]
+NULL
+
+[[358]]
+NULL
+
+[[359]]
+NULL
+
+[[360]]
+NULL
+
+[[361]]
+NULL
+
+[[362]]
+NULL
+
+[[363]]
+NULL
+
+[[364]]
+NULL
+
+[[365]]
+NULL
+
+[[366]]
+NULL
+
+[[367]]
+NULL
+
+[[368]]
+NULL
+
+[[369]]
+NULL
+
+[[370]]
+NULL
+
+[[371]]
+NULL
+
+[[372]]
+NULL
+
+[[373]]
+NULL
+
+[[374]]
+NULL
+
+[[375]]
+NULL
+
+[[376]]
+NULL
+
+[[377]]
+NULL
+
+[[378]]
+NULL
+
+[[379]]
+NULL
+
+[[380]]
+NULL
+
+[[381]]
+NULL
+
+[[382]]
+NULL
+
+[[383]]
+NULL
+
+[[384]]
+NULL
+
+[[385]]
+NULL
+
+[[386]]
+NULL
+
+[[387]]
+NULL
+
+[[388]]
+NULL
+
+[[389]]
+NULL
+
+[[390]]
+NULL
+
+[[391]]
+NULL
+
+[[392]]
+NULL
+
+[[393]]
+NULL
+
+[[394]]
+NULL
+
+[[395]]
+NULL
+
+[[396]]
+NULL
+
+[[397]]
+NULL
+
+[[398]]
+NULL
+
+[[399]]
+NULL
+
+[[400]]
+NULL
+
+[[401]]
+NULL
+
+[[402]]
+NULL
+
+[[403]]
+NULL
+
+[[404]]
+NULL
+
+[[405]]
+NULL
+
+[[406]]
+NULL
+
+[[407]]
+NULL
+
+[[408]]
+NULL
+
+[[409]]
+NULL
+
+[[410]]
+NULL
+
+[[411]]
+NULL
+
+[[412]]
+NULL
+
+[[413]]
+NULL
+
+[[414]]
+NULL
+
+[[415]]
+NULL
+
+[[416]]
+NULL
+
+[[417]]
+NULL
+
+[[418]]
+NULL
+
+[[419]]
+NULL
+
+[[420]]
+NULL
+
+[[421]]
+NULL
+
+[[422]]
+NULL
+
+[[423]]
+NULL
+
+[[424]]
+NULL
+
+[[425]]
+NULL
+
+[[426]]
+NULL
+
+[[427]]
+NULL
+
+[[428]]
+NULL
+
+[[429]]
+NULL
+
+[[430]]
+NULL
+
+[[431]]
+NULL
+
+[[432]]
+NULL
+
+[[433]]
+NULL
+
+[[434]]
+NULL
+
+[[435]]
+NULL
+
+[[436]]
+NULL
+
+[[437]]
+NULL
+
+[[438]]
+NULL
+
+[[439]]
+NULL
+
+[[440]]
+NULL
+
+[[441]]
+NULL
+
+[[442]]
+NULL
+
+[[443]]
+NULL
+
+[[444]]
+NULL
+
+[[445]]
+NULL
+
+[[446]]
+NULL
+
+[[447]]
+NULL
+
+[[448]]
+NULL
+
+[[449]]
+NULL
+
+[[450]]
+NULL
+
+[[451]]
+NULL
+
+[[452]]
+NULL
+
+[[453]]
+NULL
+
+[[454]]
+NULL
+
+[[455]]
+NULL
+
+[[456]]
+NULL
+
+[[457]]
+NULL
+
+[[458]]
+NULL
+
+[[459]]
+NULL
+
+[[460]]
+NULL
+
+[[461]]
+NULL
+
+[[462]]
+NULL
+
+[[463]]
+NULL
+
+[[464]]
+NULL
+
+[[465]]
+NULL
+
+[[466]]
+NULL
+
+[[467]]
+NULL
+
+🧩 Step 2: Merging temporal chunks across dates (NA-fill missing)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_001.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_002.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_005.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_003.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_004.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_006.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_007.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_008.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_010.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_009.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_011.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_012.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_013.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_014.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_016.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_015.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_017.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_018.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_019.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_020.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_022.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_021.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_023.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_024.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_025.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_026.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_028.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_027.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_029.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_030.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_031.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_032.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_034.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_033.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_035.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_036.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_037.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_038.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_040.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_041.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_039.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_042.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_043.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_044.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_046.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_047.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_045.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_048.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_049.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_050.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_052.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_053.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_051.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_054.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_055.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_056.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_058.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_059.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_057.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_060.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_061.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_062.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_064.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_065.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_063.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_066.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_067.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_068.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_070.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_071.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_069.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_072.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_073.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_074.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_076.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_077.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_075.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_078.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_079.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_080.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_082.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_083.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_081.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_084.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_085.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_086.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_088.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_089.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_087.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_090.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_091.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_092.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_094.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_095.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_093.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_096.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_097.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_098.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_100.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_101.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_099.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_102.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_103.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_104.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_106.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_107.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_108.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_105.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_109.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_110.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_112.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_113.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_111.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_114.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_115.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_116.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_118.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_119.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_117.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_120.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_121.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_122.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_124.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_125.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_123.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_126.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_127.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_128.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_130.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_131.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_129.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_132.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_133.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_134.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_136.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_137.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_135.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_138.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_139.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_140.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_142.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_143.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_141.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_144.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_145.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_146.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_148.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_149.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_147.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_150.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_151.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_152.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_154.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_155.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_153.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_156.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_157.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_158.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_160.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_161.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_159.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_162.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_163.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_164.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_166.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_167.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_165.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_168.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_169.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_170.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_172.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_173.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_171.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_174.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_175.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_176.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_178.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_179.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_180.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_177.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_181.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_182.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_184.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_185.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_186.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_183.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_187.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_190.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_191.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_188.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_192.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_189.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_193.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_196.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_197.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_194.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_198.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_195.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_199.rda (467/467 dates present)
+💾 Saved merged chunk: output/CA-CF3/chunk/chunk_200.rda (467/467 dates present)
+[[1]]
+NULL
+
+[[2]]
+NULL
+
+[[3]]
+NULL
+
+[[4]]
+NULL
+
+[[5]]
+NULL
+
+[[6]]
+NULL
+
+[[7]]
+NULL
+
+[[8]]
+NULL
+
+[[9]]
+NULL
+
+[[10]]
+NULL
+
+[[11]]
+NULL
+
+[[12]]
+NULL
+
+[[13]]
+NULL
+
+[[14]]
+NULL
+
+[[15]]
+NULL
+
+[[16]]
+NULL
+
+[[17]]
+NULL
+
+[[18]]
+NULL
+
+[[19]]
+NULL
+
+[[20]]
+NULL
+
+[[21]]
+NULL
+
+[[22]]
+NULL
+
+[[23]]
+NULL
+
+[[24]]
+NULL
+
+[[25]]
+NULL
+
+[[26]]
+NULL
+
+[[27]]
+NULL
+
+[[28]]
+NULL
+
+[[29]]
+NULL
+
+[[30]]
+NULL
+
+[[31]]
+NULL
+
+[[32]]
+NULL
+
+[[33]]
+NULL
+
+[[34]]
+NULL
+
+[[35]]
+NULL
+
+[[36]]
+NULL
+
+[[37]]
+NULL
+
+[[38]]
+NULL
+
+[[39]]
+NULL
+
+[[40]]
+NULL
+
+[[41]]
+NULL
+
+[[42]]
+NULL
+
+[[43]]
+NULL
+
+[[44]]
+NULL
+
+[[45]]
+NULL
+
+[[46]]
+NULL
+
+[[47]]
+NULL
+
+[[48]]
+NULL
+
+[[49]]
+NULL
+
+[[50]]
+NULL
+
+[[51]]
+NULL
+
+[[52]]
+NULL
+
+[[53]]
+NULL
+
+[[54]]
+NULL
+
+[[55]]
+NULL
+
+[[56]]
+NULL
+
+[[57]]
+NULL
+
+[[58]]
+NULL
+
+[[59]]
+NULL
+
+[[60]]
+NULL
+
+[[61]]
+NULL
+
+[[62]]
+NULL
+
+[[63]]
+NULL
+
+[[64]]
+NULL
+
+[[65]]
+NULL
+
+[[66]]
+NULL
+
+[[67]]
+NULL
+
+[[68]]
+NULL
+
+[[69]]
+NULL
+
+[[70]]
+NULL
+
+[[71]]
+NULL
+
+[[72]]
+NULL
+
+[[73]]
+NULL
+
+[[74]]
+NULL
+
+[[75]]
+NULL
+
+[[76]]
+NULL
+
+[[77]]
+NULL
+
+[[78]]
+NULL
+
+[[79]]
+NULL
+
+[[80]]
+NULL
+
+[[81]]
+NULL
+
+[[82]]
+NULL
+
+[[83]]
+NULL
+
+[[84]]
+NULL
+
+[[85]]
+NULL
+
+[[86]]
+NULL
+
+[[87]]
+NULL
+
+[[88]]
+NULL
+
+[[89]]
+NULL
+
+[[90]]
+NULL
+
+[[91]]
+NULL
+
+[[92]]
+NULL
+
+[[93]]
+NULL
+
+[[94]]
+NULL
+
+[[95]]
+NULL
+
+[[96]]
+NULL
+
+[[97]]
+NULL
+
+[[98]]
+NULL
+
+[[99]]
+NULL
+
+[[100]]
+NULL
+
+[[101]]
+NULL
+
+[[102]]
+NULL
+
+[[103]]
+NULL
+
+[[104]]
+NULL
+
+[[105]]
+NULL
+
+[[106]]
+NULL
+
+[[107]]
+NULL
+
+[[108]]
+NULL
+
+[[109]]
+NULL
+
+[[110]]
+NULL
+
+[[111]]
+NULL
+
+[[112]]
+NULL
+
+[[113]]
+NULL
+
+[[114]]
+NULL
+
+[[115]]
+NULL
+
+[[116]]
+NULL
+
+[[117]]
+NULL
+
+[[118]]
+NULL
+
+[[119]]
+NULL
+
+[[120]]
+NULL
+
+[[121]]
+NULL
+
+[[122]]
+NULL
+
+[[123]]
+NULL
+
+[[124]]
+NULL
+
+[[125]]
+NULL
+
+[[126]]
+NULL
+
+[[127]]
+NULL
+
+[[128]]
+NULL
+
+[[129]]
+NULL
+
+[[130]]
+NULL
+
+[[131]]
+NULL
+
+[[132]]
+NULL
+
+[[133]]
+NULL
+
+[[134]]
+NULL
+
+[[135]]
+NULL
+
+[[136]]
+NULL
+
+[[137]]
+NULL
+
+[[138]]
+NULL
+
+[[139]]
+NULL
+
+[[140]]
+NULL
+
+[[141]]
+NULL
+
+[[142]]
+NULL
+
+[[143]]
+NULL
+
+[[144]]
+NULL
+
+[[145]]
+NULL
+
+[[146]]
+NULL
+
+[[147]]
+NULL
+
+[[148]]
+NULL
+
+[[149]]
+NULL
+
+[[150]]
+NULL
+
+[[151]]
+NULL
+
+[[152]]
+NULL
+
+[[153]]
+NULL
+
+[[154]]
+NULL
+
+[[155]]
+NULL
+
+[[156]]
+NULL
+
+[[157]]
+NULL
+
+[[158]]
+NULL
+
+[[159]]
+NULL
+
+[[160]]
+NULL
+
+[[161]]
+NULL
+
+[[162]]
+NULL
+
+[[163]]
+NULL
+
+[[164]]
+NULL
+
+[[165]]
+NULL
+
+[[166]]
+NULL
+
+[[167]]
+NULL
+
+[[168]]
+NULL
+
+[[169]]
+NULL
+
+[[170]]
+NULL
+
+[[171]]
+NULL
+
+[[172]]
+NULL
+
+[[173]]
+NULL
+
+[[174]]
+NULL
+
+[[175]]
+NULL
+
+[[176]]
+NULL
+
+[[177]]
+NULL
+
+[[178]]
+NULL
+
+[[179]]
+NULL
+
+[[180]]
+NULL
+
+[[181]]
+NULL
+
+[[182]]
+NULL
+
+[[183]]
+NULL
+
+[[184]]
+NULL
+
+[[185]]
+NULL
+
+[[186]]
+NULL
+
+[[187]]
+NULL
+
+[[188]]
+NULL
+
+[[189]]
+NULL
+
+[[190]]
+NULL
+
+[[191]]
+NULL
+
+[[192]]
+NULL
+
+[[193]]
+NULL
+
+[[194]]
+NULL
+
+[[195]]
+NULL
+
+[[196]]
+NULL
+
+[[197]]
+NULL
+
+[[198]]
+NULL
+
+[[199]]
+NULL
+
+[[200]]
+NULL
+
+🧹 Cleaning up temporary directories…
+✅ Chunk creation complete for site CA-CF3

@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -77.2215,
+              37.3194
+            ],
+            [
+              -77.1915,
+              37.3194
+            ],
+            [
+              -77.1915,
+              37.3494
+            ],
+            [
+              -77.2215,
+              37.3494
+            ],
+            [
+              -77.2215,
+              37.3194
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Rice Rivers Center Marsh",
+        "f": "US-RRC"
+      }
+    }
+  ]
+}

@@ -88,10 +88,20 @@ terra::rast("BR-Npw/base_image.tif") %>% plot()
 Then, outputs into `output/AT-Nsd/mosaic` a set of .tif files mosaiced into distinct dates between ~2020-01 to 2024-12 from the original data, which is disorganized. 
 
 ```{r view-data-01}
-file_path <- ("BR-Npw/mosaic")
+file_path <- ("FI-Si2/mosaic")
 file_names <- list.files(file_path)
-terra::rast(paste(file_path, file_names[80], sep = "/")) %>% 
+terra::rast(paste(file_path, file_names[20], sep = "/")) %>% 
   plot()
+
+```
+
+```{r alternative}
+r <- rast("FI-Lom/mosaic/20210605_clipped_mosaic.tif")  # pick a date you know is good
+r
+
+summary(values(r[[8]]))   # band 
+NAflag(r)
+unique(values(r[[1]])[values(r[[1]]) > 1e9])
 ```
 
 The file is a 363 x 1282 pixel raster, with 8 layers (one for each surface reflectance wavelength band).
@@ -121,9 +131,8 @@ The columns are dates corresponding to dates of retreivals (For AT-Nsd below, 60
 
 ```{r view-chunks}
 e <- new.env()
-load("BR-Npw/chunk/chunk_001.rda", envir = e)
-str(e$band2)
-length(e$dates)
+load("DE-Hte/chunk/chunk_001.rda", envir = e)
+e$band6[,201] %>% summary()
 ```
 
 ## 03-wetlsp-phenometrics.R
@@ -131,13 +140,22 @@ length(e$dates)
 First output is the chunk EVI timeseries saved as an spatial feature (sf)
 
 ```{r chunk-sf}
-readRDS("AT-Nsd/tables_sf/chunk_001_evi_sf.rds")[1:3,]
+readRDS("FI-Si2/tables_sf/chunk_001_evi_sf.rds")[1:3,]
 ```
 
 Let's also look at the .csv version
 
 ```{r chunk-csv}
-read_csv("AT-Nsd/tables_sf/chunk_001_timeseries.csv")
+sf_obj <- readRDS("BW-Gum/tables_sf/chunk_001_evi_sf.rds")
+
+# how many pixels have any spline series at all?
+sum(lengths(sf_obj$evi_spline) > 0)
+
+# proportion of non-NA values across all splines
+all_spline_vals <- unlist(sf_obj$evi_spline, use.names = FALSE)
+summary(all_spline_vals)
+mean(is.na(all_spline_vals))
+
 ```
 
 .csv is huge, so made it optional within parameters: writeCSV : true/false
@@ -145,7 +163,7 @@ read_csv("AT-Nsd/tables_sf/chunk_001_timeseries.csv")
 Third output is `AT-NSd/chunk_phe/chunk_phe_xxx.rda`
 
 ```{r}
-load("AT-NSd/chunk_phe/chunk_phe_001.rda")
+load("FI-Si2/chunk_phe/chunk_phe_001.rda")
 view(pheno_mat)
 rm(pheno_mat)
 ```
@@ -191,18 +209,18 @@ wetlsp_names <- c(
 This first version of the pheno-metric output is in individual .tif format
 
 ```{r view-individual-tifs}
-list.files("Product_GeoTiff/AT-Nsd/2022", "\\.tif$", full.names = TRUE)[10] %>%
+list.files("Product_GeoTiff/BW-Gum/2021", "\\.tif$", full.names = TRUE)[10] %>%
   rast() %>%
   (\(x) plot(x/10000,
-             main = "AT-Nsd – EVI Max - 2022",
+             main = "BW-Gum – EVI Max - 2022",
              axes = TRUE,
-             mar = c(4,4,2,1)))()
+             mar = c(4,4,2,3)))()
 ```
 
 ```{r}
-r <- rast("Product_GeoTiff/BR-Npw/2022/10_2022_EVIamp.tif")
+r <- rast("Product_GeoTiff/CA-EM1/2021/09_2021_EVImax.tif")
 
-# Check the actual dimensions in metres
+# Check the actual dimensions in meters
 c(ncol = ncol(r), nrow = nrow(r))
 c(xres = xres(r), yres = yres(r))
 c(width_m  = ncol(r) * xres(r),
@@ -210,7 +228,7 @@ c(width_m  = ncol(r) * xres(r),
 
 # Trim off NA margins so you just see the data footprint
 r_trim <- trim(r)
-plot(r_trim, main = "BR-Npw – trimmed EVI", axes = TRUE)
+plot(r_trim, main = "BR-Npw – Num Cycles", axes = TRUE)
 ```
 
 ## Helper Functions Exploring
@@ -222,7 +240,7 @@ source("../pipeline/validation/wetlsp-helpers.R")
 Use simple pixel-wise time-series viewer
 
 ```{r use-helper}
-sf_all <- readRDS("AT-Nsd/tables_site/AT-Nsd_evi_timeseries_sf.rds")
+sf_all <- readRDS("/tables_site/AT-Nsd_evi_timeseries_sf.rds")
 PickPixelInteractive(sf_all, frac_area = 0.1)
 ```
 
@@ -247,8 +265,48 @@ SummarizeEVI_sf(sf_all)
 Interactive map click-to-select
 
 ```{r use-mapper}
-sf_chunk <- readRDS("AT-Nsd/tables_sf/chunk_100_evi_sf.rds")
+sf_chunk <- readRDS("KR-CRK/tables_sf/chunk_100_evi_sf.rds")
 PickPixelInteractive(sf_chunk)
-ViewPixelTimeseries(sf_chunk, cell_vec = c(seq(395809, 396800, by = 200)))
+ViewPixelTimeseries(sf_chunk, cell_vec = c(seq(677249, 678249, by = 100)))
+```
+
+
+## Debugging - site 23
+
+✅ 20241231 → 200 chunks written
+Error in { : task 127 failed - "cannot open the connection"
+
+```{r}
+library(terra)
+
+mosaic_dir <- "/Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/output/KR-CRK/mosaic"   # adjust to your actual site name
+mosaic_files <- list.files(
+  mosaic_dir,
+  pattern = "_clipped_mosaic\\.tif$",
+  full.names = TRUE
+)
+
+length(mosaic_files)      # just to confirm
+mosaic_files[395]         # this is the one that blew up
+```
+
+```{r}
+f <- mosaic_files[395]
+f
+file.info(f)
+
+# Try to open it
+r <- rast(f)
+r
+plot(r[[1]])
+```
+
+```{r}
+tmpChunkDir <- file.path("/Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/output/IT-Cas/chunk", "temp")
+tmpChunkDir
+
+# dir.exists(tmpChunkDir)
+
+file.access(tmpChunkDir, 2)  # 0 = writable
 ```
 

@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.0362,
+              38.2218
+            ],
+            [
+              -122.00619999999999,
+              38.2218
+            ],
+            [
+              -122.00619999999999,
+              38.2518
+            ],
+            [
+              -122.0362,
+              38.2518
+            ],
+            [
+              -122.0362,
+              38.2218
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Hill Slough Marsh",
+        "f": "US-Hsm"
+      }
+    }
+  ]
+}

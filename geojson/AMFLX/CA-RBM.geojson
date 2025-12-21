@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -123.2114,
+              49.1163
+            ],
+            [
+              -123.1814,
+              49.1163
+            ],
+            [
+              -123.1814,
+              49.146300000000004
+            ],
+            [
+              -123.2114,
+              49.146300000000004
+            ],
+            [
+              -123.2114,
+              49.1163
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Richmond Brackish Marsh",
+        "f": "CA-RBM"
+      }
+    }
+  ]
+}

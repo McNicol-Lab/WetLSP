@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              26.679047,
+              57.898145
+            ],
+            [
+              26.709047,
+              57.898145
+            ],
+            [
+              26.709047,
+              57.928145
+            ],
+            [
+              26.679047,
+              57.928145
+            ],
+            [
+              26.679047,
+              57.898145
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Ruhingu",
+        "f": "EE-Rng"
+      }
+    }
+  ]
+}

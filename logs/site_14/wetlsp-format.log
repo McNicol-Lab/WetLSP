@@ -1,0 +1,18 @@
+Loading required package: terra
+terra 1.8.54
+Loading required package: rjson
+Loading required package: geojsonR
+Loading required package: ncdf4
+📍 Running site index: 14
+🗺️  Site: ES-Pdu
+💾 Creating NetCDF for ES-Pdu — 2021
+✅ Saved NetCDF: output/Product_netCDF/ES-Pdu/WetLSP_2021.nc
+💾 Creating NetCDF for ES-Pdu — 2022
+✅ Saved NetCDF: output/Product_netCDF/ES-Pdu/WetLSP_2022.nc
+💾 Creating NetCDF for ES-Pdu — 2023
+✅ Saved NetCDF: output/Product_netCDF/ES-Pdu/WetLSP_2023.nc
+💾 Creating NetCDF for ES-Pdu — 2024
+✅ Saved NetCDF: output/Product_netCDF/ES-Pdu/WetLSP_2024.nc
+💾 Creating NetCDF for ES-Pdu — 2025
+✅ Saved NetCDF: output/Product_netCDF/ES-Pdu/WetLSP_2025.nc
+🎉 Step 5 complete for site ES-Pdu

@@ -1,0 +1,1243 @@
+Loading required package: terra
+terra 1.8.54
+Loading required package: rjson
+Loading required package: geojsonR
+Loading required package: foreach
+Loading required package: doParallel
+Loading required package: iterators
+Loading required package: parallel
+Loading required package: sf
+Linking to GEOS 3.13.0, GDAL 3.8.5, PROJ 9.5.1; sf_use_s2() is TRUE
+Loading required package: dplyr
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:terra’:
+
+    intersect, union
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Loading required package: tidyr
+
+Attaching package: ‘tidyr’
+
+The following object is masked from ‘package:terra’:
+
+    extract
+
+Loading required package: mapview
+Loading required package: mapedit
+📍 Running site index: 49
+🗺️  Site: RU-Cok
+📂 Image dir: /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/RU-Cok
+🧭 Found 200 chunk files
+🔁 Using inner parallelism (6 cores per chunk)
+📦 Processing chunk 001  (chunk_001.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_001_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_001.rda
+⚠️  No valid EVI rows to append for chunk 001
+📦 Processing chunk 002  (chunk_002.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_002_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_002.rda
+⚠️  No valid EVI rows to append for chunk 002
+📦 Processing chunk 003  (chunk_003.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_003_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_003.rda
+⚠️  No valid EVI rows to append for chunk 003
+📦 Processing chunk 004  (chunk_004.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_004_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_004.rda
+⚠️  No valid EVI rows to append for chunk 004
+📦 Processing chunk 005  (chunk_005.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_005_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_005.rda
+⚠️  No valid EVI rows to append for chunk 005
+📦 Processing chunk 006  (chunk_006.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_006_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_006.rda
+⚠️  No valid EVI rows to append for chunk 006
+📦 Processing chunk 007  (chunk_007.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_007_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_007.rda
+⚠️  No valid EVI rows to append for chunk 007
+📦 Processing chunk 008  (chunk_008.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_008_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_008.rda
+⚠️  No valid EVI rows to append for chunk 008
+📦 Processing chunk 009  (chunk_009.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_009_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_009.rda
+⚠️  No valid EVI rows to append for chunk 009
+📦 Processing chunk 010  (chunk_010.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_010_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_010.rda
+⚠️  No valid EVI rows to append for chunk 010
+📦 Processing chunk 011  (chunk_011.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_011_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_011.rda
+⚠️  No valid EVI rows to append for chunk 011
+📦 Processing chunk 012  (chunk_012.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_012_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_012.rda
+⚠️  No valid EVI rows to append for chunk 012
+📦 Processing chunk 013  (chunk_013.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_013_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_013.rda
+⚠️  No valid EVI rows to append for chunk 013
+📦 Processing chunk 014  (chunk_014.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_014_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_014.rda
+⚠️  No valid EVI rows to append for chunk 014
+📦 Processing chunk 015  (chunk_015.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_015_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_015.rda
+⚠️  No valid EVI rows to append for chunk 015
+📦 Processing chunk 016  (chunk_016.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_016_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_016.rda
+⚠️  No valid EVI rows to append for chunk 016
+📦 Processing chunk 017  (chunk_017.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_017_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_017.rda
+⚠️  No valid EVI rows to append for chunk 017
+📦 Processing chunk 018  (chunk_018.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_018_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_018.rda
+⚠️  No valid EVI rows to append for chunk 018
+📦 Processing chunk 019  (chunk_019.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_019_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_019.rda
+⚠️  No valid EVI rows to append for chunk 019
+📦 Processing chunk 020  (chunk_020.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_020_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_020.rda
+⚠️  No valid EVI rows to append for chunk 020
+📦 Processing chunk 021  (chunk_021.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_021_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_021.rda
+⚠️  No valid EVI rows to append for chunk 021
+📦 Processing chunk 022  (chunk_022.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_022_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_022.rda
+⚠️  No valid EVI rows to append for chunk 022
+📦 Processing chunk 023  (chunk_023.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_023_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_023.rda
+⚠️  No valid EVI rows to append for chunk 023
+📦 Processing chunk 024  (chunk_024.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_024_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_024.rda
+⚠️  No valid EVI rows to append for chunk 024
+📦 Processing chunk 025  (chunk_025.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_025_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_025.rda
+⚠️  No valid EVI rows to append for chunk 025
+📦 Processing chunk 026  (chunk_026.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_026_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_026.rda
+⚠️  No valid EVI rows to append for chunk 026
+📦 Processing chunk 027  (chunk_027.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_027_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_027.rda
+⚠️  No valid EVI rows to append for chunk 027
+📦 Processing chunk 028  (chunk_028.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_028_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_028.rda
+⚠️  No valid EVI rows to append for chunk 028
+📦 Processing chunk 029  (chunk_029.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_029_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_029.rda
+⚠️  No valid EVI rows to append for chunk 029
+📦 Processing chunk 030  (chunk_030.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_030_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_030.rda
+⚠️  No valid EVI rows to append for chunk 030
+📦 Processing chunk 031  (chunk_031.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_031_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_031.rda
+⚠️  No valid EVI rows to append for chunk 031
+📦 Processing chunk 032  (chunk_032.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_032_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_032.rda
+⚠️  No valid EVI rows to append for chunk 032
+📦 Processing chunk 033  (chunk_033.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_033_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_033.rda
+⚠️  No valid EVI rows to append for chunk 033
+📦 Processing chunk 034  (chunk_034.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_034_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_034.rda
+⚠️  No valid EVI rows to append for chunk 034
+📦 Processing chunk 035  (chunk_035.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_035_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_035.rda
+⚠️  No valid EVI rows to append for chunk 035
+📦 Processing chunk 036  (chunk_036.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_036_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_036.rda
+⚠️  No valid EVI rows to append for chunk 036
+📦 Processing chunk 037  (chunk_037.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_037_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_037.rda
+⚠️  No valid EVI rows to append for chunk 037
+📦 Processing chunk 038  (chunk_038.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_038_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_038.rda
+⚠️  No valid EVI rows to append for chunk 038
+📦 Processing chunk 039  (chunk_039.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_039_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_039.rda
+⚠️  No valid EVI rows to append for chunk 039
+📦 Processing chunk 040  (chunk_040.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_040_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_040.rda
+⚠️  No valid EVI rows to append for chunk 040
+📦 Processing chunk 041  (chunk_041.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_041_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_041.rda
+⚠️  No valid EVI rows to append for chunk 041
+📦 Processing chunk 042  (chunk_042.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_042_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_042.rda
+⚠️  No valid EVI rows to append for chunk 042
+📦 Processing chunk 043  (chunk_043.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_043_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_043.rda
+⚠️  No valid EVI rows to append for chunk 043
+📦 Processing chunk 044  (chunk_044.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_044_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_044.rda
+⚠️  No valid EVI rows to append for chunk 044
+📦 Processing chunk 045  (chunk_045.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_045_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_045.rda
+⚠️  No valid EVI rows to append for chunk 045
+📦 Processing chunk 046  (chunk_046.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_046_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_046.rda
+⚠️  No valid EVI rows to append for chunk 046
+📦 Processing chunk 047  (chunk_047.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_047_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_047.rda
+⚠️  No valid EVI rows to append for chunk 047
+📦 Processing chunk 048  (chunk_048.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_048_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_048.rda
+⚠️  No valid EVI rows to append for chunk 048
+📦 Processing chunk 049  (chunk_049.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_049_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_049.rda
+⚠️  No valid EVI rows to append for chunk 049
+📦 Processing chunk 050  (chunk_050.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_050_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_050.rda
+⚠️  No valid EVI rows to append for chunk 050
+📦 Processing chunk 051  (chunk_051.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_051_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_051.rda
+⚠️  No valid EVI rows to append for chunk 051
+📦 Processing chunk 052  (chunk_052.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_052_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_052.rda
+⚠️  No valid EVI rows to append for chunk 052
+📦 Processing chunk 053  (chunk_053.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_053_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_053.rda
+⚠️  No valid EVI rows to append for chunk 053
+📦 Processing chunk 054  (chunk_054.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_054_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_054.rda
+⚠️  No valid EVI rows to append for chunk 054
+📦 Processing chunk 055  (chunk_055.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_055_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_055.rda
+⚠️  No valid EVI rows to append for chunk 055
+📦 Processing chunk 056  (chunk_056.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_056_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_056.rda
+⚠️  No valid EVI rows to append for chunk 056
+📦 Processing chunk 057  (chunk_057.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_057_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_057.rda
+⚠️  No valid EVI rows to append for chunk 057
+📦 Processing chunk 058  (chunk_058.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_058_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_058.rda
+⚠️  No valid EVI rows to append for chunk 058
+📦 Processing chunk 059  (chunk_059.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_059_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_059.rda
+⚠️  No valid EVI rows to append for chunk 059
+📦 Processing chunk 060  (chunk_060.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_060_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_060.rda
+⚠️  No valid EVI rows to append for chunk 060
+📦 Processing chunk 061  (chunk_061.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_061_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_061.rda
+⚠️  No valid EVI rows to append for chunk 061
+📦 Processing chunk 062  (chunk_062.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_062_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_062.rda
+⚠️  No valid EVI rows to append for chunk 062
+📦 Processing chunk 063  (chunk_063.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_063_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_063.rda
+⚠️  No valid EVI rows to append for chunk 063
+📦 Processing chunk 064  (chunk_064.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_064_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_064.rda
+⚠️  No valid EVI rows to append for chunk 064
+📦 Processing chunk 065  (chunk_065.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_065_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_065.rda
+⚠️  No valid EVI rows to append for chunk 065
+📦 Processing chunk 066  (chunk_066.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_066_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_066.rda
+⚠️  No valid EVI rows to append for chunk 066
+📦 Processing chunk 067  (chunk_067.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_067_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_067.rda
+⚠️  No valid EVI rows to append for chunk 067
+📦 Processing chunk 068  (chunk_068.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_068_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_068.rda
+⚠️  No valid EVI rows to append for chunk 068
+📦 Processing chunk 069  (chunk_069.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_069_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_069.rda
+⚠️  No valid EVI rows to append for chunk 069
+📦 Processing chunk 070  (chunk_070.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_070_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_070.rda
+⚠️  No valid EVI rows to append for chunk 070
+📦 Processing chunk 071  (chunk_071.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_071_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_071.rda
+⚠️  No valid EVI rows to append for chunk 071
+📦 Processing chunk 072  (chunk_072.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_072_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_072.rda
+⚠️  No valid EVI rows to append for chunk 072
+📦 Processing chunk 073  (chunk_073.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_073_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_073.rda
+⚠️  No valid EVI rows to append for chunk 073
+📦 Processing chunk 074  (chunk_074.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_074_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_074.rda
+⚠️  No valid EVI rows to append for chunk 074
+📦 Processing chunk 075  (chunk_075.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_075_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_075.rda
+⚠️  No valid EVI rows to append for chunk 075
+📦 Processing chunk 076  (chunk_076.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_076_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_076.rda
+⚠️  No valid EVI rows to append for chunk 076
+📦 Processing chunk 077  (chunk_077.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_077_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_077.rda
+⚠️  No valid EVI rows to append for chunk 077
+📦 Processing chunk 078  (chunk_078.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_078_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_078.rda
+⚠️  No valid EVI rows to append for chunk 078
+📦 Processing chunk 079  (chunk_079.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_079_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_079.rda
+⚠️  No valid EVI rows to append for chunk 079
+📦 Processing chunk 080  (chunk_080.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_080_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_080.rda
+⚠️  No valid EVI rows to append for chunk 080
+📦 Processing chunk 081  (chunk_081.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_081_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_081.rda
+⚠️  No valid EVI rows to append for chunk 081
+📦 Processing chunk 082  (chunk_082.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_082_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_082.rda
+⚠️  No valid EVI rows to append for chunk 082
+📦 Processing chunk 083  (chunk_083.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_083_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_083.rda
+⚠️  No valid EVI rows to append for chunk 083
+📦 Processing chunk 084  (chunk_084.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_084_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_084.rda
+⚠️  No valid EVI rows to append for chunk 084
+📦 Processing chunk 085  (chunk_085.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_085_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_085.rda
+⚠️  No valid EVI rows to append for chunk 085
+📦 Processing chunk 086  (chunk_086.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_086_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_086.rda
+⚠️  No valid EVI rows to append for chunk 086
+📦 Processing chunk 087  (chunk_087.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_087_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_087.rda
+⚠️  No valid EVI rows to append for chunk 087
+📦 Processing chunk 088  (chunk_088.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_088_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_088.rda
+⚠️  No valid EVI rows to append for chunk 088
+📦 Processing chunk 089  (chunk_089.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_089_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_089.rda
+⚠️  No valid EVI rows to append for chunk 089
+📦 Processing chunk 090  (chunk_090.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_090_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_090.rda
+⚠️  No valid EVI rows to append for chunk 090
+📦 Processing chunk 091  (chunk_091.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_091_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_091.rda
+⚠️  No valid EVI rows to append for chunk 091
+📦 Processing chunk 092  (chunk_092.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_092_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_092.rda
+⚠️  No valid EVI rows to append for chunk 092
+📦 Processing chunk 093  (chunk_093.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_093_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_093.rda
+⚠️  No valid EVI rows to append for chunk 093
+📦 Processing chunk 094  (chunk_094.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_094_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_094.rda
+⚠️  No valid EVI rows to append for chunk 094
+📦 Processing chunk 095  (chunk_095.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_095_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_095.rda
+⚠️  No valid EVI rows to append for chunk 095
+📦 Processing chunk 096  (chunk_096.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_096_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_096.rda
+⚠️  No valid EVI rows to append for chunk 096
+📦 Processing chunk 097  (chunk_097.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_097_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_097.rda
+⚠️  No valid EVI rows to append for chunk 097
+📦 Processing chunk 098  (chunk_098.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_098_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_098.rda
+⚠️  No valid EVI rows to append for chunk 098
+📦 Processing chunk 099  (chunk_099.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_099_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_099.rda
+⚠️  No valid EVI rows to append for chunk 099
+📦 Processing chunk 100  (chunk_100.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_100_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_100.rda
+⚠️  No valid EVI rows to append for chunk 100
+📦 Processing chunk 101  (chunk_101.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_101_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_101.rda
+⚠️  No valid EVI rows to append for chunk 101
+📦 Processing chunk 102  (chunk_102.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_102_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_102.rda
+⚠️  No valid EVI rows to append for chunk 102
+📦 Processing chunk 103  (chunk_103.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_103_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_103.rda
+⚠️  No valid EVI rows to append for chunk 103
+📦 Processing chunk 104  (chunk_104.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_104_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_104.rda
+⚠️  No valid EVI rows to append for chunk 104
+📦 Processing chunk 105  (chunk_105.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2488
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_105_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_105.rda
+⚠️  No valid EVI rows to append for chunk 105
+📦 Processing chunk 106  (chunk_106.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2483
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_106_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_106.rda
+⚠️  No valid EVI rows to append for chunk 106
+📦 Processing chunk 107  (chunk_107.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2488
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_107_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_107.rda
+⚠️  No valid EVI rows to append for chunk 107
+📦 Processing chunk 108  (chunk_108.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2478
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_108_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_108.rda
+⚠️  No valid EVI rows to append for chunk 108
+📦 Processing chunk 109  (chunk_109.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2480
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_109_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_109.rda
+⚠️  No valid EVI rows to append for chunk 109
+📦 Processing chunk 110  (chunk_110.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2480
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_110_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_110.rda
+⚠️  No valid EVI rows to append for chunk 110
+📦 Processing chunk 111  (chunk_111.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2480
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_111_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_111.rda
+⚠️  No valid EVI rows to append for chunk 111
+📦 Processing chunk 112  (chunk_112.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2483
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_112_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_112.rda
+⚠️  No valid EVI rows to append for chunk 112
+📦 Processing chunk 113  (chunk_113.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2476
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_113_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_113.rda
+⚠️  No valid EVI rows to append for chunk 113
+📦 Processing chunk 114  (chunk_114.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2477
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_114_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_114.rda
+⚠️  No valid EVI rows to append for chunk 114
+📦 Processing chunk 115  (chunk_115.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2469
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_115_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_115.rda
+⚠️  No valid EVI rows to append for chunk 115
+📦 Processing chunk 116  (chunk_116.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2487
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_116_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_116.rda
+⚠️  No valid EVI rows to append for chunk 116
+📦 Processing chunk 117  (chunk_117.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_117_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_117.rda
+⚠️  No valid EVI rows to append for chunk 117
+📦 Processing chunk 118  (chunk_118.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2489
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_118_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_118.rda
+⚠️  No valid EVI rows to append for chunk 118
+📦 Processing chunk 119  (chunk_119.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2445
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_119_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_119.rda
+⚠️  No valid EVI rows to append for chunk 119
+📦 Processing chunk 120  (chunk_120.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2473
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_120_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_120.rda
+⚠️  No valid EVI rows to append for chunk 120
+📦 Processing chunk 121  (chunk_121.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2477
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_121_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_121.rda
+⚠️  No valid EVI rows to append for chunk 121
+📦 Processing chunk 122  (chunk_122.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2472
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_122_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_122.rda
+⚠️  No valid EVI rows to append for chunk 122
+📦 Processing chunk 123  (chunk_123.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2474
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_123_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_123.rda
+⚠️  No valid EVI rows to append for chunk 123
+📦 Processing chunk 124  (chunk_124.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2481
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_124_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_124.rda
+⚠️  No valid EVI rows to append for chunk 124
+📦 Processing chunk 125  (chunk_125.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2467
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_125_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_125.rda
+⚠️  No valid EVI rows to append for chunk 125
+📦 Processing chunk 126  (chunk_126.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2467
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_126_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_126.rda
+⚠️  No valid EVI rows to append for chunk 126
+📦 Processing chunk 127  (chunk_127.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2454
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_127_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_127.rda
+⚠️  No valid EVI rows to append for chunk 127
+📦 Processing chunk 128  (chunk_128.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2479
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_128_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_128.rda
+⚠️  No valid EVI rows to append for chunk 128
+📦 Processing chunk 129  (chunk_129.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2483
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_129_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_129.rda
+⚠️  No valid EVI rows to append for chunk 129
+📦 Processing chunk 130  (chunk_130.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2479
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_130_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_130.rda
+⚠️  No valid EVI rows to append for chunk 130
+📦 Processing chunk 131  (chunk_131.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2482
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_131_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_131.rda
+⚠️  No valid EVI rows to append for chunk 131
+📦 Processing chunk 132  (chunk_132.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2488
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_132_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_132.rda
+⚠️  No valid EVI rows to append for chunk 132
+📦 Processing chunk 133  (chunk_133.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2475
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_133_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_133.rda
+⚠️  No valid EVI rows to append for chunk 133
+📦 Processing chunk 134  (chunk_134.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2475
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_134_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_134.rda
+⚠️  No valid EVI rows to append for chunk 134
+📦 Processing chunk 135  (chunk_135.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2475
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_135_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_135.rda
+⚠️  No valid EVI rows to append for chunk 135
+📦 Processing chunk 136  (chunk_136.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2468
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_136_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_136.rda
+⚠️  No valid EVI rows to append for chunk 136
+📦 Processing chunk 137  (chunk_137.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2470
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_137_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_137.rda
+⚠️  No valid EVI rows to append for chunk 137
+📦 Processing chunk 138  (chunk_138.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2476
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_138_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_138.rda
+⚠️  No valid EVI rows to append for chunk 138
+📦 Processing chunk 139  (chunk_139.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2483
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_139_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_139.rda
+⚠️  No valid EVI rows to append for chunk 139
+📦 Processing chunk 140  (chunk_140.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2400
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_140_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_140.rda
+⚠️  No valid EVI rows to append for chunk 140
+📦 Processing chunk 141  (chunk_141.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2383
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_141_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_141.rda
+⚠️  No valid EVI rows to append for chunk 141
+📦 Processing chunk 142  (chunk_142.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2406
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_142_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_142.rda
+⚠️  No valid EVI rows to append for chunk 142
+📦 Processing chunk 143  (chunk_143.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2423
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_143_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_143.rda
+⚠️  No valid EVI rows to append for chunk 143
+📦 Processing chunk 144  (chunk_144.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2458
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_144_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_144.rda
+⚠️  No valid EVI rows to append for chunk 144
+📦 Processing chunk 145  (chunk_145.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2449
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_145_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_145.rda
+⚠️  No valid EVI rows to append for chunk 145
+📦 Processing chunk 146  (chunk_146.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2458
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_146_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_146.rda
+⚠️  No valid EVI rows to append for chunk 146
+📦 Processing chunk 147  (chunk_147.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2439
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_147_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_147.rda
+⚠️  No valid EVI rows to append for chunk 147
+📦 Processing chunk 148  (chunk_148.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2405
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_148_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_148.rda
+⚠️  No valid EVI rows to append for chunk 148
+📦 Processing chunk 149  (chunk_149.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2420
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_149_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_149.rda
+⚠️  No valid EVI rows to append for chunk 149
+📦 Processing chunk 150  (chunk_150.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2466
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_150_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_150.rda
+⚠️  No valid EVI rows to append for chunk 150
+📦 Processing chunk 151  (chunk_151.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2460
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_151_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_151.rda
+⚠️  No valid EVI rows to append for chunk 151
+📦 Processing chunk 152  (chunk_152.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2476
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_152_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_152.rda
+⚠️  No valid EVI rows to append for chunk 152
+📦 Processing chunk 153  (chunk_153.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2481
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_153_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_153.rda
+⚠️  No valid EVI rows to append for chunk 153
+📦 Processing chunk 154  (chunk_154.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2485
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_154_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_154.rda
+⚠️  No valid EVI rows to append for chunk 154
+📦 Processing chunk 155  (chunk_155.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2486
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_155_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_155.rda
+⚠️  No valid EVI rows to append for chunk 155
+📦 Processing chunk 156  (chunk_156.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_156_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_156.rda
+⚠️  No valid EVI rows to append for chunk 156
+📦 Processing chunk 157  (chunk_157.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2489
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_157_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_157.rda
+⚠️  No valid EVI rows to append for chunk 157
+📦 Processing chunk 158  (chunk_158.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2489
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_158_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_158.rda
+⚠️  No valid EVI rows to append for chunk 158
+📦 Processing chunk 159  (chunk_159.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2484
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_159_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_159.rda
+⚠️  No valid EVI rows to append for chunk 159
+📦 Processing chunk 160  (chunk_160.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2487
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_160_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_160.rda
+⚠️  No valid EVI rows to append for chunk 160
+📦 Processing chunk 161  (chunk_161.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2485
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_161_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_161.rda
+⚠️  No valid EVI rows to append for chunk 161
+📦 Processing chunk 162  (chunk_162.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2487
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_162_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_162.rda
+⚠️  No valid EVI rows to append for chunk 162
+📦 Processing chunk 163  (chunk_163.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2483
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_163_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_163.rda
+⚠️  No valid EVI rows to append for chunk 163
+📦 Processing chunk 164  (chunk_164.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2486
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_164_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_164.rda
+⚠️  No valid EVI rows to append for chunk 164
+📦 Processing chunk 165  (chunk_165.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2487
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_165_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_165.rda
+⚠️  No valid EVI rows to append for chunk 165
+📦 Processing chunk 166  (chunk_166.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_166_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_166.rda
+⚠️  No valid EVI rows to append for chunk 166
+📦 Processing chunk 167  (chunk_167.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2489
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_167_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_167.rda
+⚠️  No valid EVI rows to append for chunk 167
+📦 Processing chunk 168  (chunk_168.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_168_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_168.rda
+⚠️  No valid EVI rows to append for chunk 168
+📦 Processing chunk 169  (chunk_169.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_169_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_169.rda
+⚠️  No valid EVI rows to append for chunk 169
+📦 Processing chunk 170  (chunk_170.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_170_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_170.rda
+⚠️  No valid EVI rows to append for chunk 170
+📦 Processing chunk 171  (chunk_171.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_171_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_171.rda
+⚠️  No valid EVI rows to append for chunk 171
+📦 Processing chunk 172  (chunk_172.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_172_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_172.rda
+⚠️  No valid EVI rows to append for chunk 172
+📦 Processing chunk 173  (chunk_173.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_173_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_173.rda
+⚠️  No valid EVI rows to append for chunk 173
+📦 Processing chunk 174  (chunk_174.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2489
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_174_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_174.rda
+⚠️  No valid EVI rows to append for chunk 174
+📦 Processing chunk 175  (chunk_175.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_175_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_175.rda
+⚠️  No valid EVI rows to append for chunk 175
+📦 Processing chunk 176  (chunk_176.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_176_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_176.rda
+⚠️  No valid EVI rows to append for chunk 176
+📦 Processing chunk 177  (chunk_177.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_177_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_177.rda
+⚠️  No valid EVI rows to append for chunk 177
+📦 Processing chunk 178  (chunk_178.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_178_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_178.rda
+⚠️  No valid EVI rows to append for chunk 178
+📦 Processing chunk 179  (chunk_179.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_179_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_179.rda
+⚠️  No valid EVI rows to append for chunk 179
+📦 Processing chunk 180  (chunk_180.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_180_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_180.rda
+⚠️  No valid EVI rows to append for chunk 180
+📦 Processing chunk 181  (chunk_181.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_181_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_181.rda
+⚠️  No valid EVI rows to append for chunk 181
+📦 Processing chunk 182  (chunk_182.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_182_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_182.rda
+⚠️  No valid EVI rows to append for chunk 182
+📦 Processing chunk 183  (chunk_183.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_183_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_183.rda
+⚠️  No valid EVI rows to append for chunk 183
+📦 Processing chunk 184  (chunk_184.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_184_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_184.rda
+⚠️  No valid EVI rows to append for chunk 184
+📦 Processing chunk 185  (chunk_185.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_185_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_185.rda
+⚠️  No valid EVI rows to append for chunk 185
+📦 Processing chunk 186  (chunk_186.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_186_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_186.rda
+⚠️  No valid EVI rows to append for chunk 186
+📦 Processing chunk 187  (chunk_187.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_187_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_187.rda
+⚠️  No valid EVI rows to append for chunk 187
+📦 Processing chunk 188  (chunk_188.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2489
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_188_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_188.rda
+⚠️  No valid EVI rows to append for chunk 188
+📦 Processing chunk 189  (chunk_189.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_189_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_189.rda
+⚠️  No valid EVI rows to append for chunk 189
+📦 Processing chunk 190  (chunk_190.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_190_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_190.rda
+⚠️  No valid EVI rows to append for chunk 190
+📦 Processing chunk 191  (chunk_191.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2482
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_191_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_191.rda
+⚠️  No valid EVI rows to append for chunk 191
+📦 Processing chunk 192  (chunk_192.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2476
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_192_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_192.rda
+⚠️  No valid EVI rows to append for chunk 192
+📦 Processing chunk 193  (chunk_193.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_193_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_193.rda
+⚠️  No valid EVI rows to append for chunk 193
+📦 Processing chunk 194  (chunk_194.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2486
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_194_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_194.rda
+⚠️  No valid EVI rows to append for chunk 194
+📦 Processing chunk 195  (chunk_195.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2490
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_195_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_195.rda
+⚠️  No valid EVI rows to append for chunk 195
+📦 Processing chunk 196  (chunk_196.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2485
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_196_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_196.rda
+⚠️  No valid EVI rows to append for chunk 196
+📦 Processing chunk 197  (chunk_197.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2488
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_197_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_197.rda
+⚠️  No valid EVI rows to append for chunk 197
+📦 Processing chunk 198  (chunk_198.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2487
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_198_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_198.rda
+⚠️  No valid EVI rows to append for chunk 198
+📦 Processing chunk 199  (chunk_199.rda)
+🧮 Processing 2490 pixels (6 cores)...
+🧾 Time series captured: raw=2490, smooth=2486
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_199_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_199.rda
+⚠️  No valid EVI rows to append for chunk 199
+📦 Processing chunk 200  (chunk_200.rda)
+🧮 Processing 2325 pixels (6 cores)...
+🧾 Time series captured: raw=2325, smooth=2323
+💾 Saved sf: output/RU-Cok/tables_sf/chunk_200_evi_sf.rds
+💾 Saved phenology matrix: output/RU-Cok/chunk_phe/chunk_phe_200.rda
+⚠️  No valid EVI rows to append for chunk 200
+There were 50 or more warnings (use warnings() to see the first 50)
+✅ Step 3 complete for site RU-Cok

@@ -1,0 +1,15 @@
+Loading required package: terra
+terra 1.8.54
+Loading required package: rjson
+Loading required package: geojsonR
+Loading required package: foreach
+Loading required package: doParallel
+Loading required package: iterators
+Loading required package: parallel
+📍 Running site index: 12
+🗺️  Site: DE-UtM
+📂 Mosaic dir (input): output/DE-UtM/mosaic
+🧭 Found 190 mosaics spanning 2020-04-08 → 2023-02-08
+📦 Base grid: 1021×1003 (1024063 cells) → 200 chunks (~5121 cells/chunk)
+✅ All 200 chunk files already exist in: output/DE-UtM/chunk
+   Skipping chunk creation for site DE-UtM (set 'overwriteChunks': true in wetlsp-parameters.json to force rebuild).

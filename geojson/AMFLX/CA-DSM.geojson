@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.9104,
+              49.0737
+            ],
+            [
+              -122.8804,
+              49.0737
+            ],
+            [
+              -122.8804,
+              49.1037
+            ],
+            [
+              -122.9104,
+              49.1037
+            ],
+            [
+              -122.9104,
+              49.0737
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Delta Salt Marsh",
+        "f": "CA-DSM"
+      }
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+Loading required package: terra
+terra 1.8.54
+Loading required package: rjson
+Loading required package: geojsonR
+📍 Running site index: 15
+🗺️  Site: FI-Lom
+📂 Image dir: /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/FI-Lom
+🧭 Found 200 chunk phenology files
+memfrac   : 0.8
+tolerance : 0.1
+verbose   : FALSE
+todisk    : FALSE
+tempdir   : /tmp/terra_tmp
+datatype  : FLT4S
+memmin    : 1
+progress  : 3
+🌐 terra tempdir: /tmp/terra_tmp
+memfrac   : 0.8
+tolerance : 0.1
+verbose   : FALSE
+todisk    : FALSE
+tempdir   : /tmp/terra_tmp
+datatype  : FLT4S
+memmin    : 1
+progress  : 3
+🌐 terra threads: 
+📅 Year 2021 — assembling 24 products
+💾 Writing (overwriting) 24 single-layer GeoTIFFs for 2021
+✅ Finished year 2021
+📅 Year 2022 — assembling 24 products
+💾 Writing (overwriting) 24 single-layer GeoTIFFs for 2022
+
+Error: [writeRaster] interrupted
+Execution halted

@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -100.5489,
+              50.3556
+            ],
+            [
+              -100.5189,
+              50.3556
+            ],
+            [
+              -100.5189,
+              50.385600000000004
+            ],
+            [
+              -100.5489,
+              50.385600000000004
+            ],
+            [
+              -100.5489,
+              50.3556
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Shoal Lake Manitoba",
+        "f": "CA-EM2"
+      }
+    }
+  ]
+}

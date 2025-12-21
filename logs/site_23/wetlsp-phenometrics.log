@@ -1,0 +1,448 @@
+Loading required package: terra
+terra 1.8.54
+Loading required package: rjson
+Loading required package: geojsonR
+Loading required package: foreach
+Loading required package: doParallel
+Loading required package: iterators
+Loading required package: parallel
+Loading required package: sf
+Linking to GEOS 3.13.0, GDAL 3.8.5, PROJ 9.5.1; sf_use_s2() is TRUE
+Loading required package: dplyr
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:terra’:
+
+    intersect, union
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Loading required package: tidyr
+
+Attaching package: ‘tidyr’
+
+The following object is masked from ‘package:terra’:
+
+    extract
+
+Loading required package: mapview
+Loading required package: mapedit
+📍 Running site index: 23
+🗺️  Site: IT-Cas
+📂 Image dir: /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/IT-Cas
+🧭 Found 200 chunk files
+🔁 Using inner parallelism (6 cores per chunk)
+⏭️  Skipping chunk 001 (phenology + sf already exist)
+⏭️  Skipping chunk 002 (phenology + sf already exist)
+⏭️  Skipping chunk 003 (phenology + sf already exist)
+⏭️  Skipping chunk 004 (phenology + sf already exist)
+⏭️  Skipping chunk 005 (phenology + sf already exist)
+⏭️  Skipping chunk 006 (phenology + sf already exist)
+⏭️  Skipping chunk 007 (phenology + sf already exist)
+⏭️  Skipping chunk 008 (phenology + sf already exist)
+⏭️  Skipping chunk 009 (phenology + sf already exist)
+⏭️  Skipping chunk 010 (phenology + sf already exist)
+⏭️  Skipping chunk 011 (phenology + sf already exist)
+⏭️  Skipping chunk 012 (phenology + sf already exist)
+⏭️  Skipping chunk 013 (phenology + sf already exist)
+⏭️  Skipping chunk 014 (phenology + sf already exist)
+⏭️  Skipping chunk 015 (phenology + sf already exist)
+⏭️  Skipping chunk 016 (phenology + sf already exist)
+⏭️  Skipping chunk 017 (phenology + sf already exist)
+⏭️  Skipping chunk 018 (phenology + sf already exist)
+⏭️  Skipping chunk 019 (phenology + sf already exist)
+⏭️  Skipping chunk 020 (phenology + sf already exist)
+⏭️  Skipping chunk 021 (phenology + sf already exist)
+⏭️  Skipping chunk 022 (phenology + sf already exist)
+⏭️  Skipping chunk 023 (phenology + sf already exist)
+⏭️  Skipping chunk 024 (phenology + sf already exist)
+⏭️  Skipping chunk 025 (phenology + sf already exist)
+⏭️  Skipping chunk 026 (phenology + sf already exist)
+⏭️  Skipping chunk 027 (phenology + sf already exist)
+⏭️  Skipping chunk 028 (phenology + sf already exist)
+⏭️  Skipping chunk 029 (phenology + sf already exist)
+⏭️  Skipping chunk 030 (phenology + sf already exist)
+⏭️  Skipping chunk 031 (phenology + sf already exist)
+⏭️  Skipping chunk 032 (phenology + sf already exist)
+⏭️  Skipping chunk 033 (phenology + sf already exist)
+⏭️  Skipping chunk 034 (phenology + sf already exist)
+⏭️  Skipping chunk 035 (phenology + sf already exist)
+⏭️  Skipping chunk 036 (phenology + sf already exist)
+⏭️  Skipping chunk 037 (phenology + sf already exist)
+⏭️  Skipping chunk 038 (phenology + sf already exist)
+⏭️  Skipping chunk 039 (phenology + sf already exist)
+⏭️  Skipping chunk 040 (phenology + sf already exist)
+⏭️  Skipping chunk 041 (phenology + sf already exist)
+⏭️  Skipping chunk 042 (phenology + sf already exist)
+⏭️  Skipping chunk 043 (phenology + sf already exist)
+⏭️  Skipping chunk 044 (phenology + sf already exist)
+⏭️  Skipping chunk 045 (phenology + sf already exist)
+⏭️  Skipping chunk 046 (phenology + sf already exist)
+⏭️  Skipping chunk 047 (phenology + sf already exist)
+⏭️  Skipping chunk 048 (phenology + sf already exist)
+⏭️  Skipping chunk 049 (phenology + sf already exist)
+⏭️  Skipping chunk 050 (phenology + sf already exist)
+⏭️  Skipping chunk 051 (phenology + sf already exist)
+⏭️  Skipping chunk 052 (phenology + sf already exist)
+⏭️  Skipping chunk 053 (phenology + sf already exist)
+⏭️  Skipping chunk 054 (phenology + sf already exist)
+⏭️  Skipping chunk 055 (phenology + sf already exist)
+⏭️  Skipping chunk 056 (phenology + sf already exist)
+⏭️  Skipping chunk 057 (phenology + sf already exist)
+⏭️  Skipping chunk 058 (phenology + sf already exist)
+⏭️  Skipping chunk 059 (phenology + sf already exist)
+⏭️  Skipping chunk 060 (phenology + sf already exist)
+⏭️  Skipping chunk 061 (phenology + sf already exist)
+⏭️  Skipping chunk 062 (phenology + sf already exist)
+⏭️  Skipping chunk 063 (phenology + sf already exist)
+⏭️  Skipping chunk 064 (phenology + sf already exist)
+⏭️  Skipping chunk 065 (phenology + sf already exist)
+⏭️  Skipping chunk 066 (phenology + sf already exist)
+⏭️  Skipping chunk 067 (phenology + sf already exist)
+⏭️  Skipping chunk 068 (phenology + sf already exist)
+⏭️  Skipping chunk 069 (phenology + sf already exist)
+⏭️  Skipping chunk 070 (phenology + sf already exist)
+⏭️  Skipping chunk 071 (phenology + sf already exist)
+⏭️  Skipping chunk 072 (phenology + sf already exist)
+⏭️  Skipping chunk 073 (phenology + sf already exist)
+⏭️  Skipping chunk 074 (phenology + sf already exist)
+⏭️  Skipping chunk 075 (phenology + sf already exist)
+⏭️  Skipping chunk 076 (phenology + sf already exist)
+⏭️  Skipping chunk 077 (phenology + sf already exist)
+⏭️  Skipping chunk 078 (phenology + sf already exist)
+⏭️  Skipping chunk 079 (phenology + sf already exist)
+⏭️  Skipping chunk 080 (phenology + sf already exist)
+⏭️  Skipping chunk 081 (phenology + sf already exist)
+⏭️  Skipping chunk 082 (phenology + sf already exist)
+⏭️  Skipping chunk 083 (phenology + sf already exist)
+⏭️  Skipping chunk 084 (phenology + sf already exist)
+⏭️  Skipping chunk 085 (phenology + sf already exist)
+⏭️  Skipping chunk 086 (phenology + sf already exist)
+⏭️  Skipping chunk 087 (phenology + sf already exist)
+⏭️  Skipping chunk 088 (phenology + sf already exist)
+⏭️  Skipping chunk 089 (phenology + sf already exist)
+⏭️  Skipping chunk 090 (phenology + sf already exist)
+⏭️  Skipping chunk 091 (phenology + sf already exist)
+⏭️  Skipping chunk 092 (phenology + sf already exist)
+⏭️  Skipping chunk 093 (phenology + sf already exist)
+⏭️  Skipping chunk 094 (phenology + sf already exist)
+⏭️  Skipping chunk 095 (phenology + sf already exist)
+⏭️  Skipping chunk 096 (phenology + sf already exist)
+⏭️  Skipping chunk 097 (phenology + sf already exist)
+⏭️  Skipping chunk 098 (phenology + sf already exist)
+⏭️  Skipping chunk 099 (phenology + sf already exist)
+⏭️  Skipping chunk 100 (phenology + sf already exist)
+⏭️  Skipping chunk 101 (phenology + sf already exist)
+⏭️  Skipping chunk 102 (phenology + sf already exist)
+⏭️  Skipping chunk 103 (phenology + sf already exist)
+⏭️  Skipping chunk 104 (phenology + sf already exist)
+⏭️  Skipping chunk 105 (phenology + sf already exist)
+⏭️  Skipping chunk 106 (phenology + sf already exist)
+⏭️  Skipping chunk 107 (phenology + sf already exist)
+⏭️  Skipping chunk 108 (phenology + sf already exist)
+⏭️  Skipping chunk 109 (phenology + sf already exist)
+⏭️  Skipping chunk 110 (phenology + sf already exist)
+⏭️  Skipping chunk 111 (phenology + sf already exist)
+⏭️  Skipping chunk 112 (phenology + sf already exist)
+⏭️  Skipping chunk 113 (phenology + sf already exist)
+⏭️  Skipping chunk 114 (phenology + sf already exist)
+⏭️  Skipping chunk 115 (phenology + sf already exist)
+⏭️  Skipping chunk 116 (phenology + sf already exist)
+⏭️  Skipping chunk 117 (phenology + sf already exist)
+⏭️  Skipping chunk 118 (phenology + sf already exist)
+⏭️  Skipping chunk 119 (phenology + sf already exist)
+⏭️  Skipping chunk 120 (phenology + sf already exist)
+⏭️  Skipping chunk 121 (phenology + sf already exist)
+⏭️  Skipping chunk 122 (phenology + sf already exist)
+⏭️  Skipping chunk 123 (phenology + sf already exist)
+⏭️  Skipping chunk 124 (phenology + sf already exist)
+⏭️  Skipping chunk 125 (phenology + sf already exist)
+⏭️  Skipping chunk 126 (phenology + sf already exist)
+⏭️  Skipping chunk 127 (phenology + sf already exist)
+⏭️  Skipping chunk 128 (phenology + sf already exist)
+⏭️  Skipping chunk 129 (phenology + sf already exist)
+⏭️  Skipping chunk 130 (phenology + sf already exist)
+⏭️  Skipping chunk 131 (phenology + sf already exist)
+⏭️  Skipping chunk 132 (phenology + sf already exist)
+⏭️  Skipping chunk 133 (phenology + sf already exist)
+⏭️  Skipping chunk 134 (phenology + sf already exist)
+⏭️  Skipping chunk 135 (phenology + sf already exist)
+⏭️  Skipping chunk 136 (phenology + sf already exist)
+⏭️  Skipping chunk 137 (phenology + sf already exist)
+⏭️  Skipping chunk 138 (phenology + sf already exist)
+⏭️  Skipping chunk 139 (phenology + sf already exist)
+⏭️  Skipping chunk 140 (phenology + sf already exist)
+⏭️  Skipping chunk 141 (phenology + sf already exist)
+⏭️  Skipping chunk 142 (phenology + sf already exist)
+⏭️  Skipping chunk 143 (phenology + sf already exist)
+⏭️  Skipping chunk 144 (phenology + sf already exist)
+⏭️  Skipping chunk 145 (phenology + sf already exist)
+⏭️  Skipping chunk 146 (phenology + sf already exist)
+⏭️  Skipping chunk 147 (phenology + sf already exist)
+⏭️  Skipping chunk 148 (phenology + sf already exist)
+⏭️  Skipping chunk 149 (phenology + sf already exist)
+⏭️  Skipping chunk 150 (phenology + sf already exist)
+⏭️  Skipping chunk 151 (phenology + sf already exist)
+⏭️  Skipping chunk 152 (phenology + sf already exist)
+⏭️  Skipping chunk 153 (phenology + sf already exist)
+⏭️  Skipping chunk 154 (phenology + sf already exist)
+⏭️  Skipping chunk 155 (phenology + sf already exist)
+⏭️  Skipping chunk 156 (phenology + sf already exist)
+⏭️  Skipping chunk 157 (phenology + sf already exist)
+⏭️  Skipping chunk 158 (phenology + sf already exist)
+⏭️  Skipping chunk 159 (phenology + sf already exist)
+📦 Processing chunk 160  (chunk_160.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=6692
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_160_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_160.rda
+⚠️  No valid EVI rows to append for chunk 160
+📦 Processing chunk 161  (chunk_161.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=6692
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_161_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_161.rda
+⚠️  No valid EVI rows to append for chunk 161
+📦 Processing chunk 162  (chunk_162.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=6692
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_162_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_162.rda
+⚠️  No valid EVI rows to append for chunk 162
+📦 Processing chunk 163  (chunk_163.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=6692
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_163_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_163.rda
+⚠️  No valid EVI rows to append for chunk 163
+📦 Processing chunk 164  (chunk_164.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=6692
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_164_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_164.rda
+⚠️  No valid EVI rows to append for chunk 164
+📦 Processing chunk 165  (chunk_165.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=6692
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_165_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_165.rda
+⚠️  No valid EVI rows to append for chunk 165
+📦 Processing chunk 166  (chunk_166.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=6692
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_166_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_166.rda
+⚠️  No valid EVI rows to append for chunk 166
+📦 Processing chunk 167  (chunk_167.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=6692
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_167_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_167.rda
+⚠️  No valid EVI rows to append for chunk 167
+📦 Processing chunk 168  (chunk_168.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=6692
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_168_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_168.rda
+⚠️  No valid EVI rows to append for chunk 168
+📦 Processing chunk 169  (chunk_169.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=6692
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_169_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_169.rda
+⚠️  No valid EVI rows to append for chunk 169
+📦 Processing chunk 170  (chunk_170.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=6692
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_170_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_170.rda
+⚠️  No valid EVI rows to append for chunk 170
+📦 Processing chunk 171  (chunk_171.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=6692
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_171_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_171.rda
+⚠️  No valid EVI rows to append for chunk 171
+📦 Processing chunk 172  (chunk_172.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=6692
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_172_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_172.rda
+⚠️  No valid EVI rows to append for chunk 172
+📦 Processing chunk 173  (chunk_173.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=6692
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_173_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_173.rda
+⚠️  No valid EVI rows to append for chunk 173
+📦 Processing chunk 174  (chunk_174.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=6692
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_174_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_174.rda
+⚠️  No valid EVI rows to append for chunk 174
+📦 Processing chunk 175  (chunk_175.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=6692
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_175_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_175.rda
+⚠️  No valid EVI rows to append for chunk 175
+📦 Processing chunk 176  (chunk_176.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=6692
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_176_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_176.rda
+⚠️  No valid EVI rows to append for chunk 176
+📦 Processing chunk 177  (chunk_177.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=6692
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_177_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_177.rda
+⚠️  No valid EVI rows to append for chunk 177
+📦 Processing chunk 178  (chunk_178.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=6692
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_178_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_178.rda
+⚠️  No valid EVI rows to append for chunk 178
+📦 Processing chunk 179  (chunk_179.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=6692
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_179_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_179.rda
+⚠️  No valid EVI rows to append for chunk 179
+📦 Processing chunk 180  (chunk_180.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=6692
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_180_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_180.rda
+⚠️  No valid EVI rows to append for chunk 180
+📦 Processing chunk 181  (chunk_181.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=6692
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_181_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_181.rda
+⚠️  No valid EVI rows to append for chunk 181
+📦 Processing chunk 182  (chunk_182.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=6692
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_182_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_182.rda
+⚠️  No valid EVI rows to append for chunk 182
+📦 Processing chunk 183  (chunk_183.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=6692
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_183_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_183.rda
+⚠️  No valid EVI rows to append for chunk 183
+📦 Processing chunk 184  (chunk_184.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=6692
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_184_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_184.rda
+⚠️  No valid EVI rows to append for chunk 184
+📦 Processing chunk 185  (chunk_185.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=6692
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_185_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_185.rda
+⚠️  No valid EVI rows to append for chunk 185
+📦 Processing chunk 186  (chunk_186.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=6692
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_186_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_186.rda
+⚠️  No valid EVI rows to append for chunk 186
+📦 Processing chunk 187  (chunk_187.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=6692
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_187_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_187.rda
+⚠️  No valid EVI rows to append for chunk 187
+📦 Processing chunk 188  (chunk_188.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=6692
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_188_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_188.rda
+⚠️  No valid EVI rows to append for chunk 188
+📦 Processing chunk 189  (chunk_189.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=4640
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_189_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_189.rda
+⚠️  No valid EVI rows to append for chunk 189
+📦 Processing chunk 190  (chunk_190.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=2352
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_190_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_190.rda
+⚠️  No valid EVI rows to append for chunk 190
+📦 Processing chunk 191  (chunk_191.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=2356
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_191_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_191.rda
+⚠️  No valid EVI rows to append for chunk 191
+📦 Processing chunk 192  (chunk_192.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=2357
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_192_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_192.rda
+⚠️  No valid EVI rows to append for chunk 192
+📦 Processing chunk 193  (chunk_193.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=2357
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_193_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_193.rda
+⚠️  No valid EVI rows to append for chunk 193
+📦 Processing chunk 194  (chunk_194.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=2357
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_194_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_194.rda
+⚠️  No valid EVI rows to append for chunk 194
+📦 Processing chunk 195  (chunk_195.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=2357
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_195_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_195.rda
+⚠️  No valid EVI rows to append for chunk 195
+📦 Processing chunk 196  (chunk_196.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=2357
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_196_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_196.rda
+⚠️  No valid EVI rows to append for chunk 196
+📦 Processing chunk 197  (chunk_197.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=2357
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_197_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_197.rda
+⚠️  No valid EVI rows to append for chunk 197
+📦 Processing chunk 198  (chunk_198.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=2357
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_198_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_198.rda
+⚠️  No valid EVI rows to append for chunk 198
+📦 Processing chunk 199  (chunk_199.rda)
+🧮 Processing 6692 pixels (6 cores)...
+🧾 Time series captured: raw=6692, smooth=2357
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_199_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_199.rda
+⚠️  No valid EVI rows to append for chunk 199
+📦 Processing chunk 200  (chunk_200.rda)
+🧮 Processing 6624 pixels (6 cores)...
+🧾 Time series captured: raw=6624, smooth=3867
+💾 Saved sf: output/IT-Cas/tables_sf/chunk_200_evi_sf.rds
+💾 Saved phenology matrix: output/IT-Cas/chunk_phe/chunk_phe_200.rda
+⚠️  No valid EVI rows to append for chunk 200
+There were 41 warnings (use warnings() to see them)
+✅ Step 3 complete for site IT-Cas

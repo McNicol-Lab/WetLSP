@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -121.7673,
+              36.794399999999996
+            ],
+            [
+              -121.7373,
+              36.794399999999996
+            ],
+            [
+              -121.7373,
+              36.8244
+            ],
+            [
+              -121.7673,
+              36.8244
+            ],
+            [
+              -121.7673,
+              36.794399999999996
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Elkhorn Slough Hester Marsh",
+        "f": "US-EKH"
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+Loading required package: terra
+terra 1.8.54
+Loading required package: rjson
+Loading required package: geojsonR
+Loading required package: foreach
+Loading required package: doParallel
+Loading required package: iterators
+Loading required package: parallel
+📍 Running site index: 19
+🗺️  Site: HK-MPM
+📂 Mosaic dir (input): output/HK-MPM/mosaic
+🧭 Found 329 mosaics spanning 2020-06-23 → 2024-12-31
+📦 Base grid: 1386×1021 (1415106 cells) → 200 chunks (~7076 cells/chunk)
+✅ All 200 chunk files already exist in: output/HK-MPM/chunk
+   Skipping chunk creation for site HK-MPM (set 'overwriteChunks': true in wetlsp-parameters.json to force rebuild).

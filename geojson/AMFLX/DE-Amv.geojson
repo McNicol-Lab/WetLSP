@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              6.94043,
+              52.1607
+            ],
+            [
+              6.9704299999999995,
+              52.1607
+            ],
+            [
+              6.9704299999999995,
+              52.1907
+            ],
+            [
+              6.94043,
+              52.1907
+            ],
+            [
+              6.94043,
+              52.1607
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Amtsvenn",
+        "f": "DE-Amv"
+      }
+    }
+  ]
+}

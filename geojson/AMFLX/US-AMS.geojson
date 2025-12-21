@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -88.0113,
+              41.6868
+            ],
+            [
+              -87.9813,
+              41.6868
+            ],
+            [
+              -87.9813,
+              41.7168
+            ],
+            [
+              -88.0113,
+              41.7168
+            ],
+            [
+              -88.0113,
+              41.6868
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Argonne Testbed for Multiscale Observational Science (ATMOS)",
+        "f": "US-AMS"
+      }
+    }
+  ]
+}

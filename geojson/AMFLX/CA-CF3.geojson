@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -93.8454,
+              58.6508
+            ],
+            [
+              -93.8154,
+              58.6508
+            ],
+            [
+              -93.8154,
+              58.6808
+            ],
+            [
+              -93.8454,
+              58.6808
+            ],
+            [
+              -93.8454,
+              58.6508
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Churchill Fen Site 3",
+        "f": "CA-CF3"
+      }
+    }
+  ]
+}

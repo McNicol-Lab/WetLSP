@@ -1,0 +1,2629 @@
+Loading required package: raster
+Loading required package: sp
+Loading required package: gdalUtilities
+Loading required package: terra
+terra 1.8.54
+Loading required package: rjson
+Loading required package: geojsonR
+Loading required package: dplyr
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:terra’:
+
+    intersect, union
+
+The following objects are masked from ‘package:raster’:
+
+    intersect, select, union
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Loading required package: foreach
+Loading required package: doParallel
+Loading required package: iterators
+Loading required package: parallel
+📍 Running site index: 8
+🗺️  Site: CA-SCB
+📂 Image dir: /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/CA-SCB
+🔍 Searching for a valid template raster (for CRS + resolution)...
+✅ Found template raster: /Users/gawainmacneacail/Documents/Research/Work/PlanetScope/WetLSP/rawImage/CA-SCB/data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240210_184000_81_24c8_3B_AnalyticMS_SR_8b_clip.tif
+🧭 Reprojecting AOI (siteWin) to template CRS: +proj=utm +zone=10 +datum=WGS84 +units=m +no_defs
+📦 Computing union of raster extents for this site...
+📐 Building base raster from AOI ∩ imagery extent...
+    AOI extent (template CRS): 589130.2, 593130.2, 6796382, 6800382
+    Imagery union extent: 589674, 592587, 6796854, 6799911
+    Base (intersection) extent: 589674, 592587, 6796854, 6799911
+    Template resolution: 3 × 3
+✅ Base image written to: output/CA-SCB/base_image.tif
+✅ Done with base image (AOI ∩ imagery, in-memory).
+📄 Base image path for workers: output/CA-SCB/base_image.tif
+memfrac   : 0.8
+tolerance : 0.1
+verbose   : FALSE
+todisk    : FALSE
+tempdir   : /tmp/terra_tmp
+datatype  : FLT4S
+memmin    : 1
+progress  : 3
+🌐 terra tempdir: /tmp/terra_tmp
+memfrac   : 0.8
+tolerance : 0.1
+verbose   : FALSE
+todisk    : FALSE
+tempdir   : /tmp/terra_tmp
+datatype  : FLT4S
+memmin    : 1
+progress  : 3
+🌐 terra threads: 
+🔁 Setting up parallel backend with 7 workers
+✅ Using doMC (shared-memory) backend
+🧭 Found 0 existing mosaics. Processing remaining 244 dates.
+🔥 [PID 19996] Processing date 18342
+🔥 [PID 19996] Processing date 18342
+🔥 [PID 19997] Processing date 18354
+🔥 [PID 19997] Processing date 18354
+🔥 [PID 19998] Processing date 18363
+🔥 [PID 19998] Processing date 18363
+🔥 [PID 19999] Processing date 18405
+🔥 [PID 19999] Processing date 18405
+🔥 [PID 20000] Processing date 18415
+🔥 [PID 20000] Processing date 18415
+🔥 [PID 20001] Processing date 18532
+🔥 [PID 20001] Processing date 18532
+🔥 [PID 20002] Processing date 18533
+🔥 [PID 20002] Processing date 18533
+🧩 Reading data/bda73270-1b39-4ae1-bde8-1d08f54c95ea/PSScene/20200321_183411_43_2259_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bda73270-1b39-4ae1-bde8-1d08f54c95ea/PSScene/20200402_183358_83_2277_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bda73270-1b39-4ae1-bde8-1d08f54c95ea/PSScene/20200602_183925_40_2257_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bda73270-1b39-4ae1-bde8-1d08f54c95ea/PSScene/20200411_183645_26_2263_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bda73270-1b39-4ae1-bde8-1d08f54c95ea/PSScene/20200523_183411_43_2263_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20200928_193045_71_227a_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bda73270-1b39-4ae1-bde8-1d08f54c95ea/PSScene/20200927_183740_88_222f_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+🧩 Reading data/bda73270-1b39-4ae1-bde8-1d08f54c95ea/PSScene/20200402_183400_64_2277_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bda73270-1b39-4ae1-bde8-1d08f54c95ea/PSScene/20200321_183617_18_2263_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+⚙️  Aligning UDM2 mask geometry to image for data/bda73270-1b39-4ae1-bde8-1d08f54c95ea/PSScene/20200402_183400_64_2277_3B_AnalyticMS_SR_8b_clip.tif
+ℹ️  Only one valid raster for 2020-06-02 — skipping mosaic.
+🧩 Reading data/bda73270-1b39-4ae1-bde8-1d08f54c95ea/PSScene/20200927_183743_23_222f_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bda73270-1b39-4ae1-bde8-1d08f54c95ea/PSScene/20200523_183413_81_2263_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bda73270-1b39-4ae1-bde8-1d08f54c95ea/PSScene/20200411_183647_47_2263_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+⚙️  Aligning UDM2 mask geometry to image for data/bda73270-1b39-4ae1-bde8-1d08f54c95ea/PSScene/20200927_183743_23_222f_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20200602_clipped_mosaic.tif
+🔥 [PID 20000] Processing date 18558
+🔥 [PID 20000] Processing date 18558
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20201023_192936_34_2414_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2020-09-28 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20200321_clipped_mosaic.tif
+🔥 [PID 19996] Processing date 18537
+🔥 [PID 19996] Processing date 18537
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20201023_192938_62_2414_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20200411_clipped_mosaic.tif
+🔥 [PID 19998] Processing date 18552
+🧩 Reading data/bda73270-1b39-4ae1-bde8-1d08f54c95ea/PSScene/20201002_184136_00_222f_3B_AnalyticMS_SR_8b_clip.tif
+🔥 [PID 19998] Processing date 18552
+✅ Saved mosaic: output/CA-SCB/mosaic/20200928_clipped_mosaic.tif
+🔥 [PID 20002] Processing date 18572
+🔥 [PID 20002] Processing date 18572
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20201106_183917_11_2279_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20201017_192742_00_2413_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20200523_clipped_mosaic.tif
+🔥 [PID 19999] Processing date 18553
+🔥 [PID 19999] Processing date 18553
+✅ Saved mosaic: output/CA-SCB/mosaic/20200402_clipped_mosaic.tif
+🔥 [PID 19997] Processing date 18550
+🔥 [PID 19997] Processing date 18550
+🧩 Reading data/bda73270-1b39-4ae1-bde8-1d08f54c95ea/PSScene/20201018_192650_33_2254_3B_AnalyticMS_SR_8b_clip.tif
+ℹ️  Only one valid raster for 2020-10-02 — skipping mosaic.
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20201015_193443_94_2402_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+🧩 Reading data/bda73270-1b39-4ae1-bde8-1d08f54c95ea/PSScene/20201023_184139_35_222b_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bda73270-1b39-4ae1-bde8-1d08f54c95ea/PSScene/20201018_192652_68_2254_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20200927_clipped_mosaic.tif
+☁️  Applying UDM2 mask
+🔥 [PID 20001] Processing date 18559
+🔥 [PID 20001] Processing date 18559
+⚙️  Aligning UDM2 mask geometry to image for data/bda73270-1b39-4ae1-bde8-1d08f54c95ea/PSScene/20201023_184139_35_222b_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20201024_193014_94_2413_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20201017_192744_30_2413_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20201002_clipped_mosaic.tif
+🔥 [PID 19996] Processing date 18574
+🔥 [PID 19996] Processing date 18574
+☁️  Applying UDM2 mask
+🧩 Reading data/bda73270-1b39-4ae1-bde8-1d08f54c95ea/PSScene/20201108_192443_08_241c_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20201015_193446_21_2402_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2020-11-08 — skipping mosaic.
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20201024_193017_23_2413_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20201106_192713_34_2408_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+🧩 Reading data/bda73270-1b39-4ae1-bde8-1d08f54c95ea/PSScene/20201017_184159_94_2257_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20201108_clipped_mosaic.tif
+🔥 [PID 19996] Processing date 18673
+🔥 [PID 19996] Processing date 18673
+🧩 Reading data/7f628bd8-30b7-4c8e-8af2-c35da9fd2c4d/PSScene/20210215_192400_37_2408_3B_AnalyticMS_SR_8b_clip.tif
+⚙️  Aligning UDM2 mask geometry to image for data/bda73270-1b39-4ae1-bde8-1d08f54c95ea/PSScene/20201017_184159_94_2257_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20201018_clipped_mosaic.tif
+🔥 [PID 19999] Processing date 18665
+🔥 [PID 19999] Processing date 18665
+🧩 Reading data/7f628bd8-30b7-4c8e-8af2-c35da9fd2c4d/PSScene/20210207_192342_37_2414_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2021-02-15 — skipping mosaic.
+🧩 Reading data/bda73270-1b39-4ae1-bde8-1d08f54c95ea/PSScene/20201017_184202_14_2257_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210215_clipped_mosaic.tif
+🔥 [PID 19996] Processing date 18685
+🔥 [PID 19996] Processing date 18685
+⚙️  Aligning UDM2 mask geometry to image for data/bda73270-1b39-4ae1-bde8-1d08f54c95ea/PSScene/20201017_184202_14_2257_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/60ad3fc0-c6b9-4e96-940d-b955ed1541c2/PSScene/20210227_192940_21_225b_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2021-02-07 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20210207_clipped_mosaic.tif
+🔥 [PID 19999] Processing date 18676
+🔥 [PID 19999] Processing date 18676
+🧩 Reading data/7f628bd8-30b7-4c8e-8af2-c35da9fd2c4d/PSScene/20210218_192710_56_2403_3B_AnalyticMS_SR_8b_clip.tif
+ℹ️  Only one valid raster for 2021-02-27 — skipping mosaic.
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210227_clipped_mosaic.tif
+🔥 [PID 19996] Processing date 18703
+🔥 [PID 19996] Processing date 18703
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210317_192833_58_240a_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20201106_clipped_mosaic.tif
+🔥 [PID 20002] Processing date 18669
+🔥 [PID 20002] Processing date 18669
+🧩 Reading data/7f628bd8-30b7-4c8e-8af2-c35da9fd2c4d/PSScene/20210218_193029_05_2424_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/7f628bd8-30b7-4c8e-8af2-c35da9fd2c4d/PSScene/20210211_192525_41_2403_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20201023_clipped_mosaic.tif
+🔥 [PID 20000] Processing date 18666
+🔥 [PID 20000] Processing date 18666
+🧩 Reading data/7f628bd8-30b7-4c8e-8af2-c35da9fd2c4d/PSScene/20210208_184401_97_2262_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20201024_clipped_mosaic.tif
+🔥 [PID 20001] Processing date 18668
+🔥 [PID 20001] Processing date 18668
+☁️  Applying UDM2 mask
+🧩 Reading data/7f628bd8-30b7-4c8e-8af2-c35da9fd2c4d/PSScene/20210210_183948_87_225a_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/7f628bd8-30b7-4c8e-8af2-c35da9fd2c4d/PSScene/20210218_193031_40_2424_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210317_192838_35_2426_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20201015_clipped_mosaic.tif
+🔥 [PID 19997] Processing date 18577
+🔥 [PID 19997] Processing date 18577
+🧩 Reading data/7f628bd8-30b7-4c8e-8af2-c35da9fd2c4d/PSScene/20210211_192527_69_2403_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/7f628bd8-30b7-4c8e-8af2-c35da9fd2c4d/PSScene/20210208_184404_24_2262_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bda73270-1b39-4ae1-bde8-1d08f54c95ea/PSScene/20201111_192846_24_240f_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2021-02-10 — skipping mosaic.
+🧩 Reading data/7f628bd8-30b7-4c8e-8af2-c35da9fd2c4d/PSScene/20210208_192333_93_240c_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bda73270-1b39-4ae1-bde8-1d08f54c95ea/PSScene/20201111_192848_61_240f_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210210_clipped_mosaic.tif
+🔥 [PID 20001] Processing date 18678
+🔥 [PID 20001] Processing date 18678
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210317_192840_61_2426_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/7f628bd8-30b7-4c8e-8af2-c35da9fd2c4d/PSScene/20210220_192459_42_2254_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/7f628bd8-30b7-4c8e-8af2-c35da9fd2c4d/PSScene/20210220_192501_78_2254_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210211_clipped_mosaic.tif
+🔥 [PID 20002] Processing date 18683
+🔥 [PID 20002] Processing date 18683
+🧩 Reading data/7f628bd8-30b7-4c8e-8af2-c35da9fd2c4d/PSScene/20210225_192840_12_2403_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20201111_clipped_mosaic.tif
+🔥 [PID 19997] Processing date 18674
+🔥 [PID 19997] Processing date 18674
+🧩 Reading data/7f628bd8-30b7-4c8e-8af2-c35da9fd2c4d/PSScene/20210220_192524_06_2414_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/7f628bd8-30b7-4c8e-8af2-c35da9fd2c4d/PSScene/20210216_184058_83_227e_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210218_clipped_mosaic.tif
+🔥 [PID 19999] Processing date 18691
+🔥 [PID 19999] Processing date 18691
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210305_183907_69_245c_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/7f628bd8-30b7-4c8e-8af2-c35da9fd2c4d/PSScene/20210225_192842_39_2403_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+⚙️  Aligning UDM2 mask geometry to image for data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210305_183907_69_245c_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20210208_clipped_mosaic.tif
+🔥 [PID 20000] Processing date 18677
+🔥 [PID 20000] Processing date 18677
+ℹ️  Only one valid raster for 2021-02-16 — skipping mosaic.
+🧩 Reading data/7f628bd8-30b7-4c8e-8af2-c35da9fd2c4d/PSScene/20210219_193111_58_241c_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210216_clipped_mosaic.tif
+🔥 [PID 19997] Processing date 18687
+🔥 [PID 19997] Processing date 18687
+🧩 Reading data/60ad3fc0-c6b9-4e96-940d-b955ed1541c2/PSScene/20210301_183821_95_2212_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/7f628bd8-30b7-4c8e-8af2-c35da9fd2c4d/PSScene/20210219_193113_93_241c_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2021-03-01 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20210225_clipped_mosaic.tif
+🔥 [PID 20002] Processing date 18701
+🔥 [PID 20002] Processing date 18701
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210315_183333_33_2458_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20201017_clipped_mosaic.tif
+🔥 [PID 19998] Processing date 18664
+🔥 [PID 19998] Processing date 18664
+🧩 Reading data/7f628bd8-30b7-4c8e-8af2-c35da9fd2c4d/PSScene/20210206_192701_71_225b_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210301_clipped_mosaic.tif
+🔥 [PID 19997] Processing date 18705
+✅ Saved mosaic: output/CA-SCB/mosaic/20210220_clipped_mosaic.tif
+🔥 [PID 20001] Processing date 18693
+🔥 [PID 19997] Processing date 18705
+🔥 [PID 20001] Processing date 18693
+ℹ️  Only one valid raster for 2021-03-05 — skipping mosaic.
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210319_183227_48_2442_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210307_184130_39_2427_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210317_clipped_mosaic.tif
+🔥 [PID 19996] Processing date 18716
+🔥 [PID 19996] Processing date 18716
+☁️  Applying UDM2 mask
+⚙️  Aligning UDM2 mask geometry to image for data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210307_184130_39_2427_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210330_192808_59_227b_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210315_183335_68_2458_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2021-02-06 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20210305_clipped_mosaic.tif
+🔥 [PID 19999] Processing date 18707
+🔥 [PID 19999] Processing date 18707
+✅ Saved mosaic: output/CA-SCB/mosaic/20210206_clipped_mosaic.tif
+🔥 [PID 19998] Processing date 18675
+🔥 [PID 19998] Processing date 18675
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210321_193009_03_2413_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/7f628bd8-30b7-4c8e-8af2-c35da9fd2c4d/PSScene/20210217_184440_03_222f_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2021-03-19 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20210219_clipped_mosaic.tif
+🔥 [PID 20000] Processing date 18692
+🔥 [PID 20000] Processing date 18692
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210307_184132_70_2427_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210306_183325_89_2421_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210330_192810_95_227b_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+⚙️  Aligning UDM2 mask geometry to image for data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210307_184132_70_2427_3B_AnalyticMS_SR_8b_clip.tif
+⚙️  Aligning UDM2 mask geometry to image for data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210306_183325_89_2421_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/7f628bd8-30b7-4c8e-8af2-c35da9fd2c4d/PSScene/20210217_184442_24_222f_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210319_clipped_mosaic.tif
+⚙️  Aligning UDM2 mask geometry to image for data/7f628bd8-30b7-4c8e-8af2-c35da9fd2c4d/PSScene/20210217_184442_24_222f_3B_AnalyticMS_SR_8b_clip.tif
+🔥 [PID 19997] Processing date 18717
+🔥 [PID 19997] Processing date 18717
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210331_183331_35_245d_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210321_193011_30_2413_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210217_clipped_mosaic.tif
+🔥 [PID 19998] Processing date 18689
+🔥 [PID 19998] Processing date 18689
+🧩 Reading data/60ad3fc0-c6b9-4e96-940d-b955ed1541c2/PSScene/20210303_184737_65_2251_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20210315_clipped_mosaic.tif
+🔥 [PID 20002] Processing date 18710
+🔥 [PID 20002] Processing date 18710
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210324_192428_32_240a_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2021-03-31 — skipping mosaic.
+ℹ️  Only one valid raster for 2021-03-06 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20210331_clipped_mosaic.tif
+🔥 [PID 19997] Processing date 18740
+🔥 [PID 19997] Processing date 18740
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210423_192032_24_227a_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20210306_clipped_mosaic.tif
+🔥 [PID 20000] Processing date 18708
+🔥 [PID 20000] Processing date 18708
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210322_184609_65_2264_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2021-03-03 — skipping mosaic.
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210322_184611_91_2264_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+⚙️  Aligning UDM2 mask geometry to image for data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210322_184611_91_2264_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210324_192646_47_227c_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210303_clipped_mosaic.tif
+🔥 [PID 19998] Processing date 18706
+🔥 [PID 19998] Processing date 18706
+ℹ️  Only one valid raster for 2021-04-23 — skipping mosaic.
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210320_192417_90_227b_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20210330_clipped_mosaic.tif
+🔥 [PID 19996] Processing date 18734
+🔥 [PID 19996] Processing date 18734
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210417_183412_73_245c_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210307_clipped_mosaic.tif
+🔥 [PID 20001] Processing date 18709
+🔥 [PID 20001] Processing date 18709
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210323_183354_11_2436_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20210321_clipped_mosaic.tif
+🔥 [PID 19999] Processing date 18720
+🔥 [PID 19999] Processing date 18720
+✅ Saved mosaic: output/CA-SCB/mosaic/20210423_clipped_mosaic.tif
+🔥 [PID 19997] Processing date 18753
+🔥 [PID 19997] Processing date 18753
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210320_192420_26_227b_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210403_183432_60_222b_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210417_183415_27_245c_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210506_192210_22_2401_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210322_clipped_mosaic.tif
+🔥 [PID 20000] Processing date 18727
+🔥 [PID 20000] Processing date 18727
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210410_183201_67_2440_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210323_183356_45_2436_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210320_193101_77_225b_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210403_183434_81_222b_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210506_192212_51_2401_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210410_184420_44_2264_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210324_clipped_mosaic.tif
+🔥 [PID 20002] Processing date 18733
+🔥 [PID 20002] Processing date 18733
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210416_183434_33_2465_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210506_192952_96_2403_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2021-04-16 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20210417_clipped_mosaic.tif
+🔥 [PID 19996] Processing date 18751
+🔥 [PID 19996] Processing date 18751
+✅ Saved mosaic: output/CA-SCB/mosaic/20210416_clipped_mosaic.tif
+🔥 [PID 20002] Processing date 18750
+🔥 [PID 20002] Processing date 18750
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210504_183048_14_2449_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210503_183729_14_2464_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210323_clipped_mosaic.tif
+🔥 [PID 20001] Processing date 18729
+🔥 [PID 20001] Processing date 18729
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210412_193010_67_2412_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210403_clipped_mosaic.tif
+🔥 [PID 19999] Processing date 18745
+🔥 [PID 19999] Processing date 18745
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210428_183351_55_2430_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210503_183731_48_2464_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210504_183050_68_2449_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2021-04-12 — skipping mosaic.
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210428_183354_03_2430_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210412_clipped_mosaic.tif
+🔥 [PID 20001] Processing date 18749
+🔥 [PID 20001] Processing date 18749
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210504_183059_87_2456_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210502_184127_71_2233_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20210320_clipped_mosaic.tif
+🔥 [PID 19998] Processing date 18719
+🔥 [PID 19998] Processing date 18719
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210402_192651_32_2424_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210410_clipped_mosaic.tif
+🔥 [PID 20000] Processing date 18746
+🔥 [PID 20000] Processing date 18746
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210429_184916_10_2276_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2021-05-02 — skipping mosaic.
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210504_184359_34_227e_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+⚙️  Aligning UDM2 mask geometry to image for data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210504_184359_34_227e_3B_AnalyticMS_SR_8b_clip.tif
+ℹ️  Only one valid raster for 2021-04-02 — skipping mosaic.
+ℹ️  Only one valid raster for 2021-04-29 — skipping mosaic.
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210504_184401_64_227e_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210402_clipped_mosaic.tif
+🔥 [PID 19998] Processing date 18744
+🔥 [PID 19998] Processing date 18744
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210427_184614_83_2280_3B_AnalyticMS_SR_8b_clip.tif
+⚙️  Aligning UDM2 mask geometry to image for data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210504_184401_64_227e_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20210429_clipped_mosaic.tif
+🔥 [PID 20000] Processing date 18770
+🔥 [PID 20000] Processing date 18770
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210502_clipped_mosaic.tif
+🔥 [PID 20001] Processing date 18771
+🔥 [PID 20001] Processing date 18771
+✅ Saved mosaic: output/CA-SCB/mosaic/20210506_clipped_mosaic.tif
+🔥 [PID 19997] Processing date 18779
+🔥 [PID 19997] Processing date 18779
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210523_183526_78_2458_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210601_184404_35_2441_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210524_192825_57_2307_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210503_clipped_mosaic.tif
+🔥 [PID 20002] Processing date 18777
+🔥 [PID 20002] Processing date 18777
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210530_183856_18_2440_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2021-04-27 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20210428_clipped_mosaic.tif
+🔥 [PID 19999] Processing date 18769
+🔥 [PID 19999] Processing date 18769
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210524_192828_06_2307_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210523_183529_08_2458_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210522_183205_12_241a_3B_AnalyticMS_SR_8b_clip.tif
+ℹ️  Only one valid raster for 2021-06-01 — skipping mosaic.
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210530_183858_49_2440_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20210427_clipped_mosaic.tif
+🔥 [PID 19998] Processing date 18767
+🔥 [PID 19998] Processing date 18767
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210522_183207_60_241a_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210523_192350_83_2416_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210524_192845_52_2424_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210520_183230_54_2444_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210530_184010_38_2264_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210522_192322_00_2405_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210601_clipped_mosaic.tif
+🔥 [PID 19997] Processing date 18798
+🔥 [PID 19997] Processing date 18798
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210520_183233_02_2444_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210620_184137_95_2233_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210530_184012_67_2264_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210523_192755_66_2406_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210520_183844_73_245d_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2021-06-20 — skipping mosaic.
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210520_183847_03_245d_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210620_clipped_mosaic.tif
+🔥 [PID 19997] Processing date 18816
+🔥 [PID 19997] Processing date 18816
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210708_184836_29_2231_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210520_192712_07_2403_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210520_192714_37_2403_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2021-07-08 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20210524_clipped_mosaic.tif
+🔥 [PID 20001] Processing date 18787
+🔥 [PID 20001] Processing date 18787
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210609_183722_91_2456_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210522_clipped_mosaic.tif
+🔥 [PID 19999] Processing date 18784
+🔥 [PID 19999] Processing date 18784
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210606_183455_57_245d_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210708_clipped_mosaic.tif
+🔥 [PID 19997] Processing date 18829
+🔥 [PID 19997] Processing date 18829
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210721_184034_32_2458_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210606_183457_87_245d_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2021-07-21 — skipping mosaic.
+ℹ️  Only one valid raster for 2021-06-09 — skipping mosaic.
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210606_183530_68_2460_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+⚙️  Aligning UDM2 mask geometry to image for data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210606_183530_68_2460_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210606_183532_98_2460_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210609_clipped_mosaic.tif
+🔥 [PID 20001] Processing date 18812
+🔥 [PID 20001] Processing date 18812
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210704_183238_30_2235_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210504_clipped_mosaic.tif
+🔥 [PID 19996] Processing date 18778
+🔥 [PID 19996] Processing date 18778
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210531_183655_74_2432_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210721_clipped_mosaic.tif
+🔥 [PID 19997] Processing date 18850
+🔥 [PID 19997] Processing date 18850
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210811_183945_09_241e_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210704_183516_05_241d_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210523_clipped_mosaic.tif
+🔥 [PID 20000] Processing date 18785
+🔥 [PID 20000] Processing date 18785
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210531_183658_04_2432_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210607_183755_85_2212_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210704_183724_33_2435_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210811_183947_56_241e_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210607_183758_06_2212_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210530_clipped_mosaic.tif
+🔥 [PID 20002] Processing date 18791
+🔥 [PID 20002] Processing date 18791
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210613_183547_03_2235_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210704_183726_63_2435_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210811_184436_11_2264_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2021-06-13 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20210520_clipped_mosaic.tif
+🔥 [PID 19998] Processing date 18783
+🔥 [PID 19998] Processing date 18783
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210605_192236_63_240c_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210605_192238_92_240c_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20210613_clipped_mosaic.tif
+🔥 [PID 20002] Processing date 18814
+🔥 [PID 20002] Processing date 18814
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210706_183831_26_2456_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210531_clipped_mosaic.tif
+🔥 [PID 19996] Processing date 18792
+🔥 [PID 19996] Processing date 18792
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210614_183828_88_245d_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210607_clipped_mosaic.tif
+🔥 [PID 20000] Processing date 18806
+🔥 [PID 20000] Processing date 18806
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210628_183704_41_2212_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210706_183833_57_2456_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210606_clipped_mosaic.tif
+🔥 [PID 19999] Processing date 18804
+🔥 [PID 19999] Processing date 18804
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210614_183831_18_245d_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210706_192427_47_2414_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+⚙️  Aligning UDM2 mask geometry to image for data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210706_192427_47_2414_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210626_183046_03_2432_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210628_183706_62_2212_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+⚙️  Aligning UDM2 mask geometry to image for data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210628_183706_62_2212_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210706_192429_76_2414_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210626_183048_34_2432_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+⚙️  Aligning UDM2 mask geometry to image for data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210626_183048_34_2432_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20210605_clipped_mosaic.tif
+🔥 [PID 19998] Processing date 18803
+🔥 [PID 19998] Processing date 18803
+✅ Saved mosaic: output/CA-SCB/mosaic/20210704_clipped_mosaic.tif
+🔥 [PID 20001] Processing date 18824
+🔥 [PID 20001] Processing date 18824
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210716_192202_51_2408_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210625_183203_50_2429_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20210811_clipped_mosaic.tif
+🔥 [PID 19997] Processing date 18863
+🔥 [PID 19997] Processing date 18863
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210824_191916_00_2407_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210626_183100_67_2450_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210625_183205_80_2429_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210716_192204_80_2408_3B_AnalyticMS_SR_8b_clip.tif
+⚙️  Aligning UDM2 mask geometry to image for data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210626_183100_67_2450_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2021-08-24 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20210614_clipped_mosaic.tif
+🔥 [PID 19996] Processing date 18815
+🔥 [PID 19996] Processing date 18815
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210707_184023_12_2465_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210625_183248_80_245f_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210626_183102_97_2450_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210625_183400_27_241f_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+⚙️  Aligning UDM2 mask geometry to image for data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210626_183102_97_2450_3B_AnalyticMS_SR_8b_clip.tif
+ℹ️  Only one valid raster for 2021-07-07 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20210824_clipped_mosaic.tif
+🔥 [PID 19997] Processing date 19550
+🔥 [PID 19997] Processing date 19550
+✅ Saved mosaic: output/CA-SCB/mosaic/20210628_clipped_mosaic.tif
+🔥 [PID 20000] Processing date 18822
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20230712_190618_12_248b_3B_AnalyticMS_SR_8b_clip.tif
+🔥 [PID 20000] Processing date 18822
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210707_clipped_mosaic.tif
+🔥 [PID 19996] Processing date 18828
+🔥 [PID 19996] Processing date 18828
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210714_183230_18_2464_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210720_183142_21_2460_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210720_183459_75_245f_3B_AnalyticMS_SR_8b_clip.tif
+ℹ️  Only one valid raster for 2023-07-12 — skipping mosaic.
+☁️  Applying UDM2 mask
+⚙️  Aligning UDM2 mask geometry to image for data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210720_183459_75_245f_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210714_183232_66_2464_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210625_191931_77_240a_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210626_183213_80_241b_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+⚙️  Aligning UDM2 mask geometry to image for data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210626_183213_80_241b_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20230712_clipped_mosaic.tif
+🔥 [PID 19997] Processing date 19597
+🔥 [PID 19997] Processing date 19597
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20230828_183158_59_24b3_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210706_clipped_mosaic.tif
+🔥 [PID 20002] Processing date 18826
+🔥 [PID 20002] Processing date 18826
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210718_183306_80_245c_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20210716_clipped_mosaic.tif
+🔥 [PID 20001] Processing date 18840
+☁️  Applying UDM2 mask
+🔥 [PID 20001] Processing date 18840
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20230828_183200_85_24b3_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210626_183216_10_241b_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+⚙️  Aligning UDM2 mask geometry to image for data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210626_183216_10_241b_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210801_183138_45_245a_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210718_183309_28_245c_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210801_183140_93_245a_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20210714_clipped_mosaic.tif
+🔥 [PID 20000] Processing date 18838
+🔥 [PID 20000] Processing date 18838
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210720_clipped_mosaic.tif
+🔥 [PID 19996] Processing date 18848
+🔥 [PID 19996] Processing date 18848
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210730_183911_06_2430_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210718_183315_17_2445_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210809_182937_90_2450_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210718_183317_65_2445_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210801_192300_04_240f_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210809_183712_72_2465_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2021-07-30 — skipping mosaic.
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210809_183715_20_2465_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210625_clipped_mosaic.tif
+🔥 [PID 19998] Processing date 18819
+🔥 [PID 19998] Processing date 18819
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210711_183518_31_2460_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20230828_clipped_mosaic.tif
+🔥 [PID 19997] Processing date 19632
+🔥 [PID 19997] Processing date 19632
+☁️  Applying UDM2 mask
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20231002_190815_41_248c_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210730_clipped_mosaic.tif
+🔥 [PID 20000] Processing date 18856
+🔥 [PID 20000] Processing date 18856
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210817_183226_58_2212_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2023-10-02 — skipping mosaic.
+ℹ️  Only one valid raster for 2021-07-11 — skipping mosaic.
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210817_183228_79_2212_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210711_clipped_mosaic.tif
+🔥 [PID 19998] Processing date 18834
+🔥 [PID 19998] Processing date 18834
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210726_183617_18_245c_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210817_183715_28_241b_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210726_183619_66_245c_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210817_192512_45_2408_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210801_clipped_mosaic.tif
+🔥 [PID 20001] Processing date 18859
+🔥 [PID 20001] Processing date 18859
+✅ Saved mosaic: output/CA-SCB/mosaic/20210718_clipped_mosaic.tif
+🔥 [PID 20002] Processing date 18841
+🔥 [PID 20002] Processing date 18841
+✅ Saved mosaic: output/CA-SCB/mosaic/20231002_clipped_mosaic.tif
+🔥 [PID 19997] Processing date 19654
+🔥 [PID 19997] Processing date 19654
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210820_183350_53_2456_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210802_183638_81_2456_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20231024_183832_36_24ba_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210809_clipped_mosaic.tif
+🔥 [PID 19996] Processing date 18862
+🔥 [PID 19996] Processing date 18862
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210820_183353_01_2456_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210823_192439_78_2402_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2021-08-02 — skipping mosaic.
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20231024_190857_79_2475_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210823_192632_81_2403_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20231024_190859_84_2475_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210726_clipped_mosaic.tif
+🔥 [PID 19998] Processing date 18851
+🔥 [PID 19998] Processing date 18851
+✅ Saved mosaic: output/CA-SCB/mosaic/20210802_clipped_mosaic.tif
+🔥 [PID 20002] Processing date 18860
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20231024_191253_74_2470_3B_AnalyticMS_SR_8b_clip.tif
+🔥 [PID 20002] Processing date 18860
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210812_191938_35_2254_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210821_183511_17_2448_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210812_191940_83_2254_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210821_183513_47_2448_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210817_clipped_mosaic.tif
+🔥 [PID 20000] Processing date 19092
+🔥 [PID 20000] Processing date 19092
+✅ Saved mosaic: output/CA-SCB/mosaic/20210626_clipped_mosaic.tif
+🔥 [PID 19999] Processing date 18821
+🔥 [PID 19999] Processing date 18821
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20220410_182852_92_241a_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210820_clipped_mosaic.tif
+🔥 [PID 20001] Processing date 19541
+🔥 [PID 20001] Processing date 19541
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20230703_191030_38_2438_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210713_182857_84_2451_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210821_183851_80_242d_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2022-04-10 — skipping mosaic.
+ℹ️  Only one valid raster for 2023-07-03 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20210823_clipped_mosaic.tif
+🔥 [PID 19996] Processing date 19545
+🔥 [PID 19996] Processing date 19545
+✅ Saved mosaic: output/CA-SCB/mosaic/20220410_clipped_mosaic.tif
+🔥 [PID 20000] Processing date 19572
+🔥 [PID 20000] Processing date 19572
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210713_182900_32_2451_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20230707_182642_34_2439_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20230803_190916_85_2482_3B_AnalyticMS_SR_8b_clip.tif
+⚙️  Aligning UDM2 mask geometry to image for data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210713_182900_32_2451_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20230703_clipped_mosaic.tif
+🔥 [PID 20001] Processing date 19582
+🔥 [PID 20001] Processing date 19582
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20230813_191203_18_249c_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2023-07-07 — skipping mosaic.
+ℹ️  Only one valid raster for 2023-08-03 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20210812_clipped_mosaic.tif
+🔥 [PID 19998] Processing date 18864
+🔥 [PID 19998] Processing date 18864
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210713_183531_59_2435_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210825_182935_31_2430_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2023-08-13 — skipping mosaic.
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210713_184535_36_2231_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20230707_clipped_mosaic.tif
+🔥 [PID 19996] Processing date 19591
+🔥 [PID 19996] Processing date 19591
+☁️  Applying UDM2 mask
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20230822_183247_16_2415_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20230803_clipped_mosaic.tif
+🔥 [PID 20000] Processing date 19616
+🔥 [PID 20000] Processing date 19616
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20230916_182920_66_24c0_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20210821_clipped_mosaic.tif
+🔥 [PID 20002] Processing date 19542
+☁️  Applying UDM2 mask
+🔥 [PID 20002] Processing date 19542
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20230704_183224_95_24c7_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210713_184537_71_2231_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210825_182958_99_2459_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20230822_191110_86_2477_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2023-07-04 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20230813_clipped_mosaic.tif
+🔥 [PID 20001] Processing date 19617
+🔥 [PID 20001] Processing date 19617
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20230917_183100_12_24cc_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20230916_183533_44_24a9_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20231024_clipped_mosaic.tif
+🔥 [PID 19997] Processing date 19763
+🔥 [PID 19997] Processing date 19763
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240210_184000_81_24c8_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210825_183002_93_2429_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20230704_clipped_mosaic.tif
+🔥 [PID 20002] Processing date 19585
+🔥 [PID 20002] Processing date 19585
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20230816_183155_64_24b9_3B_AnalyticMS_SR_8b_clip.tif
+ℹ️  Only one valid raster for 2023-09-17 — skipping mosaic.
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210825_192238_09_2419_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2024-02-10 — skipping mosaic.
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210825_192240_57_2419_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240210_clipped_mosaic.tif
+🔥 [PID 19997] Processing date 19777
+🔥 [PID 19997] Processing date 19777
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240224_192208_68_2461_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2023-08-16 — skipping mosaic.
+ℹ️  Only one valid raster for 2024-02-24 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20230917_clipped_mosaic.tif
+🔥 [PID 20001] Processing date 19650
+🔥 [PID 20001] Processing date 19650
+✅ Saved mosaic: output/CA-SCB/mosaic/20240224_clipped_mosaic.tif
+🔥 [PID 19997] Processing date 19801
+🔥 [PID 19997] Processing date 19801
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240319_183429_41_24ce_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20231020_183223_95_24c5_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20230822_clipped_mosaic.tif
+🔥 [PID 19996] Processing date 19620
+🔥 [PID 19996] Processing date 19620
+ℹ️  Only one valid raster for 2023-10-20 — skipping mosaic.
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20230920_183211_87_2439_3B_AnalyticMS_SR_8b_clip.tif
+ℹ️  Only one valid raster for 2024-03-19 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20230816_clipped_mosaic.tif
+🔥 [PID 20002] Processing date 19618
+🔥 [PID 20002] Processing date 19618
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20230918_191341_01_249a_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20230916_clipped_mosaic.tif
+🔥 [PID 20000] Processing date 19649
+🔥 [PID 20000] Processing date 19649
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20231019_183815_65_24ba_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20240319_clipped_mosaic.tif
+🔥 [PID 19997] Processing date 19810
+☁️  Applying UDM2 mask
+🔥 [PID 19997] Processing date 19810
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240328_184035_08_2460_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20231020_clipped_mosaic.tif
+🔥 [PID 20001] Processing date 19757
+🔥 [PID 20001] Processing date 19757
+☁️  Applying UDM2 mask
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20240204_191755_41_248b_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2023-09-18 — skipping mosaic.
+ℹ️  Only one valid raster for 2023-10-19 — skipping mosaic.
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240328_192901_88_24e1_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20230920_191025_27_2481_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2024-02-04 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20230918_clipped_mosaic.tif
+🔥 [PID 20002] Processing date 19651
+🔥 [PID 20002] Processing date 19651
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20230920_191339_23_2479_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240204_clipped_mosaic.tif
+🔥 [PID 20001] Processing date 19769
+🔥 [PID 20001] Processing date 19769
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240216_192401_20_2473_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20231021_191530_10_2478_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20231019_clipped_mosaic.tif
+🔥 [PID 20000] Processing date 19756
+🔥 [PID 20000] Processing date 19756
+☁️  Applying UDM2 mask
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20240203_192202_96_2438_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210713_clipped_mosaic.tif
+🔥 [PID 19999] Processing date 18836
+🔥 [PID 19999] Processing date 18836
+✅ Saved mosaic: output/CA-SCB/mosaic/20210825_clipped_mosaic.tif
+🔥 [PID 19998] Processing date 19558
+🔥 [PID 19998] Processing date 19558
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20230720_190842_97_2473_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2024-02-16 — skipping mosaic.
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20240203_192204_93_2438_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20231021_191809_60_248c_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240216_clipped_mosaic.tif
+🔥 [PID 20001] Processing date 19788
+🔥 [PID 20001] Processing date 19788
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240306_184117_96_24ca_3B_AnalyticMS_SR_8b_clip.tif
+ℹ️  Only one valid raster for 2023-07-20 — skipping mosaic.
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210728_183239_57_2440_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240328_clipped_mosaic.tif
+🔥 [PID 19997] Processing date 19825
+🔥 [PID 19997] Processing date 19825
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240412_192853_41_24cb_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210728_183242_05_2440_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20230720_clipped_mosaic.tif
+🔥 [PID 19998] Processing date 19607
+🔥 [PID 19998] Processing date 19607
+☁️  Applying UDM2 mask
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20230907_183246_56_24ab_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240306_184120_10_24ca_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210728_183742_64_2423_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2024-04-12 — skipping mosaic.
+ℹ️  Only one valid raster for 2023-09-07 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20240412_clipped_mosaic.tif
+🔥 [PID 19997] Processing date 19835
+🔥 [PID 19997] Processing date 19835
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240422_183624_04_24b5_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210728_192844_86_2407_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240203_clipped_mosaic.tif
+🔥 [PID 20000] Processing date 19768
+🔥 [PID 20000] Processing date 19768
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240215_192350_99_2484_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20230920_clipped_mosaic.tif
+🔥 [PID 19996] Processing date 19652
+🔥 [PID 19996] Processing date 19652
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20231022_183246_91_24ce_3B_AnalyticMS_SR_8b_clip.tif
+ℹ️  Only one valid raster for 2024-04-22 — skipping mosaic.
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20231021_clipped_mosaic.tif
+🔥 [PID 20002] Processing date 19761
+🔥 [PID 20002] Processing date 19761
+✅ Saved mosaic: output/CA-SCB/mosaic/20230907_clipped_mosaic.tif
+🔥 [PID 19998] Processing date 19643
+🔥 [PID 19998] Processing date 19643
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20231013_183636_36_241e_3B_AnalyticMS_SR_8b_clip.tif
+ℹ️  Only one valid raster for 2024-02-15 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20240422_clipped_mosaic.tif
+🔥 [PID 19997] Processing date 19856
+🔥 [PID 19997] Processing date 19856
+☁️  Applying UDM2 mask
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20240208_183454_14_2455_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240513_193542_32_248c_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20231022_183532_22_241e_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20240306_clipped_mosaic.tif
+🔥 [PID 20001] Processing date 19807
+☁️  Applying UDM2 mask
+🔥 [PID 20001] Processing date 19807
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240325_183651_74_242b_3B_AnalyticMS_SR_8b_clip.tif
+⚙️  Aligning UDM2 mask geometry to image for data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20231022_183532_22_241e_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2024-05-13 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20240215_clipped_mosaic.tif
+🔥 [PID 20000] Processing date 19786
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20240208_183456_11_2455_3B_AnalyticMS_SR_8b_clip.tif
+🔥 [PID 20000] Processing date 19786
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240304_192549_69_2498_3B_AnalyticMS_SR_8b_clip.tif
+⚙️  Aligning UDM2 mask geometry to image for data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20240208_183456_11_2455_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2023-10-13 — skipping mosaic.
+ℹ️  Only one valid raster for 2024-03-25 — skipping mosaic.
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20231022_183534_28_241e_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20240513_clipped_mosaic.tif
+🔥 [PID 19997] Processing date 19914
+🔥 [PID 19997] Processing date 19914
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240710_184750_06_2415_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20231013_clipped_mosaic.tif
+🔥 [PID 19998] Processing date 19658
+🔥 [PID 19998] Processing date 19658
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20231028_191826_96_2482_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240325_clipped_mosaic.tif
+🔥 [PID 20001] Processing date 19820
+ℹ️  Only one valid raster for 2024-03-04 — skipping mosaic.
+🔥 [PID 20001] Processing date 19820
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240407_183949_65_24c7_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2023-10-28 — skipping mosaic.
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20240208_192405_10_2475_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240710_193558_98_24df_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+⚙️  Aligning UDM2 mask geometry to image for data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20240208_192405_10_2475_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+⚙️  Aligning UDM2 mask geometry to image for data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240710_193558_98_24df_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20240304_clipped_mosaic.tif
+🔥 [PID 20000] Processing date 19806
+🔥 [PID 20000] Processing date 19806
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240324_193300_20_24f5_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20210728_clipped_mosaic.tif
+🔥 [PID 19999] Processing date 18852
+🔥 [PID 19999] Processing date 18852
+ℹ️  Only one valid raster for 2024-04-07 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20231028_clipped_mosaic.tif
+🔥 [PID 19998] Processing date 19765
+🔥 [PID 19998] Processing date 19765
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210813_183149_85_2448_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240212_183734_09_24ba_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240407_clipped_mosaic.tif
+🔥 [PID 20001] Processing date 19831
+🔥 [PID 20001] Processing date 19831
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240418_184328_56_2423_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2024-03-24 — skipping mosaic.
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20240208_192407_07_2475_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+⚙️  Aligning UDM2 mask geometry to image for data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20240208_192407_07_2475_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210813_183915_09_2428_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+⚙️  Aligning UDM2 mask geometry to image for data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210813_183915_09_2428_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20240324_clipped_mosaic.tif
+🔥 [PID 20000] Processing date 19819
+🔥 [PID 20000] Processing date 19819
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240406_184400_21_2455_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2024-04-18 — skipping mosaic.
+ℹ️  Only one valid raster for 2024-02-12 — skipping mosaic.
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210813_183917_57_2428_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+⚙️  Aligning UDM2 mask geometry to image for data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210813_183917_57_2428_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20240212_clipped_mosaic.tif
+🔥 [PID 19998] Processing date 19783
+🔥 [PID 19998] Processing date 19783
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240301_184056_37_24a1_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2024-04-06 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20240418_clipped_mosaic.tif
+🔥 [PID 20001] Processing date 19849
+🔥 [PID 20001] Processing date 19849
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240506_193257_97_2479_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2024-03-01 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20240406_clipped_mosaic.tif
+🔥 [PID 20000] Processing date 19830
+🔥 [PID 20000] Processing date 19830
+✅ Saved mosaic: output/CA-SCB/mosaic/20231022_clipped_mosaic.tif
+🔥 [PID 19996] Processing date 19762
+🔥 [PID 19996] Processing date 19762
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20240209_183325_44_24cf_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2024-05-06 — skipping mosaic.
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240417_192935_99_24c6_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20240301_clipped_mosaic.tif
+🔥 [PID 19998] Processing date 19804
+🔥 [PID 19998] Processing date 19804
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240322_192747_83_24dd_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20240209_192201_77_2482_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240710_clipped_mosaic.tif
+🔥 [PID 19997] Processing date 19931
+🔥 [PID 19997] Processing date 19931
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240417_193257_97_24fd_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240727_184605_60_24c4_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+⚙️  Aligning UDM2 mask geometry to image for data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240417_193257_97_24fd_3B_AnalyticMS_SR_8b_clip.tif
+ℹ️  Only one valid raster for 2024-03-22 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20240506_clipped_mosaic.tif
+🔥 [PID 20001] Processing date 19909
+🔥 [PID 20001] Processing date 19909
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240705_185937_31_2427_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20240322_clipped_mosaic.tif
+🔥 [PID 19998] Processing date 19813
+🔥 [PID 19998] Processing date 19813
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240727_193551_50_24fd_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240331_184343_67_2440_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240331_192443_41_227a_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240209_clipped_mosaic.tif
+🔥 [PID 19996] Processing date 19774
+🔥 [PID 19996] Processing date 19774
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240221_183610_24_242e_3B_AnalyticMS_SR_8b_clip.tif
+ℹ️  Only one valid raster for 2024-07-05 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20240208_clipped_mosaic.tif
+🔥 [PID 20002] Processing date 19773
+🔥 [PID 20002] Processing date 19773
+✅ Saved mosaic: output/CA-SCB/mosaic/20210813_clipped_mosaic.tif
+🔥 [PID 19999] Processing date 18865
+🔥 [PID 19999] Processing date 18865
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240220_184025_04_2430_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/bad28557-60d5-49a2-869c-b969b69e1b51/PSScene/20210826_192142_91_2426_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240705_clipped_mosaic.tif
+🔥 [PID 20001] Processing date 19921
+🔥 [PID 20001] Processing date 19921
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240717_192750_81_24cd_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2021-08-26 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20240417_clipped_mosaic.tif
+🔥 [PID 20000] Processing date 19844
+🔥 [PID 20000] Processing date 19844
+ℹ️  Only one valid raster for 2024-02-21 — skipping mosaic.
+ℹ️  Only one valid raster for 2024-02-20 — skipping mosaic.
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240501_183703_73_24cf_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240221_clipped_mosaic.tif
+🔥 [PID 19996] Processing date 19798
+🔥 [PID 19996] Processing date 19798
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240717_194129_67_2498_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240316_183942_83_2460_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240220_clipped_mosaic.tif
+🔥 [PID 20002] Processing date 19797
+🔥 [PID 20002] Processing date 19797
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240315_192852_61_247a_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240331_clipped_mosaic.tif
+🔥 [PID 19998] Processing date 19826
+🔥 [PID 19998] Processing date 19826
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240501_184026_80_24bf_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240413_193051_89_24e8_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240717_194131_49_2498_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2024-03-16 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20210826_clipped_mosaic.tif
+🔥 [PID 19999] Processing date 19571
+🔥 [PID 19999] Processing date 19571
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20230802_183145_80_24cf_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2024-04-13 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20240727_clipped_mosaic.tif
+🔥 [PID 19997] Processing date 19944
+🔥 [PID 19997] Processing date 19944
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240809_193510_38_24f5_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240316_clipped_mosaic.tif
+🔥 [PID 19996] Processing date 19809
+🔥 [PID 19996] Processing date 19809
+ℹ️  Only one valid raster for 2024-03-15 — skipping mosaic.
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240327_193349_27_24bd_3B_AnalyticMS_SR_8b_clip.tif
+ℹ️  Only one valid raster for 2024-08-09 — skipping mosaic.
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240809_clipped_mosaic.tif
+🔥 [PID 19997] Processing date 19959
+🔥 [PID 19997] Processing date 19959
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240824_193140_06_24e1_3B_AnalyticMS_SR_8b_clip.tif
+ℹ️  Only one valid raster for 2023-08-02 — skipping mosaic.
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240413_clipped_mosaic.tif
+🔥 [PID 19998] Processing date 19836
+🔥 [PID 19998] Processing date 19836
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240423_184009_76_24a1_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240315_clipped_mosaic.tif
+🔥 [PID 20002] Processing date 19808
+🔥 [PID 20002] Processing date 19808
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240326_184006_45_24a1_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240327_193448_93_24ee_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2024-08-24 — skipping mosaic.
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240423_193133_71_2498_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+⚙️  Aligning UDM2 mask geometry to image for data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240423_193133_71_2498_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240326_184131_42_24cf_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240824_clipped_mosaic.tif
+🔥 [PID 19997] Processing date 19970
+🔥 [PID 19997] Processing date 19970
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240904_193607_04_24f6_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20230802_clipped_mosaic.tif
+🔥 [PID 19999] Processing date 19610
+🔥 [PID 19999] Processing date 19610
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20230910_191340_96_2473_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240501_clipped_mosaic.tif
+🔥 [PID 20000] Processing date 19908
+🔥 [PID 20000] Processing date 19908
+ℹ️  Only one valid raster for 2023-09-10 — skipping mosaic.
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240704_184152_78_24cc_3B_AnalyticMS_SR_8b_clip.tif
+ℹ️  Only one valid raster for 2024-09-04 — skipping mosaic.
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240717_clipped_mosaic.tif
+🔥 [PID 20001] Processing date 19941
+🔥 [PID 20001] Processing date 19941
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240806_193545_87_24e5_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20240904_clipped_mosaic.tif
+🔥 [PID 19997] Processing date 19984
+🔥 [PID 19997] Processing date 19984
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240918_193115_01_24f6_3B_AnalyticMS_SR_8b_clip.tif
+ℹ️  Only one valid raster for 2024-07-04 — skipping mosaic.
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240327_clipped_mosaic.tif
+🔥 [PID 19996] Processing date 19822
+🔥 [PID 19996] Processing date 19822
+ℹ️  Only one valid raster for 2024-08-06 — skipping mosaic.
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240409_192438_40_2488_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20240326_clipped_mosaic.tif
+🔥 [PID 20002] Processing date 19821
+🔥 [PID 20002] Processing date 19821
+✅ Saved mosaic: output/CA-SCB/mosaic/20230910_clipped_mosaic.tif
+🔥 [PID 19999] Processing date 19645
+🔥 [PID 19999] Processing date 19645
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240408_193343_15_24ee_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20231015_183359_12_24ca_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240918_193435_63_2409_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240704_clipped_mosaic.tif
+🔥 [PID 20000] Processing date 19920
+🔥 [PID 20000] Processing date 19920
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240716_190037_79_2430_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2024-04-08 — skipping mosaic.
+ℹ️  Only one valid raster for 2024-04-09 — skipping mosaic.
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20231015_183401_44_24ca_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240918_193438_02_2409_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240716_194425_52_247b_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20240423_clipped_mosaic.tif
+🔥 [PID 19998] Processing date 19865
+🔥 [PID 19998] Processing date 19865
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240522_184241_78_24b3_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20240408_clipped_mosaic.tif
+🔥 [PID 20002] Processing date 19832
+🔥 [PID 20002] Processing date 19832
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240419_192931_32_2475_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20240806_clipped_mosaic.tif
+🔥 [PID 20001] Processing date 19953
+🔥 [PID 20001] Processing date 19953
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240409_clipped_mosaic.tif
+🔥 [PID 19996] Processing date 19833
+🔥 [PID 19996] Processing date 19833
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240818_193052_80_24aa_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240420_183457_66_24ce_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240419_192933_21_2475_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2024-05-22 — skipping mosaic.
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240818_193723_16_24f2_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240420_193111_91_24df_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240522_clipped_mosaic.tif
+🔥 [PID 19998] Processing date 19916
+🔥 [PID 19998] Processing date 19916
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240420_193114_19_24df_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240712_184302_25_2417_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20231015_clipped_mosaic.tif
+🔥 [PID 19999] Processing date 19669
+🔥 [PID 19999] Processing date 19669
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20231108_183136_76_2420_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240712_193053_75_24fb_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240716_clipped_mosaic.tif
+🔥 [PID 20000] Processing date 19939
+🔥 [PID 20000] Processing date 19939
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240804_193104_00_24d7_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/e3ecfade-c667-46b4-a15c-1e76ad84bba5/PSScene/20231108_183138_84_2420_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240712_193651_06_24a4_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240818_clipped_mosaic.tif
+🔥 [PID 20001] Processing date 19965
+🔥 [PID 20001] Processing date 19965
+✅ Saved mosaic: output/CA-SCB/mosaic/20240918_clipped_mosaic.tif
+🔥 [PID 19997] Processing date 20001
+🔥 [PID 19997] Processing date 20001
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240830_194337_76_2518_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240419_clipped_mosaic.tif
+🔥 [PID 20002] Processing date 19851
+🔥 [PID 20002] Processing date 19851
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241005_193336_86_2409_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240508_193504_64_24ed_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2024-08-30 — skipping mosaic.
+ℹ️  Only one valid raster for 2024-05-08 — skipping mosaic.
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241005_193339_23_2409_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240804_194123_60_2498_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240508_clipped_mosaic.tif
+🔥 [PID 20002] Processing date 19910
+🔥 [PID 20002] Processing date 19910
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240706_183819_73_24b0_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+⚙️  Aligning UDM2 mask geometry to image for data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241005_193339_23_2409_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20240420_clipped_mosaic.tif
+🔥 [PID 19996] Processing date 19853
+✅ Saved mosaic: output/CA-SCB/mosaic/20240830_clipped_mosaic.tif
+🔥 [PID 19996] Processing date 19853
+🔥 [PID 20001] Processing date 19979
+🔥 [PID 20001] Processing date 19979
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240510_183936_43_24cc_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20231108_clipped_mosaic.tif
+🔥 [PID 19999] Processing date 19767
+🔥 [PID 19999] Processing date 19767
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240214_192040_26_24a4_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240706_194242_79_247c_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2024-02-14 — skipping mosaic.
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240913_184636_47_24b5_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2024-05-10 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20240214_clipped_mosaic.tif
+🔥 [PID 19999] Processing date 19784
+🔥 [PID 19999] Processing date 19784
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241005_193543_80_251a_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240302_192202_03_241c_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+⚙️  Aligning UDM2 mask geometry to image for data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241005_193543_80_251a_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20240712_clipped_mosaic.tif
+🔥 [PID 19998] Processing date 19937
+🔥 [PID 19998] Processing date 19937
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240802_185911_44_2455_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240913_184638_60_24b5_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240302_192935_96_24d1_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2024-08-02 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20240510_clipped_mosaic.tif
+🔥 [PID 19996] Processing date 19912
+🔥 [PID 19996] Processing date 19912
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240708_193113_51_2416_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241005_193709_62_24bd_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240804_clipped_mosaic.tif
+🔥 [PID 20000] Processing date 19952
+🔥 [PID 20000] Processing date 19952
+⚙️  Aligning UDM2 mask geometry to image for data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241005_193709_62_24bd_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240817_193505_89_24f9_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2024-07-08 — skipping mosaic.
+ℹ️  Only one valid raster for 2024-08-17 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20240802_clipped_mosaic.tif
+🔥 [PID 19998] Processing date 19945
+🔥 [PID 19998] Processing date 19945
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240810_184730_63_24a8_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20240708_clipped_mosaic.tif
+🔥 [PID 19996] Processing date 19926
+🔥 [PID 19996] Processing date 19926
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240722_193501_67_24fb_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240706_clipped_mosaic.tif
+🔥 [PID 20002] Processing date 19922
+🔥 [PID 20002] Processing date 19922
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240718_185645_11_2430_3B_AnalyticMS_SR_8b_clip.tif
+ℹ️  Only one valid raster for 2024-07-22 — skipping mosaic.
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2024-08-10 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20240302_clipped_mosaic.tif
+🔥 [PID 19999] Processing date 19805
+🔥 [PID 19999] Processing date 19805
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240323_193004_16_24fb_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240913_clipped_mosaic.tif
+🔥 [PID 20001] Processing date 19994
+🔥 [PID 20001] Processing date 19994
+✅ Saved mosaic: output/CA-SCB/mosaic/20240817_clipped_mosaic.tif
+🔥 [PID 20000] Processing date 19963
+🔥 [PID 20000] Processing date 19963
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240928_194039_87_2511_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240718_185646_87_2430_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240828_193051_49_24f4_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240722_clipped_mosaic.tif
+🔥 [PID 19996] Processing date 19943
+🔥 [PID 19996] Processing date 19943
+⚙️  Aligning UDM2 mask geometry to image for data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240718_185646_87_2430_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240808_192801_25_24f8_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2024-03-23 — skipping mosaic.
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240808_193003_19_24eb_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+⚙️  Aligning UDM2 mask geometry to image for data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240808_193003_19_24eb_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240928_194042_26_2511_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240810_clipped_mosaic.tif
+🔥 [PID 19998] Processing date 19960
+🔥 [PID 19998] Processing date 19960
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240828_193627_25_24d1_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240825_184537_42_24b0_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240323_clipped_mosaic.tif
+🔥 [PID 19999] Processing date 19817
+🔥 [PID 19999] Processing date 19817
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240404_183842_12_24ce_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2024-08-25 — skipping mosaic.
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240404_183844_09_24ce_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240825_clipped_mosaic.tif
+🔥 [PID 19998] Processing date 19972
+🔥 [PID 19998] Processing date 19972
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240906_193626_58_24f4_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240404_192634_96_24f1_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+⚙️  Aligning UDM2 mask geometry to image for data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240404_192634_96_24f1_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20240808_clipped_mosaic.tif
+🔥 [PID 19996] Processing date 19956
+🔥 [PID 19996] Processing date 19956
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240404_192637_22_24f1_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240821_193414_20_24e5_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240928_clipped_mosaic.tif
+🔥 [PID 20001] Processing date 20007
+🔥 [PID 20001] Processing date 20007
+✅ Saved mosaic: output/CA-SCB/mosaic/20240718_clipped_mosaic.tif
+🔥 [PID 20002] Processing date 19942
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241011_193620_58_24dd_3B_AnalyticMS_SR_8b_clip.tif
+🔥 [PID 20002] Processing date 19942
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240807_185527_80_2423_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240906_193850_42_24f0_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2024-08-21 — skipping mosaic.
+ℹ️  Only one valid raster for 2024-10-11 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20240828_clipped_mosaic.tif
+🔥 [PID 20000] Processing date 19978
+🔥 [PID 20000] Processing date 19978
+ℹ️  Only one valid raster for 2024-08-07 — skipping mosaic.
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240912_184518_85_2417_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20241011_clipped_mosaic.tif
+🔥 [PID 20001] Processing date 20025
+🔥 [PID 20001] Processing date 20025
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20241005_clipped_mosaic.tif
+🔥 [PID 19997] Processing date 20014
+🔥 [PID 19997] Processing date 20014
+✅ Saved mosaic: output/CA-SCB/mosaic/20240821_clipped_mosaic.tif
+🔥 [PID 19996] Processing date 19969
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241029_192959_61_24ed_3B_AnalyticMS_SR_8b_clip.tif
+🔥 [PID 19996] Processing date 19969
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240903_193017_76_24c6_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241018_193735_06_2500_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240912_184521_01_2417_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+⚙️  Aligning UDM2 mask geometry to image for data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240912_184521_01_2417_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241029_193001_86_24ed_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240903_193020_11_24c6_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240807_clipped_mosaic.tif
+🔥 [PID 20002] Processing date 19954
+🔥 [PID 20002] Processing date 19954
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240912_193246_10_24cd_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241018_194134_73_24fa_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240819_184806_75_24bf_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+⚙️  Aligning UDM2 mask geometry to image for data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240912_193246_10_24cd_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240906_clipped_mosaic.tif
+🔥 [PID 19998] Processing date 19988
+🔥 [PID 19998] Processing date 19988
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240922_193407_61_24fa_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241029_193012_60_24e5_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241018_194141_80_2516_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240819_193313_70_24f3_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240912_193248_43_24cd_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2024-09-22 — skipping mosaic.
+⚙️  Aligning UDM2 mask geometry to image for data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240912_193248_43_24cd_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241029_193014_86_24e5_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241018_194144_16_2516_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240819_193316_07_24f3_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240404_clipped_mosaic.tif
+🔥 [PID 19999] Processing date 19829
+🔥 [PID 19999] Processing date 19829
+✅ Saved mosaic: output/CA-SCB/mosaic/20240922_clipped_mosaic.tif
+🔥 [PID 19998] Processing date 20002
+🔥 [PID 19998] Processing date 20002
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240416_193251_47_24f2_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241006_193354_33_24f9_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241006_193356_58_24f9_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2024-04-16 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20240416_clipped_mosaic.tif
+🔥 [PID 19999] Processing date 19842
+🔥 [PID 19999] Processing date 19842
+✅ Saved mosaic: output/CA-SCB/mosaic/20240903_clipped_mosaic.tif
+🔥 [PID 19996] Processing date 19982
+🔥 [PID 19996] Processing date 19982
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240916_185116_11_24c8_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2024-09-16 — skipping mosaic.
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240429_184028_03_24c8_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2024-04-29 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20240916_clipped_mosaic.tif
+🔥 [PID 19996] Processing date 20000
+🔥 [PID 19996] Processing date 20000
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241004_193525_08_24c6_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20241006_clipped_mosaic.tif
+🔥 [PID 19998] Processing date 20017
+🔥 [PID 19998] Processing date 20017
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241021_193426_63_251c_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240429_clipped_mosaic.tif
+🔥 [PID 19999] Processing date 19904
+🔥 [PID 19999] Processing date 19904
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241004_193527_35_24c6_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240630_192744_36_24aa_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241021_193817_85_2409_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20241029_clipped_mosaic.tif
+🔥 [PID 20001] Processing date 20036
+🔥 [PID 20001] Processing date 20036
+✅ Saved mosaic: output/CA-SCB/mosaic/20241018_clipped_mosaic.tif
+🔥 [PID 19997] Processing date 20032
+🔥 [PID 19997] Processing date 20032
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241109_193544_61_24da_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241105_193354_69_24f5_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240630_192746_57_24aa_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240819_clipped_mosaic.tif
+🔥 [PID 20002] Processing date 19966
+🔥 [PID 20002] Processing date 19966
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240831_193116_54_24f8_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20240912_clipped_mosaic.tif
+🔥 [PID 20000] Processing date 19993
+🔥 [PID 20000] Processing date 19993
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240927_184331_06_24c2_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241109_193610_07_2521_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2024-09-27 — skipping mosaic.
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241109_193612_39_2521_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2024-11-05 — skipping mosaic.
+ℹ️  Only one valid raster for 2024-08-31 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20241105_clipped_mosaic.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20241021_clipped_mosaic.tif
+🔥 [PID 19998] Processing date 20033
+🔥 [PID 19998] Processing date 20033
+✅ Saved mosaic: output/CA-SCB/mosaic/20240927_clipped_mosaic.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20241004_clipped_mosaic.tif
+🔥 [PID 20000] Processing date 20006
+🔥 [PID 19996] Processing date 20011
+🔥 [PID 20000] Processing date 20006
+🔥 [PID 19996] Processing date 20011
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241106_184658_71_2417_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241010_184851_83_24cf_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241015_193241_80_24e0_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240831_clipped_mosaic.tif
+🔥 [PID 20002] Processing date 19981
+🔥 [PID 20002] Processing date 19981
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240915_190341_17_2447_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240630_clipped_mosaic.tif
+🔥 [PID 19999] Processing date 19919
+🔥 [PID 19999] Processing date 19919
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240715_193518_44_24f2_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241015_193244_03_24e0_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241010_185033_08_24ce_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240915_193828_34_24f4_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240715_193518_81_24f4_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241015_194057_31_250a_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2024-11-06 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20241106_clipped_mosaic.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20241109_clipped_mosaic.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20240715_clipped_mosaic.tif
+🔥 [PID 19999] Processing date 19938
+🔥 [PID 19999] Processing date 19938
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240803_184211_01_24b4_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20241015_clipped_mosaic.tif
+🔥 [PID 19996] Processing date 20027
+🔥 [PID 19996] Processing date 20027
+ℹ️  Only one valid raster for 2024-08-03 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20240915_clipped_mosaic.tif
+🔥 [PID 20002] Processing date 19999
+🔥 [PID 20002] Processing date 19999
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241031_193408_49_24f9_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241003_184949_80_24b3_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20241010_clipped_mosaic.tif
+🔥 [PID 20000] Processing date 20021
+🔥 [PID 20000] Processing date 20021
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241025_193202_18_24e1_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241003_184951_90_24b3_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241031_193736_65_24d1_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241025_194326_04_251b_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+⚙️  Aligning UDM2 mask geometry to image for data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241025_194326_04_251b_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241003_193359_34_2514_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241031_193936_81_24f0_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240803_clipped_mosaic.tif
+🔥 [PID 19999] Processing date 19951
+🔥 [PID 19999] Processing date 19951
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240816_193609_18_24f6_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241003_193401_72_2514_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241025_194328_39_251b_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+⚙️  Aligning UDM2 mask geometry to image for data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241025_194328_39_251b_3B_AnalyticMS_SR_8b_clip.tif
+ℹ️  Only one valid raster for 2024-08-16 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20240816_clipped_mosaic.tif
+🔥 [PID 19999] Processing date 19961
+🔥 [PID 19999] Processing date 19961
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240826_184405_04_24af_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20241031_clipped_mosaic.tif
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240826_184526_48_24c8_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20241003_clipped_mosaic.tif
+🔥 [PID 20002] Processing date 20008
+🔥 [PID 20002] Processing date 20008
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241012_193512_72_24db_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241012_193515_09_24db_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20240826_clipped_mosaic.tif
+🔥 [PID 19999] Processing date 19976
+🔥 [PID 19999] Processing date 19976
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240910_185033_67_24cf_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20241025_clipped_mosaic.tif
+🔥 [PID 20000] Processing date 20035
+🔥 [PID 20000] Processing date 20035
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241108_185419_78_24b0_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240910_185035_80_24cf_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2024-11-08 — skipping mosaic.
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240910_193024_84_24aa_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20241012_clipped_mosaic.tif
+🔥 [PID 20002] Processing date 20026
+🔥 [PID 20002] Processing date 20026
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241030_185314_73_24bf_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241030_185316_84_24bf_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+⚙️  Aligning UDM2 mask geometry to image for data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241030_185316_84_24bf_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240910_193027_17_24aa_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20241108_clipped_mosaic.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241030_193448_36_2511_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+⚙️  Aligning UDM2 mask geometry to image for data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241030_193448_36_2511_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241030_193510_76_2512_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+⚙️  Aligning UDM2 mask geometry to image for data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241030_193510_76_2512_3B_AnalyticMS_SR_8b_clip.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20240910_clipped_mosaic.tif
+🔥 [PID 19999] Processing date 19990
+🔥 [PID 19999] Processing date 19990
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240924_184312_28_24c2_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240924_193624_76_24f5_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20240924_193627_06_24f5_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20241030_clipped_mosaic.tif
+✅ Saved mosaic: output/CA-SCB/mosaic/20240924_clipped_mosaic.tif
+🔥 [PID 19999] Processing date 20003
+🔥 [PID 19999] Processing date 20003
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241007_184603_31_24c7_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+ℹ️  Only one valid raster for 2024-10-07 — skipping mosaic.
+✅ Saved mosaic: output/CA-SCB/mosaic/20241007_clipped_mosaic.tif
+🔥 [PID 19999] Processing date 20019
+🔥 [PID 19999] Processing date 20019
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241023_184614_87_24b3_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241023_184616_97_24b3_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+⚙️  Aligning UDM2 mask geometry to image for data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241023_184616_97_24b3_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241023_185223_84_24c0_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241023_185225_94_24c0_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+⚙️  Aligning UDM2 mask geometry to image for data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241023_185225_94_24c0_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241023_193541_56_250e_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241023_193543_91_250e_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241023_193631_80_2506_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241023_193835_69_24d9_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241023_193838_04_24d9_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20241023_clipped_mosaic.tif
+🔥 [PID 19999] Processing date 20034
+🔥 [PID 19999] Processing date 20034
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241107_193804_65_2500_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241107_193921_54_24d9_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+⚙️  Aligning UDM2 mask geometry to image for data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241107_193921_54_24d9_3B_AnalyticMS_SR_8b_clip.tif
+🧩 Reading data/562b0b12-6d02-4fc5-9a75-a62900c407a2/PSScene/20241107_193923_86_24d9_3B_AnalyticMS_SR_8b_clip.tif
+☁️  Applying UDM2 mask
+✅ Saved mosaic: output/CA-SCB/mosaic/20241107_clipped_mosaic.tif
+[[1]]
+[1] "output/CA-SCB/mosaic/20200321_clipped_mosaic.tif"
+
+[[2]]
+[1] "output/CA-SCB/mosaic/20200402_clipped_mosaic.tif"
+
+[[3]]
+[1] "output/CA-SCB/mosaic/20200411_clipped_mosaic.tif"
+
+[[4]]
+[1] "output/CA-SCB/mosaic/20200523_clipped_mosaic.tif"
+
+[[5]]
+[1] "output/CA-SCB/mosaic/20200602_clipped_mosaic.tif"
+
+[[6]]
+[1] "output/CA-SCB/mosaic/20200927_clipped_mosaic.tif"
+
+[[7]]
+[1] "output/CA-SCB/mosaic/20200928_clipped_mosaic.tif"
+
+[[8]]
+[1] "output/CA-SCB/mosaic/20201002_clipped_mosaic.tif"
+
+[[9]]
+[1] "output/CA-SCB/mosaic/20201015_clipped_mosaic.tif"
+
+[[10]]
+[1] "output/CA-SCB/mosaic/20201017_clipped_mosaic.tif"
+
+[[11]]
+[1] "output/CA-SCB/mosaic/20201018_clipped_mosaic.tif"
+
+[[12]]
+[1] "output/CA-SCB/mosaic/20201023_clipped_mosaic.tif"
+
+[[13]]
+[1] "output/CA-SCB/mosaic/20201024_clipped_mosaic.tif"
+
+[[14]]
+[1] "output/CA-SCB/mosaic/20201106_clipped_mosaic.tif"
+
+[[15]]
+[1] "output/CA-SCB/mosaic/20201108_clipped_mosaic.tif"
+
+[[16]]
+[1] "output/CA-SCB/mosaic/20201111_clipped_mosaic.tif"
+
+[[17]]
+[1] "output/CA-SCB/mosaic/20210206_clipped_mosaic.tif"
+
+[[18]]
+[1] "output/CA-SCB/mosaic/20210207_clipped_mosaic.tif"
+
+[[19]]
+[1] "output/CA-SCB/mosaic/20210208_clipped_mosaic.tif"
+
+[[20]]
+[1] "output/CA-SCB/mosaic/20210210_clipped_mosaic.tif"
+
+[[21]]
+[1] "output/CA-SCB/mosaic/20210211_clipped_mosaic.tif"
+
+[[22]]
+[1] "output/CA-SCB/mosaic/20210215_clipped_mosaic.tif"
+
+[[23]]
+[1] "output/CA-SCB/mosaic/20210216_clipped_mosaic.tif"
+
+[[24]]
+[1] "output/CA-SCB/mosaic/20210217_clipped_mosaic.tif"
+
+[[25]]
+[1] "output/CA-SCB/mosaic/20210218_clipped_mosaic.tif"
+
+[[26]]
+[1] "output/CA-SCB/mosaic/20210219_clipped_mosaic.tif"
+
+[[27]]
+[1] "output/CA-SCB/mosaic/20210220_clipped_mosaic.tif"
+
+[[28]]
+[1] "output/CA-SCB/mosaic/20210225_clipped_mosaic.tif"
+
+[[29]]
+[1] "output/CA-SCB/mosaic/20210227_clipped_mosaic.tif"
+
+[[30]]
+[1] "output/CA-SCB/mosaic/20210301_clipped_mosaic.tif"
+
+[[31]]
+[1] "output/CA-SCB/mosaic/20210303_clipped_mosaic.tif"
+
+[[32]]
+[1] "output/CA-SCB/mosaic/20210305_clipped_mosaic.tif"
+
+[[33]]
+[1] "output/CA-SCB/mosaic/20210306_clipped_mosaic.tif"
+
+[[34]]
+[1] "output/CA-SCB/mosaic/20210307_clipped_mosaic.tif"
+
+[[35]]
+[1] "output/CA-SCB/mosaic/20210315_clipped_mosaic.tif"
+
+[[36]]
+[1] "output/CA-SCB/mosaic/20210317_clipped_mosaic.tif"
+
+[[37]]
+[1] "output/CA-SCB/mosaic/20210319_clipped_mosaic.tif"
+
+[[38]]
+[1] "output/CA-SCB/mosaic/20210320_clipped_mosaic.tif"
+
+[[39]]
+[1] "output/CA-SCB/mosaic/20210321_clipped_mosaic.tif"
+
+[[40]]
+[1] "output/CA-SCB/mosaic/20210322_clipped_mosaic.tif"
+
+[[41]]
+[1] "output/CA-SCB/mosaic/20210323_clipped_mosaic.tif"
+
+[[42]]
+[1] "output/CA-SCB/mosaic/20210324_clipped_mosaic.tif"
+
+[[43]]
+[1] "output/CA-SCB/mosaic/20210330_clipped_mosaic.tif"
+
+[[44]]
+[1] "output/CA-SCB/mosaic/20210331_clipped_mosaic.tif"
+
+[[45]]
+[1] "output/CA-SCB/mosaic/20210402_clipped_mosaic.tif"
+
+[[46]]
+[1] "output/CA-SCB/mosaic/20210403_clipped_mosaic.tif"
+
+[[47]]
+[1] "output/CA-SCB/mosaic/20210410_clipped_mosaic.tif"
+
+[[48]]
+[1] "output/CA-SCB/mosaic/20210412_clipped_mosaic.tif"
+
+[[49]]
+[1] "output/CA-SCB/mosaic/20210416_clipped_mosaic.tif"
+
+[[50]]
+[1] "output/CA-SCB/mosaic/20210417_clipped_mosaic.tif"
+
+[[51]]
+[1] "output/CA-SCB/mosaic/20210423_clipped_mosaic.tif"
+
+[[52]]
+[1] "output/CA-SCB/mosaic/20210427_clipped_mosaic.tif"
+
+[[53]]
+[1] "output/CA-SCB/mosaic/20210428_clipped_mosaic.tif"
+
+[[54]]
+[1] "output/CA-SCB/mosaic/20210429_clipped_mosaic.tif"
+
+[[55]]
+[1] "output/CA-SCB/mosaic/20210502_clipped_mosaic.tif"
+
+[[56]]
+[1] "output/CA-SCB/mosaic/20210503_clipped_mosaic.tif"
+
+[[57]]
+[1] "output/CA-SCB/mosaic/20210504_clipped_mosaic.tif"
+
+[[58]]
+[1] "output/CA-SCB/mosaic/20210506_clipped_mosaic.tif"
+
+[[59]]
+[1] "output/CA-SCB/mosaic/20210520_clipped_mosaic.tif"
+
+[[60]]
+[1] "output/CA-SCB/mosaic/20210522_clipped_mosaic.tif"
+
+[[61]]
+[1] "output/CA-SCB/mosaic/20210523_clipped_mosaic.tif"
+
+[[62]]
+[1] "output/CA-SCB/mosaic/20210524_clipped_mosaic.tif"
+
+[[63]]
+[1] "output/CA-SCB/mosaic/20210530_clipped_mosaic.tif"
+
+[[64]]
+[1] "output/CA-SCB/mosaic/20210531_clipped_mosaic.tif"
+
+[[65]]
+[1] "output/CA-SCB/mosaic/20210601_clipped_mosaic.tif"
+
+[[66]]
+[1] "output/CA-SCB/mosaic/20210605_clipped_mosaic.tif"
+
+[[67]]
+[1] "output/CA-SCB/mosaic/20210606_clipped_mosaic.tif"
+
+[[68]]
+[1] "output/CA-SCB/mosaic/20210607_clipped_mosaic.tif"
+
+[[69]]
+[1] "output/CA-SCB/mosaic/20210609_clipped_mosaic.tif"
+
+[[70]]
+[1] "output/CA-SCB/mosaic/20210613_clipped_mosaic.tif"
+
+[[71]]
+[1] "output/CA-SCB/mosaic/20210614_clipped_mosaic.tif"
+
+[[72]]
+[1] "output/CA-SCB/mosaic/20210620_clipped_mosaic.tif"
+
+[[73]]
+[1] "output/CA-SCB/mosaic/20210625_clipped_mosaic.tif"
+
+[[74]]
+[1] "output/CA-SCB/mosaic/20210626_clipped_mosaic.tif"
+
+[[75]]
+[1] "output/CA-SCB/mosaic/20210628_clipped_mosaic.tif"
+
+[[76]]
+[1] "output/CA-SCB/mosaic/20210704_clipped_mosaic.tif"
+
+[[77]]
+[1] "output/CA-SCB/mosaic/20210706_clipped_mosaic.tif"
+
+[[78]]
+[1] "output/CA-SCB/mosaic/20210707_clipped_mosaic.tif"
+
+[[79]]
+[1] "output/CA-SCB/mosaic/20210708_clipped_mosaic.tif"
+
+[[80]]
+[1] "output/CA-SCB/mosaic/20210711_clipped_mosaic.tif"
+
+[[81]]
+[1] "output/CA-SCB/mosaic/20210713_clipped_mosaic.tif"
+
+[[82]]
+[1] "output/CA-SCB/mosaic/20210714_clipped_mosaic.tif"
+
+[[83]]
+[1] "output/CA-SCB/mosaic/20210716_clipped_mosaic.tif"
+
+[[84]]
+[1] "output/CA-SCB/mosaic/20210718_clipped_mosaic.tif"
+
+[[85]]
+[1] "output/CA-SCB/mosaic/20210720_clipped_mosaic.tif"
+
+[[86]]
+[1] "output/CA-SCB/mosaic/20210721_clipped_mosaic.tif"
+
+[[87]]
+[1] "output/CA-SCB/mosaic/20210726_clipped_mosaic.tif"
+
+[[88]]
+[1] "output/CA-SCB/mosaic/20210728_clipped_mosaic.tif"
+
+[[89]]
+[1] "output/CA-SCB/mosaic/20210730_clipped_mosaic.tif"
+
+[[90]]
+[1] "output/CA-SCB/mosaic/20210801_clipped_mosaic.tif"
+
+[[91]]
+[1] "output/CA-SCB/mosaic/20210802_clipped_mosaic.tif"
+
+[[92]]
+[1] "output/CA-SCB/mosaic/20210809_clipped_mosaic.tif"
+
+[[93]]
+[1] "output/CA-SCB/mosaic/20210811_clipped_mosaic.tif"
+
+[[94]]
+[1] "output/CA-SCB/mosaic/20210812_clipped_mosaic.tif"
+
+[[95]]
+[1] "output/CA-SCB/mosaic/20210813_clipped_mosaic.tif"
+
+[[96]]
+[1] "output/CA-SCB/mosaic/20210817_clipped_mosaic.tif"
+
+[[97]]
+[1] "output/CA-SCB/mosaic/20210820_clipped_mosaic.tif"
+
+[[98]]
+[1] "output/CA-SCB/mosaic/20210821_clipped_mosaic.tif"
+
+[[99]]
+[1] "output/CA-SCB/mosaic/20210823_clipped_mosaic.tif"
+
+[[100]]
+[1] "output/CA-SCB/mosaic/20210824_clipped_mosaic.tif"
+
+[[101]]
+[1] "output/CA-SCB/mosaic/20210825_clipped_mosaic.tif"
+
+[[102]]
+[1] "output/CA-SCB/mosaic/20210826_clipped_mosaic.tif"
+
+[[103]]
+[1] "output/CA-SCB/mosaic/20220410_clipped_mosaic.tif"
+
+[[104]]
+[1] "output/CA-SCB/mosaic/20230703_clipped_mosaic.tif"
+
+[[105]]
+[1] "output/CA-SCB/mosaic/20230704_clipped_mosaic.tif"
+
+[[106]]
+[1] "output/CA-SCB/mosaic/20230707_clipped_mosaic.tif"
+
+[[107]]
+[1] "output/CA-SCB/mosaic/20230712_clipped_mosaic.tif"
+
+[[108]]
+[1] "output/CA-SCB/mosaic/20230720_clipped_mosaic.tif"
+
+[[109]]
+[1] "output/CA-SCB/mosaic/20230802_clipped_mosaic.tif"
+
+[[110]]
+[1] "output/CA-SCB/mosaic/20230803_clipped_mosaic.tif"
+
+[[111]]
+[1] "output/CA-SCB/mosaic/20230813_clipped_mosaic.tif"
+
+[[112]]
+[1] "output/CA-SCB/mosaic/20230816_clipped_mosaic.tif"
+
+[[113]]
+[1] "output/CA-SCB/mosaic/20230822_clipped_mosaic.tif"
+
+[[114]]
+[1] "output/CA-SCB/mosaic/20230828_clipped_mosaic.tif"
+
+[[115]]
+[1] "output/CA-SCB/mosaic/20230907_clipped_mosaic.tif"
+
+[[116]]
+[1] "output/CA-SCB/mosaic/20230910_clipped_mosaic.tif"
+
+[[117]]
+[1] "output/CA-SCB/mosaic/20230916_clipped_mosaic.tif"
+
+[[118]]
+[1] "output/CA-SCB/mosaic/20230917_clipped_mosaic.tif"
+
+[[119]]
+[1] "output/CA-SCB/mosaic/20230918_clipped_mosaic.tif"
+
+[[120]]
+[1] "output/CA-SCB/mosaic/20230920_clipped_mosaic.tif"
+
+[[121]]
+[1] "output/CA-SCB/mosaic/20231002_clipped_mosaic.tif"
+
+[[122]]
+[1] "output/CA-SCB/mosaic/20231013_clipped_mosaic.tif"
+
+[[123]]
+[1] "output/CA-SCB/mosaic/20231015_clipped_mosaic.tif"
+
+[[124]]
+[1] "output/CA-SCB/mosaic/20231019_clipped_mosaic.tif"
+
+[[125]]
+[1] "output/CA-SCB/mosaic/20231020_clipped_mosaic.tif"
+
+[[126]]
+[1] "output/CA-SCB/mosaic/20231021_clipped_mosaic.tif"
+
+[[127]]
+[1] "output/CA-SCB/mosaic/20231022_clipped_mosaic.tif"
+
+[[128]]
+[1] "output/CA-SCB/mosaic/20231024_clipped_mosaic.tif"
+
+[[129]]
+[1] "output/CA-SCB/mosaic/20231028_clipped_mosaic.tif"
+
+[[130]]
+[1] "output/CA-SCB/mosaic/20231108_clipped_mosaic.tif"
+
+[[131]]
+[1] "output/CA-SCB/mosaic/20240203_clipped_mosaic.tif"
+
+[[132]]
+[1] "output/CA-SCB/mosaic/20240204_clipped_mosaic.tif"
+
+[[133]]
+[1] "output/CA-SCB/mosaic/20240208_clipped_mosaic.tif"
+
+[[134]]
+[1] "output/CA-SCB/mosaic/20240209_clipped_mosaic.tif"
+
+[[135]]
+[1] "output/CA-SCB/mosaic/20240210_clipped_mosaic.tif"
+
+[[136]]
+[1] "output/CA-SCB/mosaic/20240212_clipped_mosaic.tif"
+
+[[137]]
+[1] "output/CA-SCB/mosaic/20240214_clipped_mosaic.tif"
+
+[[138]]
+[1] "output/CA-SCB/mosaic/20240215_clipped_mosaic.tif"
+
+[[139]]
+[1] "output/CA-SCB/mosaic/20240216_clipped_mosaic.tif"
+
+[[140]]
+[1] "output/CA-SCB/mosaic/20240220_clipped_mosaic.tif"
+
+[[141]]
+[1] "output/CA-SCB/mosaic/20240221_clipped_mosaic.tif"
+
+[[142]]
+[1] "output/CA-SCB/mosaic/20240224_clipped_mosaic.tif"
+
+[[143]]
+[1] "output/CA-SCB/mosaic/20240301_clipped_mosaic.tif"
+
+[[144]]
+[1] "output/CA-SCB/mosaic/20240302_clipped_mosaic.tif"
+
+[[145]]
+[1] "output/CA-SCB/mosaic/20240304_clipped_mosaic.tif"
+
+[[146]]
+[1] "output/CA-SCB/mosaic/20240306_clipped_mosaic.tif"
+
+[[147]]
+[1] "output/CA-SCB/mosaic/20240315_clipped_mosaic.tif"
+
+[[148]]
+[1] "output/CA-SCB/mosaic/20240316_clipped_mosaic.tif"
+
+[[149]]
+[1] "output/CA-SCB/mosaic/20240319_clipped_mosaic.tif"
+
+[[150]]
+[1] "output/CA-SCB/mosaic/20240322_clipped_mosaic.tif"
+
+[[151]]
+[1] "output/CA-SCB/mosaic/20240323_clipped_mosaic.tif"
+
+[[152]]
+[1] "output/CA-SCB/mosaic/20240324_clipped_mosaic.tif"
+
+[[153]]
+[1] "output/CA-SCB/mosaic/20240325_clipped_mosaic.tif"
+
+[[154]]
+[1] "output/CA-SCB/mosaic/20240326_clipped_mosaic.tif"
+
+[[155]]
+[1] "output/CA-SCB/mosaic/20240327_clipped_mosaic.tif"
+
+[[156]]
+[1] "output/CA-SCB/mosaic/20240328_clipped_mosaic.tif"
+
+[[157]]
+[1] "output/CA-SCB/mosaic/20240331_clipped_mosaic.tif"
+
+[[158]]
+[1] "output/CA-SCB/mosaic/20240404_clipped_mosaic.tif"
+
+[[159]]
+[1] "output/CA-SCB/mosaic/20240406_clipped_mosaic.tif"
+
+[[160]]
+[1] "output/CA-SCB/mosaic/20240407_clipped_mosaic.tif"
+
+[[161]]
+[1] "output/CA-SCB/mosaic/20240408_clipped_mosaic.tif"
+
+[[162]]
+[1] "output/CA-SCB/mosaic/20240409_clipped_mosaic.tif"
+
+[[163]]
+[1] "output/CA-SCB/mosaic/20240412_clipped_mosaic.tif"
+
+[[164]]
+[1] "output/CA-SCB/mosaic/20240413_clipped_mosaic.tif"
+
+[[165]]
+[1] "output/CA-SCB/mosaic/20240416_clipped_mosaic.tif"
+
+[[166]]
+[1] "output/CA-SCB/mosaic/20240417_clipped_mosaic.tif"
+
+[[167]]
+[1] "output/CA-SCB/mosaic/20240418_clipped_mosaic.tif"
+
+[[168]]
+[1] "output/CA-SCB/mosaic/20240419_clipped_mosaic.tif"
+
+[[169]]
+[1] "output/CA-SCB/mosaic/20240420_clipped_mosaic.tif"
+
+[[170]]
+[1] "output/CA-SCB/mosaic/20240422_clipped_mosaic.tif"
+
+[[171]]
+[1] "output/CA-SCB/mosaic/20240423_clipped_mosaic.tif"
+
+[[172]]
+[1] "output/CA-SCB/mosaic/20240429_clipped_mosaic.tif"
+
+[[173]]
+[1] "output/CA-SCB/mosaic/20240501_clipped_mosaic.tif"
+
+[[174]]
+[1] "output/CA-SCB/mosaic/20240506_clipped_mosaic.tif"
+
+[[175]]
+[1] "output/CA-SCB/mosaic/20240508_clipped_mosaic.tif"
+
+[[176]]
+[1] "output/CA-SCB/mosaic/20240510_clipped_mosaic.tif"
+
+[[177]]
+[1] "output/CA-SCB/mosaic/20240513_clipped_mosaic.tif"
+
+[[178]]
+[1] "output/CA-SCB/mosaic/20240522_clipped_mosaic.tif"
+
+[[179]]
+[1] "output/CA-SCB/mosaic/20240630_clipped_mosaic.tif"
+
+[[180]]
+[1] "output/CA-SCB/mosaic/20240704_clipped_mosaic.tif"
+
+[[181]]
+[1] "output/CA-SCB/mosaic/20240705_clipped_mosaic.tif"
+
+[[182]]
+[1] "output/CA-SCB/mosaic/20240706_clipped_mosaic.tif"
+
+[[183]]
+[1] "output/CA-SCB/mosaic/20240708_clipped_mosaic.tif"
+
+[[184]]
+[1] "output/CA-SCB/mosaic/20240710_clipped_mosaic.tif"
+
+[[185]]
+[1] "output/CA-SCB/mosaic/20240712_clipped_mosaic.tif"
+
+[[186]]
+[1] "output/CA-SCB/mosaic/20240715_clipped_mosaic.tif"
+
+[[187]]
+[1] "output/CA-SCB/mosaic/20240716_clipped_mosaic.tif"
+
+[[188]]
+[1] "output/CA-SCB/mosaic/20240717_clipped_mosaic.tif"
+
+[[189]]
+[1] "output/CA-SCB/mosaic/20240718_clipped_mosaic.tif"
+
+[[190]]
+[1] "output/CA-SCB/mosaic/20240722_clipped_mosaic.tif"
+
+[[191]]
+[1] "output/CA-SCB/mosaic/20240727_clipped_mosaic.tif"
+
+[[192]]
+[1] "output/CA-SCB/mosaic/20240802_clipped_mosaic.tif"
+
+[[193]]
+[1] "output/CA-SCB/mosaic/20240803_clipped_mosaic.tif"
+
+[[194]]
+[1] "output/CA-SCB/mosaic/20240804_clipped_mosaic.tif"
+
+[[195]]
+[1] "output/CA-SCB/mosaic/20240806_clipped_mosaic.tif"
+
+[[196]]
+[1] "output/CA-SCB/mosaic/20240807_clipped_mosaic.tif"
+
+[[197]]
+[1] "output/CA-SCB/mosaic/20240808_clipped_mosaic.tif"
+
+[[198]]
+[1] "output/CA-SCB/mosaic/20240809_clipped_mosaic.tif"
+
+[[199]]
+[1] "output/CA-SCB/mosaic/20240810_clipped_mosaic.tif"
+
+[[200]]
+[1] "output/CA-SCB/mosaic/20240816_clipped_mosaic.tif"
+
+[[201]]
+[1] "output/CA-SCB/mosaic/20240817_clipped_mosaic.tif"
+
+[[202]]
+[1] "output/CA-SCB/mosaic/20240818_clipped_mosaic.tif"
+
+[[203]]
+[1] "output/CA-SCB/mosaic/20240819_clipped_mosaic.tif"
+
+[[204]]
+[1] "output/CA-SCB/mosaic/20240821_clipped_mosaic.tif"
+
+[[205]]
+[1] "output/CA-SCB/mosaic/20240824_clipped_mosaic.tif"
+
+[[206]]
+[1] "output/CA-SCB/mosaic/20240825_clipped_mosaic.tif"
+
+[[207]]
+[1] "output/CA-SCB/mosaic/20240826_clipped_mosaic.tif"
+
+[[208]]
+[1] "output/CA-SCB/mosaic/20240828_clipped_mosaic.tif"
+
+[[209]]
+[1] "output/CA-SCB/mosaic/20240830_clipped_mosaic.tif"
+
+[[210]]
+[1] "output/CA-SCB/mosaic/20240831_clipped_mosaic.tif"
+
+[[211]]
+[1] "output/CA-SCB/mosaic/20240903_clipped_mosaic.tif"
+
+[[212]]
+[1] "output/CA-SCB/mosaic/20240904_clipped_mosaic.tif"
+
+[[213]]
+[1] "output/CA-SCB/mosaic/20240906_clipped_mosaic.tif"
+
+[[214]]
+[1] "output/CA-SCB/mosaic/20240910_clipped_mosaic.tif"
+
+[[215]]
+[1] "output/CA-SCB/mosaic/20240912_clipped_mosaic.tif"
+
+[[216]]
+[1] "output/CA-SCB/mosaic/20240913_clipped_mosaic.tif"
+
+[[217]]
+[1] "output/CA-SCB/mosaic/20240915_clipped_mosaic.tif"
+
+[[218]]
+[1] "output/CA-SCB/mosaic/20240916_clipped_mosaic.tif"
+
+[[219]]
+[1] "output/CA-SCB/mosaic/20240918_clipped_mosaic.tif"
+
+[[220]]
+[1] "output/CA-SCB/mosaic/20240922_clipped_mosaic.tif"
+
+[[221]]
+[1] "output/CA-SCB/mosaic/20240924_clipped_mosaic.tif"
+
+[[222]]
+[1] "output/CA-SCB/mosaic/20240927_clipped_mosaic.tif"
+
+[[223]]
+[1] "output/CA-SCB/mosaic/20240928_clipped_mosaic.tif"
+
+[[224]]
+[1] "output/CA-SCB/mosaic/20241003_clipped_mosaic.tif"
+
+[[225]]
+[1] "output/CA-SCB/mosaic/20241004_clipped_mosaic.tif"
+
+[[226]]
+[1] "output/CA-SCB/mosaic/20241005_clipped_mosaic.tif"
+
+[[227]]
+[1] "output/CA-SCB/mosaic/20241006_clipped_mosaic.tif"
+
+[[228]]
+[1] "output/CA-SCB/mosaic/20241007_clipped_mosaic.tif"
+
+[[229]]
+[1] "output/CA-SCB/mosaic/20241010_clipped_mosaic.tif"
+
+[[230]]
+[1] "output/CA-SCB/mosaic/20241011_clipped_mosaic.tif"
+
+[[231]]
+[1] "output/CA-SCB/mosaic/20241012_clipped_mosaic.tif"
+
+[[232]]
+[1] "output/CA-SCB/mosaic/20241015_clipped_mosaic.tif"
+
+[[233]]
+[1] "output/CA-SCB/mosaic/20241018_clipped_mosaic.tif"
+
+[[234]]
+[1] "output/CA-SCB/mosaic/20241021_clipped_mosaic.tif"
+
+[[235]]
+[1] "output/CA-SCB/mosaic/20241023_clipped_mosaic.tif"
+
+[[236]]
+[1] "output/CA-SCB/mosaic/20241025_clipped_mosaic.tif"
+
+[[237]]
+[1] "output/CA-SCB/mosaic/20241029_clipped_mosaic.tif"
+
+[[238]]
+[1] "output/CA-SCB/mosaic/20241030_clipped_mosaic.tif"
+
+[[239]]
+[1] "output/CA-SCB/mosaic/20241031_clipped_mosaic.tif"
+
+[[240]]
+[1] "output/CA-SCB/mosaic/20241105_clipped_mosaic.tif"
+
+[[241]]
+[1] "output/CA-SCB/mosaic/20241106_clipped_mosaic.tif"
+
+[[242]]
+[1] "output/CA-SCB/mosaic/20241107_clipped_mosaic.tif"
+
+[[243]]
+[1] "output/CA-SCB/mosaic/20241108_clipped_mosaic.tif"
+
+[[244]]
+[1] "output/CA-SCB/mosaic/20241109_clipped_mosaic.tif"
+
+✅ Mosaic process complete.
+2025-12-03 12:04:12 - Total mosaics written: 244

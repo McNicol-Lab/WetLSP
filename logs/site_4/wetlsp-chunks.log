@@ -1,0 +1,15 @@
+Loading required package: terra
+terra 1.8.54
+Loading required package: rjson
+Loading required package: geojsonR
+Loading required package: foreach
+Loading required package: doParallel
+Loading required package: iterators
+Loading required package: parallel
+📍 Running site index: 4
+🗺️  Site: BW-Nxr
+📂 Mosaic dir (input): output/BW-Nxr/mosaic
+🧭 Found 998 mosaics spanning 2020-03-17 → 2024-12-29
+📦 Base grid: 1333×1012 (1348996 cells) → 200 chunks (~6745 cells/chunk)
+✅ All 200 chunk files already exist in: output/BW-Nxr/chunk
+   Skipping chunk creation for site BW-Nxr (set 'overwriteChunks': true in wetlsp-parameters.json to force rebuild).

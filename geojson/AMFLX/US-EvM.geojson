@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -80.396,
+              25.3389
+            ],
+            [
+              -80.366,
+              25.3389
+            ],
+            [
+              -80.366,
+              25.3689
+            ],
+            [
+              -80.396,
+              25.3689
+            ],
+            [
+              -80.396,
+              25.3389
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Everglades Saltwater intrusion marsh",
+        "f": "US-EvM"
+      }
+    }
+  ]
+}

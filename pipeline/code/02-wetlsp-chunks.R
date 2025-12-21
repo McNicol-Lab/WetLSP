@@ -140,6 +140,26 @@ terra::terraOptions(threads = 1, memfrac = 0.75)
 # STEP 1 — Divide mosaics into base-aligned chunks
 message("✂️  Step 1: Dividing mosaics into chunks and saving temporary .rda files")
 
+is_readable_tif <- function(f) {
+  r <- try(terra::rast(f), silent = TRUE)
+  if (inherits(r, "try-error")) return(FALSE)
+  
+  # Force real pixel reads (like your plot/values call does)
+  ok <- try(terra::global(r[[1]], "mean", na.rm = TRUE), silent = TRUE)
+  !inherits(ok, "try-error")
+}
+
+good <- vapply(files, is_readable_tif, logical(1))
+bad_files <- files[!good]
+
+if (length(bad_files)) {
+  message("⚠️ Skipping corrupted mosaics:")
+  message(paste(basename(bad_files), collapse = ", "))
+}
+
+files <- files[good]
+dates <- dates[good]
+
 foreach(
   i = seq_along(dates),
   .packages = c("terra"),
@@ -159,13 +179,30 @@ foreach(
     message("⚠️  Failed to read raster for ", date_str)
     return(NULL)
   }
+  
+  # Force a read to catch corrupted strips/tiles early
+  ok <- try(terra::global(r[[1]], "mean", na.rm = TRUE), silent = TRUE)
+  if (inherits(ok, "try-error")) {
+    message("⚠️  Corrupt/unreadable pixel blocks for ", date_str, " — skipping.  ", ok)
+    return(NULL)
+  }
 
   # Re-open base inside worker (don’t serialize SpatRaster)
   baseR <- terra::rast(base_path)
 
   # ✅ Force identical geometry to base grid (prevents striping later)
   if (!isTRUE(terra::compareGeom(r, baseR, stopOnError = FALSE))) {
-    r <- terra::resample(r, baseR, method = "bilinear")  # or "near"
+    r <- tryCatch(
+      {
+        terra::resample(r, baseR, method = "bilinear")  # or "near"
+      },
+      error = function(e) {
+        message("❌ [resample] failed for ", basename(tif_path), " — skipping.  ",
+                conditionMessage(e))
+        NULL
+      }
+    )
+    if (is.null(r)) return(NULL)
   }
 
   vals <- terra::values(r, mat = TRUE)  # [ncell(base) x nbands]
@@ -197,8 +234,8 @@ foreach(
 }
 
 #---------------------------------------------
-# STEP 2 — Merge chunk time series (now all rows are consistent)
-message("🧩 Step 2: Merging temporal chunks across dates")
+# STEP 2 — Merge chunk time series (robust to missing dates)
+message("🧩 Step 2: Merging temporal chunks across dates (NA-fill missing)")
 
 foreach(
   cc = seq_len(numCk),
@@ -207,58 +244,82 @@ foreach(
 ) %dopar% {
   ckNum   <- sprintf("%03d", cc)
   dirTemp <- file.path(ckDirTemp, ckNum)
+  
   if (!dir.exists(dirTemp)) {
     message("⚠️  Missing temp dir for chunk ", ckNum, " — skipping")
     return(NULL)
   }
-
-  # Sort by date to keep columns in chronological order
-  chunk_files <- list.files(dirTemp, full.names = TRUE)
-  if (!length(chunk_files)) {
-    message("⚠️  No temp files for chunk ", ckNum)
+  
+  # Expected date strings (chronological, matches 'dates')
+  expected_dates <- format(dates, "%Y%m%d")
+  expected_paths <- file.path(dirTemp, paste0(expected_dates, ".rda"))
+  
+  exists_vec <- file.exists(expected_paths)
+  n_found    <- sum(exists_vec)
+  n_expected <- length(expected_paths)
+  
+  if (n_found == 0) {
+    message("⚠️  Chunk ", ckNum, " has 0 / ", n_expected, " temp files — skipping")
     return(NULL)
   }
-  # match file order to 'dates'
-  f_dates <- as.Date(regmatches(basename(chunk_files), regexpr("\\d{8}", basename(chunk_files))), "%Y%m%d")
-  ord     <- order(f_dates)
-  chunk_files <- chunk_files[ord]
-  f_dates     <- f_dates[ord]
-
-  if (length(chunk_files) != length(dates)) {
-    message("⚠️  Chunk ", ckNum, " incomplete (", length(chunk_files), "/", length(dates), ") — skipping")
-    return(NULL)
+  
+  if (n_found < n_expected) {
+    miss <- expected_dates[!exists_vec]
+    message("⚠️  Chunk ", ckNum, " missing ", (n_expected - n_found),
+            " / ", n_expected, " dates → NA-fill. e.g. ",
+            paste(head(miss, 5), collapse = ", "))
   }
-
-  # loader returns list(b1..b8)
-  load_rda <- function(f) { e <- new.env(); load(f, envir = e); as.list(e) }
-  loaded   <- lapply(chunk_files, load_rda)
-
-  n_pix <- length(base_chunks[[cc]])   # expected rows for this chunk
-  T     <- length(loaded)
-
-  # Initialize band matrices [n_pix × T]
+  
+  n_pix <- length(base_chunks[[cc]])   # rows for this chunk
+  T     <- n_expected                  # number of time steps (dates)
+  
+  # Initialize band matrices [n_pix × T] with NA
   band_list <- lapply(1:8, function(b) matrix(NA_real_, nrow = n_pix, ncol = T))
-
+  
+  # For each expected date: load if present, otherwise keep NA
   for (t in seq_len(T)) {
-    for (b in 1:8) {
-      v <- loaded[[t]][[paste0("b", b)]]
-      if (length(v) != n_pix) {
-        # Should not happen now; guard just in case
-        len <- min(length(v), n_pix)
-        tmp <- rep(NA_real_, n_pix); tmp[seq_len(len)] <- v[seq_len(len)]
-        v <- tmp
-      }
-      band_list[[b]][, t] <- v
+    if (!exists_vec[t]) next
+    
+    e <- new.env(parent = emptyenv())
+    ok <- try(load(expected_paths[t], envir = e), silent = TRUE)
+    if (inherits(ok, "try-error")) {
+      # If a temp .rda is itself corrupted/unreadable, treat as missing
+      next
     }
+    
+    for (b in 1:8) {
+      nm <- paste0("b", b)
+      v  <- if (exists(nm, envir = e, inherits = FALSE)) get(nm, envir = e) else NULL
+      
+      if (!is.null(v)) {
+        # guard length mismatch (should be exact, but keep safe)
+        if (length(v) != n_pix) {
+          len <- min(length(v), n_pix)
+          tmp <- rep(NA_real_, n_pix)
+          tmp[seq_len(len)] <- v[seq_len(len)]
+          v <- tmp
+        }
+        band_list[[b]][, t] <- v
+      }
+    }
+    
+    rm(e)
   }
-
+  
   # Save merged chunk
   save_path <- file.path(ckDir, paste0("chunk_", ckNum, ".rda"))
-  save(list = c(paste0("band", 1:8), "dates"),
-       file = save_path,
-       envir = list2env(c(setNames(band_list, paste0("band", 1:8)),
-                          list(dates = dates))))
-  message("💾 Saved merged chunk: ", save_path)
+  
+  save(
+    list = c(paste0("band", 1:8), "dates"),
+    file = save_path,
+    envir = list2env(
+      c(setNames(band_list, paste0("band", 1:8)),
+        list(dates = dates)),
+      parent = emptyenv()
+    )
+  )
+  
+  message("💾 Saved merged chunk: ", save_path, " (", n_found, "/", n_expected, " dates present)")
 }
 
 #---------------------------------------------

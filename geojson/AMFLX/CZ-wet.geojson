@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.75535,
+              49.00965
+            ],
+            [
+              14.785350000000001,
+              49.00965
+            ],
+            [
+              14.785350000000001,
+              49.03965
+            ],
+            [
+              14.75535,
+              49.03965
+            ],
+            [
+              14.75535,
+              49.00965
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at Trebon (CZECHWET)",
+        "f": "CZ-wet"
+      }
+    }
+  ]
+}

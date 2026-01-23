@@ -1,0 +1,158 @@
+---
+title: "extract fetch pixels"
+author: "Gavin McNicol"
+date: "2026-01-22"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  fig.width = 8,
+  fig.height = 5
+)
+
+# Prefer an explicit project root (assumes you knit from the Review/ folder or project root)
+# If you use an RStudio Project, set your working directory to the project root before knitting.
+```
+
+## Purpose: Review (format, content, visualization) the final output of the WetLSP processing pipeline.
+
+```{r libraries}
+required_packages <- c(
+  "terra", "sf", "tidyverse", "rjson", "geojsonR", "ncdf4"
+)
+
+load_or_stop <- function(pkgs) {
+  missing <- pkgs[!vapply(pkgs, requireNamespace, FUN.VALUE = logical(1), quietly = TRUE)]
+  if (length(missing) > 0) {
+    stop(
+      "Missing packages: ", paste(missing, collapse = ", "),
+      "\nInstall them (once) via install.packages(c(...)) and re-knit."
+    )
+  }
+  invisible(lapply(pkgs, library, character.only = TRUE))
+}
+
+load_or_stop(required_packages)
+
+source("pipeline/netcdf-metadata-populate.R")
+source("pipeline/nc-patch.R")
+source("pipeline/extract_fetch_pixels.R")
+source("pipeline/combine_fetch_sf.R")
+```
+
+## Extract pixels
+
+
+```{r}
+site_dir <- "output/AT-Nsd"  # adjust to your local path
+res <- extract_fetch_pixels(
+  site_dir     = site_dir,
+  site_id      = "AT-Nsd",
+  geojson_path = "geojson/AMFLX/AT-Nsd.geojson",
+  radius_m     = 1000
+)
+```
+
+
+```{r}
+combine_fetch_sf_progress(
+  fetch_dir = file.path(site_dir, "tables_sf_fetch"),
+  site_dir  = res$site_dir,
+  site_id   = res$site_id,
+  progress_every = 10
+)
+```
+
+
+## 1. Load and basic structure checks
+
+```{r}
+library(sf)
+library(dplyr)
+
+sf_all <- readRDS("output/AT-Nsd/AT-Nsd_evi_timeseries_fetch_sf.rds")
+
+sf_all
+st_crs(sf_all)
+```
+
+## 2. Spatial footprint + fetch circle overlay
+
+```{r}
+library(ggplot2)
+
+ggplot(sf_all) +
+  geom_sf(size = 0.3, alpha = 0.6) +
+  coord_sf() +
+  labs(
+    title = "AT-Nsd fetch-limited EVI pixels",
+    subtitle = paste("n =", nrow(sf_all))
+  ) +
+  theme_minimal()
+```
+
+
+
+## 3. Pixel density & geometry sanity
+
+```{r}
+# Are there duplicate geometries?
+any(duplicated(st_as_binary(st_geometry(sf_all))))
+
+# Bounding box size (meters)
+st_bbox(sf_all)
+```
+
+## 4. Time-series presence checks (very important)
+
+```{r}
+summary(lengths(sf_all$evi_raw))
+summary(lengths(sf_all$evi_spline))
+
+mean(lengths(sf_all$evi_raw) > 0)
+mean(lengths(sf_all$evi_spline) > 0)
+```
+
+## 5. Pick a few random pixels and plot their time series
+
+```{r}
+library(purrr)
+
+set.seed(1)
+pix <- sample(seq_len(nrow(sf_all)), 4)
+
+par(mfrow = c(2,2))
+walk(pix, function(i) {
+  raw <- sf_all$evi_raw[[i]]
+  spl <- sf_all$evi_spline[[i]]
+
+  plot(
+    raw,
+    type = "p",
+    pch = 16,
+    col = "grey40",
+    main = paste("Pixel", i),
+    ylab = "EVI",
+    xlab = "Index"
+  )
+  if (length(spl) > 0) {
+    lines(spl, col = "darkgreen", lwd = 2)
+  }
+})
+par(mfrow = c(1,1))
+```
+
+```{r}
+PickPixelInteractive(sf_all)
+ViewPixelTimeseries(sf_all, cell_vec = c(seq(674963, 675263, by = 30)))
+```
+
+
+
+
+
+

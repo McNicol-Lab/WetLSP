@@ -1,0 +1,151 @@
+---
+title: "nc check populate"
+author: "Gavin McNicol"
+date: "2026-01-22"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  fig.width = 8,
+  fig.height = 5
+)
+
+# Prefer an explicit project root (assumes you knit from the Review/ folder or project root)
+# If you use an RStudio Project, set your working directory to the project root before knitting.
+```
+
+## Purpose: Review (format, content, visualization) the final output of the WetLSP processing pipeline.
+
+```{r libraries}
+required_packages <- c(
+  "terra", "sf", "tidyverse", "rjson", "geojsonR", "ncdf4"
+)
+
+load_or_stop <- function(pkgs) {
+  missing <- pkgs[!vapply(pkgs, requireNamespace, FUN.VALUE = logical(1), quietly = TRUE)]
+  if (length(missing) > 0) {
+    stop(
+      "Missing packages: ", paste(missing, collapse = ", "),
+      "\nInstall them (once) via install.packages(c(...)) and re-knit."
+    )
+  }
+  invisible(lapply(pkgs, library, character.only = TRUE))
+}
+
+load_or_stop(required_packages)
+
+source("pipeline/netcdf-metadata-populate.R")
+source("pipeline/nc-patch.R")
+
+```
+
+```{r paths}
+# Edit these to match your local layout
+path_geojson   <- "geojson/AMFLX"
+path_output    <- "output"
+path_geotiffs  <- "geotiffs"
+path_netcdf <- "netcdf"
+
+# Convenience helper
+site_dir_helper <- function(site) file.path(path_output, site)
+```
+
+## choose site
+
+```{r geojson-check}
+site_example <- "AT-Nsd"
+site_dir <- site_dir_helper(site_example)
+```
+
+## Populate netcdf
+
+```{r}
+for(i in 2021:2024) {
+  
+define_path <- paste0("output/AT-Nsd/netcdf/WetLSP_", i, ".nc")
+define_patch_path <- paste0("output/AT-Nsd/netcdf/AT-Nsd-wetlsp-", i, ".nc")
+
+    # Single file
+    annotate_wetlsp_netcdf(
+      nc_path = define_path,
+      site_id = "AT-Nsd",
+      year = 2023,
+      creator_email = "gmcnicol@uic.edu",
+      pipeline_version = "v1",
+      years_included = "2021–2024"
+    )
+  
+  patch_cf_coords_and_grid_mapping(define_patch_path)
+  
+}
+
+
+
+
+# # Batch across a site directory
+# nc_files <- list.files("netcdf", pattern = "\\.nc$", full.names = TRUE)
+# out_files <- lapply(nc_files, function(f) {
+#   annotate_wetlsp_netcdf(
+#     nc_path = f,
+#     site_id = "US-Myb",
+#     year = gsub(".*_(\\d{4})\\.nc$", "\\1", basename(f)),
+#     creator_email = "YOUR_EMAIL@uic.edu"
+#   )
+# })
+```
+
+
+## Check netcdf
+
+```{r output}
+nc_path <- file.path(site_dir, "netcdf/AT-Nsd-wetlsp-2021.nc")
+nc <- nc_open(nc_path)
+nc
+nc_close(nc)
+```
+
+```{r details}
+# Global attributes
+cat("\n--- Global attributes ---\n")
+print(nc$att)
+
+# Dimensions
+cat("\n--- Dimensions ---\n")
+print(nc$dim)
+
+# Variables + their attributes (names only first)
+cat("\n--- Variables ---\n")
+print(names(nc$var))
+
+# Inspect time
+if ("time" %in% names(nc$dim) || "time" %in% names(nc$var)) {
+  cat("\n--- time attributes ---\n")
+  if ("time" %in% names(nc$var)) print(nc$var$time$att)
+  # quick sample values if time is a var
+  if ("time" %in% names(nc$var)) {
+    tvals <- ncvar_get(nc, "time")
+    cat("time length:", length(tvals), "\n")
+    cat("time sample:", head(tvals, 5), "\n")
+  }
+}
+
+# Pick a main data var to check (edit to match your file)
+candidate_vars <- setdiff(names(nc$var), c("time","x","y","lon","lat","crs","spatial_ref"))
+v <- candidate_vars[1]
+cat("\n--- Inspect variable:", v, "---\n")
+print(nc$var[[v]]$att)
+
+# Check value distribution for a small slice (first time index if time exists)
+# Adjust indices based on your var dimensionality.
+arr <- ncvar_get(nc, v, start = rep(1, nc$var[[v]]$ndims),
+                 count = pmin(nc$var[[v]]$varsize, c(1, 50, 50, 50)[1:nc$var[[v]]$ndims]))
+summary(as.vector(arr))
+```
+
+
+## netcdf metadatapopulate
+

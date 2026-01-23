@@ -1,0 +1,255 @@
+---
+title: "Review WetLSP Outputs"
+author: "Gavin McNicol"
+date: "2025-11-19"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    number_sections: true
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  fig.width = 8,
+  fig.height = 5
+)
+
+# Prefer an explicit project root (assumes you knit from the Review/ folder or project root)
+# If you use an RStudio Project, set your working directory to the project root before knitting.
+```
+
+## Purpose: Review (format, content, visualization) the final output of the WetLSP processing pipeline.
+
+```{r libraries}
+required_packages <- c(
+  "terra", "sf", "tidyverse", "rjson", "geojsonR"
+)
+
+load_or_stop <- function(pkgs) {
+  missing <- pkgs[!vapply(pkgs, requireNamespace, FUN.VALUE = logical(1), quietly = TRUE)]
+  if (length(missing) > 0) {
+    stop(
+      "Missing packages: ", paste(missing, collapse = ", "),
+      "\nInstall them (once) via install.packages(c(...)) and re-knit."
+    )
+  }
+  invisible(lapply(pkgs, library, character.only = TRUE))
+}
+
+load_or_stop(required_packages)
+```
+
+```{r paths}
+# Edit these to match your local layout
+path_geojson   <- "geojson/AMFLX"
+path_output    <- "output"
+path_geotiffs  <- "geotiffs"
+path_netcdf <- "netcdf"
+
+# Convenience helper
+site_dir_helper <- function(site) file.path(path_output, site)
+```
+
+### GeoJSON AOI
+
+This checks that the AOI exists, inspects CRS/extent, projects AOI to the raster CRS, and plots the overlay.
+
+```{r geojson-check}
+site_example <- "AT-Nsd"
+year_example <- "2022"
+layer_example <- "10_2022_EVIamp"
+site_dir <- site_dir_helper(site_example)
+
+r_path <- file.path(site_dir, path_geotiffs, year_example, paste0(layer_example, ".tif"))
+g_path <- file.path(path_geojson, paste0(site_example, ".geojson"))
+
+stopifnot(file.exists(r_path))
+stopifnot(file.exists(g_path))
+
+r <- terra::rast(r_path)
+poly_ll <- terra::vect(g_path)   # often EPSG:4326
+
+list(
+  raster_crs = terra::crs(r),
+  aoi_crs    = terra::crs(poly_ll),
+  aoi_extent_ll = terra::ext(poly_ll)
+)
+
+poly_proj <- terra::project(poly_ll, terra::crs(r))
+
+# Compare extents
+list(
+  aoi_extent_proj = terra::ext(poly_proj),
+  raster_extent   = terra::ext(r)
+)
+
+# View cutout and base_layer overlay
+plot(r[[1]], main = paste(site_example, year_example, layer_example, " + AOI"))
+lines(poly_proj, lwd = 2, col = "red")
+```
+
+```{r geojson-dim}
+g2_path <- file.path(path_geojson, "AT-Nsd.geojson")
+stopifnot(file.exists(g2_path))
+
+# If you only want to inspect raw JSON:
+# rjson::read_json(g2_path)
+
+# If you want the coordinates, read as vect and inspect bbox
+aoi_ll <- terra::vect(g2_path)
+bb <- terra::ext(aoi_ll)
+
+lons <- c(bb$xmin, bb$xmax, bb$xmax, bb$xmin, bb$xmin)
+lats <- c(bb$ymin, bb$ymin, bb$ymax, bb$ymax, bb$ymin)
+
+c(delta_lat = max(lats) - min(lats),
+  delta_lon = max(lons) - min(lons))
+
+plot(lons, lats, asp = 1, type = "l",
+     main = "AOI in lon/lat (degrees)",
+     xlab = "Longitude", ylab = "Latitude")
+```
+```{r check-base}
+base_path <- file.path(site_dir, "base_image.tif")  # if base images live at site root
+if (!file.exists(base_path)) {
+  message("Base image not found at: ", base_path, " (adjust base_path if needed).")
+} else {
+  terra::rast(base_path)
+}
+```
+
+## Chunk EVI time series as sf
+
+```{r chunk-sf}
+site_sf <- "AT-Nsd"
+sf_path <- file.path(site_dir_helper(site_sf), "tables_sf", "chunk_100_evi_sf.rds") # roughly middle of scene
+stopifnot(file.exists(sf_path))
+
+sf_obj <- readRDS(sf_path)
+sf_obj[1, ]
+```
+
+```{r chunk-sf-summary}
+sum(lengths(sf_obj$evi_spline) > 0)
+
+all_spline_vals <- unlist(sf_obj$evi_spline, use.names = FALSE)
+summary(all_spline_vals)
+mean(is.na(all_spline_vals))
+```
+
+## Individual GeoTIFF products
+
+```{r names, include = F}
+wetlsp_names <- c(
+  "NumCycles", 
+  
+  "OGI", 
+  "PCGI50",
+  "OGMx", 
+  "Peak", 
+  "OGD", 
+  "PCGD50", 
+  "OGMn",
+  "EVImax",
+  "EVIamp", 
+  "EVIarea",
+  "QA",
+  
+  "OGI_2", 
+  "PCGI50_2", 
+  "OGMx_2", 
+  "Peak_2",
+  "OGD_2", 
+  "PCGD50_2", 
+  "OGMn_2",
+  "EVImax_2", 
+  "EVIamp_2", 
+  "EVIarea_2",
+  "QA_2",
+  
+  "numObs"
+)
+```
+
+```{r view-geotiffs}
+site_prod <- "AT-Nsd"
+year_prod <- "2024"
+
+prod_files <- list.files(
+  file.path(site_dir, path_geotiffs, year_prod),
+  pattern = "\\.tif$",
+  full.names = TRUE
+)
+
+stopifnot(length(prod_files) > 0)
+
+r_prod <- terra::rast(prod_files[10])
+
+# If values are stored as scaled integers, divide by 10000 if appropriate.
+plot(r_prod / 10000,
+     main = paste0(site_prod, " – ", basename(prod_files[10]), " (scaled)"),
+     axes = TRUE)
+```
+
+```{r product-dims}
+r2 <- terra::rast(file.path(site_dir, path_geotiffs, "2024", "09_2024_EVImax.tif"))
+c(ncol = terra::ncol(r2), nrow = terra::nrow(r2), nlyr = terra::nlyr(r2))
+c(xres = terra::xres(r2), yres = terra::yres(r2))
+c(width_m  = terra::ncol(r2) * terra::xres(r2),
+  height_m = terra::nrow(r2) * terra::yres(r2))
+
+r2_trim <- terra::trim(r2)
+plot(r2_trim, main = "AT-Nsd – EVImax (trimmed)", axes = TRUE)
+```
+## Timeseries Helperes
+
+```{r helpers}
+helpers_path <- file.path("pipeline", "validation", "wetlsp-helpers.R")
+if (file.exists(helpers_path)) {
+  source(helpers_path)
+} else {
+  message("Helpers not found at: ", helpers_path, " (skipping source).")
+}
+```
+
+## Pixel-view helper
+
+```{r pixel-timeseries}
+sf_all <- readRDS(file.path(site_dir, "tables_sf", "chunk_100_evi_sf.rds"))
+PickPixelInteractive(sf_all)
+ViewPixelTimeseries(sf_chunk, cell_vec = c(seq(674963, 675263, by = 30)))
+```
+## Summarize _sf chunk
+
+```{r summarize-function}
+SummarizeEVI_sf <- function(sf_obj) {
+  tibble::tibble(
+    n_pixels        = nrow(sf_obj),
+    # crs             = sf::st_crs(sf_obj)$input,
+    n_raw_ts        = sum(lengths(sf_obj$evi_raw) > 0),
+    n_smooth_ts     = sum(lengths(sf_obj$evi_spline) > 0),
+    avg_raw_length  = mean(lengths(sf_obj$evi_raw)),
+    avg_smooth_len  = mean(lengths(sf_obj$evi_spline))
+  )
+}
+```
+
+```{r list-rds}
+files <- list.files(file.path(site_dir, "tables_sf"))
+paths_list <- vector("list", 200)
+paths <- file.path(site_dir, "tables_sf", files)
+
+for (i in seq_len(200)) {
+    paths_list[[i]] <- paths[i] 
+}
+
+# summarize all 200 chunks - takes a moment
+map(paths_list, ~ SummarizeEVI_sf(readRDS(.x)))
+```
+
+

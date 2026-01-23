@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -149.38549999999998,
+              68.6461
+            ],
+            [
+              -149.3555,
+              68.6461
+            ],
+            [
+              -149.3555,
+              68.6761
+            ],
+            [
+              -149.38549999999998,
+              68.6761
+            ],
+            [
+              -149.38549999999998,
+              68.6461
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at NEON Toolik (TOOL)",
+        "f": "US-xTL"
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -156.6344,
+              71.2674
+            ],
+            [
+              -156.60440000000003,
+              71.2674
+            ],
+            [
+              -156.60440000000003,
+              71.2974
+            ],
+            [
+              -156.6344,
+              71.2974
+            ],
+            [
+              -156.6344,
+              71.2674
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "3km cutout at NEON Barrow Environmental Observatory (BARR)",
+        "f": "US-xBA"
+      }
+    }
+  ]
+}

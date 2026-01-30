@@ -218,9 +218,9 @@ list.files("Product_GeoTiff/BW-Gum/2021", "\\.tif$", full.names = TRUE)[10] %>%
 ```
 
 ```{r}
-r <- rast("Product_GeoTiff/CA-EM1/2021/09_2021_EVImax.tif")
+r <- rast("Product_GeoTiff/US-Tw1/2024/09_2024_EVImax.tif")
 
-# Check the actual dimensions in meters
+  # Check the actual dimensions in meters
 c(ncol = ncol(r), nrow = nrow(r))
 c(xres = xres(r), yres = yres(r))
 c(width_m  = ncol(r) * xres(r),
@@ -265,9 +265,9 @@ SummarizeEVI_sf(sf_all)
 Interactive map click-to-select
 
 ```{r use-mapper}
-sf_chunk <- readRDS("KR-CRK/tables_sf/chunk_100_evi_sf.rds")
+sf_chunk <- readRDS("US-Tw1/tables_sf/chunk_100_evi_sf.rds")
 PickPixelInteractive(sf_chunk)
-ViewPixelTimeseries(sf_chunk, cell_vec = c(seq(677249, 678249, by = 100)))
+ViewPixelTimeseries(sf_chunk, cell_vec = c(seq(674963, 675263, by = 30)))
 ```
 
 

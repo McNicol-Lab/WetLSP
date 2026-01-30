@@ -46,8 +46,8 @@ load_or_stop(required_packages)
 
 ```{r paths}
 # Edit these to match your local layout
-path_geojson   <- "geojson/AMFLX"
-path_output    <- "output"
+path_geojson   <- "../geojson/AMFLX"
+path_output    <- "../output"
 path_geotiffs  <- "geotiffs"
 path_netcdf <- "netcdf"
 
@@ -60,7 +60,7 @@ site_dir_helper <- function(site) file.path(path_output, site)
 This checks that the AOI exists, inspects CRS/extent, projects AOI to the raster CRS, and plots the overlay.
 
 ```{r geojson-check}
-site_example <- "AT-Nsd"
+site_example <- "BR-Npw"
 year_example <- "2022"
 layer_example <- "10_2022_EVIamp"
 site_dir <- site_dir_helper(site_example)
@@ -177,8 +177,8 @@ wetlsp_names <- c(
 ```
 
 ```{r view-geotiffs}
-site_prod <- "AT-Nsd"
-year_prod <- "2024"
+site_prod <- "BR-Npw"
+year_prod <- "2022"
 
 prod_files <- list.files(
   file.path(site_dir, path_geotiffs, year_prod),
@@ -192,7 +192,7 @@ r_prod <- terra::rast(prod_files[10])
 
 # If values are stored as scaled integers, divide by 10000 if appropriate.
 plot(r_prod / 10000,
-     main = paste0(site_prod, " – ", basename(prod_files[10]), " (scaled)"),
+     main = paste0(site_prod, " – ", basename(prod_files[1]), " (scaled)"),
      axes = TRUE)
 ```
 
@@ -222,7 +222,7 @@ if (file.exists(helpers_path)) {
 ```{r pixel-timeseries}
 sf_all <- readRDS(file.path(site_dir, "tables_sf", "chunk_100_evi_sf.rds"))
 PickPixelInteractive(sf_all)
-ViewPixelTimeseries(sf_chunk, cell_vec = c(seq(674963, 675263, by = 30)))
+ViewPixelTimeseries(sf_all, cell_vec = c(seq(672108, 672508, by = 100)))
 ```
 ## Summarize _sf chunk
 

@@ -1,0 +1,211 @@
+{
+  "name": "wetlsp_pixel_timeseries_parquet",
+  "title": "WetLSP Pixel-Level EVI Time Series (Parquet)",
+  "version": "1.0.0",
+  "description": "Pixel-level EVI time-series data derived from the WetLSP processing pipeline. Provided as Parquet datasets for scalable, cloud-native access (Arrow/DuckDB/Spark) and interactive visualization. Scientifically equivalent to the companion sf RDS object for this site/radius.",
+  "generated": {
+    "date_utc": "2026-01-30T16:17:38Z",
+    "format": "application/json"
+  },
+  "directory_structure": {
+    "root": "tables_sf_fetch_<RADIUS>m/",
+    "paths": [
+      {
+        "path": "pixels_geom_ds/",
+        "description": "Geometry dataset (pixel locations). One row per pixel. Stored in batch parquet files (geom_batch_###.parquet)."
+      },
+      {
+        "path": "pixels_timeseries_ds/",
+        "description": "Long-format time-series dataset. One row per pixel × date × series. Stored in batch parquet files (ts_batch_###.parquet)."
+      },
+      {
+        "path": "pixels_meta_ds/meta.parquet",
+        "description": "Key–value metadata including CRS WKT, site_id, and radius_m."
+      },
+      {
+        "path": "README.md",
+        "description": "Human-readable documentation."
+      }
+    ]
+  },
+  "datasets": [
+    {
+      "id": "pixels_geom_ds",
+      "format": "parquet",
+      "primary_key": [
+        "pixel_id"
+      ],
+      "files": "geom_batch_*.parquet",
+      "row_granularity": "one row per pixel",
+      "columns": [
+        {
+          "name": "pixel_id",
+          "type": "int32",
+          "description": "Stable unique pixel identifier used to join geometry to time series."
+        },
+        {
+          "name": "cell",
+          "type": "int32",
+          "description": "Original WetLSP cell index (source raster cell id)."
+        },
+        {
+          "name": "x",
+          "type": "float64",
+          "units": "map units (projected)",
+          "description": "Projected x coordinate of pixel centroid."
+        },
+        {
+          "name": "y",
+          "type": "float64",
+          "units": "map units (projected)",
+          "description": "Projected y coordinate of pixel centroid."
+        }
+      ],
+      "crs": {
+        "source": "pixels_meta_ds/meta.parquet",
+        "key": "crs_wkt",
+        "description": "CRS provided as WKT; typically projected (e.g., UTM)."
+      }
+    },
+    {
+      "id": "pixels_timeseries_ds",
+      "format": "parquet",
+      "primary_key": [
+        "pixel_id",
+        "series",
+        "date"
+      ],
+      "files": "ts_batch_*.parquet",
+      "row_granularity": "one row per pixel × date × series",
+      "columns": [
+        {
+          "name": "pixel_id",
+          "type": "int32",
+          "description": "Pixel identifier (joins to pixels_geom_ds)."
+        },
+        {
+          "name": "series",
+          "type": "string",
+          "allowed_values": [
+            "spline",
+            "raw"
+          ],
+          "description": "Time series type: spline (gap-filled daily) or raw (observed where available)."
+        },
+        {
+          "name": "date",
+          "type": "date32",
+          "description": "Observation date (UTC day)."
+        },
+        {
+          "name": "year",
+          "type": "int32",
+          "description": "Calendar year extracted from date (used for partitioning/filtering)."
+        },
+        {
+          "name": "evi",
+          "type": "float64",
+          "description": "Enhanced Vegetation Index value."
+        }
+      ],
+      "notes": [
+        "Not all pixels have data for all years.",
+        "Full daily coverage for 5 years typically yields 1825 spline rows per pixel.",
+        "Raw series may be sparser depending on cloud masking and acquisition frequency."
+      ]
+    },
+    {
+      "id": "pixels_meta_ds",
+      "format": "parquet",
+      "files": "meta.parquet",
+      "row_granularity": "key–value metadata",
+      "columns": [
+        {
+          "name": "key",
+          "type": "string",
+          "description": "Metadata key."
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "Metadata value."
+        }
+      ],
+      "expected_keys": [
+        {
+          "key": "crs_wkt",
+          "description": "Well-Known Text definition for CRS used by x/y."
+        },
+        {
+          "key": "site_id",
+          "description": "Flux tower site identifier (e.g., AT-Nsd)."
+        },
+        {
+          "key": "radius_m",
+          "description": "Extraction radius in meters."
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "type": "join",
+      "left": {
+        "dataset": "pixels_timeseries_ds",
+        "keys": [
+          "pixel_id"
+        ]
+      },
+      "right": {
+        "dataset": "pixels_geom_ds",
+        "keys": [
+          "pixel_id"
+        ]
+      },
+      "description": "Join time series rows to pixel coordinates."
+    }
+  ],
+  "related_products": [
+    {
+      "id": "wetlsp_pheno_netcdf",
+      "pattern": "netcdf/WetLSP_<year>.nc",
+      "description": "Phenometrics raster layers (spatial summary metrics); does not contain full pixel × day time series."
+    },
+    {
+      "id": "sf_all_rds",
+      "pattern": "<site>_evi_timeseries_fetch_sf_<RADIUS>m.rds",
+      "description": "sf object with geometry plus list-columns for raw/spline dates and EVI values; equivalent content to Parquet datasets."
+    }
+  ],
+  "performance": {
+    "compression": "zstd",
+    "recommended_engines": [
+      "arrow",
+      "duckdb",
+      "polars",
+      "spark"
+    ],
+    "usage_notes": [
+      "Prefer filtering by year/date before collect() to avoid loading full dataset into memory.",
+      "For interactive apps, query subsets (e.g., one day, one year, or spatial window) rather than full scans."
+    ]
+  },
+  "citation": [
+    {
+      "type": "article",
+      "text": "Moon, M. et al. (2022). Wetland Land Surface Phenology from PlanetScope Imagery. Scientific Data.",
+      "doi": "10.1038/s41597-022-01570-5"
+    }
+  ],
+  "contact": [
+    {
+      "name": "Gavin McNicol",
+      "affiliation": "University of Illinois Chicago",
+      "email": "gmcnicol@uic.edu"
+    },
+    {
+      "name": "WetLSP GitHub",
+      "url": "https://github.com/McNicol-Lab/WetLSP"
+    }
+  ]
+}

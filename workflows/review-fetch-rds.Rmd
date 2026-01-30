@@ -1,0 +1,182 @@
+---
+title: "extract fetch pixels"
+author: "Gavin McNicol"
+date: "2026-01-22"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  fig.width = 8,
+  fig.height = 5
+)
+
+# Prefer an explicit project root (assumes you knit from the Review/ folder or project root)
+# If you use an RStudio Project, set your working directory to the project root before knitting.
+```
+
+## Purpose: Review (format, content, visualization) the final output of the WetLSP processing pipeline.
+
+```{r libraries}
+required_packages <- c(
+  "terra", "sf", "tidyverse", "rjson", "geojsonR", "ncdf4"
+)
+
+load_or_stop <- function(pkgs) {
+  missing <- pkgs[!vapply(pkgs, requireNamespace, FUN.VALUE = logical(1), quietly = TRUE)]
+  if (length(missing) > 0) {
+    stop(
+      "Missing packages: ", paste(missing, collapse = ", "),
+      "\nInstall them (once) via install.packages(c(...)) and re-knit."
+    )
+  }
+  invisible(lapply(pkgs, library, character.only = TRUE))
+}
+
+load_or_stop(required_packages)
+
+source("../pipeline/validation/wetlsp-helpers.R")
+```
+
+
+## REVIEW
+
+## 1. Load and basic structure checks
+
+NOTE: for multi-part RDS sites use this chunk first
+
+```{r}
+site_name <- "BR-Npw"
+part_paths <- list.files(
+  path   = file.path(site_dir, out_subdir),
+  pattern = paste0(
+    "^", site_name,
+    "-evi-timeseries-fetch-sf-",
+    radius_m, "m-part\\d+of\\d+\\.rds$"
+  ),
+  full.names = TRUE
+)
+
+stopifnot(length(part_paths) > 1)
+part_paths <- sort(part_paths)
+part_paths
+```
+
+
+```{r}
+sf_all <- readRDS(part_paths[1])
+
+sf_all
+st_crs(sf_all)
+```
+
+## 2. Spatial footprint + fetch circle overlay
+
+```{r}
+library(ggplot2)
+
+ggplot(sf_all) +
+  geom_sf(size = 0.3, alpha = 0.6) +
+  coord_sf() +
+  labs(
+    title = paste0(site_name, " fetch-limited EVI pixels"),
+    subtitle = paste("n =", nrow(sf_all))
+  ) +
+  theme_minimal()
+```
+
+
+
+## 3. Pixel density & geometry sanity
+
+```{r}
+# Are there duplicate geometries?
+any(duplicated(st_as_binary(st_geometry(sf_all))))
+
+# Bounding box size (meters)
+st_bbox(sf_all)
+```
+
+## 4. Time-series presence checks (very important)
+
+```{r}
+summary(lengths(sf_all$evi_raw))
+summary(lengths(sf_all$evi_spline))
+
+mean(lengths(sf_all$evi_raw) > 0)
+mean(lengths(sf_all$evi_spline) > 0)
+```
+
+## 5. Pick a few random pixels and plot their time series
+
+```{r}
+library(tidyverse)
+library(purrr)
+
+# set.seed(1)
+pix <- sample(seq_len(nrow(sf_all)), 8)
+
+plot_df <- map_dfr(pix, function(i) {
+
+  tibble(
+    pixel = paste("Pixel", i),
+    date  = c(
+      as.Date(sf_all$dates_spline[[i]]),
+      as.Date(sf_all$dates_raw[[i]])
+    ),
+    evi   = c(
+      sf_all$evi_spline[[i]],
+      sf_all$evi_raw[[i]]
+    ),
+    type  = c(
+      rep("Spline",   length(sf_all$evi_spline[[i]])),
+      rep("Observed", length(sf_all$evi_raw[[i]]))
+    )
+  )
+})
+
+# ---- plot ----
+ggplot(plot_df, aes(x = date, y = evi)) +
+  geom_line(
+    data = filter(plot_df, type == "Spline"),
+    color = "darkgreen",
+    linewidth = 1.3
+  ) +
+  geom_point(
+    data = filter(plot_df, type == "Observed"),
+    color = "grey40",
+    size = 1.6,
+    alpha = 0.6
+  ) +
+  facet_wrap(~ pixel, ncol = 2, scales = "free_y") +
+  labs(
+    x = "Date",
+    y = "EVI"
+  ) +
+  theme_bw() +
+  scale_x_date(limits = c(as.Date(ymd("2021-01-01")), as.Date(ymd("2024-12-31")))) +
+  scale_y_continuous(limits = c(0, 1)) +
+  theme(
+    strip.background = element_rect(fill = "grey95"),
+    panel.grid.minor = element_blank()
+  )
+```
+
+```{r}
+PickPixelInteractive(sf_all)
+ViewPixelTimeseries(sf_all, cell_vec = c(seq(661825, 661855, by = 5)))
+ViewPixelViolin(sf_all, cell_vec = c(seq(725562, 726562, by = 100)))
+ViewPixelBoxplot(sf_all, cell_vec = c(seq(624199, 624845, by = 100)))
+
+ViewPixelBoxplot(sf_all, cell_vec = c(725562))
+ViewPixelTimeseries(sf_all, cell_vec = c(935077, 800595, 837820, 813763, 538011))
+```
+
+
+
+
+
+

@@ -1,0 +1,52 @@
+---
+title: "core-site-selection"
+author: "Gavin McNicol"
+date: "2026-01-29"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(sf)
+library(rnaturalearth)
+library(patchwork)
+
+source("../pipeline/plot_us_with_ak_inset.R")
+```
+
+# Choosing Core `wetlsp` Sites
+
+`wetlsp` includes 100 global wetland and rice sites, including seasonally inundated systems and tall towers, that will consists of a large datset (~0.5 TB). To streamling data transfer and exploratory analysis for sites most likely to lead to impactful science, I use this workflow to identify sites (first AmeriFlux and NEON, then globally sourced) that contained the best overlap between AmeriFlux BASE flux data and high quality and continuous PlaneScope Dove II-derived EVI coverage.
+
+
+
+```{r get-metadata}
+metadata <- read_csv("../metadata/wetlsp-site-metadata.csv")
+```
+
+```{r}
+glimpse(metadata)
+```
+
+Simplify the metadata
+
+```{r}
+subset <- metadata %>% 
+  select(base_network, site_id, lat, lon, wetlsp_processed, contains("base_"), contains("wetlsp_")) %>% 
+  mutate(base_year_sum = base_2021 + base_2022 + base_2023 + base_2024, .keep = "unused") %>% 
+  mutate(wetlsp_year_sum = wetlsp_2021 + wetlsp_2022 + wetlsp_2023 + wetlsp_2024, .keep = "unused") %>% 
+  filter(base_network == "amf",
+         base_year_sum >= 3,
+         wetlsp_year_sum >= 3) %>% 
+  arrange(lat)
+subset %>% pull(site_id) %>% as.factor() %>% levels()
+```
+
+look at subset
+
+```{r}
+plot_us_with_ak_inset(subset)
+```
+
+

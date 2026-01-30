@@ -1,0 +1,192 @@
+---
+title: "wetlsp-timeseries"
+author: "Gavin McNicol"
+date: "2026-01-23"
+output: html_document
+---
+
+# =============================================================================
+# analysis/evi_daily_to_gif.Rmd (the “driver”)
+# =============================================================================
+# In your Rmd you keep only parameterization + function calls.
+# (No writing block here; just paste into your Rmd.)
+# =============================================================================
+
+## PURPOSE:
+To create the tower fetch-based sf.rds data object for storage on ESS-DIVE
+To create the parquet files from this object for temporary storage and interaction on CyVerse
+
+```{r setup}
+source("../pipeline/extract_fetch_pixels.R")
+source("../pipeline/combine_fetch_sf.R")
+source("../pipeline/combine_fetch_sf_progress_split4.R")
+source("../pipeline/stitch_fetch_sf_parts.R")
+
+source("../pipeline/timeseries/R:00_packages.R")
+source("../pipeline/timeseries/R:10_io_resolve.R")
+source("../pipeline/timeseries/R:20_geometry_template.R")
+source("../pipeline/timeseries/R:30_daily_tifs.R")
+source("../pipeline/timeseries/R:40_gif_ggplot.R")
+
+source("../pipeline/write_chunks_to_parquet_ds.R")
+# source("pipeline/rebuild_sf_from_parquet.R")
+
+load_wetlsp_packages()
+
+# define properties of extraction
+site_id <- "BR-Npw"
+radius_m <- 1500
+thin <- 1
+
+site_dir <- file.path("../output", site_id)
+geojson_path <- file.path("geojson/AMFLX", paste0(site_id, ".geojson"))
+out_subdir <- paste0("tables_sf_fetch_", radius_m, "m")
+
+sf_all_path <- file.path(site_dir, out_subdir, paste0(site_id, "-evi-timeseries-fetch-sf-", radius_m, "m.rds"))
+```
+
+## Extract pixels across all years from sf timeseries chunks for given site at fixed radius (m)
+
+```{r}
+site_dir <- paste0("../output/", site_id)  # adjust to your local path
+old_site_id <- "BR-Npw" # for geojson file
+res <- extract_fetch_pixels(
+  site_dir     = site_dir,
+  site_id      = site_id,
+  geojson_path = paste0("../geojson/AMFLX/", old_site_id, ".geojson"),
+  radius_m     = radius_m,
+  out_subdir = out_subdir
+)
+```
+
+## Combine extracted pixels into single sf object
+
+```{r}
+# combine_fetch_sf_progress(
+#   fetch_dir = file.path(site_dir, out_subdir),
+#   site_dir  = site_dir,
+#   site_id   = site_id,
+#   radius_m = radius_m,
+#   progress_every = 10,
+# )
+```
+
+
+```{r}
+combine_fetch_sf_progress_split4(
+  fetch_dir = file.path(site_dir, out_subdir),
+  site_dir  = site_dir,
+  site_id   = site_id,
+  radius_m  = radius_m,
+  n_parts   = 4,
+  progress_every = 10
+)
+```
+
+## Stitch into single .rds (will not work if RAM < 16 GB)
+
+```{r}
+part_paths <- list.files(
+  path   = file.path(site_dir, out_subdir),
+  pattern = paste0(
+    "^", site_id,
+    "-evi-timeseries-fetch-sf-",
+    radius_m, "m-part\\d+of\\d+\\.rds$"
+  ),
+  full.names = TRUE
+)
+
+stopifnot(length(part_paths) > 1)
+part_paths <- sort(part_paths)
+part_paths
+
+
+stitch_fetch_sf_parts(
+  part_paths = part_paths,
+  out_path   = sf_all_path
+)
+```
+
+
+## Convert combined sf object into parquet
+
+```{r}
+# Input candidates (prefer chunk files if they exist, else part files)
+chunk_dir <- file.path(site_dir, out_subdir)
+
+chunk_files <- sort(list.files(
+  chunk_dir,
+  pattern = "^chunk_\\d{3}_evi_sf\\.rds$",
+  full.names = TRUE
+))
+
+if (length(chunk_files) == 0) {
+  # NEW: four-part naming (edit patterns to match your actual names)
+  chunk_files <- sort(list.files(
+    chunk_dir,
+    pattern = "(^part_\\d+\\.rds$)|(^sf_all_part_\\d+\\.rds$)|(^.*_part_\\d+\\.rds$)",
+    full.names = TRUE
+  ))
+}
+
+stopifnot(length(chunk_files) > 0)
+
+# output dataset folders
+out_geom <- file.path(site_dir, out_subdir, "pixels_geom_ds")
+out_ts   <- file.path(site_dir, out_subdir, "pixels_timeseries_ds")
+out_meta <- file.path(site_dir, out_subdir, "pixels_meta_ds")
+
+write_chunks_to_parquet_ds(
+  chunk_files = chunk_files,
+  out_geom    = out_geom,
+  out_ts      = out_ts,
+  out_meta    = out_meta,
+  site_id     = site_id,
+  radius_m    = radius_m,
+  batch_k     = 1L,      # <-- IMPORTANT: for 4 huge parts, flush each part immediately
+  overwrite   = TRUE
+)
+
+message("Done.")
+message("Geom: ", out_geom)
+message("TS:   ", out_ts)
+message("Meta: ", out_meta)
+```
+
+## Parquet - RDS equivalence report
+
+```{r}
+library(arrow)
+library(dplyr)
+
+geom_ds <- open_dataset(out_geom)
+ts_ds   <- open_dataset(out_ts)
+
+# 1) How many pixels?
+n_geom <- geom_ds %>% summarise(n = n_distinct(pixel_id)) %>% collect()
+n_ts   <- ts_ds   %>% summarise(n = n_distinct(pixel_id)) %>% collect()
+print(n_geom); print(n_ts)
+
+# 2) Spline coverage summary
+ts_cov <- ts_ds %>%
+  filter(series == "spline") %>%
+  summarise(
+    min_date = min(date),
+    max_date = max(date),
+    n_rows   = n()
+  ) %>% collect()
+print(ts_cov)
+
+# 3) Spot-check 20 random pixels: compare lengths (cheap)
+pix <- geom_ds %>% select(pixel_id) %>% collect()
+set.seed(1)
+pix_samp <- sample(pix$pixel_id, 20)
+
+len_tbl <- ts_ds %>%
+  filter(pixel_id %in% pix_samp, series == "spline") %>%
+  group_by(pixel_id) %>%
+  summarise(n = n()) %>%
+  collect()
+print(len_tbl)
+```
+

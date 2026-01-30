@@ -38,16 +38,16 @@ load_or_stop <- function(pkgs) {
 
 load_or_stop(required_packages)
 
-source("pipeline/netcdf-metadata-populate.R")
-source("pipeline/nc-patch.R")
+source("../pipeline/netcdf-metadata-populate.R")
+source("../pipeline/nc-patch.R")
 
 ```
 
 ```{r paths}
 # Edit these to match your local layout
-path_geojson   <- "geojson/AMFLX"
-path_output    <- "output"
-path_geotiffs  <- "geotiffs"
+path_geojson   <- "../geojson/AMFLX"
+path_output    <- "../output"
+# path_geotiffs  <- "../geotiffs"
 path_netcdf <- "netcdf"
 
 # Convenience helper
@@ -57,7 +57,7 @@ site_dir_helper <- function(site) file.path(path_output, site)
 ## choose site
 
 ```{r geojson-check}
-site_example <- "AT-Nsd"
+site_example <- "BR-SM1"
 site_dir <- site_dir_helper(site_example)
 ```
 
@@ -66,20 +66,20 @@ site_dir <- site_dir_helper(site_example)
 ```{r}
 for(i in 2021:2024) {
   
-define_path <- paste0("output/AT-Nsd/netcdf/WetLSP_", i, ".nc")
-define_patch_path <- paste0("output/AT-Nsd/netcdf/AT-Nsd-wetlsp-", i, ".nc")
+define_path <- paste0("../output/", site_example, "/netcdf/WetLSP_", i, ".nc")
+define_patch_path <- paste0("../output/", site_example, "/netcdf/", site_example, "-wetlsp-", i, ".nc")
 
     # Single file
     annotate_wetlsp_netcdf(
       nc_path = define_path,
-      site_id = "AT-Nsd",
-      year = 2023,
+      site_id = site_example,
+      year = i,
       creator_email = "gmcnicol@uic.edu",
       pipeline_version = "v1",
       years_included = "2021–2024"
     )
   
-  patch_cf_coords_and_grid_mapping(define_patch_path)
+  patch_cf_coords_and_grid_mapping(file.path(define_patch_path))
   
 }
 
@@ -102,7 +102,7 @@ define_patch_path <- paste0("output/AT-Nsd/netcdf/AT-Nsd-wetlsp-", i, ".nc")
 ## Check netcdf
 
 ```{r output}
-nc_path <- file.path(site_dir, "netcdf/AT-Nsd-wetlsp-2021.nc")
+nc_path <- file.path(define_patch_path)
 nc <- nc_open(nc_path)
 nc
 nc_close(nc)

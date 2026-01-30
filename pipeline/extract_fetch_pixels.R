@@ -1,8 +1,41 @@
 library(sf)
+library(terra)
 library(purrr)
 library(stringr)
 
 # ---- helpers ----
+### make template
+make_template_from_netcdf_or_sf <- function(nc_path = NULL, sf_ref, buffer_geom = NULL, pad_m = 0) {
+  stopifnot(inherits(sf_ref, "sf"))
+  
+  # 1) Start with NetCDF grid if provided
+  if (!is.null(nc_path) && file.exists(nc_path)) {
+    tmpl <- terra::rast(nc_path)[[1]]
+    
+    # If netcdf crs is empty, copy WKT from sf_ref
+    if (is.na(terra::crs(tmpl)) || terra::crs(tmpl) == "") {
+      terra::crs(tmpl) <- sf::st_crs(sf_ref)$wkt
+    }
+    
+    tmpl <- tmpl * NA
+  } else {
+    # 2) Fallback: template from sf geometry (less ideal; but consistent CRS)
+    sv <- terra::vect(sf_ref)
+    e  <- terra::ext(sv)
+    tmpl <- terra::rast(e, resolution = 3, crs = sf::st_crs(sf_ref)$wkt) * NA
+  }
+  
+  # Optional zoom template around buffer
+  tmpl_zoom <- NULL
+  if (!is.null(buffer_geom)) {
+    buf_sv <- terra::vect(buffer_geom)
+    e_zoom <- terra::ext(buf_sv)
+    if (pad_m > 0) e_zoom <- e_zoom + c(-pad_m, pad_m, -pad_m, pad_m)
+    tmpl_zoom <- terra::crop(tmpl, e_zoom)
+  }
+  
+  list(template = tmpl, template_zoom = tmpl_zoom)
+}
 
 # Create a radius buffer around a site point read from a GeoJSON.
 # - geojson_path: e.g. "geojson/AMFLX/AT-Nsd.geojson"

@@ -10,8 +10,15 @@ To run updated code:
 - Create directories listed at top of PLSP_Parameters_gm_v1.json and updated filepaths 
 - Use `00_img_download.py` to retrieve data via PlanetScope API into created `rawImage` dir
 - Run series of 5 processing scripts
-- Run `pipeline/netcdf-metadata-populate.R` to create final .nc phenometric files
-
+- Ignore `pipeline/validation` and `pipeline/timeseries` for downstream analysis/time series retention
+- Downstream `workflows`:
+  
+  * `nc-check-populate.Rmd` to output standardized .nc phenometric files per site per year (2021-2024)
+  * `core-site-selection.Rmd` to identify suitable sites with good coverage for analysis
+  * `review-final-wetlsp.Rmd` to inspect phenometric products by site-year and observeed and gap-filled values by site
+  * `wetlsp-timeseries.Rmd` to create fetch perimeter, extract and retain pixel-wise EVI (obs & filled) in .RDS 
+  * `review-fetch-rds.Rmd` to inspect the fetch perimeter and visualize/explore .RDS object
+ 
 Quirks:
 * Note that original geojson files must be stored within `/AMFLX` subdirectory 
 * `_gm_v1` workflow skips water mask steps in `03_LSP_script`, should not break process, but use if available

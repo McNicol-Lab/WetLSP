@@ -2,12 +2,15 @@
 
 **Fork:** Updated algorithms (July 2025) to derived a land surface phenology product from PlanetScope imagery for FLUXNET-CH4 v2 sites. Data developed and initially shared for wetland methane research applications in the McNicol ecophilab, the ESIIL AI for Natural Methane Working Group, and the USGS Powell Synthesis for Wetlands.
 
+Presently, the pipeline generate daily pixel-wise EVI after PS processing, filtering and gap-filling using smooth spline. These procedures could be revised and improved.
+
 To run updated code:  
 
 - Clone the repo into your workspace
 - Create directories listed at top of PLSP_Parameters_gm_v1.json and updated filepaths 
 - Use `00_img_download.py` to retrieve data via PlanetScope API into created `rawImage` dir
 - Run series of 5 processing scripts
+- Run `pipeline/netcdf-metadata-populate.R` to create final .nc phenometric files
 
 Quirks:
 * Note that original geojson files must be stored within `/AMFLX` subdirectory 

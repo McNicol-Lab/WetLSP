@@ -49,7 +49,9 @@ source("../pipeline/validation/wetlsp-helpers.R")
 NOTE: for multi-part RDS sites use this chunk first
 
 ```{r}
-site_name <- "BR-Npw"
+site_name <- "GF-Guy"
+site_dir <- file.path("../output", site_name)
+
 part_paths <- list.files(
   path   = file.path(site_dir, out_subdir),
   pattern = paste0(
@@ -65,9 +67,17 @@ part_paths <- sort(part_paths)
 part_paths
 ```
 
+## or for one rds
 
 ```{r}
-sf_all <- readRDS(part_paths[1])
+site_name <- "FR-LGt"
+radius_m <- 200
+site_dir <- file.path("../output", site_name)
+out_subdir <- paste0("tables_sf_fetch_", radius_m, "m")
+
+sf_all_path <- file.path(site_dir, out_subdir, paste0(site_name, "-evi-timeseries-fetch-sf-", radius_m, "m.rds"))
+
+sf_all <- readRDS(sf_all_path)
 
 sf_all
 st_crs(sf_all)
@@ -113,16 +123,42 @@ mean(lengths(sf_all$evi_spline) > 0)
 ## 5. Pick a few random pixels and plot their time series
 
 ```{r}
+PickPixelInteractive(sf_all)
+ViewPixelTimeseries(sf_all, cell_vec = c(seq(676446, 676846, by = 5)))
+ViewPixelViolin(sf_all, cell_vec = c(675123, 617804, 677831, 671202))
+ViewPixelBoxplot(sf_all, cell_vec = c(675123, 617804, 677831, 671202))
+
+ViewPixelBoxplot(sf_all, cell_vec = c(725562))
+ViewPixelTimeseries(sf_all, cell_vec = c(675123, 617804, 677831, 671202))
+```
+
+```{r}
 library(tidyverse)
 library(purrr)
 
+## random pixels
 # set.seed(1)
-pix <- sample(seq_len(nrow(sf_all)), 8)
+# pix <- sample(seq_len(nrow(sf_all)), 8)
 
-plot_df <- map_dfr(pix, function(i) {
+# selected pixels
+cell_vec <- c(
+  "1 - Road"  = 619033,
+  "2 - Clearing" = 965327,
+  "3 - More Trees" = 82571,
+  "4 - Trees"    = 565567
+)
+
+pix <- match(cell_vec, sf_all$cell)
+
+plot_df <- purrr::map_dfr(seq_along(pix), function(j) {
+
+  i <- pix[[j]]
+  label <- names(cell_vec)[[j]]
+  cell_id <- cell_vec[[j]]
 
   tibble(
-    pixel = paste("Pixel", i),
+    pixel = label,   # <- human-readable name
+    cell  = cell_id, # optional, keep for reference
     date  = c(
       as.Date(sf_all$dates_spline[[i]]),
       as.Date(sf_all$dates_raw[[i]])
@@ -163,16 +199,6 @@ ggplot(plot_df, aes(x = date, y = evi)) +
     strip.background = element_rect(fill = "grey95"),
     panel.grid.minor = element_blank()
   )
-```
-
-```{r}
-PickPixelInteractive(sf_all)
-ViewPixelTimeseries(sf_all, cell_vec = c(seq(661825, 661855, by = 5)))
-ViewPixelViolin(sf_all, cell_vec = c(seq(725562, 726562, by = 100)))
-ViewPixelBoxplot(sf_all, cell_vec = c(seq(624199, 624845, by = 100)))
-
-ViewPixelBoxplot(sf_all, cell_vec = c(725562))
-ViewPixelTimeseries(sf_all, cell_vec = c(935077, 800595, 837820, 813763, 538011))
 ```
 
 

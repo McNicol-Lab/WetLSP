@@ -33,7 +33,7 @@ Simplify the metadata
 
 ```{r}
 subset <- metadata %>% 
-  select(base_network, site_id, lat, lon, wetlsp_processed, contains("base_"), contains("wetlsp_")) %>% 
+  select(base_network, site_id, lat, lon, wetlsp_processed, contains("base_"), contains("wetlsp_"), phenocam) %>% 
   mutate(base_year_sum = base_2021 + base_2022 + base_2023 + base_2024, .keep = "unused") %>% 
   mutate(wetlsp_year_sum = wetlsp_2021 + wetlsp_2022 + wetlsp_2023 + wetlsp_2024, .keep = "unused") %>% 
   filter(base_network == "amf",
@@ -47,6 +47,11 @@ look at subset
 
 ```{r}
 plot_us_with_ak_inset(subset)
+```
+
+```{r}
+subset %>% 
+  filter(phenocam == 1)
 ```
 
 

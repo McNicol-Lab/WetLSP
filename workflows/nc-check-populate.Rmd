@@ -57,30 +57,37 @@ site_dir_helper <- function(site) file.path(path_output, site)
 ## choose site
 
 ```{r geojson-check}
-site_example <- "BR-SM1"
-site_dir <- site_dir_helper(site_example)
+site_examples <- c("FR-LGt", "GF-Guy", "GH-Ank")
 ```
 
 ## Populate netcdf
 
 ```{r}
-for(i in 2021:2024) {
-  
-define_path <- paste0("../output/", site_example, "/netcdf/WetLSP_", i, ".nc")
-define_patch_path <- paste0("../output/", site_example, "/netcdf/", site_example, "-wetlsp-", i, ".nc")
+years <- 2021:2024
 
-    # Single file
+for (site_example in site_examples) {
+
+  message("=== Site: ", site_example, " ===")
+  site_dir <- site_dir_helper(site_example)
+
+  for (yr in years) {
+
+    nc_in  <- file.path("..", "output", site_example, "netcdf",
+                        paste0("WetLSP_", yr, ".nc"))
+    nc_out <- file.path("..", "output", site_example, "netcdf",
+                        paste0(site_example, "-wetlsp-", yr, ".nc"))
+
     annotate_wetlsp_netcdf(
-      nc_path = define_path,
+      nc_path = nc_in,
       site_id = site_example,
-      year = i,
+      year = yr,
       creator_email = "gmcnicol@uic.edu",
       pipeline_version = "v1",
-      years_included = "2021–2024"
+      years_included = paste(range(years), collapse = "–")
     )
-  
-  patch_cf_coords_and_grid_mapping(file.path(define_patch_path))
-  
+
+    patch_cf_coords_and_grid_mapping(nc_out)
+  }
 }
 
 
@@ -102,9 +109,16 @@ define_patch_path <- paste0("../output/", site_example, "/netcdf/", site_example
 ## Check netcdf
 
 ```{r output}
-nc_path <- file.path(define_patch_path)
-nc <- nc_open(nc_path)
-nc
+site_to_check <- site_examples[2]
+year_to_check <- 2023
+
+define_patch_path <- file.path(
+  "..", "output", site_to_check, "netcdf",
+  paste0(site_to_check, "-wetlsp-", year_to_check, ".nc")
+)
+
+nc <- nc_open(define_patch_path)
+print(nc)
 nc_close(nc)
 ```
 

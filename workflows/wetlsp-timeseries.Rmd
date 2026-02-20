@@ -34,8 +34,9 @@ source("../pipeline/write_chunks_to_parquet_ds.R")
 load_wetlsp_packages()
 
 # define properties of extraction
-site_id <- "BR-Npw"
-radius_m <- 1500
+site_id <- "GF-Guy"
+old_site_id <- "NA-Par" 
+radius_m <- 3000
 thin <- 1
 
 site_dir <- file.path("../output", site_id)
@@ -49,7 +50,6 @@ sf_all_path <- file.path(site_dir, out_subdir, paste0(site_id, "-evi-timeseries-
 
 ```{r}
 site_dir <- paste0("../output/", site_id)  # adjust to your local path
-old_site_id <- "BR-Npw" # for geojson file
 res <- extract_fetch_pixels(
   site_dir     = site_dir,
   site_id      = site_id,
@@ -86,25 +86,25 @@ combine_fetch_sf_progress_split4(
 ## Stitch into single .rds (will not work if RAM < 16 GB)
 
 ```{r}
-part_paths <- list.files(
-  path   = file.path(site_dir, out_subdir),
-  pattern = paste0(
-    "^", site_id,
-    "-evi-timeseries-fetch-sf-",
-    radius_m, "m-part\\d+of\\d+\\.rds$"
-  ),
-  full.names = TRUE
-)
-
-stopifnot(length(part_paths) > 1)
-part_paths <- sort(part_paths)
-part_paths
-
-
-stitch_fetch_sf_parts(
-  part_paths = part_paths,
-  out_path   = sf_all_path
-)
+# part_paths <- list.files(
+#   path   = file.path(site_dir, out_subdir),
+#   pattern = paste0(
+#     "^", site_id,
+#     "-evi-timeseries-fetch-sf-",
+#     radius_m, "m-part\\d+of\\d+\\.rds$"
+#   ),
+#   full.names = TRUE
+# )
+# 
+# stopifnot(length(part_paths) > 1)
+# part_paths <- sort(part_paths)
+# part_paths
+# 
+# 
+# stitch_fetch_sf_parts(
+#   part_paths = part_paths,
+#   out_path   = sf_all_path
+# )
 ```
 
 
@@ -144,7 +144,7 @@ write_chunks_to_parquet_ds(
   site_id     = site_id,
   radius_m    = radius_m,
   batch_k     = 1L,      # <-- IMPORTANT: for 4 huge parts, flush each part immediately
-  overwrite   = TRUE
+  overwrite   = F
 )
 
 message("Done.")

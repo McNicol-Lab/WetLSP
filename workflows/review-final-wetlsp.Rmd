@@ -60,9 +60,9 @@ site_dir_helper <- function(site) file.path(path_output, site)
 This checks that the AOI exists, inspects CRS/extent, projects AOI to the raster CRS, and plots the overlay.
 
 ```{r geojson-check}
-site_example <- "BR-Npw"
-year_example <- "2022"
-layer_example <- "10_2022_EVIamp"
+site_example <- "FR-LGt"
+year_example <- "2024"
+layer_example <- "10_2024_EVIamp"
 site_dir <- site_dir_helper(site_example)
 
 r_path <- file.path(site_dir, path_geotiffs, year_example, paste0(layer_example, ".tif"))
@@ -177,8 +177,8 @@ wetlsp_names <- c(
 ```
 
 ```{r view-geotiffs}
-site_prod <- "BR-Npw"
-year_prod <- "2022"
+site_prod <- "FR-LGt"
+year_prod <- "2024"
 
 prod_files <- list.files(
   file.path(site_dir, path_geotiffs, year_prod),
@@ -188,11 +188,11 @@ prod_files <- list.files(
 
 stopifnot(length(prod_files) > 0)
 
-r_prod <- terra::rast(prod_files[10])
+r_prod <- terra::rast(prod_files[9])
 
 # If values are stored as scaled integers, divide by 10000 if appropriate.
 plot(r_prod / 10000,
-     main = paste0(site_prod, " – ", basename(prod_files[1]), " (scaled)"),
+     main = paste0(site_prod, " – ", basename(prod_files[9]), " (scaled)"),
      axes = TRUE)
 ```
 
@@ -222,7 +222,7 @@ if (file.exists(helpers_path)) {
 ```{r pixel-timeseries}
 sf_all <- readRDS(file.path(site_dir, "tables_sf", "chunk_100_evi_sf.rds"))
 PickPixelInteractive(sf_all)
-ViewPixelTimeseries(sf_all, cell_vec = c(seq(672108, 672508, by = 100)))
+ViewPixelTimeseries(sf_all, cell_vec = c(seq(612082, 612882, by = 100)))
 ```
 ## Summarize _sf chunk
 

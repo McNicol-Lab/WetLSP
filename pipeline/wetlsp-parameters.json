@@ -54,7 +54,25 @@
     "minResid":0.1,              
     "maxDistance":45,            
     "maxDespikeIterations":50, 
-    "MADspikeThresh":2,            
+    "MADspikeThresh":4,            
+    
+    "eviValidMin": -0.2,
+    "eviValidMax": 1.0,
+    
+    "secondSplineQC": true,
+    "ssqcMinAbs": 0.12,
+    "ssqcK": 4,
+    "ssqcWindowObs": 11,
+    "ssqcReturnObs": 3,
+    "ssqcReturnDays": 20,
+    "ssqcMaxIter": 3,
+    
+    "dormantFloorMode": "offseason",
+    "growingSeasonFrac": 0.25,
+    
+    "envelopeReweight": true,
+    "envelopeIterations": 3,
+    "envelopeMinWeight": 0.1,
     
     "splineBuffer":185,               
     "splineSpar":0.55,   

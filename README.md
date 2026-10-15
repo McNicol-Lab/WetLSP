@@ -4,6 +4,8 @@
 
 Presently, the pipeline generate daily pixel-wise EVI after PS processing, filtering and gap-filling using smooth spline. These procedures could be revised and improved.
 
+**QC update (branch `qc-outlier-fixes`):** outlier/zero screening, a second-spline dip filter, a seasonal dormant floor and envelope-weighted splines. See [pipeline/QC_CHANGES.md](pipeline/QC_CHANGES.md), which also lists the differences from Moon et al. (2022).
+
 To run updated code:  
 
 - Clone the repo into your workspace

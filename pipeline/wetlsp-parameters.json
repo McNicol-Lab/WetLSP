@@ -57,6 +57,7 @@
     "maxDistance":45,            
     "maxDespikeIterations":50, 
     "MADspikeThresh":4,            
+    "madTestMode": "off",
     
     "eviValidMin": -0.2,
     "eviValidMax": 1.0,
@@ -80,6 +81,7 @@
     
     "maskSplineOutsideData": true,
     "splineExtrapolateDays": 20,
+    "splineMaxGapDays": 90,
     
     "splineBuffer":185,               
     "splineSpar":0.55,   

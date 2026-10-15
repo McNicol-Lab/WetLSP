@@ -73,7 +73,19 @@ CheckSpike_MultiBand <- function(blue,red,vi, dates, pheno_pars){
     # (~1.5 at summer EVI ~0.5) so madTest almost never fired.
     MAD <- median(abs(eDiff - Md), na.rm = TRUE)
 
-    madTest <- eDiff < (Md-(z*MAD/0.6745)) | eDiff > (Md+(z*MAD/0.6745))
+    # madTestMode: "off" (default; v0.1/PLSP behaviour, where the MAD bug left the
+    # test effectively disabled), "negative" (dips only), or "both" (two-sided).
+    # Turning the corrected two-sided test on removed ~25% of Tellabs observations,
+    # peeling off whole plateaus over the 50 iterations, so it stays off by default;
+    # dips are handled by SecondSplineQC instead.
+    madMode <- .qcpar(pheno_pars, "madTestMode", "off")
+    if (identical(madMode, "both")) {
+      madTest <- eDiff < (Md-(z*MAD/0.6745)) | eDiff > (Md+(z*MAD/0.6745))
+    } else if (identical(madMode, "negative")) {
+      madTest <- eDiff < (Md-(z*MAD/0.6745))
+    } else {
+      madTest <- rep(FALSE, length(eDiff))
+    }
     
     
     ##
@@ -906,7 +918,21 @@ DoPhenologyPlanet <- function(blue, green, red, nir, dates, phenYrs, params, wat
           tol  <- .qcpar(pheno_pars, "splineExtrapolateDays", 20)
           if (length(obsD)) outV[outD < min(obsD) - tol | outD > max(obsD) + tol] <- NA
           else outV[] <- NA
+          # interior gaps: a smoothing spline extrapolates linearly across long
+          # gaps (Tellabs v1.0 test: values > 3 across a Jan-Sep gap), so blank days
+          # farther than splineMaxGapDays/2 from the nearest valid observation
+          maxGap <- .qcpar(pheno_pars, "splineMaxGapDays", 90)
+          if (length(obsD) && is.finite(maxGap)) {
+            oN <- sort(as.numeric(obsD)); xN <- as.numeric(outD)
+            k  <- findInterval(xN, oN)
+            dl <- ifelse(k >= 1, xN - oN[pmax(k, 1)], Inf)
+            dr <- ifelse(k < length(oN), oN[pmin(k + 1, length(oN))] - xN, Inf)
+            outV[(dl + dr) > maxGap & pmin(dl, dr) > tol] <- NA
+          }
         }
+        # physically impossible spline values are never published
+        outV[!is.na(outV) & (outV > .qcpar(pheno_pars, "eviValidMax", 1) |
+                             outV < .qcpar(pheno_pars, "eviValidMin", -0.2))] <- NA
         ts_sink(
           pix_meta    = pix_meta,
           dates_raw   = NULL,                   # already sent earlier

@@ -30,6 +30,7 @@ CheckSpike_MultiBand <- function(blue,red,vi, dates, pheno_pars){
     rS <- red_og[good]
     eS <- vi_og[good] 
     dS <- dates_og[good] #subset date vector 
+    if (length(dS) < 3) {break}  # need at least 3 obs for the 3-point tests
     
     ind1 <- 1:(length(dS)-2)  #Get indices for first, second, and third images
     ind2 <- 2:(length(dS)-1)
@@ -66,10 +67,25 @@ CheckSpike_MultiBand <- function(blue,red,vi, dates, pheno_pars){
 
     z   <- pheno_pars$MADspikeThresh
 
-    Md  <- median(eDiff)
-    MAD <- median(abs(eS[ind2]-Md))
+    Md  <- median(eDiff, na.rm = TRUE)
+    # FIX (qc-outlier-fixes): MAD must be of the double-difference eDiff, not of the
+    # EVI levels. The old line `median(abs(eS[ind2]-Md))` inflated the threshold
+    # (~1.5 at summer EVI ~0.5) so madTest almost never fired.
+    MAD <- median(abs(eDiff - Md), na.rm = TRUE)
 
-    madTest <- eDiff < (Md-(z*MAD/0.6745)) | eDiff > (Md+(z*MAD/0.6745))
+    # madTestMode: "off" (default; v0.1/PLSP behaviour, where the MAD bug left the
+    # test effectively disabled), "negative" (dips only), or "both" (two-sided).
+    # Turning the corrected two-sided test on removed ~25% of Tellabs observations,
+    # peeling off whole plateaus over the 50 iterations, so it stays off by default;
+    # dips are handled by SecondSplineQC instead.
+    madMode <- .qcpar(pheno_pars, "madTestMode", "off")
+    if (identical(madMode, "both")) {
+      madTest <- eDiff < (Md-(z*MAD/0.6745)) | eDiff > (Md+(z*MAD/0.6745))
+    } else if (identical(madMode, "negative")) {
+      madTest <- eDiff < (Md-(z*MAD/0.6745))
+    } else {
+      madTest <- rep(FALSE, length(eDiff))
+    }
     
     
     ##
@@ -96,6 +112,26 @@ Smooth_VI <- function(x, dates, pred_dates, weights, pheno_pars, dormant_value) 
     ind <- !is.na(x)  
     # smooth with a spline to get continuous daily series
     spl <- smooth.spline(dates[ind], x[ind], spar=pheno_pars$splineSpar, w=weights[ind])
+    # Upper-envelope reweighting (qc-outlier-fixes): residual dips (cloud shadow,
+    # haze, mixed pixels) bias VI low, so iteratively down-weight observations
+    # below the current fit and refit. Toggle with pheno_pars$envelopeReweight.
+    if (isTRUE(.qcpar(pheno_pars, "envelopeReweight", TRUE))) {
+      nIter <- .qcpar(pheno_pars, "envelopeIterations", 3)
+      minW  <- .qcpar(pheno_pars, "envelopeMinWeight", 0.1)
+      xd <- as.numeric(dates[ind]); xv <- x[ind]; w0 <- as.numeric(weights[ind])
+      for (it in seq_len(nIter)) {
+        fit_i <- predict(spl, xd)$y
+        r <- xv - fit_i
+        sc <- median(abs(r), na.rm = TRUE) / 0.6745
+        if (!is.finite(sc) || sc <= 0) break
+        # points on/above the fit keep full weight; points below decay with
+        # residual size (|r| = 3 robust sigma -> minW)
+        wr <- ifelse(r >= 0, 1, pmax(minW, 1 - (abs(r) / (3 * sc))))
+        spl_new <- try(smooth.spline(xd, xv, spar=pheno_pars$splineSpar, w=w0*wr), silent=TRUE)
+        if (inherits(spl_new, "try-error")) break
+        spl <- spl_new
+      }
+    }
     # weighted version
     xSmooth <- predict(spl, as.numeric(pred_dates))$y
     # screen and fill values less than the the dormant value
@@ -525,6 +561,88 @@ calculateWeights <- function(smoothMat_Masked, numDaysFit, numYrs, pheno_pars) {
 # Calculate pheno metrics for each pixel
 # Written by Douglas Bolton, and updated by Minkyu Moon  
 #---------------------------------------------------------------------
+#----------------------------------------------------------
+# QC helpers (qc-outlier-fixes)
+#----------------------------------------------------------
+# Get optional parameter with default (keeps old parameter JSONs working)
+.qcpar <- function(pars, name, default) {
+  v <- pars[[name]]
+  if (is.null(v) || length(v) == 0) default else v
+}
+
+# Per-observation QC flag codes written alongside the raw series (qc_raw)
+QC_CODES <- c(ok = 0L, invalid = 1L, despike = 2L, second_spline = 3L,
+              inseason_subfloor = 4L, floored = 5L)
+
+# Rolling-median baseline on valid observations (window = +/- halfDays, or
+# an odd number of observations if halfDays is NULL)
+.rollingBaseline <- function(vi, dnum, win_obs = 11, half_days = NULL) {
+  n <- length(vi); base <- rep(NA_real_, n)
+  ok <- which(!is.na(vi)); if (length(ok) == 0) return(base)
+  h <- floor(win_obs / 2)
+  for (k in seq_along(ok)) {
+    if (!is.null(half_days)) {
+      sel <- ok[abs(dnum[ok] - dnum[ok[k]]) <= half_days]
+    } else {
+      sel <- ok[max(1, k - h):min(length(ok), k + h)]
+    }
+    base[ok[k]] <- median(vi[sel])
+  }
+  base
+}
+
+#----------------------------------------------------------
+# Second-spline / return-to-baseline dip filter
+# Flags points well below a rolling-median baseline that return to near the
+# baseline within ssqcReturnObs later observations / ssqcReturnDays days.
+# Catches multi-acquisition dips the 3-point despike misses.
+#----------------------------------------------------------
+SecondSplineQC <- function(vi, dates, pheno_pars) {
+  dnum <- as.numeric(dates)
+  minAbs  <- .qcpar(pheno_pars, "ssqcMinAbs", 0.12)
+  kMAD    <- .qcpar(pheno_pars, "ssqcK", 4)
+  winObs  <- .qcpar(pheno_pars, "ssqcWindowObs", 11)
+  halfD   <- pheno_pars[["ssqcWindowHalfDays"]]   # optional, overrides winObs
+  retObs  <- .qcpar(pheno_pars, "ssqcReturnObs", 3)
+  retDays <- .qcpar(pheno_pars, "ssqcReturnDays", 20)
+  maxIter <- .qcpar(pheno_pars, "ssqcMaxIter", 3)
+
+  flags <- rep(FALSE, length(vi))
+  v <- vi
+  for (it in seq_len(maxIter)) {
+    ok <- which(!is.na(v)); if (length(ok) < 5) break
+    base <- .rollingBaseline(v, dnum, winObs, halfD)
+    dev  <- v - base
+    mad  <- median(abs(dev[ok] - median(dev[ok]))) / 0.6745
+    thr  <- max(minAbs, kMAD * ifelse(is.finite(mad), mad, 0))
+    cand <- ok[dev[ok] < -thr]
+    if (length(cand) == 0) break
+    newf <- logical(0)
+    for (j in cand) {
+      pos <- match(j, ok)
+      # "return" = a LATER obs (within retObs obs and retDays days) back near
+      # baseline. Requiring a later return protects genuine abrupt drops
+      # (mowing, flooding, fire) that stay low. If there is NO later valid obs
+      # within retDays (dip sits at the edge of a data gap), an EARLIER obs
+      # near baseline is accepted instead.
+      nxt <- if (pos < length(ok)) ok[(pos + 1):min(length(ok), pos + retObs)] else integer(0)
+      nxt <- nxt[(dnum[nxt] - dnum[j]) <= retDays]
+      # skip over other candidates in the same dip when judging "later"
+      nxt_nb <- nxt[!(nxt %in% cand)]
+      if (length(nxt_nb) == 0) {
+        prv <- if (pos > 1) ok[max(1, pos - retObs):(pos - 1)] else integer(0)
+        nb  <- prv[(dnum[j] - dnum[prv]) <= retDays]
+      } else nb <- nxt
+      # returned = back to within 0.5*thr below baseline, or above it
+      if (length(nb) && any(dev[nb] > -0.5 * thr)) newf <- c(newf, j)
+    }
+    newf <- unique(newf)
+    if (length(newf) == 0) break
+    flags[newf] <- TRUE; v[newf] <- NA
+  }
+  flags
+}
+
 #new optional parameters
 DoPhenologyPlanet <- function(blue, green, red, nir, dates, phenYrs, params, waterMask,
                               ts_sink = NULL, pix_meta = NULL) {
@@ -539,6 +657,26 @@ DoPhenologyPlanet <- function(blue, green, red, nir, dates, phenYrs, params, wat
     
     #EVI 
     vi <- (2.5 * (nir - red)) / (nir + 6*red - 7.5*blue + 1)
+    qc <- rep(QC_CODES[["ok"]], length(vi))
+
+    # Invalid-value screen (qc-outlier-fixes): fill/zero bands and impossible EVI -> NA
+    invalid <- is.na(blue) | is.na(green) | is.na(red) | is.na(nir) | !is.finite(vi)
+    if (isTRUE(.qcpar(pheno_pars, "maskNegativeValues", TRUE))) {
+      invalid <- invalid | blue <= 0 | green <= 0 | red <= 0 | nir <= 0
+    }
+    # Fill/overflow values: Tellabs step-02 chunks contain 4294967296 (2^32) in all
+    # bands, which gives EVI exactly 0 and passes the EVI range test. Reflectance
+    # above reflectanceValidMax (scaled 0-1) is treated as invalid.
+    rmax <- .qcpar(pheno_pars, "reflectanceValidMax", 1.5)
+    invalid <- invalid | blue > rmax | green > rmax | red > rmax | nir > rmax
+    # exact-zero EVI only arises from nir == red (fill pattern), never from real data
+    if (isTRUE(.qcpar(pheno_pars, "maskExactZeroVI", TRUE))) invalid <- invalid | vi == 0
+    invalid <- invalid | vi < .qcpar(pheno_pars, "eviValidMin", -0.2) |
+                         vi > .qcpar(pheno_pars, "eviValidMax", 1)
+    invalid[is.na(invalid)] <- TRUE
+    qc[invalid & !is.na(vi)] <- QC_CODES[["invalid"]]
+    vi[invalid] <- NA
+    blue[invalid] <- NA; red[invalid] <- NA
     #EVI2: vi   <- 2.5*(nir - red) / (nir + 2.4*red + 1)
     
     
@@ -551,12 +689,45 @@ DoPhenologyPlanet <- function(blue, green, red, nir, dates, phenYrs, params, wat
     
     # Spikes check, and remove
     spikes     <- CheckSpike_MultiBand(blue, red, vi, dates, pheno_pars)
+    spikes[is.na(spikes)] <- FALSE
+    qc[spikes & !is.na(vi)] <- QC_CODES[["despike"]]
     vi[spikes] <- NA
-    
-    # Replace negative VIs with dormant value
+
+    # Second-spline QC: remove dips that return to baseline (qc-outlier-fixes)
+    if (isTRUE(.qcpar(pheno_pars, "secondSplineQC", TRUE))) {
+      ssf <- SecondSplineQC(vi, dates, pheno_pars)
+      qc[ssf] <- QC_CODES[["second_spline"]]
+      vi[ssf] <- NA
+    }
+
+    # Dormant value (guarded against NA: fall back to all years, then 0)
     dormIms <- dates >= pheno_pars$dormStart & dates <= pheno_pars$dormEnd
-    vi_dorm <- quantile(vi[dormIms & vi>0],probs=pheno_pars$dormantQuantile,na.rm=T)   # Calc vi dormant value using non-negative VIs
-    vi[vi < vi_dorm] <- vi_dorm
+    vi_dorm <- suppressWarnings(quantile(vi[dormIms & vi>0],probs=pheno_pars$dormantQuantile,na.rm=T))   # Calc vi dormant value using non-negative VIs
+    if (!is.finite(vi_dorm)) vi_dorm <- suppressWarnings(quantile(vi[vi>0],probs=pheno_pars$dormantQuantile,na.rm=T))
+    if (!is.finite(vi_dorm)) vi_dorm <- 0
+    vi_dorm <- unname(vi_dorm)
+
+    # Dormant floor. dormantFloorMode:
+    #   "all"        legacy: every sub-floor value is raised to vi_dorm
+    #   "offseason"  (default) sub-floor values raised only outside the growing
+    #                season; in-season sub-floor values are set to NA
+    # Growing season = rolling baseline above vi_dorm + frac*(p95 - vi_dorm)
+    sub <- which(!is.na(vi) & vi < vi_dorm)
+    floorMode <- .qcpar(pheno_pars, "dormantFloorMode", "offseason")
+    if (length(sub)) {
+      if (identical(floorMode, "all")) {
+        qc[sub] <- QC_CODES[["floored"]]; vi[sub] <- vi_dorm
+      } else {
+        base <- .rollingBaseline(vi, as.numeric(dates), .qcpar(pheno_pars, "ssqcWindowObs", 11),
+                                 pheno_pars[["ssqcWindowHalfDays"]])
+        p95  <- quantile(vi, 0.95, na.rm = TRUE)
+        frac <- .qcpar(pheno_pars, "growingSeasonFrac", 0.25)
+        inSeason <- !is.na(base) & base > vi_dorm + frac * (p95 - vi_dorm)
+        ins <- sub[inSeason[sub]]; off <- setdiff(sub, ins)
+        qc[ins] <- QC_CODES[["inseason_subfloor"]]; vi[ins] <- NA
+        qc[off] <- QC_CODES[["floored"]];           vi[off] <- vi_dorm
+      }
+    }
     
     #
     splineStart <- as.Date(as.Date(paste0(phenYrs,'-01-01')) - pheno_pars$splineBuffer) 
@@ -586,14 +757,21 @@ DoPhenologyPlanet <- function(blue, green, red, nir, dates, phenYrs, params, wat
       }
       dates    <- as.Date(dates3c,origin='1970-1-1')
       vi      <- vi3c
+      qc      <- NULL   # per-observation flags not defined for composites
     }
     
     
     # --- saving raw EVI series ---
     if (!is.null(ts_sink) && !is.null(pix_meta)) {
-      ts_sink(pix_meta = pix_meta,
-              dates_raw = dates, evi_raw = vi,
-              pred_dates = NULL, evi_spline = NULL)
+      if ("qc_raw" %in% names(formals(ts_sink))) {
+        ts_sink(pix_meta = pix_meta,
+                dates_raw = dates, evi_raw = vi,
+                pred_dates = NULL, evi_spline = NULL, qc_raw = qc)
+      } else {
+        ts_sink(pix_meta = pix_meta,
+                dates_raw = dates, evi_raw = vi,
+                pred_dates = NULL, evi_spline = NULL)
+      }
     }
     
     ## Gap filling
@@ -728,12 +906,39 @@ DoPhenologyPlanet <- function(blue, green, red, nir, dates, phenYrs, params, wat
       
       # --- smoothed EVi series ---
       if (!is.null(ts_sink) && !is.null(pix_meta)) {
+        # v1.0: select the target calendar year by date, not by the fixed 365-day
+        # `inYear` index (which dropped Dec 31 in leap years), and, by default, blank
+        # spline values more than splineExtrapolateDays beyond the first/last valid
+        # observation (v0.1 published spline for years with no imagery, e.g. US-Alq
+        # 2025, extrapolated from the 185-day buffer).
+        inY  <- format(pred_dates, "%Y") == as.character(phenYrs[y])
+        outD <- pred_dates[inY]; outV <- smoothed_vi[inY]
+        if (isTRUE(.qcpar(pheno_pars, "maskSplineOutsideData", TRUE))) {
+          obsD <- dates[!is.na(vi)]
+          tol  <- .qcpar(pheno_pars, "splineExtrapolateDays", 20)
+          if (length(obsD)) outV[outD < min(obsD) - tol | outD > max(obsD) + tol] <- NA
+          else outV[] <- NA
+          # interior gaps: a smoothing spline extrapolates linearly across long
+          # gaps (Tellabs v1.0 test: values > 3 across a Jan-Sep gap), so blank days
+          # farther than splineMaxGapDays/2 from the nearest valid observation
+          maxGap <- .qcpar(pheno_pars, "splineMaxGapDays", 90)
+          if (length(obsD) && is.finite(maxGap)) {
+            oN <- sort(as.numeric(obsD)); xN <- as.numeric(outD)
+            k  <- findInterval(xN, oN)
+            dl <- ifelse(k >= 1, xN - oN[pmax(k, 1)], Inf)
+            dr <- ifelse(k < length(oN), oN[pmin(k + 1, length(oN))] - xN, Inf)
+            outV[(dl + dr) > maxGap & pmin(dl, dr) > tol] <- NA
+          }
+        }
+        # physically impossible spline values are never published
+        outV[!is.na(outV) & (outV > .qcpar(pheno_pars, "eviValidMax", 1) |
+                             outV < .qcpar(pheno_pars, "eviValidMin", -0.2))] <- NA
         ts_sink(
           pix_meta    = pix_meta,
           dates_raw   = NULL,                   # already sent earlier
           evi_raw     = NULL,
-          pred_dates  = pred_dates[inYear],     # daily dates for the target year
-          evi_spline  = smoothed_vi[inYear]     # daily smoothed EVI for the target year
+          pred_dates  = outD,                   # daily dates for the target year
+          evi_spline  = outV                    # daily smoothed EVI for the target year
         )
       }
       

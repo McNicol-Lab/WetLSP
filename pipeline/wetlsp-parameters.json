@@ -1,6 +1,8 @@
 {
   "setup":{
     
+    "pipelineVersion":"1.0",
+    
     "phenStartYr":2021,
     "phenEndYr":2025,
     

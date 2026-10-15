@@ -271,7 +271,8 @@ for (f in chunk_files) {
     evi_mat[!is.finite(evi_mat)] <- NA_real_
     # qc-outlier-fixes: fill/zero bands and exact-zero / impossible EVI -> NA
     # (previously clamped to [-1, 1], which let zeros through as valid data)
-    bad_band <- (B[[2]] <= 0) | (B[[6]] <= 0) | (B[[8]] <= 0)
+    bad_band <- (B[[2]] <= 0) | (B[[6]] <= 0) | (B[[8]] <= 0) |
+                (B[[2]] > 1.5) | (B[[6]] > 1.5) | (B[[8]] > 1.5)   # 2^32 fill/overflow
     evi_mat[!is.na(bad_band) & bad_band] <- NA_real_
     evi_mat[!is.na(evi_mat) & evi_mat == 0] <- NA_real_
     evi_mat[!is.na(evi_mat) & (evi_mat < -0.2 | evi_mat > 1)] <- NA_real_

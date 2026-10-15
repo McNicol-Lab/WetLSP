@@ -60,6 +60,8 @@
     
     "eviValidMin": -0.2,
     "eviValidMax": 1.0,
+    "reflectanceValidMax": 1.5,
+    "maskExactZeroVI": true,
     
     "secondSplineQC": true,
     "ssqcMinAbs": 0.12,

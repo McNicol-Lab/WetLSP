@@ -652,6 +652,13 @@ DoPhenologyPlanet <- function(blue, green, red, nir, dates, phenYrs, params, wat
     if (isTRUE(.qcpar(pheno_pars, "maskNegativeValues", TRUE))) {
       invalid <- invalid | blue <= 0 | green <= 0 | red <= 0 | nir <= 0
     }
+    # Fill/overflow values: Tellabs step-02 chunks contain 4294967296 (2^32) in all
+    # bands, which gives EVI exactly 0 and passes the EVI range test. Reflectance
+    # above reflectanceValidMax (scaled 0-1) is treated as invalid.
+    rmax <- .qcpar(pheno_pars, "reflectanceValidMax", 1.5)
+    invalid <- invalid | blue > rmax | green > rmax | red > rmax | nir > rmax
+    # exact-zero EVI only arises from nir == red (fill pattern), never from real data
+    if (isTRUE(.qcpar(pheno_pars, "maskExactZeroVI", TRUE))) invalid <- invalid | vi == 0
     invalid <- invalid | vi < .qcpar(pheno_pars, "eviValidMin", -0.2) |
                          vi > .qcpar(pheno_pars, "eviValidMax", 1)
     invalid[is.na(invalid)] <- TRUE

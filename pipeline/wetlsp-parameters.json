@@ -78,6 +78,9 @@
     "envelopeIterations": 3,
     "envelopeMinWeight": 0.1,
     
+    "maskSplineOutsideData": true,
+    "splineExtrapolateDays": 20,
+    
     "splineBuffer":185,               
     "splineSpar":0.55,   
     

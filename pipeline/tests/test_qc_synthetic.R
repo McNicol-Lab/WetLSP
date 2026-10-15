@@ -49,6 +49,8 @@ legacy_p <- params
 legacy_p$phenology_parameters[c("secondSplineQC","envelopeReweight")] <- list(FALSE, FALSE)
 legacy_p$phenology_parameters$dormantFloorMode <- "all"
 legacy_p$phenology_parameters$maskNegativeValues <- FALSE
+legacy_p$phenology_parameters$maskExactZeroVI <- FALSE
+legacy_p$phenology_parameters$maskSplineOutsideData <- FALSE
 legacy_p$phenology_parameters[c("eviValidMin","eviValidMax")] <- list(-Inf, Inf)
 legacy_p$phenology_parameters$MADspikeThresh <- 1e6   # approximates the old, effectively-disabled madTest
 legacy <- run(legacy_p)

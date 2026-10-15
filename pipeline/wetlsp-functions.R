@@ -894,12 +894,25 @@ DoPhenologyPlanet <- function(blue, green, red, nir, dates, phenYrs, params, wat
       
       # --- smoothed EVi series ---
       if (!is.null(ts_sink) && !is.null(pix_meta)) {
+        # v1.0: select the target calendar year by date, not by the fixed 365-day
+        # `inYear` index (which dropped Dec 31 in leap years), and, by default, blank
+        # spline values more than splineExtrapolateDays beyond the first/last valid
+        # observation (v0.1 published spline for years with no imagery, e.g. US-Alq
+        # 2025, extrapolated from the 185-day buffer).
+        inY  <- format(pred_dates, "%Y") == as.character(phenYrs[y])
+        outD <- pred_dates[inY]; outV <- smoothed_vi[inY]
+        if (isTRUE(.qcpar(pheno_pars, "maskSplineOutsideData", TRUE))) {
+          obsD <- dates[!is.na(vi)]
+          tol  <- .qcpar(pheno_pars, "splineExtrapolateDays", 20)
+          if (length(obsD)) outV[outD < min(obsD) - tol | outD > max(obsD) + tol] <- NA
+          else outV[] <- NA
+        }
         ts_sink(
           pix_meta    = pix_meta,
           dates_raw   = NULL,                   # already sent earlier
           evi_raw     = NULL,
-          pred_dates  = pred_dates[inYear],     # daily dates for the target year
-          evi_spline  = smoothed_vi[inYear]     # daily smoothed EVI for the target year
+          pred_dates  = outD,                   # daily dates for the target year
+          evi_spline  = outV                    # daily smoothed EVI for the target year
         )
       }
       

@@ -26,7 +26,9 @@
     "writeCSV": true,
     "cleanupIntermediates": false,
     
-    "siteWin_half_km": 2
+    "siteWin_half_km": 2,
+
+    "udm2MissingAction": "drop"
   
   },
   

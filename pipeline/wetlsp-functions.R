@@ -1299,3 +1299,30 @@ GetBaseImg <- function(fileSR, siteWin, outDir, save = FALSE) {
   message("✅ Done with base image (AOI ∩ imagery, in-memory).")
   list(rast = base, path = out_path)
 }
+
+#---------------------------------------------
+# MatchUDM2: index into udm2Files of the UDM2 belonging to each SR scene.
+# PlanetScope names: <YYYYMMDD>_<HHMMSS>[_<NN>]_<sat>_3B_AnalyticMS_SR[_8b][_harmonized]_clip.tif
+# and                <YYYYMMDD>_<HHMMSS>[_<NN>]_<sat>_3B_udm2[_clip].tif
+# The scene ID is the basename stem before "_3B_" (or before "_AnalyticMS"/"_udm2"
+# if "_3B_" is absent). Returns NA where no UDM2 shares the scene ID; never falls
+# back to another scene from the same date.
+SceneIdFromFile <- function(f) {
+  b <- basename(f)
+  id <- ifelse(grepl("_3B_", b, fixed = TRUE), sub("_3B_.*$", "", b),
+               sub("_(AnalyticMS|udm2|udm).*$", "", b))
+  id
+}
+MatchUDM2 <- function(srFiles, udm2Files) {
+  if (length(srFiles) == 0) return(integer(0))
+  if (length(udm2Files) == 0) return(rep(NA_integer_, length(srFiles)))
+  sr_id <- SceneIdFromFile(srFiles)
+  ud_id <- SceneIdFromFile(udm2Files)
+  # prefer a UDM2 in the same directory when one scene ID appears in several orders
+  vapply(seq_along(srFiles), function(i) {
+    hits <- which(ud_id == sr_id[i])
+    if (length(hits) == 0) return(NA_integer_)
+    same_dir <- hits[dirname(udm2Files[hits]) == dirname(srFiles[i])]
+    if (length(same_dir) > 0) same_dir[1] else hits[1]
+  }, integer(1))
+}

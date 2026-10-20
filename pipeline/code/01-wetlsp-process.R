@@ -80,6 +80,25 @@ file_table <- data.frame(
   stringsAsFactors = FALSE
 ) %>% arrange(date)
 
+#---------------------------------------------
+# Match each SR scene to its own UDM2 by scene ID (filename stem before "_3B_"),
+# not by date: dates with several scenes would otherwise share one mask.
+udm2MissingAction <- params$setup$udm2MissingAction
+if (is.null(udm2MissingAction)) udm2MissingAction <- "drop"
+udm2MissingAction <- match.arg(udm2MissingAction, c("drop", "keep"))
+udm2_idx <- MatchUDM2(file_table$file_name, dfileUDM2)
+file_table$udm2_path <- ifelse(is.na(udm2_idx), NA_character_, fileUDM2[udm2_idx])
+n_nomask <- sum(is.na(file_table$udm2_path))
+n_multi  <- sum(table(file_table$date) > 1)
+message("☁️  UDM2 matched by scene ID: ", nrow(file_table) - n_nomask, "/", nrow(file_table),
+        " SR scenes; ", n_multi, " dates with >1 scene; udm2MissingAction = '", udm2MissingAction, "'")
+if (n_nomask > 0) {
+  message("⚠️  ", n_nomask, " SR scene(s) have no matching UDM2 (",
+          ifelse(udm2MissingAction == "drop", "dropped", "kept UNMASKED"), "): ",
+          paste(head(file_table$file_name[is.na(file_table$udm2_path)], 10), collapse = ", "),
+          ifelse(n_nomask > 10, ", ...", ""))
+}
+
 dates <- unique(file_table$date)
 
 #---------------------------------------------
@@ -188,7 +207,7 @@ message("🧭 Found ", length(existing_files), " existing mosaics. ",
 foreach(
   dd = seq_along(dates_to_process),
   .packages = c("terra", "raster"),
-  .export   = c("file_table", "dfileUDM2", "fileUDM2", "siteWin", "outDirMosaic", "dates_to_process")
+  .export   = c("file_table", "dfileUDM2", "fileUDM2", "siteWin", "outDirMosaic", "dates_to_process", "udm2MissingAction")
 ) %dopar% {
   
   # Wrap ENTIRE per-date body so one failure doesn't kill the job
@@ -258,11 +277,13 @@ foreach(
       }
       
       # --- Optional UDM2 masking (defensive) ---
-      udm2_match <- grep(date_str, dfileUDM2)
-      if (length(udm2_match) > 0) {
+      # UDM2 is pre-matched to this scene by scene ID (see MatchUDM2).
+      masked <- FALSE
+      udm2_path <- files_today$udm2_path[idx]
+      if (!is.na(udm2_path)) {
         message("☁️  Applying UDM2 mask")
         
-        udm2T <- try(terra::rast(fileUDM2[udm2_match[1]]), silent = TRUE)
+        udm2T <- try(terra::rast(udm2_path), silent = TRUE)
         if (!inherits(udm2T, "try-error")) {
           
           # Ensure CRS compatibility
@@ -291,6 +312,7 @@ foreach(
                                    silent = TRUE)
                 if (!inherits(imgT_masked, "try-error")) {
                   imgT <- imgT_masked
+                  masked <- TRUE
                 } else {
                   message("⚠️  Masking failed for ", base_file, " – keeping unmasked image.")
                 }
@@ -303,7 +325,11 @@ foreach(
           message("⚠️  Failed to read UDM2 for ", base_file, " – skipping mask.")
         }
       } else {
-        message("⚠️  No UDM2 match for ", date_str)
+        message("⚠️  No UDM2 for scene ", base_file)
+      }
+      if (!masked && udm2MissingAction == "drop") {
+        message("🚫 Dropping unmasked scene ", base_file, " (udm2MissingAction = 'drop')")
+        next
       }
       
       imgB[[nn]] <- imgT
@@ -345,7 +371,11 @@ foreach(
     # --- Write mosaic or single raster ---
     date_str <- strftime(current_date, "%Y%m%d")
     outFile <- file.path(outDirMosaic, paste0(date_str, "_clipped_mosaic.tif"))
-    terra::writeRaster(Rast, outFile, overwrite = TRUE, filetype = "GTiff")
+    # NUM_THREADS=1: forked (doMC) workers deadlock inside GDAL's multithreaded
+    # GeoTIFF compression once the parent process has written a compressed GeoTIFF
+    # (GetBaseImg). Keep worker-side writes single-threaded.
+    terra::writeRaster(Rast, outFile, overwrite = TRUE, filetype = "GTiff",
+                       gdal = c("COMPRESS=LZW", "NUM_THREADS=1"))
     message("✅ Saved mosaic: ", outFile)
     
     return(outFile)

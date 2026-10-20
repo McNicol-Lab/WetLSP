@@ -345,7 +345,11 @@ foreach(
     # --- Write mosaic or single raster ---
     date_str <- strftime(current_date, "%Y%m%d")
     outFile <- file.path(outDirMosaic, paste0(date_str, "_clipped_mosaic.tif"))
-    terra::writeRaster(Rast, outFile, overwrite = TRUE, filetype = "GTiff")
+    # NUM_THREADS=1: forked (doMC) workers deadlock inside GDAL's multithreaded
+    # GeoTIFF compression once the parent process has written a compressed GeoTIFF
+    # (GetBaseImg). Keep worker-side writes single-threaded.
+    terra::writeRaster(Rast, outFile, overwrite = TRUE, filetype = "GTiff",
+                       gdal = c("COMPRESS=LZW", "NUM_THREADS=1"))
     message("✅ Saved mosaic: ", outFile)
     
     return(outFile)

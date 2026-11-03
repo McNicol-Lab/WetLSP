@@ -207,11 +207,21 @@ message("🧭 Found ", length(existing_files), " existing mosaics. ",
 foreach(
   dd = seq_along(dates_to_process),
   .packages = c("terra", "raster"),
-  .export   = c("file_table", "dfileUDM2", "fileUDM2", "siteWin", "outDirMosaic", "dates_to_process", "udm2MissingAction")
+  .export   = c("file_table", "dfileUDM2", "fileUDM2", "siteWin", "outDirMosaic", "dates_to_process", "udm2MissingAction", "base_path")
 ) %dopar% {
   
   # Wrap ENTIRE per-date body so one failure doesn't kill the job
   result <- tryCatch({
+    
+    # Base grid (template CRS). Scenes in another CRS (sites straddling a UTM
+    # zone boundary) are cropped with the AOI in their own CRS and then
+    # reprojected onto the base grid, instead of being lost downstream.
+    baseW <- terra::rast(base_path)
+    siteV <- terra::vect(siteWin)
+    crop_aoi <- function(img) {
+      if (terra::crs(img) == terra::crs(siteV)) terra::crop(img, siteWin)
+      else terra::crop(img, terra::project(siteV, terra::crs(img)), snap = "out")
+    }
     
     current_date <- dates_to_process[dd]
     
@@ -229,7 +239,7 @@ foreach(
     for (mm in seq_len(nrow(files_today))) {
       r <- try({
         img <- terra::rast(files_today$full_path[mm])
-        img <- terra::crop(img, siteWin)  # may fail if extents don't overlap
+        img <- crop_aoi(img)  # may fail if extents don't overlap
         img
       }, silent = TRUE)
       
@@ -270,10 +280,18 @@ foreach(
       }
       
       # Crop to site window (already CRS-aligned at template stage)
-      imgT <- try(terra::crop(imgT, siteWin), silent = TRUE)
+      imgT <- try(crop_aoi(imgT), silent = TRUE)
       if (inherits(imgT, "try-error")) {
         message("⚠️  Crop to siteWin failed for ", base_file, " – skipping.")
         next
+      }
+      if (terra::crs(imgT) != terra::crs(baseW)) {
+        message("🧭 Reprojecting ", base_file, " to base CRS/grid (bilinear)")
+        imgT <- try(terra::project(imgT, baseW, method = "bilinear"), silent = TRUE)
+        if (inherits(imgT, "try-error")) {
+          message("⚠️  Reprojection to base grid failed for ", base_file, " – skipping.")
+          next
+        }
       }
       
       # --- Optional UDM2 masking (defensive) ---
@@ -291,7 +309,7 @@ foreach(
                                          ext = FALSE, rowcol = FALSE,
                                          stopOnError = FALSE))) {
             message("⚙️  Reprojecting UDM2 to match image CRS/grid for ", base_file)
-            udm2T <- try(terra::project(udm2T, imgT), silent = TRUE)
+            udm2T <- try(terra::project(udm2T, imgT, method = "near"), silent = TRUE)
             if (inherits(udm2T, "try-error")) {
               message("⚠️  UDM2 reprojection failed for ", base_file, " – skipping mask.")
               udm2T <- NULL

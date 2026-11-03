@@ -1229,13 +1229,14 @@ GetBaseImg <- function(fileSR, siteWin, outDir, save = FALSE) {
     r <- try(terra::rast(f), silent = TRUE)
     if (inherits(r, "try-error")) next
     
-    # Only combine extents if CRS matches template
+    # Scenes in another CRS (e.g. sites straddling a UTM zone boundary):
+    # reproject their extent to the template CRS instead of skipping them.
     if (terra::crs(r) != terra::crs(tmpl)) {
-      message("⚠️  Skipping ", f, " — CRS differs from template")
-      next
+      e_r <- terra::ext(terra::project(
+        terra::as.polygons(terra::ext(r), crs = terra::crs(r)), terra::crs(tmpl)))
+    } else {
+      e_r <- terra::ext(r)
     }
-    
-    e_r <- terra::ext(r)
     if (is.null(e_union)) {
       e_union <- e_r
     } else {

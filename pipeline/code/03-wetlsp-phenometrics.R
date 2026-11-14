@@ -166,11 +166,13 @@ for (f in chunk_files) {
       local_acc$raw_evi      <- NULL
       local_acc$smooth_dates <- NULL
       local_acc$smooth_evi   <- NULL
+      local_acc$raw_qc       <- NULL
       
-      local_sink <- function(pix_meta, dates_raw, evi_raw, pred_dates, evi_spline) {
+      local_sink <- function(pix_meta, dates_raw, evi_raw, pred_dates, evi_spline, qc_raw = NULL) {
         if (!is.null(dates_raw)) {
           local_acc$raw_dates <- c(local_acc$raw_dates, as.Date(dates_raw))
           local_acc$raw_evi   <- c(local_acc$raw_evi,   as.numeric(evi_raw))
+          if (!is.null(qc_raw)) local_acc$raw_qc <- c(local_acc$raw_qc, as.integer(qc_raw))
         }
         if (!is.null(pred_dates)) {
           local_acc$smooth_dates <- c(local_acc$smooth_dates, as.Date(pred_dates))
@@ -188,6 +190,7 @@ for (f in chunk_files) {
         pheno = if (length(res) == phen_vec_len) res else rep(NA_real_, phen_vec_len),
         raw_dates = local_acc$raw_dates,
         raw_evi = local_acc$raw_evi,
+        raw_qc = local_acc$raw_qc,
         smooth_dates = local_acc$smooth_dates,
         smooth_evi = local_acc$smooth_evi
       )
@@ -201,11 +204,13 @@ for (f in chunk_files) {
       local_acc$raw_evi      <- NULL
       local_acc$smooth_dates <- NULL
       local_acc$smooth_evi   <- NULL
+      local_acc$raw_qc       <- NULL
       
-      local_sink <- function(pix_meta, dates_raw, evi_raw, pred_dates, evi_spline) {
+      local_sink <- function(pix_meta, dates_raw, evi_raw, pred_dates, evi_spline, qc_raw = NULL) {
         if (!is.null(dates_raw)) {
           local_acc$raw_dates <- c(local_acc$raw_dates, as.Date(dates_raw))
           local_acc$raw_evi   <- c(local_acc$raw_evi,   as.numeric(evi_raw))
+          if (!is.null(qc_raw)) local_acc$raw_qc <- c(local_acc$raw_qc, as.integer(qc_raw))
         }
         if (!is.null(pred_dates)) {
           local_acc$smooth_dates <- c(local_acc$smooth_dates, as.Date(pred_dates))
@@ -223,6 +228,7 @@ for (f in chunk_files) {
         pheno = if (length(res) == phen_vec_len) res else rep(NA_real_, phen_vec_len),
         raw_dates = local_acc$raw_dates,
         raw_evi = local_acc$raw_evi,
+        raw_qc = local_acc$raw_qc,
         smooth_dates = local_acc$smooth_dates,
         smooth_evi = local_acc$smooth_evi
       )
@@ -233,6 +239,7 @@ for (f in chunk_files) {
   pheno_mat <- do.call(rbind, lapply(pheno_list, `[[`, "pheno"))
   ts_raw_dates    <- lapply(pheno_list, `[[`, "raw_dates")
   ts_raw_evi      <- lapply(pheno_list, `[[`, "raw_evi")
+  ts_raw_qc       <- lapply(pheno_list, `[[`, "raw_qc")   # optional per-obs QC flags (see README)
   ts_smooth_dates <- lapply(pheno_list, `[[`, "smooth_dates")
   ts_smooth_evi   <- lapply(pheno_list, `[[`, "smooth_evi")
   
@@ -252,6 +259,9 @@ for (f in chunk_files) {
       dates_spline = ts_smooth_dates,
       evi_spline   = ts_smooth_evi
     )
+  # Optional per-observation QC flag column aligned with dates_raw/evi_raw
+  # (0 ok, 1 invalid, 2 despike, 3 second-spline, 4 in-season sub-floor -> NA, 5 floored)
+  if (any(lengths(ts_raw_qc) > 0)) sf_obj$qc_raw <- ts_raw_qc
   
   # Fallback for raw EVI if all missing
   if (n_raw == 0) {
@@ -259,7 +269,13 @@ for (f in chunk_files) {
     if (median(B[[6]], na.rm = TRUE) > 2) for (b in 1:8) B[[b]] <- B[[b]] / 10000
     evi_mat <- 2.5 * (B[[8]] - B[[6]]) / (B[[8]] + 6*B[[6]] - 7.5*B[[2]] + 1)
     evi_mat[!is.finite(evi_mat)] <- NA_real_
-    evi_mat[evi_mat < -1] <- -1; evi_mat[evi_mat > 1] <- 1
+    # qc-outlier-fixes: fill/zero bands and exact-zero / impossible EVI -> NA
+    # (previously clamped to [-1, 1], which let zeros through as valid data)
+    bad_band <- (B[[2]] <= 0) | (B[[6]] <= 0) | (B[[8]] <= 0) |
+                (B[[2]] > 1.5) | (B[[6]] > 1.5) | (B[[8]] > 1.5)   # 2^32 fill/overflow
+    evi_mat[!is.na(bad_band) & bad_band] <- NA_real_
+    evi_mat[!is.na(evi_mat) & evi_mat == 0] <- NA_real_
+    evi_mat[!is.na(evi_mat) & (evi_mat < -0.2 | evi_mat > 1)] <- NA_real_
     ts_raw_dates <- replicate(n_pix, dates, simplify = FALSE)
     ts_raw_evi   <- split(evi_mat, row(evi_mat))
     sf_obj$dates_raw <- ts_raw_dates

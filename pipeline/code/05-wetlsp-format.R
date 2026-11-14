@@ -157,7 +157,8 @@ for (yy in phenYrs) {
   # ------------------------- Global attributes ---------------------------------
   ncatt_put(ncout, 0, "title",               "Wetland Surface Phenology from PlanetScope (WetLSP)")
   ncatt_put(ncout, 0, "summary",             "High-resolution Land-Surface Phenology for FLUXNET-CH4 wetlands")
-  ncatt_put(ncout, 0, "product_version",     "v001")
+  ncatt_put(ncout, 0, "product_version",
+            if (!is.null(params$setup$pipelineVersion)) paste0("v", params$setup$pipelineVersion) else "v1.0")  # v0.1 wrote "v001"
   ncatt_put(ncout, 0, "software_repository", "https://github.com/McNicol-Lab/WetLSP")
 
   ncatt_put(ncout, 0, "origin_creator_name", "Land Cover & Surface Climate Group, Boston University")

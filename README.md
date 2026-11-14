@@ -1,8 +1,10 @@
-# WetLSP v2
+# WetLSP v1.0
 
 **Fork:** Updated algorithms (July 2025) to derived a land surface phenology product from PlanetScope imagery for FLUXNET-CH4 v2 sites. Data developed and initially shared for wetland methane research applications in the McNicol ecophilab, the ESIIL AI for Natural Methane Working Group, and the USGS Powell Synthesis for Wetlands.
 
 Presently, the pipeline generate daily pixel-wise EVI after PS processing, filtering and gap-filling using smooth spline. These procedures could be revised and improved.
+
+**WetLSP v1.0 QC update (branch `qc-outlier-fixes`; WetLSP v0.1 is commit `c50f58c`):** outlier/zero screening, a second-spline dip filter, a seasonal dormant floor and envelope-weighted splines. See [pipeline/QC_CHANGES.md](pipeline/QC_CHANGES.md), which also lists the differences from Moon et al. (2022).
 
 To run updated code:  
 

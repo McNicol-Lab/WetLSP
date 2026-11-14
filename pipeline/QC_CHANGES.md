@@ -29,6 +29,17 @@
 
 **GDAL deadlock in parallel workers.** Forked doMC workers could hang indefinitely in GDAL's multithreaded GeoTIFF compression after the parent had written a compressed GeoTIFF (`GetBaseImg`). This was seen on macOS with CA-DBB overnight. The worker-side mosaic write now passes `gdal = c("COMPRESS=LZW", "NUM_THREADS=1")`. Output values are unchanged. This is the only GeoTIFF write inside parallel code (step 04 writes serially).
 
+**UTM zone boundary scenes (commit 9b1d435).** Sites near a UTM zone boundary have Planet scenes delivered in two CRSs. v0.1 and early v1.0 runs skipped every scene whose CRS differed from the template (`CRS differs from template`), so US-Los lost 634 scenes and produced empty output. `GetBaseImg` now includes reprojected extents of off-CRS scenes, and step 01 crops each scene with the AOI in its own CRS and then projects it onto the base grid with `terra::project()` (bilinear for SR, nearest for UDM2). Same-CRS scenes are unchanged. Sites rerun with this fix: US-Los, ID-Pal, HK-MPM, US-LA3, US-A03, FI-Lom, FI-Si2, ID-Pag, US-Ivo and DE-Hte.
+
+## v1.0 package contents and fetch radii
+
+The v1.0 package has 108 sites: the 82 sites of the published package plus 26 additional sites, all treated as one package (no candidate flag). Catalog: `pipeline/v1_packaging/catalog/`. Packaging scripts: `pipeline/v1_packaging/`.
+
+- **Fetch radius.** Published sites keep their published `final_fetch_r`. Other sites use a catalog or site-metadata radius where one exists; otherwise 300 m if extra-tropical (|lat| >= 23.436 deg) or 600 m if tropical (|lat| < 23.436 deg). Per-site values and sources: `pipeline/v1_packaging/extras_fetch_radii.csv`; the value used is also stored as `radius_m` in each site's meta table.
+- **Site IDs.** Four sites downloaded under placeholder IDs are published under their final IDs (folders, file names and IDs inside the files): NA-Amp -> PE-Amp (3000 m), NA-Mam -> BR-Mam (1300 m), NA-Mym -> BD-Mym (600 m), NA-Los -> PE-AMG (3700 m).
+- **Parquet changes vs the published package.** Time series gains `qc_raw` (int8; null for spline; codes as in the table above); raw rows set to NA by v1.0 QC are kept with `evi = null`; the meta table gains `product_version` = "v1.0". Each site has `README_v1.md` (provenance) and `README_parquet.md/.json` (v1.0, version 1.0.0).
+- **Comparison figures** (`compare_*.png`, `compare_summary.json`) exist only for published-package sites.
+
 Paper sections cited: Background & Summary (104 sites, range of plant functional types); Table 1 (site list, which includes wetlands such as US-Myb, US-Sne, US-Tw1/Tw4/Tw5 and grasslands such as US-BRG, US-Wkg, US-Seg, US-SRG); Methods: "Image processing" (UDM/UDM2); "Creation of daily EVI2 time series" (despike, background EVI2, splines). PLSP line numbers refer to github.com/BU-LCSC/PLSP at commit `356a33e`.
 
 ## References

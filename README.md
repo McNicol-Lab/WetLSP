@@ -75,8 +75,8 @@ A `Dockerfile` based on the CyVerse geospatial RStudio image is included.
    Each step can also be run alone, for example `Rscript pipeline/code/03-wetlsp-phenometrics.R 12`.
 6. **Extract the fetch-area time series** to parquet with `pipeline/write_chunks_to_parquet_ds.R` and the `extract_fetch_pixels.R` / `combine_fetch_sf*.R` helpers.
 
-### Reproducing the v1.0 package
-`pipeline/v1_packaging/` holds the scripts that built the original (v0.1) v1.0 site products from steps 01–05: `post.R`, `post_nc.R`, `finalize.py`, `compare.py`, `mkparams.py` and the README generators. They keep the paths of the original processing machine and are a record of what was run, not yet a general tool. See [pipeline/v1_packaging/README.md](pipeline/v1_packaging/README.md).
+### Producing the v1.0 package
+`pipeline/v1_packaging/` holds the scripts that built the original (v0.1) site products from steps 01–05: `post.R`, `post_nc.R`, `finalize.py`, `compare.py`, `mkparams.py` and the README generators. They keep the paths of the original processing machine and are a record of what was run, not yet a general tool. See [pipeline/v1_packaging/README.md](pipeline/v1_packaging/README.md).
 
 ### Testing
 ```bash

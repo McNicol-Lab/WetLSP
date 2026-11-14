@@ -1,0 +1,27 @@
+site,latitude,abs_lat,zone,radius_m,radius_source,lat_source_file
+ES-Pdu,37.016975,37.016975,extra-tropical,500,catalog,Desktop/wetlsp_cyverse_site_catalog_final.csv
+FI-Lom,67.99724,67.99724,extra-tropical,300,assumed_extratropical_300,code/metadata/wetlsp-site-metadata.csv
+FI-Si2,61.8372,61.8372,extra-tropical,300,assumed_extratropical_300,code/metadata/wetlsp-site-metadata.csv
+HK-MPM,22.498167,22.498167,tropical,600,assumed_tropical_600,code/metadata/wetlsp-site-metadata.csv
+ID-DTP,0.6995,0.6995,tropical,600,assumed_tropical_600,code/metadata/wetlsp-site-metadata.csv
+ID-ITP,0.3952,0.3952,tropical,600,assumed_tropical_600,code/metadata/wetlsp-site-metadata.csv
+MY-SBW,2.186122,2.186122,tropical,1600,catalog,Desktop/wetlsp_cyverse_site_catalog_final.csv
+NA-Amp,-3.0221,3.0221,tropical,3000,catalog,"Desktop/wetlsp_cyverse_site_catalog_final.csv (canonical PE-Amp, download_id=NA-Amp)"
+NA-Los,-12.5671,12.5671,tropical,3700,catalog,"Desktop/wetlsp_cyverse_site_catalog_final.csv (canonical PE-AMG / Los Amigos, download_id=NA-Los)"
+NA-Mam,-3.064,3.064,tropical,1300,catalog,"Desktop/wetlsp_cyverse_site_catalog_final.csv (canonical BR-Mam, download_id=NA-Mam)"
+NA-Mym,24.725278,24.725278,extra-tropical,600,metadata,"code/metadata/wetlsp-site-metadata.csv (site_id=BD-Mym, download_id=NA-Mym)"
+PE-QFR,-3.8344,3.8344,tropical,2200,catalog,Desktop/wetlsp_cyverse_site_catalog_final.csv
+PE-TNR,-12.8314,12.8314,tropical,2200,catalog,Desktop/wetlsp_cyverse_site_catalog_final.csv
+RU-Ch2,68.61689,68.61689,extra-tropical,500,catalog,Desktop/wetlsp_cyverse_site_catalog_final.csv
+RU-Fy2,56.4476,56.4476,extra-tropical,500,catalog,Desktop/wetlsp_cyverse_site_catalog_final.csv
+RU-Vrk,67.0546799,67.05468,extra-tropical,500,catalog,Desktop/wetlsp_cyverse_site_catalog_final.csv
+SE-Deg,64.182029,64.182029,extra-tropical,300,catalog,Desktop/wetlsp_cyverse_site_catalog_final.csv
+US-A03,70.495328,70.495328,extra-tropical,300,assumed_extratropical_300,code/metadata/wetlsp-site-metadata.csv
+US-A10,71.3242,71.3242,extra-tropical,300,assumed_extratropical_300,code/metadata/wetlsp-site-metadata.csv
+US-Beo,71.281,71.281,extra-tropical,300,assumed_extratropical_300,code/metadata/wetlsp-site-metadata.csv
+US-Bes,71.2809,71.2809,extra-tropical,300,assumed_extratropical_300,code/metadata/wetlsp-site-metadata.csv
+US-HRA,34.585208,34.585208,extra-tropical,300,assumed_extratropical_300,code/metadata/wetlsp-site-metadata.csv
+US-NC4,35.7879,35.7879,extra-tropical,2200,catalog,Desktop/wetlsp_cyverse_site_catalog_final.csv
+US-NGB,71.280044,71.280044,extra-tropical,300,assumed_extratropical_300,code/metadata/wetlsp-site-metadata.csv
+US-Tw4,38.1027436,38.102744,extra-tropical,300,assumed_extratropical_300,code/metadata/wetlsp-site-metadata.csv
+US-xBA,71.2824,71.2824,extra-tropical,300,assumed_extratropical_300,code/metadata/wetlsp-site-metadata.csv

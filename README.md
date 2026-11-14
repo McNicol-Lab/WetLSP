@@ -20,7 +20,7 @@ Compared with WetLSP v0.1 (`c50f58c`):
 Full details, parameter defaults and a step-by-step comparison with PLSP are in [pipeline/QC_CHANGES.md](pipeline/QC_CHANGES.md).
 
 ## Data products
-The v1.0 package covers 108 sites: the 82 sites of the published package plus 26 additional sites. For each site it contains:
+The v1.0 package covers 108 sites: the 82 sites of the original (v0.1) package plus 26 additional sites. For each site it contains:
 - **Phenometrics:** one NetCDF per site per year.
 - **Time series:** daily pixel-wise EVI, observed and spline-filled, with QC flags, as parquet clipped to the tower fetch area.
 - **Geometry and metadata tables,** plus per-site `README_v1.md` and `README_parquet.md/.json`.
@@ -76,7 +76,7 @@ A `Dockerfile` based on the CyVerse geospatial RStudio image is included.
 6. **Extract the fetch-area time series** to parquet with `pipeline/write_chunks_to_parquet_ds.R` and the `extract_fetch_pixels.R` / `combine_fetch_sf*.R` helpers.
 
 ### Reproducing the v1.0 package
-`pipeline/v1_packaging/` holds the scripts that built the published v1.0 site products from steps 01–05: `post.R`, `post_nc.R`, `finalize.py`, `compare.py`, `mkparams.py` and the README generators. They keep the paths of the original processing machine and are a record of what was run, not yet a general tool. See [pipeline/v1_packaging/README.md](pipeline/v1_packaging/README.md).
+`pipeline/v1_packaging/` holds the scripts that built the original (v0.1) v1.0 site products from steps 01–05: `post.R`, `post_nc.R`, `finalize.py`, `compare.py`, `mkparams.py` and the README generators. They keep the paths of the original processing machine and are a record of what was run, not yet a general tool. See [pipeline/v1_packaging/README.md](pipeline/v1_packaging/README.md).
 
 ### Testing
 ```bash

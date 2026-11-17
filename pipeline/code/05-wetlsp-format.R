@@ -127,9 +127,10 @@ for (yy in phenYrs) {
       r <- terra::resample(r, baseR, method = "bilinear")
     }
     
-    # Flip vertically (so north is up) and transpose to [x, y] order
-    m_yx <- as.matrix(terra::flip(r, "vertical"), wide = TRUE)
-    m_xy <- t(m_yx)
+    # terra rows run north to south, matching the descending y dimension (rev(y_vals)),
+    # so write rows as-is. Do NOT flip: v0.1/early v1.0 flipped here and stored maps upside down.
+    m_yx <- as.matrix(r, wide = TRUE)
+    m_xy <- t(m_yx)  # transpose to [x, y] order
 
     # apply valid range and fill
     vmin <- as.numeric(lyr$valid_min); vmax <- as.numeric(lyr$valid_max)
